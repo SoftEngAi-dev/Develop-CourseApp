@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<!-- ═══════════════════════════════════════════════════════════════════════════
+  apps/console/index.html — installable, offline-first app shell
+  ───────────────────────────────────────────────────────────────────────────
+  🇪🇸 ES — QUÉ ES: la carcasa de la app. Cero frameworks, cero CDN, cero build:
+      HTML + CSS + JS vanilla servidos por `genesis serve`, empaquetados como PWA
+      (manifest + service worker) para instalarse en ESCRITORIO y MÓVIL y seguir
+      funcionando SIN conexión. Los dos modos conviven:
+        MODO ONLINE  → la API responde y todo se ve en vivo.
+        MODO OFFLINE → el service worker sirve el shell y la última copia buena de
+                       cada petición; si nunca hubo API, se usa snapshot.json.
+      La interfaz SIEMPRE dice en qué modo está: nunca datos viejos disfrazados
+      de nuevos.
+  🇬🇧 EN — WHAT IT IS: the app shell. Zero frameworks, zero CDN, zero build:
+      HTML + CSS + vanilla JS served by `genesis serve`, packaged as a PWA
+      (manifest + service worker) so it installs on DESKTOP and MOBILE and keeps
+      working WITHOUT connection. Both modes coexist:
+        ONLINE MODE  → the API answers and everything is live.
+        OFFLINE MODE → the service worker serves the shell and the last good copy
+                       of each request; if there was never an API, snapshot.json
+                       is used.
+      The interface ALWAYS says which mode it is in: never stale data disguised
+      as fresh.
+  🇧🇷 PT — O QUE É: o casco do app. Zero frameworks, zero CDN, zero build: HTML +
+      CSS + JS vanilla servidos por `genesis serve`, empacotados como PWA para
+      instalar em DESKTOP e CELULAR e continuar funcionando SEM conexão. Os dois
+      modos convivem e a interface SEMPRE diz em qual está.
+
+  🎓 BEGINNER COURSE / CURSO PARA PRINCIPIANTES / CURSO PARA INICIANTES
+    • `<meta name="viewport">` ES/EN/PT: sin esto, el móvil dibuja la página como
+      si fuera de escritorio y la encoge. `width=device-width` = 1 CSS px = 1 px
+      lógico del dispositivo. `viewport-fit=cover` permite usar TODO el alto en
+      móviles con muesca (y activar las safe-areas).
+      Without it phones render desktop-width pages shrunk; viewport-fit=cover
+      unlocks edge-to-edge on notched phones.
+    • `<link rel="manifest">` ES/EN/PT: es el DNI de la PWA: nombre, colores,
+      iconos, cómo se abre (standalone = sin barra de navegador). Sin manifiesto
+      no hay "Instalar aplicación" ni icono en la pantalla de inicio.
+      The manifest is what makes "Install app" and a home-screen icon possible.
+    • `<meta name="theme-color">` ES/EN/PT: pinta la barra del sistema del color
+      de la app. Pequeño detalle que hace que una web se sienta nativa.
+      theme-color paints the OS chrome with the app colour.
+    • apple-* metas ES/EN/PT: Safari de iOS ignora parte del manifiesto; estas
+      metas le dicen "ábreme a pantalla completa con este icono". Sin ellas, en
+      iPhone la app se ve como una pestaña disfrazada.
+      iOS Safari needs its own metas to behave like an installed app.
+    • `env(safe-area-inset-*)` ES/EN/PT: en móviles con muesca o gestos, el
+      contenido no debe quedar debajo de la cámara ni de la barra de gestos. Se
+      añade ese espacio con padding en CSS (ver styles.css).
+      Keep content clear of notches and gesture bars with safe-area insets.
+    • Barra inferior vs menú lateral ES/EN/PT: en móvil el pulgar manda: las 5
+      acciones principales viven abajo (`.bottom-nav`); en escritorio manda el
+      ratón y el espacio horizontal: sidebar a la izquierda. Mismo HTML, dos
+      layouts por CSS. Thumbs rule on mobile, mice rule on desktop.
+═══════════════════════════════════════════════════════════════════════════ -->
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="theme-color" content="#080b10" />
+  <meta name="description" content="GENESIS — offline-first project knowledge engine: decisions, timeline, knowledge graph, lessons and context. Works with and without connection." />
+
+  <title>GENESIS · Project Knowledge &amp; Autonomous Engine</title>
+
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="./icons/icon-512.png" />
+  <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png" />
+  <link rel="mask-icon" href="./icons/icon-512.png" color="#4fd1c5" />
+
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="GENESIS" />
+  <meta name="format-detection" content="telephone=no" />
+
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="topbar">
+    <button id="menu-toggle" class="icon-btn" aria-label="Open navigation" aria-expanded="false" aria-controls="sidebar">☰</button>
+
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">🧬</span>
+      <span class="brand-text">
+        <strong>GENESIS</strong>
+        <small>Knowledge &amp; Autonomous Engine</small>
+      </span>
+    </div>
+
+    <nav class="modes" aria-label="Application modes">
+      <span class="mode" data-mode="learn" title="Courses, documentation, tutorials, concepts">📚 LEARN</span>
+      <span class="mode" data-mode="explore" title="Chats, timeline, decisions, searches, graph">🔬 EXPLORE</span>
+      <span class="mode" data-mode="build" title="Tasks, agent, execution, tests, recovery">🤖 BUILD</span>
+      <span class="mode" data-mode="evolve" title="Lessons, metrics, failures, new rules">🧠 EVOLVE</span>
+    </nav>
+
+    <div class="topbar-status">
+      <button id="install-btn" class="btn install-btn" hidden>⬇ Install app</button>
+      <button id="refresh-btn" class="icon-btn" aria-label="Refresh data" title="Refresh data">⟳</button>
+      <span id="connection" class="pill pill-offline" title="Data source: live API, cached copy or snapshot">connecting…</span>
+      <span id="progress-pill" class="pill">—</span>
+    </div>
+  </header>
+
+  <div id="mode-banner" class="mode-banner" hidden></div>
+
+  <div class="layout">
+    <aside id="sidebar" class="sidebar" aria-label="Sections">
+      <nav>
+        <ul id="nav" class="nav-list"></ul>
+      </nav>
+
+      <div class="sidebar-footer">
+        <p class="rule">“Nothing happens without leaving an observable project event.”</p>
+        <p class="meta">
+          <span id="meta-node">node —</span> · <span id="meta-sqlite">sqlite —</span><br />
+          <span id="meta-deps">0 dependencies</span> · <span id="meta-offline">offline ready</span><br />
+          <span id="meta-cache">sw —</span>
+        </p>
+      </div>
+    </aside>
+    <div id="scrim" class="scrim" hidden></div>
+
+    <main id="main" class="content" tabindex="-1">
+      <div id="view" class="view" aria-live="polite">
+        <p class="loading">Loading knowledge…</p>
+      </div>
+    </main>
+  </div>
+
+  <nav id="bottom-nav" class="bottom-nav" aria-label="Primary">
+    <a class="tab" href="#/dashboard" data-view="dashboard"><span class="tab-icon">▦</span><span class="tab-label">Home</span></a>
+    <a class="tab" href="#/sessions" data-view="sessions"><span class="tab-icon">💬</span><span class="tab-label">Sessions</span></a>
+    <a class="tab" href="#/decisions" data-view="decisions"><span class="tab-icon">◆</span><span class="tab-label">Decisions</span></a>
+    <a class="tab" href="#/graph" data-view="graph"><span class="tab-icon">🕸</span><span class="tab-label">Graph</span></a>
+    <button class="tab" id="more-tab" aria-label="More sections" aria-expanded="false"><span class="tab-icon">⋯</span><span class="tab-label">More</span></button>
+  </nav>
+
+  <div id="sheet" class="sheet" hidden role="dialog" aria-modal="true" aria-label="All sections">
+    <div class="sheet-head">
+      <strong>All sections</strong>
+      <button id="sheet-close" class="icon-btn" aria-label="Close">✕</button>
+    </div>
+    <ul id="sheet-nav" class="nav-list"></ul>
+  </div>
+
+  <footer class="statusbar">
+    <span id="status-text">ready</span>
+    <span id="status-events">events: —</span>
+    <span id="status-indexed">indexed: —</span>
+  </footer>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
