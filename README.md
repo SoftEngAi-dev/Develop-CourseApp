@@ -19,7 +19,7 @@ requirement (`node:sqlite` + FTS5 are built in).
 node core/cli/genesis.js doctor      # environment check: node, sqlite, FTS5, paths
 npm run pipeline                     # init → demo → process → checkpoint → snapshot
 npm run serve                        # API + installable offline console on :4321
-npm test                             # 18 tests on Node's built-in runner
+npm test                             # 65 tests on Node's built-in runner
 ```
 
 Then open `http://127.0.0.1:4321` and **install it as an app** (desktop: browser
@@ -76,7 +76,8 @@ documentation/      level 3 output    engine skeleton + generated/ sessions/ cou
 agents/ mcp/ automation/ skills/      adapter & evolution skeletons (Phases 5–7)
 docs/               hand-written      ARCHITECTURE · ROADMAP · DECISIONS · GLOSSARY ·
                                       CONVENTIONS
-tests/              verification      node:test suites (PWA + memory contracts)
+tests/              verification      node:test suites (4 levels: unit, integration,
+                                      pipeline idempotency, mutation-safety)
 scripts/            rituals           seed-demo-session · run-full-pipeline ·
                                       generate-icons · export-console-snapshot
 ```

@@ -65,7 +65,10 @@ test('projectMemory compact shape renders without losing the central rule', () =
   assert.equal(result.ok, true);
   const text = renderProjectMemory(result, 'en');
   assert.match(text, /CENTRAL RULE: Nothing happens without leaving an observable project event\./);
-  assert.match(text, /PROGRESS: \d+%/);
+  // ES: el progreso real puede tener decimales (47.5%). Aceptar \d+% y \d+.\d+%.
+  // EN: real progress may carry decimals (47.5%). Accept both shapes.
+  // PT: o progresso real pode ter decimais. Aceitamos os dois formatos.
+  assert.match(text, /PROGRESS: \d+(?:\.\d+)?%/);
 });
 
 test('session memory exposes RAW messages plus their interpretation and production', () => {

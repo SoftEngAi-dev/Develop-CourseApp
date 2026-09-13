@@ -1,6 +1,6 @@
 {
-  "processed_at": "2026-09-13T16:31:15.057Z",
-  "duration_ms": 111,
+  "processed_at": "2026-09-13T17:09:22.605Z",
+  "duration_ms": 131,
   "sessions_processed": 1,
   "sessions_failed": 0,
   "failures": [],
@@ -24,7 +24,7 @@
       "skipped": false
     },
     "events": {
-      "events": 146,
+      "events": 348,
       "types": 14
     },
     "sessions_ingested": 1
@@ -44,7 +44,7 @@
   },
   "database": {
     "file": "data/indexes/genesis.db",
-    "bytes": 716800,
+    "bytes": 774144,
     "tables": 19,
     "counts": {
       "actions": 0,
@@ -54,7 +54,7 @@
       "dependencies": 0,
       "edges": 150,
       "errors": 1,
-      "events": 112,
+      "events": 313,
       "interruptions": 0,
       "lessons": 2,
       "messages": 5,

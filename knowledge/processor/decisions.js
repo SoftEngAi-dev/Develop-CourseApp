@@ -145,7 +145,19 @@ export function parseAlternatives(text) {
     // ES: "A. JSON" o "A) JSON" o "(A) JSON" o simplemente "JSON"
     const match = /^[\(\[]?(?<id>[A-Z])[.)\]]?\s*[:\-]?\s*(?<option>.+)$/.exec(chunk);
     if (match && match.groups.option) {
-      out.push({ id: match.groups.id, option: match.groups.option.trim(), selected: /\b(elegid|selected|✓|chosen|aprobado)\b/i.test(match.groups.option) });
+      /*
+       * ES: ⚠️ BUG CORREGIDO POR LA SUITE DE VERIFICACIÓN: antes usábamos
+       *     /\b(elegid|...)\b/ — el \b final exige un límite de palabra justo
+       *     después de "elegid", pero "ELEGIDA" sigue con "a" (otra letra) y NUNCA
+       *     matcheaba. Ahora comparamos por RAÍZ (stem), sin \b final: "elegid"
+       *     atrapa elegida/elegido/ELEGIDA, "aprobado" atrapa aprobada, etc.
+       * EN: BUG FIXED BY THE VERIFICATION SUITE: the old /\b(elegid|...)\b/ could
+       *     never match "ELEGIDA" because \b requires a word boundary right after
+       *     the stem. We now match stems without a trailing \b.
+       * PT: BUG CORRIGIDO PELA SUÍTE: o \b final impedia "ELEGIDA" de casar;
+       *     agora comparamos pela raiz, sem \b final.
+       */
+      out.push({ id: match.groups.id, option: match.groups.option.trim(), selected: /(elegid|select|chosen|aprobado|aprovado|✓|✅)/i.test(match.groups.option) });
     } else if (chunk.length > 1) {
       out.push({ id: null, option: chunk, selected: false });
     }
