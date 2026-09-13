@@ -1,0 +1,44 @@
+{
+  "session_id": "SES-00001",
+  "processed_at": "2026-09-13T16:32:29.226Z",
+  "messages": 5,
+  "language": "es",
+  "extracted": {
+    "decisions": 2,
+    "plans": 4,
+    "errors": 1,
+    "searches": 1,
+    "requirements": 6,
+    "lessons": 0,
+    "requirement_changes": 0,
+    "proposed_rules": 0
+  },
+  "ids": {
+    "decisions": [
+      "DEC-00002",
+      "DEC-00005"
+    ],
+    "plans": [
+      "PLN-00001",
+      "PLN-00002",
+      "PLN-00003",
+      "PLN-00004"
+    ],
+    "errors": [
+      "ERR-00001"
+    ],
+    "searches": [
+      "SRC-00001"
+    ],
+    "requirements": [
+      "REQ-0011",
+      "REQ-0012",
+      "REQ-0013",
+      "REQ-0014",
+      "REQ-0015",
+      "REQ-0016"
+    ],
+    "lessons": []
+  },
+  "proposed_rules": []
+}
