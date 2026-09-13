@@ -2,7 +2,7 @@
   "meta": {
     "kind": "genesis-console-snapshot",
     "generator": "scripts/export-console-snapshot.js",
-    "generated_at": "2026-09-13T16:32:29.390Z",
+    "generated_at": "2026-09-13T16:41:59.071Z",
     "purpose": "Floor data for OFFLINE mode: the app opens with real content even if no server was ever reached.",
     "modes": {
       "online": "live API responses (preferred)",
@@ -21,7 +21,7 @@
       "sqlite": "3.51.3",
       "dependencies": 0,
       "offline_capable": true,
-      "ts": "2026-09-13T16:32:29.334Z"
+      "ts": "2026-09-13T16:41:59.014Z"
     },
     "stats": {
       "state": {
@@ -75,7 +75,7 @@
       },
       "database": {
         "file": "data/indexes/genesis.db",
-        "bytes": 745472,
+        "bytes": 774144,
         "tables": 19,
         "counts": {
           "actions": 0,
@@ -85,7 +85,7 @@
           "dependencies": 0,
           "edges": 150,
           "errors": 1,
-          "events": 139,
+          "events": 156,
           "interruptions": 0,
           "lessons": 2,
           "messages": 5,
@@ -119,7 +119,7 @@
         "dependencies": 0,
         "nodes": 80,
         "edges": 150,
-        "events": 139,
+        "events": 156,
         "tasks": 12,
         "indexed_entities": 152,
         "indexed_messages": 5
@@ -211,7 +211,7 @@
           }
         ]
       },
-      "events_on_disk": 186,
+      "events_on_disk": 202,
       "facets": {
         "node": 80,
         "requirement": 16,
@@ -1350,8 +1350,8 @@
           "interruption": "INT-00001",
           "recovery_plan": [
             "Human creates SoftEngAi-dev/develo-courseapp-simplify on GitHub (or grants the integration repo-creation permission).",
-            "Run: git -C /home/user/develo-courseapp-simplify push -u origin main",
-            "Run: gh pr create --base main --head genesis/foundation"
+            "git -C /home/user/develo-courseapp-simplify push -u origin main",
+            "gh pr create --repo SoftEngAi-dev/Develop-CourseApp --base main --head arena/01a09b49-develop-courseapp --title \"GENESIS foundation: phases 0-2 executable + offline PWA console\""
           ]
         },
         {
@@ -1930,8 +1930,8 @@
           "acceptance": "Every user message, interpretation, plan, action, result, decision and lesson is persisted and queryable.",
           "source_id": "control/manifest.json",
           "session_id": null,
-          "created_at": "2026-09-13T16:32:29.195Z",
-          "updated_at": "2026-09-13T16:32:29.195Z"
+          "created_at": "2026-09-13T16:41:58.840Z",
+          "updated_at": "2026-09-13T16:41:58.840Z"
         },
         {
           "id": "REQ-0002",
@@ -1942,8 +1942,8 @@
           "acceptance": "The five physical directories exist and no level writes into another.",
           "source_id": "control/manifest.json",
           "session_id": null,
-          "created_at": "2026-09-13T16:32:29.195Z",
-          "updated_at": "2026-09-13T16:32:29.195Z"
+          "created_at": "2026-09-13T16:41:58.840Z",
+          "updated_at": "2026-09-13T16:41:58.840Z"
         },
         {
           "id": "REQ-0003",
@@ -1954,8 +1954,8 @@
           "acceptance": "Each decision records objective, context, constraints, alternatives, decision, justification, consequence and status.",
           "source_id": "control/manifest.json",
           "session_id": null,
-          "created_at": "2026-09-13T16:32:29.195Z",
-          "updated_at": "2026-09-13T16:32:29.195Z"
+          "created_at": "2026-09-13T16:41:58.840Z",
+          "updated_at": "2026-09-13T16:41:58.840Z"
         },
         {
           "id": "REQ-0004",
@@ -1966,8 +1966,8 @@
           "acceptance": "Interruption events carry type, layer, task, reason, impact, recoverability and recovery plan.",
           "source_id": "control/manifest.json",
           "session_id": null,
-          "created_at": "2026-09-13T16:32:29.195Z",
-          "updated_at": "2026-09-13T16:32:29.195Z"
+          "created_at": "2026-09-13T16:41:58.840Z",
+          "updated_at": "2026-09-13T16:41:58.840Z"
         },
         {
           "id": "REQ-0005",
@@ -1978,8 +1978,8 @@
           "acceptance": "npm install is never required to run init/capture/process/search/context/serve.",
           "source_id": "control/manifest.json",
           "session_id": null,
-          "created_at": "2026-09-13T16:32:29.195Z",
-          "updated_at": "2026-09-13T16:32:29.195Z"
+          "created_at": "2026-09-13T16:41:58.840Z",
+          "updated_at": "2026-09-13T16:41:58.840Z"
         },
         {
           "id": "REQ-0006",
@@ -1990,8 +1990,8 @@
           "acceptance": "Zero-dep console works with no node_modules; Next.js app consumes the same API.",
           "source_id": "control/manifest.json",
           "session_id": null,
-          "created_at": "2026-09-13T16:32:29.195Z",
-          "updated_at": "2026-09-13T16:32:29.195Z"
+          "created_at": "2026-09-13T16:41:58.840Z",
+          "updated_at": "2026-09-13T16:41:58.840Z"
         },
         {
           "id": "REQ-0007",
@@ -2002,8 +2002,8 @@
           "acceptance": "Every source file has a trilingual header plus a BEGINNER COURSE block.",
           "source_id": "control/manifest.json",
           "session_id": null,
-          "created_at": "2026-09-13T16:32:29.195Z",
-          "updated_at": "2026-09-13T16:32:29.195Z"
+          "created_at": "2026-09-13T16:41:58.840Z",
+          "updated_at": "2026-09-13T16:41:58.840Z"
         },
         {
           "id": "REQ-0008",
@@ -2014,8 +2014,8 @@
           "acceptance": "A completed build can be turned into lesson + concepts + tutorial + exercise + solution.",
           "source_id": "control/manifest.json",
           "session_id": null,
-          "created_at": "2026-09-13T16:32:29.195Z",
-          "updated_at": "2026-09-13T16:32:29.195Z"
+          "created_at": "2026-09-13T16:41:58.840Z",
+          "updated_at": "2026-09-13T16:41:58.840Z"
         },
         {
           "id": "REQ-0009",
@@ -2026,8 +2026,8 @@
           "acceptance": "genesis resume rebuilds session context and continues the last task.",
           "source_id": "control/manifest.json",
           "session_id": null,
-          "created_at": "2026-09-13T16:32:29.195Z",
-          "updated_at": "2026-09-13T16:32:29.195Z"
+          "created_at": "2026-09-13T16:41:58.840Z",
+          "updated_at": "2026-09-13T16:41:58.840Z"
         },
         {
           "id": "REQ-0010",
@@ -2038,8 +2038,8 @@
           "acceptance": "Checkpoints can restore control state and are created before risky mutations.",
           "source_id": "control/manifest.json",
           "session_id": null,
-          "created_at": "2026-09-13T16:32:29.195Z",
-          "updated_at": "2026-09-13T16:32:29.195Z"
+          "created_at": "2026-09-13T16:41:58.840Z",
+          "updated_at": "2026-09-13T16:41:58.840Z"
         },
         {
           "id": "REQ-0011",
@@ -2051,7 +2051,7 @@
           "source_id": "[{\"session_id\":\"SES-00001\",\"message_id\":\"MSG-00001\"}]",
           "session_id": "SES-00001",
           "created_at": "2026-09-13T15:48:38.303Z",
-          "updated_at": "2026-09-13T16:32:29.223Z"
+          "updated_at": "2026-09-13T16:41:58.900Z"
         },
         {
           "id": "REQ-0012",
@@ -2063,7 +2063,7 @@
           "source_id": "[{\"session_id\":\"SES-00001\",\"message_id\":\"MSG-00001\"}]",
           "session_id": "SES-00001",
           "created_at": "2026-09-13T15:48:38.303Z",
-          "updated_at": "2026-09-13T16:32:29.223Z"
+          "updated_at": "2026-09-13T16:41:58.900Z"
         },
         {
           "id": "REQ-0013",
@@ -2075,7 +2075,7 @@
           "source_id": "[{\"session_id\":\"SES-00001\",\"message_id\":\"MSG-00001\"}]",
           "session_id": "SES-00001",
           "created_at": "2026-09-13T15:48:38.303Z",
-          "updated_at": "2026-09-13T16:32:29.223Z"
+          "updated_at": "2026-09-13T16:41:58.900Z"
         },
         {
           "id": "REQ-0014",
@@ -2087,7 +2087,7 @@
           "source_id": "[{\"session_id\":\"SES-00001\",\"message_id\":\"MSG-00001\"}]",
           "session_id": "SES-00001",
           "created_at": "2026-09-13T15:48:38.303Z",
-          "updated_at": "2026-09-13T16:32:29.223Z"
+          "updated_at": "2026-09-13T16:41:58.900Z"
         },
         {
           "id": "REQ-0015",
@@ -2099,7 +2099,7 @@
           "source_id": "[{\"session_id\":\"SES-00001\",\"message_id\":\"MSG-00001\"}]",
           "session_id": "SES-00001",
           "created_at": "2026-09-13T15:48:38.303Z",
-          "updated_at": "2026-09-13T16:32:29.223Z"
+          "updated_at": "2026-09-13T16:41:58.900Z"
         },
         {
           "id": "REQ-0016",
@@ -2111,7 +2111,7 @@
           "source_id": "[{\"session_id\":\"SES-00001\",\"message_id\":\"MSG-00001\"}]",
           "session_id": "SES-00001",
           "created_at": "2026-09-13T15:48:38.303Z",
-          "updated_at": "2026-09-13T16:32:29.223Z"
+          "updated_at": "2026-09-13T16:41:58.900Z"
         }
       ],
       "changes": []
@@ -2132,7 +2132,7 @@
       ]
     },
     "timeline?limit=400": {
-      "count": 139,
+      "count": 156,
       "days": [
         "2026-09-13"
       ],
@@ -4685,6 +4685,332 @@
             "id": "EVT-20260913T163229Z-0014",
             "type": "KNOWLEDGE_EXTRACTED",
             "ts": "2026-09-13T16:32:29.204Z",
+            "layer": "knowledge",
+            "task": null,
+            "actor": "system",
+            "severity": null,
+            "session_id": null,
+            "payload_json": "{\"kind\":\"control-plane\",\"requirements\":10,\"tasks\":12,\"decisions\":12,\"policies\":11}",
+            "payload": {
+              "kind": "control-plane",
+              "requirements": 10,
+              "tasks": 12,
+              "decisions": 12,
+              "policies": 11
+            }
+          },
+          {
+            "id": "EVT-20260913T163229Z-0015",
+            "type": "KNOWLEDGE_EXTRACTED",
+            "ts": "2026-09-13T16:32:29.215Z",
+            "layer": "knowledge",
+            "task": null,
+            "actor": "system",
+            "severity": null,
+            "session_id": null,
+            "payload_json": "{\"kind\":\"session\",\"id\":\"SES-00001\",\"messages\":5,\"language\":\"es\"}",
+            "payload": {
+              "kind": "session",
+              "id": "SES-00001",
+              "messages": 5,
+              "language": "es"
+            }
+          },
+          {
+            "id": "EVT-20260913T163229Z-0016",
+            "type": "DECISION_MADE",
+            "ts": "2026-09-13T16:32:29.218Z",
+            "layer": "core-engine",
+            "task": null,
+            "actor": "system",
+            "severity": null,
+            "session_id": null,
+            "payload_json": "{\"id\":\"DEC-00002\",\"decision\":\"node:sqlite (integrado en Node 22) + tablas virtuales FTS5, con archivos\\nJSON para la configuración.\",\"status\":\"approved\",\"alternatives\":5,\"layer\":\"core-engine\"}",
+            "payload": {
+              "id": "DEC-00002",
+              "decision": "node:sqlite (integrado en Node 22) + tablas virtuales FTS5, con archivos\nJSON para la configuración.",
+              "status": "approved",
+              "alternatives": 5,
+              "layer": "core-engine"
+            }
+          },
+          {
+            "id": "EVT-20260913T163229Z-0017",
+            "type": "DECISION_MADE",
+            "ts": "2026-09-13T16:32:29.219Z",
+            "layer": "core-engine",
+            "task": null,
+            "actor": "system",
+            "severity": null,
+            "session_id": null,
+            "payload_json": "{\"id\":\"DEC-00005\",\"decision\":\"Front end híbrido de tres capas: (1) core/api, servidor HTTP sin\\ndependencias; (2) apps/console, interfaz estática offline servida por ese servidor;\\n(3) apps/web, aplicación Next.js que consume el mismo contrato de API.\",\"status\":\"approved\",\"alternatives\":3,\"layer\":\"core-engine\"}",
+            "payload": {
+              "id": "DEC-00005",
+              "decision": "Front end híbrido de tres capas: (1) core/api, servidor HTTP sin\ndependencias; (2) apps/console, interfaz estática offline servida por ese servidor;\n(3) apps/web, aplicación Next.js que consume el mismo contrato de API.",
+              "status": "approved",
+              "alternatives": 3,
+              "layer": "core-engine"
+            }
+          },
+          {
+            "id": "EVT-20260913T163229Z-0018",
+            "type": "PLAN_CREATED",
+            "ts": "2026-09-13T16:32:29.220Z",
+            "layer": "requirements",
+            "task": null,
+            "actor": "system",
+            "severity": null,
+            "session_id": null,
+            "payload_json": "{\"id\":\"PLN-00001\",\"objective\":\"Bootstrap\",\"steps\":5,\"status\":\"proposed\"}",
+            "payload": {
+              "id": "PLN-00001",
+              "objective": "Bootstrap",
+              "steps": 5,
+              "status": "proposed"
+            }
+          },
+          {
+            "id": "EVT-20260913T163229Z-0019",
+            "type": "PLAN_CREATED",
+            "ts": "2026-09-13T16:32:29.220Z",
+            "layer": "requirements",
+            "task": null,
+            "actor": "system",
+            "severity": null,
+            "session_id": null,
+            "payload_json": "{\"id\":\"PLN-00002\",\"objective\":\"Captura\",\"steps\":3,\"status\":\"proposed\"}",
+            "payload": {
+              "id": "PLN-00002",
+              "objective": "Captura",
+              "steps": 3,
+              "status": "proposed"
+            }
+          },
+          {
+            "id": "EVT-20260913T163229Z-0020",
+            "type": "PLAN_CREATED",
+            "ts": "2026-09-13T16:32:29.220Z",
+            "layer": "requirements",
+            "task": null,
+            "actor": "system",
+            "severity": null,
+            "session_id": null,
+            "payload_json": "{\"id\":\"PLN-00003\",\"objective\":\"Knowledge Engine\",\"steps\":7,\"status\":\"proposed\"}",
+            "payload": {
+              "id": "PLN-00003",
+              "objective": "Knowledge Engine",
+              "steps": 7,
+              "status": "proposed"
+            }
+          },
+          {
+            "id": "EVT-20260913T163229Z-0021",
+            "type": "PLAN_CREATED",
+            "ts": "2026-09-13T16:32:29.220Z",
+            "layer": "requirements",
+            "task": null,
+            "actor": "system",
+            "severity": null,
+            "session_id": null,
+            "payload_json": "{\"id\":\"PLN-00004\",\"objective\":\"completada: SQLite + FTS5, procesadores, grafo de conocimiento y Context Engine.\",\"steps\":3,\"status\":\"proposed\"}",
+            "payload": {
+              "id": "PLN-00004",
+              "objective": "completada: SQLite + FTS5, procesadores, grafo de conocimiento y Context Engine.",
+              "steps": 3,
+              "status": "proposed"
+            }
+          },
+          {
+            "id": "EVT-20260913T163229Z-0022",
+            "type": "ERROR_DETECTED",
+            "ts": "2026-09-13T16:32:29.222Z",
+            "layer": "verification",
+            "task": null,
+            "actor": "system",
+            "severity": "low",
+            "session_id": null,
+            "payload_json": "{\"id\":\"ERR-00001\",\"severity\":\"low\",\"message\":\"gh repo create SoftEngAi-dev/develo-courseapp-simplify\",\"http_code\":\"403\",\"recoverable\":true,\"occurrences\":1}",
+            "payload": {
+              "id": "ERR-00001",
+              "severity": "low",
+              "message": "gh repo create SoftEngAi-dev/develo-courseapp-simplify",
+              "http_code": "403",
+              "recoverable": true,
+              "occurrences": 1
+            }
+          },
+          {
+            "id": "EVT-20260913T163229Z-0023",
+            "type": "SEARCH_PERFORMED",
+            "ts": "2026-09-13T16:32:29.222Z",
+            "layer": "knowledge",
+            "task": null,
+            "actor": "system",
+            "severity": null,
+            "session_id": null,
+            "payload_json": "{\"id\":\"SRC-00001\",\"query\":\"node:sqlite experimental FTS5 support Node 22\",\"reason\":\"el contrato de API se convierte en la costura. La capacidad offline la\",\"sources\":1,\"influenced\":[\"DEC-00002\",\"DEC-00008\"]}",
+            "payload": {
+              "id": "SRC-00001",
+              "query": "node:sqlite experimental FTS5 support Node 22",
+              "reason": "el contrato de API se convierte en la costura. La capacidad offline la",
+              "sources": 1,
+              "influenced": [
+                "DEC-00002",
+                "DEC-00008"
+              ]
+            }
+          },
+          {
+            "id": "EVT-20260913T163229Z-0024",
+            "type": "KNOWLEDGE_EXTRACTED",
+            "ts": "2026-09-13T16:32:29.227Z",
+            "layer": "knowledge",
+            "task": null,
+            "actor": "system",
+            "severity": null,
+            "session_id": null,
+            "payload_json": "{\"kind\":\"session-entities\",\"id\":\"SES-00001\",\"decisions\":2,\"plans\":4,\"errors\":1,\"searches\":1,\"requirements\":6,\"lessons\":0,\"requirement_changes\":0,\"proposed_rules\":0}",
+            "payload": {
+              "kind": "session-entities",
+              "id": "SES-00001",
+              "decisions": 2,
+              "plans": 4,
+              "errors": 1,
+              "searches": 1,
+              "requirements": 6,
+              "lessons": 0,
+              "requirement_changes": 0,
+              "proposed_rules": 0
+            }
+          },
+          {
+            "id": "EVT-20260913T163229Z-0025",
+            "type": "KNOWLEDGE_EXTRACTED",
+            "ts": "2026-09-13T16:32:29.269Z",
+            "layer": "knowledge",
+            "task": null,
+            "actor": "system",
+            "severity": null,
+            "session_id": null,
+            "payload_json": "{\"kind\":\"knowledge-graph\",\"categories\":11,\"technologies\":14,\"decisions\":12,\"requirements\":16,\"tasks\":12,\"lessons\":1,\"mistakes\":1,\"searches\":1,\"co_occurrences\":43,\"edges\":150,\"nodes\":80}",
+            "payload": {
+              "kind": "knowledge-graph",
+              "categories": 11,
+              "technologies": 14,
+              "decisions": 12,
+              "requirements": 16,
+              "tasks": 12,
+              "lessons": 1,
+              "mistakes": 1,
+              "searches": 1,
+              "co_occurrences": 43,
+              "edges": 150,
+              "nodes": 80
+            }
+          },
+          {
+            "id": "EVT-20260913T163229Z-0026",
+            "type": "KNOWLEDGE_EXTRACTED",
+            "ts": "2026-09-13T16:32:29.269Z",
+            "layer": "knowledge",
+            "task": null,
+            "actor": "system",
+            "severity": null,
+            "session_id": null,
+            "payload_json": "{\"kind\":\"full-processing\",\"decisions\":2,\"plans\":4,\"errors\":1,\"searches\":1,\"requirements\":6,\"lessons\":0,\"requirement_changes\":0,\"proposed_rules\":0,\"messages\":5,\"sessions\":1}",
+            "payload": {
+              "kind": "full-processing",
+              "decisions": 2,
+              "plans": 4,
+              "errors": 1,
+              "searches": 1,
+              "requirements": 6,
+              "lessons": 0,
+              "requirement_changes": 0,
+              "proposed_rules": 0,
+              "messages": 5,
+              "sessions": 1
+            }
+          },
+          {
+            "id": "EVT-20260913T163229Z-0027",
+            "type": "CHECKPOINT_CREATED",
+            "ts": "2026-09-13T16:32:29.271Z",
+            "layer": "infrastructure",
+            "task": null,
+            "actor": "system",
+            "severity": null,
+            "session_id": null,
+            "payload_json": "{\"id\":\"CHK-00004\",\"label\":\"full-pipeline\",\"file\":\"control/checkpoints/CHK-00004-20260913T163229Z-full-pipeline.json\",\"summary\":{\"progress_percent\":40,\"current_phase\":\"phase-3\",\"current_task\":\"TSK-00011\",\"tasks_total\":12,\"decisions_total\":12,\"open_blocks\":1}}",
+            "payload": {
+              "id": "CHK-00004",
+              "label": "full-pipeline",
+              "file": "control/checkpoints/CHK-00004-20260913T163229Z-full-pipeline.json",
+              "summary": {
+                "progress_percent": 40,
+                "current_phase": "phase-3",
+                "current_task": "TSK-00011",
+                "tasks_total": 12,
+                "decisions_total": 12,
+                "open_blocks": 1
+              }
+            }
+          },
+          {
+            "id": "EVT-20260913T163504Z-0001",
+            "type": "BUILD_COMPLETED",
+            "ts": "2026-09-13T16:35:04.247Z",
+            "layer": "application",
+            "task": null,
+            "actor": "system",
+            "severity": null,
+            "session_id": null,
+            "payload_json": "{\"kind\":\"api-server\",\"port\":42219,\"host\":\"127.0.0.1\",\"routes\":31}",
+            "payload": {
+              "kind": "api-server",
+              "port": 42219,
+              "host": "127.0.0.1",
+              "routes": 31
+            }
+          },
+          {
+            "id": "EVT-20260913T163511Z-0001",
+            "type": "BUILD_COMPLETED",
+            "ts": "2026-09-13T16:35:11.469Z",
+            "layer": "application",
+            "task": null,
+            "actor": "system",
+            "severity": null,
+            "session_id": null,
+            "payload_json": "{\"kind\":\"api-server\",\"port\":42449,\"host\":\"127.0.0.1\",\"routes\":31}",
+            "payload": {
+              "kind": "api-server",
+              "port": 42449,
+              "host": "127.0.0.1",
+              "routes": 31
+            }
+          },
+          {
+            "id": "EVT-20260913T164158Z-0001",
+            "type": "KNOWLEDGE_EXTRACTED",
+            "ts": "2026-09-13T16:41:58.840Z",
+            "layer": "knowledge",
+            "task": null,
+            "actor": "system",
+            "severity": null,
+            "session_id": null,
+            "payload_json": "{\"kind\":\"session\",\"id\":\"SES-00001\",\"messages\":5,\"language\":\"es\"}",
+            "payload": {
+              "kind": "session",
+              "id": "SES-00001",
+              "messages": 5,
+              "language": "es"
+            }
+          },
+          {
+            "id": "EVT-20260913T164158Z-0002",
+            "type": "KNOWLEDGE_EXTRACTED",
+            "ts": "2026-09-13T16:41:58.851Z",
             "layer": "knowledge",
             "task": null,
             "actor": "system",
@@ -7262,6 +7588,332 @@
             "decisions": 12,
             "policies": 11
           }
+        },
+        {
+          "id": "EVT-20260913T163229Z-0015",
+          "type": "KNOWLEDGE_EXTRACTED",
+          "ts": "2026-09-13T16:32:29.215Z",
+          "layer": "knowledge",
+          "task": null,
+          "actor": "system",
+          "severity": null,
+          "session_id": null,
+          "payload_json": "{\"kind\":\"session\",\"id\":\"SES-00001\",\"messages\":5,\"language\":\"es\"}",
+          "payload": {
+            "kind": "session",
+            "id": "SES-00001",
+            "messages": 5,
+            "language": "es"
+          }
+        },
+        {
+          "id": "EVT-20260913T163229Z-0016",
+          "type": "DECISION_MADE",
+          "ts": "2026-09-13T16:32:29.218Z",
+          "layer": "core-engine",
+          "task": null,
+          "actor": "system",
+          "severity": null,
+          "session_id": null,
+          "payload_json": "{\"id\":\"DEC-00002\",\"decision\":\"node:sqlite (integrado en Node 22) + tablas virtuales FTS5, con archivos\\nJSON para la configuración.\",\"status\":\"approved\",\"alternatives\":5,\"layer\":\"core-engine\"}",
+          "payload": {
+            "id": "DEC-00002",
+            "decision": "node:sqlite (integrado en Node 22) + tablas virtuales FTS5, con archivos\nJSON para la configuración.",
+            "status": "approved",
+            "alternatives": 5,
+            "layer": "core-engine"
+          }
+        },
+        {
+          "id": "EVT-20260913T163229Z-0017",
+          "type": "DECISION_MADE",
+          "ts": "2026-09-13T16:32:29.219Z",
+          "layer": "core-engine",
+          "task": null,
+          "actor": "system",
+          "severity": null,
+          "session_id": null,
+          "payload_json": "{\"id\":\"DEC-00005\",\"decision\":\"Front end híbrido de tres capas: (1) core/api, servidor HTTP sin\\ndependencias; (2) apps/console, interfaz estática offline servida por ese servidor;\\n(3) apps/web, aplicación Next.js que consume el mismo contrato de API.\",\"status\":\"approved\",\"alternatives\":3,\"layer\":\"core-engine\"}",
+          "payload": {
+            "id": "DEC-00005",
+            "decision": "Front end híbrido de tres capas: (1) core/api, servidor HTTP sin\ndependencias; (2) apps/console, interfaz estática offline servida por ese servidor;\n(3) apps/web, aplicación Next.js que consume el mismo contrato de API.",
+            "status": "approved",
+            "alternatives": 3,
+            "layer": "core-engine"
+          }
+        },
+        {
+          "id": "EVT-20260913T163229Z-0018",
+          "type": "PLAN_CREATED",
+          "ts": "2026-09-13T16:32:29.220Z",
+          "layer": "requirements",
+          "task": null,
+          "actor": "system",
+          "severity": null,
+          "session_id": null,
+          "payload_json": "{\"id\":\"PLN-00001\",\"objective\":\"Bootstrap\",\"steps\":5,\"status\":\"proposed\"}",
+          "payload": {
+            "id": "PLN-00001",
+            "objective": "Bootstrap",
+            "steps": 5,
+            "status": "proposed"
+          }
+        },
+        {
+          "id": "EVT-20260913T163229Z-0019",
+          "type": "PLAN_CREATED",
+          "ts": "2026-09-13T16:32:29.220Z",
+          "layer": "requirements",
+          "task": null,
+          "actor": "system",
+          "severity": null,
+          "session_id": null,
+          "payload_json": "{\"id\":\"PLN-00002\",\"objective\":\"Captura\",\"steps\":3,\"status\":\"proposed\"}",
+          "payload": {
+            "id": "PLN-00002",
+            "objective": "Captura",
+            "steps": 3,
+            "status": "proposed"
+          }
+        },
+        {
+          "id": "EVT-20260913T163229Z-0020",
+          "type": "PLAN_CREATED",
+          "ts": "2026-09-13T16:32:29.220Z",
+          "layer": "requirements",
+          "task": null,
+          "actor": "system",
+          "severity": null,
+          "session_id": null,
+          "payload_json": "{\"id\":\"PLN-00003\",\"objective\":\"Knowledge Engine\",\"steps\":7,\"status\":\"proposed\"}",
+          "payload": {
+            "id": "PLN-00003",
+            "objective": "Knowledge Engine",
+            "steps": 7,
+            "status": "proposed"
+          }
+        },
+        {
+          "id": "EVT-20260913T163229Z-0021",
+          "type": "PLAN_CREATED",
+          "ts": "2026-09-13T16:32:29.220Z",
+          "layer": "requirements",
+          "task": null,
+          "actor": "system",
+          "severity": null,
+          "session_id": null,
+          "payload_json": "{\"id\":\"PLN-00004\",\"objective\":\"completada: SQLite + FTS5, procesadores, grafo de conocimiento y Context Engine.\",\"steps\":3,\"status\":\"proposed\"}",
+          "payload": {
+            "id": "PLN-00004",
+            "objective": "completada: SQLite + FTS5, procesadores, grafo de conocimiento y Context Engine.",
+            "steps": 3,
+            "status": "proposed"
+          }
+        },
+        {
+          "id": "EVT-20260913T163229Z-0022",
+          "type": "ERROR_DETECTED",
+          "ts": "2026-09-13T16:32:29.222Z",
+          "layer": "verification",
+          "task": null,
+          "actor": "system",
+          "severity": "low",
+          "session_id": null,
+          "payload_json": "{\"id\":\"ERR-00001\",\"severity\":\"low\",\"message\":\"gh repo create SoftEngAi-dev/develo-courseapp-simplify\",\"http_code\":\"403\",\"recoverable\":true,\"occurrences\":1}",
+          "payload": {
+            "id": "ERR-00001",
+            "severity": "low",
+            "message": "gh repo create SoftEngAi-dev/develo-courseapp-simplify",
+            "http_code": "403",
+            "recoverable": true,
+            "occurrences": 1
+          }
+        },
+        {
+          "id": "EVT-20260913T163229Z-0023",
+          "type": "SEARCH_PERFORMED",
+          "ts": "2026-09-13T16:32:29.222Z",
+          "layer": "knowledge",
+          "task": null,
+          "actor": "system",
+          "severity": null,
+          "session_id": null,
+          "payload_json": "{\"id\":\"SRC-00001\",\"query\":\"node:sqlite experimental FTS5 support Node 22\",\"reason\":\"el contrato de API se convierte en la costura. La capacidad offline la\",\"sources\":1,\"influenced\":[\"DEC-00002\",\"DEC-00008\"]}",
+          "payload": {
+            "id": "SRC-00001",
+            "query": "node:sqlite experimental FTS5 support Node 22",
+            "reason": "el contrato de API se convierte en la costura. La capacidad offline la",
+            "sources": 1,
+            "influenced": [
+              "DEC-00002",
+              "DEC-00008"
+            ]
+          }
+        },
+        {
+          "id": "EVT-20260913T163229Z-0024",
+          "type": "KNOWLEDGE_EXTRACTED",
+          "ts": "2026-09-13T16:32:29.227Z",
+          "layer": "knowledge",
+          "task": null,
+          "actor": "system",
+          "severity": null,
+          "session_id": null,
+          "payload_json": "{\"kind\":\"session-entities\",\"id\":\"SES-00001\",\"decisions\":2,\"plans\":4,\"errors\":1,\"searches\":1,\"requirements\":6,\"lessons\":0,\"requirement_changes\":0,\"proposed_rules\":0}",
+          "payload": {
+            "kind": "session-entities",
+            "id": "SES-00001",
+            "decisions": 2,
+            "plans": 4,
+            "errors": 1,
+            "searches": 1,
+            "requirements": 6,
+            "lessons": 0,
+            "requirement_changes": 0,
+            "proposed_rules": 0
+          }
+        },
+        {
+          "id": "EVT-20260913T163229Z-0025",
+          "type": "KNOWLEDGE_EXTRACTED",
+          "ts": "2026-09-13T16:32:29.269Z",
+          "layer": "knowledge",
+          "task": null,
+          "actor": "system",
+          "severity": null,
+          "session_id": null,
+          "payload_json": "{\"kind\":\"knowledge-graph\",\"categories\":11,\"technologies\":14,\"decisions\":12,\"requirements\":16,\"tasks\":12,\"lessons\":1,\"mistakes\":1,\"searches\":1,\"co_occurrences\":43,\"edges\":150,\"nodes\":80}",
+          "payload": {
+            "kind": "knowledge-graph",
+            "categories": 11,
+            "technologies": 14,
+            "decisions": 12,
+            "requirements": 16,
+            "tasks": 12,
+            "lessons": 1,
+            "mistakes": 1,
+            "searches": 1,
+            "co_occurrences": 43,
+            "edges": 150,
+            "nodes": 80
+          }
+        },
+        {
+          "id": "EVT-20260913T163229Z-0026",
+          "type": "KNOWLEDGE_EXTRACTED",
+          "ts": "2026-09-13T16:32:29.269Z",
+          "layer": "knowledge",
+          "task": null,
+          "actor": "system",
+          "severity": null,
+          "session_id": null,
+          "payload_json": "{\"kind\":\"full-processing\",\"decisions\":2,\"plans\":4,\"errors\":1,\"searches\":1,\"requirements\":6,\"lessons\":0,\"requirement_changes\":0,\"proposed_rules\":0,\"messages\":5,\"sessions\":1}",
+          "payload": {
+            "kind": "full-processing",
+            "decisions": 2,
+            "plans": 4,
+            "errors": 1,
+            "searches": 1,
+            "requirements": 6,
+            "lessons": 0,
+            "requirement_changes": 0,
+            "proposed_rules": 0,
+            "messages": 5,
+            "sessions": 1
+          }
+        },
+        {
+          "id": "EVT-20260913T163229Z-0027",
+          "type": "CHECKPOINT_CREATED",
+          "ts": "2026-09-13T16:32:29.271Z",
+          "layer": "infrastructure",
+          "task": null,
+          "actor": "system",
+          "severity": null,
+          "session_id": null,
+          "payload_json": "{\"id\":\"CHK-00004\",\"label\":\"full-pipeline\",\"file\":\"control/checkpoints/CHK-00004-20260913T163229Z-full-pipeline.json\",\"summary\":{\"progress_percent\":40,\"current_phase\":\"phase-3\",\"current_task\":\"TSK-00011\",\"tasks_total\":12,\"decisions_total\":12,\"open_blocks\":1}}",
+          "payload": {
+            "id": "CHK-00004",
+            "label": "full-pipeline",
+            "file": "control/checkpoints/CHK-00004-20260913T163229Z-full-pipeline.json",
+            "summary": {
+              "progress_percent": 40,
+              "current_phase": "phase-3",
+              "current_task": "TSK-00011",
+              "tasks_total": 12,
+              "decisions_total": 12,
+              "open_blocks": 1
+            }
+          }
+        },
+        {
+          "id": "EVT-20260913T163504Z-0001",
+          "type": "BUILD_COMPLETED",
+          "ts": "2026-09-13T16:35:04.247Z",
+          "layer": "application",
+          "task": null,
+          "actor": "system",
+          "severity": null,
+          "session_id": null,
+          "payload_json": "{\"kind\":\"api-server\",\"port\":42219,\"host\":\"127.0.0.1\",\"routes\":31}",
+          "payload": {
+            "kind": "api-server",
+            "port": 42219,
+            "host": "127.0.0.1",
+            "routes": 31
+          }
+        },
+        {
+          "id": "EVT-20260913T163511Z-0001",
+          "type": "BUILD_COMPLETED",
+          "ts": "2026-09-13T16:35:11.469Z",
+          "layer": "application",
+          "task": null,
+          "actor": "system",
+          "severity": null,
+          "session_id": null,
+          "payload_json": "{\"kind\":\"api-server\",\"port\":42449,\"host\":\"127.0.0.1\",\"routes\":31}",
+          "payload": {
+            "kind": "api-server",
+            "port": 42449,
+            "host": "127.0.0.1",
+            "routes": 31
+          }
+        },
+        {
+          "id": "EVT-20260913T164158Z-0001",
+          "type": "KNOWLEDGE_EXTRACTED",
+          "ts": "2026-09-13T16:41:58.840Z",
+          "layer": "knowledge",
+          "task": null,
+          "actor": "system",
+          "severity": null,
+          "session_id": null,
+          "payload_json": "{\"kind\":\"session\",\"id\":\"SES-00001\",\"messages\":5,\"language\":\"es\"}",
+          "payload": {
+            "kind": "session",
+            "id": "SES-00001",
+            "messages": 5,
+            "language": "es"
+          }
+        },
+        {
+          "id": "EVT-20260913T164158Z-0002",
+          "type": "KNOWLEDGE_EXTRACTED",
+          "ts": "2026-09-13T16:41:58.851Z",
+          "layer": "knowledge",
+          "task": null,
+          "actor": "system",
+          "severity": null,
+          "session_id": null,
+          "payload_json": "{\"kind\":\"control-plane\",\"requirements\":10,\"tasks\":12,\"decisions\":12,\"policies\":11}",
+          "payload": {
+            "kind": "control-plane",
+            "requirements": 10,
+            "tasks": 12,
+            "decisions": 12,
+            "policies": 11
+          }
         }
       ]
     },
@@ -8845,7 +9497,7 @@
       }
     },
     "context": {
-      "generated_at": "2026-09-13T16:32:29.363Z",
+      "generated_at": "2026-09-13T16:41:59.042Z",
       "query": null,
       "project": {
         "name": "Genesis Autonomous Engineering",
@@ -8997,8 +9649,8 @@
         "acceptance": "Repository exists on GitHub and receives the per-phase history plus a PR to main.",
         "recovery_plan": [
           "Human creates SoftEngAi-dev/develo-courseapp-simplify on GitHub (or grants the integration repo-creation permission).",
-          "Run: git -C /home/user/develo-courseapp-simplify push -u origin main",
-          "Run: gh pr create --base main --head genesis/foundation"
+          "git -C /home/user/develo-courseapp-simplify push -u origin main",
+          "gh pr create --repo SoftEngAi-dev/Develop-CourseApp --base main --head arena/01a09b49-develop-courseapp --title \"GENESIS foundation: phases 0-2 executable + offline PWA console\""
         ]
       },
       "last_checkpoint": {
@@ -9368,8 +10020,8 @@
         }
       ]
     },
-    "context?format=text": "════════════════════════════════════════════════════════════════════════\nSESSION CONTEXT · GENESIS PROJECT KNOWLEDGE & AUTONOMOUS ENGINE\nGenerated: 2026-09-13T16:32:29.365Z\n════════════════════════════════════════════════════════════════════════\n\nProject:                   Genesis Autonomous Engineering v0.1.0\nCentral rule:              Nothing happens without leaving an observable project event.\nProgress:                  40%\nCurrent phase:             phase-3 · Documentation Engine (stub)\nCurrent task:              TSK-00011 · Publish mirror repository develo-courseapp-simplify and open PR [blocked 60%]\nAgent:                     idle\nLast checkpoint:           CHK-00004 · full-pipeline (2026-09-13T16:32:29.271Z)\nBlocks:                    1\n\nRELEVANT DECISIONS (2)\n  - DEC-00011 [blocked] Mirror the work into a local git repository named develo-courseapp-simplify, pre-configured with per-phase com\n  - DEC-00002 [approved] node:sqlite (integrado en Node 22) + tablas virtuales FTS5, con archivos\nJSON para la configuración.\n\nFAILED ATTEMPTS / OPEN INTERRUPTIONS (1)\n  - ERR-00001 [low · resolved] gh repo create SoftEngAi-dev/develo-courseapp-simplify\n  —\n\nKNOWN CONSTRAINTS\n  - POL-0001 observability.everything_is_an_event: Nothing happens without leaving an observable project event.\n  - POL-0002 mutation.never_rewrite_wholesale: Before modifying anything: READ -> UNDERSTAND -> DIFF -> PLAN -> PATCH -> VERIFY -> COMMIT. Never rewrite an entire project.\n  - POL-0003 checkpoint.before_risky_mutation: Create a checkpoint before any operation that can destroy previous state.\n  - POL-0005 core.zero_dependencies: The core engine must run with an empty node_modules. External frameworks are optional adapters.\n  - POL-0006 agent.contextualize_before_reasoning: Ask 'what do we already know?' before asking 'what must I do?'.\n  - POL-0007 documentation.by_design_not_by_reminder: The system documents itself. Never depend on the human remembering to say 'now document this'.\n  - POL-0008 education.trilingual_comments: Code identifiers in English; comments trilingual and pedagogical, written as a course for absolute beginners.\n  - POL-0009 reasoning.store_explainable_trace_not_private_thoughts: Store a Decision Trace (objective, context, constraints, alternatives, decision, justification, action, result, verification, learning). Never attempt to transcribe a model's private reasoning.\n  - POL-0011 ui.offline_first_dual_mode: The console is an installable PWA usable with AND without connection. Every view must render from the live API, from the service-worker cache, or from the bundled snapshot, in that order. The interface must always flag the active mode and the sync time: stale data is never presented as fresh. No new npm dependency may be introduced to achieve this.\n  - REQ-0001 Document absolutely everything that happens in the project\n  - REQ-0002 Separate data into five levels (raw / processed / knowledge / project / control)\n  - REQ-0005 Work fully offline with zero npm dependencies in the core\n  - REQ-0010 Never overwrite: snapshot, diff, patch, verify, rollback\n  - REQ-0016 Nunca se debe sobrescribir un archivo sin READ → UNDERSTAND → DIFF → PLAN → PATCH → VERIFY → COMMIT.\n  - REQ-0003 Store explainable Decision Traces instead of private model reasoning\n  - REQ-0004 Treat interruptions ('cortes') as first-class events\n  - REQ-0006 Web app that is simultaneously full-featured and offline-capable\n  - REQ-0007 Trilingual pedagogical code comments (ES/EN/PT) written as a beginner course\n  - REQ-0009 Autonomous agent with context, planner, executor, verifier and recovery\n\nREQUIRED FILES\n  - data/raw\n  - data/processed\n  - knowledge\n  - .\n  - control\n  - control/manifest.json\n  - control/state.json\n  - control/tasks.json\n  - control/decisions.json\n\nRELATED DOCUMENTATION\n  - [lesson] LES-00002 La capacidad offline no es una característica de la interfaz, es una propiedad del núcleo. Si el núcleo depend\n  - [lesson] LES-00001 Verificar los permisos reales del token antes de prometer operaciones de infraestructura externa; un dry-run d\n  - [plan] PLN-00001 Bootstrap\n  - [plan] PLN-00002 Captura\n  - [plan] PLN-00003 Knowledge Engine\n  - [plan] PLN-00004 completada: SQLite + FTS5, procesadores, grafo de conocimiento y Context Engine.\n\nSEARCHES PERFORMED\n  - SRC-00001 \"node:sqlite experimental FTS5 support Node 22\" → selected: node:sqlite with FTS5 virtual tables\n\nRECENT TIMELINE\n  - 15:48:38 PLAN_CREATED           requirements {\"id\":\"PLN-00004\",\"objective\":\"completada: SQLite + FTS5, procesadores, grafo de conocimiento y Context Engine.\",\"steps\"\n  - 15:48:38 ERROR_DETECTED         verification {\"id\":\"ERR-00001\",\"severity\":\"low\",\"message\":\"gh repo create SoftEngAi-dev/develo-courseapp-simplify\",\"http_code\":\"403\",\n  - 15:48:38 SEARCH_PERFORMED       knowledge {\"id\":\"SRC-00001\",\"query\":\"node:sqlite experimental FTS5 support Node 22\",\"reason\":\"el contrato de API se convierte en l\n  - 15:48:38 KNOWLEDGE_EXTRACTED    knowledge {\"kind\":\"session-entities\",\"id\":\"SES-00001\",\"decisions\":2,\"plans\":4,\"errors\":1,\"searches\":1,\"requirements\":6,\"lessons\":0\n  - 15:48:38 KNOWLEDGE_EXTRACTED    knowledge {\"kind\":\"knowledge-graph\",\"categories\":11,\"technologies\":14,\"decisions\":11,\"requirements\":16,\"tasks\":11,\"lessons\":1,\"mis\n  - 15:48:38 KNOWLEDGE_EXTRACTED    knowledge {\"kind\":\"full-processing\",\"decisions\":2,\"plans\":4,\"errors\":1,\"searches\":1,\"requirements\":6,\"lessons\":0,\"requirement_chan\n  - 15:52:58 STATE_UPDATED          control {\"reason\":\"reconcile\",\"progress\":40,\"current_task\":\"TSK-00011\"}\n  - 15:53:05 BUILD_COMPLETED        application {\"kind\":\"api-server\",\"port\":3000,\"host\":\"0.0.0.0\",\"routes\":32}\n  - 15:53:12 TOOL_EXECUTED          application {\"tool\":\"http-api\",\"method\":\"GET\",\"path\":\"/api/health\",\"status\":200,\"ms\":4}\n  - 15:53:12 ERROR_DETECTED         application {\"tool\":\"http-api\",\"path\":\"/api/stats\",\"message\":\"no such column: \\\"\\\" - should this be a string literal in single-quote\n  - 15:53:12 TOOL_EXECUTED          application {\"tool\":\"http-api\",\"method\":\"GET\",\"path\":\"/api/recent\",\"status\":200,\"ms\":1}\n  - 15:53:12 TOOL_EXECUTED          application {\"tool\":\"http-api\",\"method\":\"GET\",\"path\":\"/api/graph\",\"status\":200,\"ms\":2}\n\nNEXT RECOMMENDED ACTION\n  Run `npm run demo` to ingest the real architecture session, then `npm run serve` to browse the knowledge.\n\nREMAINING ROADMAP\n  - phase-3 Documentation Engine [stub, weight 10]\n  - phase-4 Web App [stub, weight 15]\n  - phase-5 Agent [stub, weight 20]\n  - phase-6 Education [stub, weight 10]\n  - phase-7 Autonomous Evolution [stub, weight 5]\n\n════════════════════════════════════════════════════════════════════════",
-    "context?format=md": "# Session Context — Genesis Autonomous Engineering\n\n_Generated 2026-09-13T16:32:29.369Z · Rule: Nothing happens without leaving an observable project event._\n\n## Where we are\n- Progress: **40%**\n- Phase: phase-3 (Documentation Engine) — stub\n- Task: TSK-00011 — Publish mirror repository develo-courseapp-simplify and open PR [blocked]\n- Last checkpoint: CHK-00004\n- Open blocks: 1\n\n## Relevant decisions\n- **DEC-00011** [blocked] Mirror the work into a local git repository named develo-courseapp-simplify, pre-configured with per-phase commits and a remote placeholder, so the user only has to create the GitHub repo and push. — _Preserves the user's intent without inventing permissions we do not have._\n- **DEC-00002** [approved] node:sqlite (integrado en Node 22) + tablas virtuales FTS5, con archivos\nJSON para la configuración. — _menor complejidad inicial, búsqueda full-text real, funcionamiento local y\noffline, y cero riesgo de cadena de suministro._\n\n## Failed attempts (do not repeat)\n- ERR-00001 gh repo create SoftEngAi-dev/develo-courseapp-simplify → recovery: construir en la rama de la sesión (cuyo push sí funciona) y dejar preparado un repositorio local listo para publicar en cuanto exista el remoto.\n\n## Hard constraints\n- `observability.everything_is_an_event` — Nothing happens without leaving an observable project event.\n- `mutation.never_rewrite_wholesale` — Before modifying anything: READ -> UNDERSTAND -> DIFF -> PLAN -> PATCH -> VERIFY -> COMMIT. Never rewrite an entire project.\n- `checkpoint.before_risky_mutation` — Create a checkpoint before any operation that can destroy previous state.\n- `core.zero_dependencies` — The core engine must run with an empty node_modules. External frameworks are optional adapters.\n- `agent.contextualize_before_reasoning` — Ask 'what do we already know?' before asking 'what must I do?'.\n- `documentation.by_design_not_by_reminder` — The system documents itself. Never depend on the human remembering to say 'now document this'.\n- `education.trilingual_comments` — Code identifiers in English; comments trilingual and pedagogical, written as a course for absolute beginners.\n- `reasoning.store_explainable_trace_not_private_thoughts` — Store a Decision Trace (objective, context, constraints, alternatives, decision, justification, action, result, verification, learning). Never attempt to transcribe a model's private reasoning.\n- `ui.offline_first_dual_mode` — The console is an installable PWA usable with AND without connection. Every view must render from the live API, from the service-worker cache, or from the bundled snapshot, in that order. The interface must always flag the active mode and the sync time: stale data is never presented as fresh. No new npm dependency may be introduced to achieve this.\n\n## Files involved\n- `data/raw`\n- `data/processed`\n- `knowledge`\n- `.`\n- `control`\n- `control/manifest.json`\n- `control/state.json`\n- `control/tasks.json`\n- `control/decisions.json`\n\n## Next recommended action\n- EN: Run `npm run demo` to ingest the real architecture session, then `npm run serve` to browse the knowledge.\n- ES: Ejecutar `npm run demo` para ingerir la sesión real de arquitectura y luego `npm run serve` para ver el conocimiento en el navegador.\n- PT: Execute `npm run demo` para ingerir a sessão real de arquitetura e depois `npm run serve` para ver o conhecimento no navegador.\n\n## Remaining roadmap\n- phase-3 — Documentation Engine (stub, weight 10)\n- phase-4 — Web App (stub, weight 15)\n- phase-5 — Agent (stub, weight 20)\n- phase-6 — Education (stub, weight 10)\n- phase-7 — Autonomous Evolution (stub, weight 5)",
+    "context?format=text": "════════════════════════════════════════════════════════════════════════\nSESSION CONTEXT · GENESIS PROJECT KNOWLEDGE & AUTONOMOUS ENGINE\nGenerated: 2026-09-13T16:41:59.044Z\n════════════════════════════════════════════════════════════════════════\n\nProject:                   Genesis Autonomous Engineering v0.1.0\nCentral rule:              Nothing happens without leaving an observable project event.\nProgress:                  40%\nCurrent phase:             phase-3 · Documentation Engine (stub)\nCurrent task:              TSK-00011 · Publish mirror repository develo-courseapp-simplify and open PR [blocked 60%]\nAgent:                     idle\nLast checkpoint:           CHK-00004 · full-pipeline (2026-09-13T16:32:29.271Z)\nBlocks:                    1\n\nRELEVANT DECISIONS (2)\n  - DEC-00011 [blocked] Mirror the work into a local git repository named develo-courseapp-simplify, pre-configured with per-phase com\n  - DEC-00002 [approved] node:sqlite (integrado en Node 22) + tablas virtuales FTS5, con archivos\nJSON para la configuración.\n\nFAILED ATTEMPTS / OPEN INTERRUPTIONS (1)\n  - ERR-00001 [low · resolved] gh repo create SoftEngAi-dev/develo-courseapp-simplify\n  —\n\nKNOWN CONSTRAINTS\n  - POL-0001 observability.everything_is_an_event: Nothing happens without leaving an observable project event.\n  - POL-0002 mutation.never_rewrite_wholesale: Before modifying anything: READ -> UNDERSTAND -> DIFF -> PLAN -> PATCH -> VERIFY -> COMMIT. Never rewrite an entire project.\n  - POL-0003 checkpoint.before_risky_mutation: Create a checkpoint before any operation that can destroy previous state.\n  - POL-0005 core.zero_dependencies: The core engine must run with an empty node_modules. External frameworks are optional adapters.\n  - POL-0006 agent.contextualize_before_reasoning: Ask 'what do we already know?' before asking 'what must I do?'.\n  - POL-0007 documentation.by_design_not_by_reminder: The system documents itself. Never depend on the human remembering to say 'now document this'.\n  - POL-0008 education.trilingual_comments: Code identifiers in English; comments trilingual and pedagogical, written as a course for absolute beginners.\n  - POL-0009 reasoning.store_explainable_trace_not_private_thoughts: Store a Decision Trace (objective, context, constraints, alternatives, decision, justification, action, result, verification, learning). Never attempt to transcribe a model's private reasoning.\n  - POL-0011 ui.offline_first_dual_mode: The console is an installable PWA usable with AND without connection. Every view must render from the live API, from the service-worker cache, or from the bundled snapshot, in that order. The interface must always flag the active mode and the sync time: stale data is never presented as fresh. No new npm dependency may be introduced to achieve this.\n  - REQ-0001 Document absolutely everything that happens in the project\n  - REQ-0002 Separate data into five levels (raw / processed / knowledge / project / control)\n  - REQ-0005 Work fully offline with zero npm dependencies in the core\n  - REQ-0010 Never overwrite: snapshot, diff, patch, verify, rollback\n  - REQ-0016 Nunca se debe sobrescribir un archivo sin READ → UNDERSTAND → DIFF → PLAN → PATCH → VERIFY → COMMIT.\n  - REQ-0003 Store explainable Decision Traces instead of private model reasoning\n  - REQ-0004 Treat interruptions ('cortes') as first-class events\n  - REQ-0006 Web app that is simultaneously full-featured and offline-capable\n  - REQ-0007 Trilingual pedagogical code comments (ES/EN/PT) written as a beginner course\n  - REQ-0009 Autonomous agent with context, planner, executor, verifier and recovery\n\nREQUIRED FILES\n  - data/raw\n  - data/processed\n  - knowledge\n  - .\n  - control\n  - control/manifest.json\n  - control/state.json\n  - control/tasks.json\n  - control/decisions.json\n\nRELATED DOCUMENTATION\n  - [lesson] LES-00002 La capacidad offline no es una característica de la interfaz, es una propiedad del núcleo. Si el núcleo depend\n  - [lesson] LES-00001 Verificar los permisos reales del token antes de prometer operaciones de infraestructura externa; un dry-run d\n  - [plan] PLN-00001 Bootstrap\n  - [plan] PLN-00002 Captura\n  - [plan] PLN-00003 Knowledge Engine\n  - [plan] PLN-00004 completada: SQLite + FTS5, procesadores, grafo de conocimiento y Context Engine.\n\nSEARCHES PERFORMED\n  - SRC-00001 \"node:sqlite experimental FTS5 support Node 22\" → selected: node:sqlite with FTS5 virtual tables\n\nRECENT TIMELINE\n  - 15:48:38 PLAN_CREATED           requirements {\"id\":\"PLN-00004\",\"objective\":\"completada: SQLite + FTS5, procesadores, grafo de conocimiento y Context Engine.\",\"steps\"\n  - 15:48:38 ERROR_DETECTED         verification {\"id\":\"ERR-00001\",\"severity\":\"low\",\"message\":\"gh repo create SoftEngAi-dev/develo-courseapp-simplify\",\"http_code\":\"403\",\n  - 15:48:38 SEARCH_PERFORMED       knowledge {\"id\":\"SRC-00001\",\"query\":\"node:sqlite experimental FTS5 support Node 22\",\"reason\":\"el contrato de API se convierte en l\n  - 15:48:38 KNOWLEDGE_EXTRACTED    knowledge {\"kind\":\"session-entities\",\"id\":\"SES-00001\",\"decisions\":2,\"plans\":4,\"errors\":1,\"searches\":1,\"requirements\":6,\"lessons\":0\n  - 15:48:38 KNOWLEDGE_EXTRACTED    knowledge {\"kind\":\"knowledge-graph\",\"categories\":11,\"technologies\":14,\"decisions\":11,\"requirements\":16,\"tasks\":11,\"lessons\":1,\"mis\n  - 15:48:38 KNOWLEDGE_EXTRACTED    knowledge {\"kind\":\"full-processing\",\"decisions\":2,\"plans\":4,\"errors\":1,\"searches\":1,\"requirements\":6,\"lessons\":0,\"requirement_chan\n  - 15:52:58 STATE_UPDATED          control {\"reason\":\"reconcile\",\"progress\":40,\"current_task\":\"TSK-00011\"}\n  - 15:53:05 BUILD_COMPLETED        application {\"kind\":\"api-server\",\"port\":3000,\"host\":\"0.0.0.0\",\"routes\":32}\n  - 15:53:12 TOOL_EXECUTED          application {\"tool\":\"http-api\",\"method\":\"GET\",\"path\":\"/api/health\",\"status\":200,\"ms\":4}\n  - 15:53:12 ERROR_DETECTED         application {\"tool\":\"http-api\",\"path\":\"/api/stats\",\"message\":\"no such column: \\\"\\\" - should this be a string literal in single-quote\n  - 15:53:12 TOOL_EXECUTED          application {\"tool\":\"http-api\",\"method\":\"GET\",\"path\":\"/api/recent\",\"status\":200,\"ms\":1}\n  - 15:53:12 TOOL_EXECUTED          application {\"tool\":\"http-api\",\"method\":\"GET\",\"path\":\"/api/graph\",\"status\":200,\"ms\":2}\n\nNEXT RECOMMENDED ACTION\n  Run `npm run demo` to ingest the real architecture session, then `npm run serve` to browse the knowledge.\n\nREMAINING ROADMAP\n  - phase-3 Documentation Engine [stub, weight 10]\n  - phase-4 Web App [stub, weight 15]\n  - phase-5 Agent [stub, weight 20]\n  - phase-6 Education [stub, weight 10]\n  - phase-7 Autonomous Evolution [stub, weight 5]\n\n════════════════════════════════════════════════════════════════════════",
+    "context?format=md": "# Session Context — Genesis Autonomous Engineering\n\n_Generated 2026-09-13T16:41:59.048Z · Rule: Nothing happens without leaving an observable project event._\n\n## Where we are\n- Progress: **40%**\n- Phase: phase-3 (Documentation Engine) — stub\n- Task: TSK-00011 — Publish mirror repository develo-courseapp-simplify and open PR [blocked]\n- Last checkpoint: CHK-00004\n- Open blocks: 1\n\n## Relevant decisions\n- **DEC-00011** [blocked] Mirror the work into a local git repository named develo-courseapp-simplify, pre-configured with per-phase commits and a remote placeholder, so the user only has to create the GitHub repo and push. — _Preserves the user's intent without inventing permissions we do not have._\n- **DEC-00002** [approved] node:sqlite (integrado en Node 22) + tablas virtuales FTS5, con archivos\nJSON para la configuración. — _menor complejidad inicial, búsqueda full-text real, funcionamiento local y\noffline, y cero riesgo de cadena de suministro._\n\n## Failed attempts (do not repeat)\n- ERR-00001 gh repo create SoftEngAi-dev/develo-courseapp-simplify → recovery: construir en la rama de la sesión (cuyo push sí funciona) y dejar preparado un repositorio local listo para publicar en cuanto exista el remoto.\n\n## Hard constraints\n- `observability.everything_is_an_event` — Nothing happens without leaving an observable project event.\n- `mutation.never_rewrite_wholesale` — Before modifying anything: READ -> UNDERSTAND -> DIFF -> PLAN -> PATCH -> VERIFY -> COMMIT. Never rewrite an entire project.\n- `checkpoint.before_risky_mutation` — Create a checkpoint before any operation that can destroy previous state.\n- `core.zero_dependencies` — The core engine must run with an empty node_modules. External frameworks are optional adapters.\n- `agent.contextualize_before_reasoning` — Ask 'what do we already know?' before asking 'what must I do?'.\n- `documentation.by_design_not_by_reminder` — The system documents itself. Never depend on the human remembering to say 'now document this'.\n- `education.trilingual_comments` — Code identifiers in English; comments trilingual and pedagogical, written as a course for absolute beginners.\n- `reasoning.store_explainable_trace_not_private_thoughts` — Store a Decision Trace (objective, context, constraints, alternatives, decision, justification, action, result, verification, learning). Never attempt to transcribe a model's private reasoning.\n- `ui.offline_first_dual_mode` — The console is an installable PWA usable with AND without connection. Every view must render from the live API, from the service-worker cache, or from the bundled snapshot, in that order. The interface must always flag the active mode and the sync time: stale data is never presented as fresh. No new npm dependency may be introduced to achieve this.\n\n## Files involved\n- `data/raw`\n- `data/processed`\n- `knowledge`\n- `.`\n- `control`\n- `control/manifest.json`\n- `control/state.json`\n- `control/tasks.json`\n- `control/decisions.json`\n\n## Next recommended action\n- EN: Run `npm run demo` to ingest the real architecture session, then `npm run serve` to browse the knowledge.\n- ES: Ejecutar `npm run demo` para ingerir la sesión real de arquitectura y luego `npm run serve` para ver el conocimiento en el navegador.\n- PT: Execute `npm run demo` para ingerir a sessão real de arquitetura e depois `npm run serve` para ver o conhecimento no navegador.\n\n## Remaining roadmap\n- phase-3 — Documentation Engine (stub, weight 10)\n- phase-4 — Web App (stub, weight 15)\n- phase-5 — Agent (stub, weight 20)\n- phase-6 — Education (stub, weight 10)\n- phase-7 — Autonomous Evolution (stub, weight 5)",
     "recent?limit=5": {
       "decisions": [
         {
@@ -9523,7 +10175,7 @@
             "how_built": null,
             "problems": null,
             "learned": null,
-            "created_at": "2026-09-13T16:32:29.233Z",
+            "created_at": "2026-09-13T16:41:58.910Z",
             "code_refs": [],
             "sessions": [
               "SES-00001"
@@ -9552,7 +10204,7 @@
             "how_built": null,
             "problems": null,
             "learned": "node:sqlite with FTS5 virtual tables",
-            "created_at": "2026-09-13T16:32:29.266Z",
+            "created_at": "2026-09-13T16:41:58.945Z",
             "code_refs": [],
             "sessions": [],
             "sources": [
@@ -9605,7 +10257,7 @@
             "how_built": null,
             "problems": null,
             "learned": null,
-            "created_at": "2026-09-13T16:32:29.259Z",
+            "created_at": "2026-09-13T16:41:58.937Z",
             "code_refs": [],
             "sessions": [],
             "sources": [],
@@ -9742,7 +10394,7 @@
             "how_built": "menor complejidad inicial, búsqueda full-text real, funcionamiento local y\noffline, y cero riesgo de cadena de suministro.",
             "problems": null,
             "learned": "el esquema es SQL portable, así que puede migrar a PostgreSQL después\nsin rediseño.",
-            "created_at": "2026-09-13T16:32:29.243Z",
+            "created_at": "2026-09-13T16:41:58.920Z",
             "code_refs": [],
             "sessions": [],
             "sources": [],
@@ -9856,7 +10508,7 @@
             "progress": 100,
             "created_at": "2026-09-13T00:00:00.000Z",
             "completed_at": "2026-09-13T00:00:00.000Z",
-            "updated_at": "2026-09-13T16:32:29.195Z"
+            "updated_at": "2026-09-13T16:41:58.840Z"
           }
         }
       ]
@@ -9886,7 +10538,7 @@
             "how_built": null,
             "problems": null,
             "learned": null,
-            "created_at": "2026-09-13T16:32:29.259Z",
+            "created_at": "2026-09-13T16:41:58.938Z",
             "code_refs": [],
             "sessions": [],
             "sources": [],
@@ -9916,7 +10568,7 @@
             "how_built": null,
             "problems": null,
             "learned": null,
-            "created_at": "2026-09-13T16:32:29.264Z",
+            "created_at": "2026-09-13T16:41:58.943Z",
             "code_refs": [],
             "sessions": [],
             "sources": [],
@@ -9963,7 +10615,7 @@
             "how_built": null,
             "problems": null,
             "learned": "core.zero_dependencies=true",
-            "created_at": "2026-09-13T16:32:29.265Z",
+            "created_at": "2026-09-13T16:41:58.944Z",
             "code_refs": [],
             "sessions": [],
             "sources": [],
@@ -9990,7 +10642,7 @@
             "how_built": null,
             "problems": null,
             "learned": null,
-            "created_at": "2026-09-13T16:32:29.252Z",
+            "created_at": "2026-09-13T16:41:58.930Z",
             "code_refs": [],
             "sessions": [],
             "sources": [],
@@ -10020,7 +10672,7 @@
             "how_built": null,
             "problems": null,
             "learned": null,
-            "created_at": "2026-09-13T16:32:29.252Z",
+            "created_at": "2026-09-13T16:41:58.931Z",
             "code_refs": [],
             "sessions": [],
             "sources": [],
@@ -10050,7 +10702,7 @@
             "how_built": null,
             "problems": null,
             "learned": null,
-            "created_at": "2026-09-13T16:32:29.256Z",
+            "created_at": "2026-09-13T16:41:58.934Z",
             "code_refs": [],
             "sessions": [],
             "sources": [],
@@ -10135,7 +10787,7 @@
             "progress": 100,
             "created_at": "2026-09-13T16:29:27.875Z",
             "completed_at": "2026-09-13T16:29:27.875Z",
-            "updated_at": "2026-09-13T16:32:29.195Z"
+            "updated_at": "2026-09-13T16:41:58.840Z"
           }
         },
         {
@@ -10154,8 +10806,8 @@
             "acceptance": "npm install is never required to run init/capture/process/search/context/serve.",
             "source_id": "control/manifest.json",
             "session_id": null,
-            "created_at": "2026-09-13T16:32:29.195Z",
-            "updated_at": "2026-09-13T16:32:29.195Z"
+            "created_at": "2026-09-13T16:41:58.840Z",
+            "updated_at": "2026-09-13T16:41:58.840Z"
           }
         },
         {
@@ -10174,8 +10826,8 @@
             "acceptance": "Zero-dep console works with no node_modules; Next.js app consumes the same API.",
             "source_id": "control/manifest.json",
             "session_id": null,
-            "created_at": "2026-09-13T16:32:29.195Z",
-            "updated_at": "2026-09-13T16:32:29.195Z"
+            "created_at": "2026-09-13T16:41:58.840Z",
+            "updated_at": "2026-09-13T16:41:58.840Z"
           }
         },
         {
@@ -10194,7 +10846,7 @@
             "progress": 100,
             "created_at": "2026-09-13T00:00:00.000Z",
             "completed_at": "2026-09-13T00:00:00.000Z",
-            "updated_at": "2026-09-13T16:32:29.195Z"
+            "updated_at": "2026-09-13T16:41:58.840Z"
           }
         },
         {
@@ -10214,7 +10866,7 @@
             "source_id": "[{\"session_id\":\"SES-00001\",\"message_id\":\"MSG-00001\"}]",
             "session_id": "SES-00001",
             "created_at": "2026-09-13T15:48:38.303Z",
-            "updated_at": "2026-09-13T16:32:29.223Z"
+            "updated_at": "2026-09-13T16:41:58.900Z"
           }
         },
         {
@@ -10237,7 +10889,7 @@
             "how_built": "el contrato de API se convierte en la costura. La capacidad offline la\ngarantizan las capas 1 y 2; las funciones completas, la capa 3.",
             "problems": null,
             "learned": "cualquier interfaz puede reemplazarse sin tocar el motor.",
-            "created_at": "2026-09-13T16:32:29.247Z",
+            "created_at": "2026-09-13T16:41:58.923Z",
             "code_refs": [],
             "sessions": [],
             "sources": [],
@@ -10308,7 +10960,7 @@
             "how_built": null,
             "problems": null,
             "learned": "node:sqlite with FTS5 virtual tables",
-            "created_at": "2026-09-13T16:32:29.266Z",
+            "created_at": "2026-09-13T16:41:58.945Z",
             "code_refs": [],
             "sessions": [],
             "sources": [
@@ -10393,7 +11045,7 @@
             "how_built": "A PWA is the only option that installs on desktop and mobile, works offline, keeps zero dependencies and needs no build step. The service worker turns \"offline\" from an error into a mode with real data, and the snapshot makes even the first offline boot useful.",
             "problems": null,
             "learned": "apps/console gains sw.js, manifest.webmanifest, icons/ (generated by scripts/generate-icons.js) and snapshot.json (generated by scripts/export-console-snapshot.js). POL-0011 now forbids shipping a view that cannot render from cache or snapshot. Regenerating the snapshot is part of the release ritual.",
-            "created_at": "2026-09-13T16:32:29.250Z",
+            "created_at": "2026-09-13T16:41:58.927Z",
             "code_refs": [],
             "sessions": [],
             "sources": [],
@@ -10490,7 +11142,7 @@
             "how_built": "menor complejidad inicial, búsqueda full-text real, funcionamiento local y\noffline, y cero riesgo de cadena de suministro.",
             "problems": null,
             "learned": "el esquema es SQL portable, así que puede migrar a PostgreSQL después\nsin rediseño.",
-            "created_at": "2026-09-13T16:32:29.243Z",
+            "created_at": "2026-09-13T16:41:58.920Z",
             "code_refs": [],
             "sessions": [],
             "sources": [],
@@ -10634,7 +11286,7 @@
             "how_built": null,
             "problems": null,
             "learned": null,
-            "created_at": "2026-09-13T16:32:29.232Z",
+            "created_at": "2026-09-13T16:41:58.909Z",
             "code_refs": [],
             "sessions": [
               "SES-00001"
@@ -10663,7 +11315,7 @@
             "how_built": null,
             "problems": null,
             "learned": null,
-            "created_at": "2026-09-13T16:32:29.257Z",
+            "created_at": "2026-09-13T16:41:58.936Z",
             "code_refs": [],
             "sessions": [],
             "sources": [],
@@ -10689,7 +11341,7 @@
             "progress": 100,
             "created_at": "2026-09-13T00:00:00.000Z",
             "completed_at": "2026-09-13T00:00:00.000Z",
-            "updated_at": "2026-09-13T16:32:29.195Z"
+            "updated_at": "2026-09-13T16:41:58.840Z"
           }
         },
         {
@@ -10772,8 +11424,8 @@
             "acceptance": "Checkpoints can restore control state and are created before risky mutations.",
             "source_id": "control/manifest.json",
             "session_id": null,
-            "created_at": "2026-09-13T16:32:29.195Z",
-            "updated_at": "2026-09-13T16:32:29.195Z"
+            "created_at": "2026-09-13T16:41:58.840Z",
+            "updated_at": "2026-09-13T16:41:58.840Z"
           }
         },
         {
@@ -10839,7 +11491,7 @@
             "how_built": null,
             "problems": null,
             "learned": null,
-            "created_at": "2026-09-13T16:32:29.254Z",
+            "created_at": "2026-09-13T16:41:58.933Z",
             "code_refs": [],
             "sessions": [],
             "sources": [],

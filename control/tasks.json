@@ -258,8 +258,8 @@
       "interruption": "INT-00001",
       "recovery_plan": [
         "Human creates SoftEngAi-dev/develo-courseapp-simplify on GitHub (or grants the integration repo-creation permission).",
-        "Run: git -C /home/user/develo-courseapp-simplify push -u origin main",
-        "Run: gh pr create --base main --head genesis/foundation"
+        "git -C /home/user/develo-courseapp-simplify push -u origin main",
+        "gh pr create --repo SoftEngAi-dev/Develop-CourseApp --base main --head arena/01a09b49-develop-courseapp --title \"GENESIS foundation: phases 0-2 executable + offline PWA console\""
       ]
     },
     {
