@@ -170,6 +170,12 @@ COMMANDS.help = {
       '    genesis serve                Start the zero-dependency API + offline console',
       '    genesis routes               List every HTTP route of the API',
       '',
+      paint(c.bold, '  AUTONOMY'),
+      '    genesis docs [--verify]      Generate/verify the automatic documentation',
+      '    genesis agent [--run]        One autonomous turn (dry-run by default)',
+      '    genesis courses [--reverse]  Turn completed builds into a course',
+      '    genesis evolve [--promote]   Promote rules, install prechecks, measure',
+      '',
       paint(c.gray, '  Global flags:  --json  --limit N  --quiet  --force'),
       '',
     ];
@@ -905,6 +911,145 @@ COMMANDS.routes = {
     for (const route of routes) {
       process.stdout.write(`  ${paint(route.method === 'GET' ? c.green : c.yellow, route.method.padEnd(5, ' '))} ${paint(c.bold, route.pattern.padEnd(38, ' '))} ${paint(c.gray, route.description)}\n`);
     }
+    process.stdout.write('\n');
+    return 0;
+  },
+};
+
+COMMANDS.docs = {
+  description: 'Generate the automatic documentation set (Phase 3 engine)',
+  usage: 'genesis docs [--verify] [--json]',
+  async run({ flags, bus, logger }) {
+    const { generateAll, verifyDocumentation } = await import('../../documentation/engine/index.js');
+    const db = openDatabase();
+    if (flags.verify) {
+      const result = verifyDocumentation({ db });
+      if (!result.ok) { logger.error(result.error.message); return 1; }
+      if (asJson(flags, result.value)) return 0;
+      const icon = result.value.consistent ? paint(c.green, '✓') : paint(c.yellow, '⚠');
+      process.stdout.write(`\n  ${icon} documentation ${result.value.consistent ? 'is consistent with the database' : 'HAS DRIFT'}\n`);
+      for (const item of result.value.drift ?? []) process.stdout.write(`  ${paint(c.yellow, '•')} ${item}\n`);
+      process.stdout.write('\n');
+      return result.value.consistent ? 0 : 1;
+    }
+    const result = generateAll({ db, bus });
+    if (!result.ok) { logger.error(result.error.message); return 1; }
+    if (asJson(flags, result.value)) return 0;
+    process.stdout.write(heading('documentation generated') + '\n');
+    process.stdout.write(`${row('files', String(result.value.files.length))}\n`);
+    process.stdout.write(`${row('decisions', String(result.value.counts.decisions))}\n`);
+    process.stdout.write(`${row('events in timeline', String(result.value.counts.events))}\n`);
+    process.stdout.write(`${row('consistent', String(result.value.verification.consistent))}\n`);
+    for (const file of result.value.files.slice(0, 8)) process.stdout.write(`  ${paint(c.gray, '·')} ${file}\n`);
+    process.stdout.write('\n');
+    return 0;
+  },
+};
+
+COMMANDS.agent = {
+  description: 'Run one autonomous agent turn (observe → … → learn). Dry-run by default',
+  usage: 'genesis agent [--run] [--turns N] [--goal "text"] [--json]',
+  long: `
+  Dry-run (default): observes, contextualizes, reasons, plans and verifies
+  WITHOUT mutating anything. With --run it executes the plan (checkpoint first)
+  via the orchestrator, respecting the budgets in core/orchestrator.`,
+  async run({ flags, bus, logger }) {
+    const { runWorkflow } = await import('../orchestrator/index.js');
+    const dryRun = !flags.run;
+    const turns = Math.max(1, Number(flags.turns ?? 1));
+    const db = openDatabase({ readOnly: dryRun });
+    const result = await runWorkflow({ turns, dryRun, goal: typeof flags.goal === 'string' ? flags.goal : null, bus, db });
+    closeDatabase(db);
+    if (!result.ok) { logger.error(result.error.message); return 1; }
+    if (asJson(flags, result.value)) return 0;
+
+    process.stdout.write(heading('agent turn(s)') + '\n');
+    process.stdout.write(row('mode', dryRun ? paint(c.yellow, 'DRY-RUN (no mutations)') : paint(c.green, 'EXECUTING')) + '\n');
+    process.stdout.write(row('turns executed', `${result.value.turns_executed}/${result.value.turns_requested}`) + '\n');
+    for (const report of result.value.reports) {
+      const icon = report.status === 'completed' ? paint(c.green, '✓') : paint(c.red, '✗');
+      process.stdout.write(`\n  ${icon} turn ${report.turn ?? '?'} — ${report.status ?? 'unknown'}\n`);
+      process.stdout.write(`${row('goal', String(report.goal ?? report.error ?? '—').slice(0, 80))}\n`);
+      process.stdout.write(`${row('stages', (report.stages_completed ?? []).join(' → '))}\n`);
+      if (report.execution?.mode === 'dry-run') {
+        for (const step of report.execution.would_execute ?? []) process.stdout.write(`    ${paint(c.gray, `step ${step.order}:`)} ${step.tool} — ${String(step.action).slice(0, 60)}\n`);
+      }
+      if (report.recovery_suggestion) process.stdout.write(`${row('recovery', `${report.recovery_suggestion.capability}: ${report.recovery_suggestion.suggested_command}`)}\n`);
+    }
+    process.stdout.write('\n');
+    return 0;
+  },
+};
+
+COMMANDS.courses = {
+  description: 'Turn completed builds into a course (Phase 6 education engine)',
+  usage: 'genesis courses [--reverse] [--json]',
+  async run({ flags, bus, logger }) {
+    const courses = await import('../../documentation/courses/index.js');
+    const db = openDatabase();
+    const result = flags.reverse
+      ? courses.reverseEngineerCurriculum({ db, bus })
+      : courses.buildCurriculum({ db, bus });
+    closeDatabase(db);
+    if (!result.ok) { logger.error(result.error.message); return 1; }
+    if (asJson(flags, result.value)) return 0;
+    process.stdout.write(heading(flags.reverse ? 'reverse-engineered curriculum' : 'curriculum generated') + '\n');
+    if (flags.reverse) {
+      process.stdout.write(row('file', result.value.file) + '\n');
+      process.stdout.write(row('evidence', `${result.value.decisions} decisions · ${result.value.errors} errors · ${result.value.lessons} lessons`) + '\n');
+    } else {
+      process.stdout.write(row('out', result.value.out) + '\n');
+      process.stdout.write(row('modules', String(result.value.modules)) + '\n');
+      for (const file of result.value.lesson_files) process.stdout.write(`  ${paint(c.gray, '·')} ${file}\n`);
+    }
+    process.stdout.write('\n');
+    return 0;
+  },
+};
+
+COMMANDS.evolve = {
+  description: 'Close the learning loop: promote rules, install prechecks, measure (Phase 7)',
+  usage: 'genesis evolve [--promote] [--skill name] [--propose] [--json]',
+  async run({ flags, bus, logger }) {
+    const skills = await import('../../skills/index.js');
+    const db = openDatabase();
+    const output = {};
+
+    if (flags.promote) {
+      const promoted = skills.promoteRules({ db, bus, approvedBy: 'operator via `genesis evolve --promote`', enforcement: 'hard' });
+      if (!promoted.ok) { closeDatabase(db); logger.error(promoted.error.message); return 1; }
+      output.promoted = promoted.value;
+    }
+    const prechecks = skills.installPrechecks({ bus });
+    if (!prechecks.ok) { closeDatabase(db); logger.error(prechecks.error.message); return 1; }
+    output.prechecks = prechecks.value;
+
+    if (typeof flags.skill === 'string') {
+      const registered = skills.registerSkill({
+        name: flags.skill, trigger: 'manual', bus,
+        steps: ['genesis status', 'genesis checkpoint', 'genesis agent --run --turns 1'],
+        verification: 'verifyPolicies() passes after the run',
+      });
+      if (!registered.ok) { closeDatabase(db); logger.error(registered.error.message); return 1; }
+      output.skill = registered.value;
+    }
+    if (flags.propose) {
+      const proposal = skills.proposeArchitectureEvolution({ db, bus });
+      if (!proposal.ok) { closeDatabase(db); logger.error(proposal.error.message); return 1; }
+      output.proposal = proposal.value;
+    }
+    const metrics = skills.evolutionMetrics({ db });
+    closeDatabase(db);
+    if (!metrics.ok) { logger.error(metrics.error.message); return 1; }
+    output.metrics = metrics.value;
+
+    if (asJson(flags, output)) return 0;
+    process.stdout.write(heading('evolution') + '\n');
+    if (output.promoted) process.stdout.write(row('rules promoted', `${output.promoted.promoted} (${output.promoted.policies.map((p) => p.id).join(', ') || 'none — already promoted'})`) + '\n');
+    process.stdout.write(row('prechecks installed', `${output.prechecks.installed} (${output.prechecks.blocking} blocking)`) + '\n');
+    process.stdout.write(row('is learning?', output.metrics.is_learning ? paint(c.green, 'YES') : paint(c.yellow, 'not yet')) + '\n');
+    process.stdout.write(row('policies from lessons', String(output.metrics.policies_born_from_lessons)) + '\n');
+    if (output.proposal) process.stdout.write(row('proposal', output.proposal.file) + '\n');
     process.stdout.write('\n');
     return 0;
   },

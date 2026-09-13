@@ -1,96 +1,187 @@
 /* ═══════════════════════════════════════════════════════════════════════════
- * core/verifier/index.js — PHASE 5 · VERIFICATION GATES (skeleton)
+ * core/verifier/index.js — PHASE 5 · VERIFIER (implemented)
  * ───────────────────────────────────────────────────────────────────────────
- * 🇪🇸 ES — QUÉ HARÁ: decidir si un cambio PUEDE entrar. Cuatro niveles de
- *     verificación declarados en control/manifest.json → verification.levels:
- *       unit · integration · pipeline · mutation-safety
- *     Cada nivel es una puerta: si una falla, el cambio no se confirma y se
- *     dispara el rollback. Verificar no es "probar que funciona", es "impedir
- *     que entre lo que no funciona".
- *     ESTADO: ESQUELETO (DEC-00009).
- *     QUÉ SÍ EXISTE: piezas sueltas ya operativas — core/validation/schema.js
- *     (valida el plano de control), tests/ con `node --test`, `genesis doctor`
- *     (diagnóstico del entorno: node, sqlite, FTS5, rutas, permisos).
+ * 🇪🇸 ES — QUÉ HACE: las cuatro compuertas de verificación del sistema.
+ *     verifyChange   → corre la suite (node --test) y parsea el resumen TAP:
+ *                      pass/fail reales, no opiniones.
+ *     verifyAcceptance → comprueba criterios de aceptación concretos: existencia
+ *                      de archivos, conteos mínimos, texto presente.
+ *     verifyPolicies → políticas verificables a máquina: POL-0001 (cero
+ *                      dependencias npm), POL-0011 (la consola offline tiene
+ *                      snapshot + service worker), y los prechecks instalados
+ *                      por la Fase 7 (control/prechecks.json).
+ *     verifyReversibility → ¿existe un checkpoint cargable ANTES de mutar?
+ *     Cada verificación devuelve evidencia ({checks, passed, failed}), nunca un
+ *     simple true/false: si falla, el reporte dice QUÉ y con QUÉ número.
  *
- * 🇬🇧 EN — WHAT IT WILL DO: decide whether a change MAY enter. Four verification
- *     levels declared in control/manifest.json → verification.levels:
- *       unit · integration · pipeline · mutation-safety
- *     Each level is a gate: if one fails, the change is not committed and rollback
- *     fires. Verifying is not "proving it works", it is "preventing what does not
- *     work from entering".
- *     STATUS: SKELETON (DEC-00009).
- *     WHAT ALREADY EXISTS: working pieces — core/validation/schema.js (validates
- *     the control plane), tests/ with `node --test`, `genesis doctor` (environment
- *     diagnosis: node, sqlite, FTS5, paths, permissions).
+ * 🇬🇧 EN — WHAT IT DOES: the system's four verification gates. verifyChange
+ *     runs the test suite and parses the real TAP summary; verifyAcceptance
+ *     checks concrete acceptance criteria (files exist, minimum counts, text
+ *     present); verifyPolicies machine-checks policies (POL-0001 zero npm
+ *     dependencies, POL-0011 offline console has snapshot + service worker) plus
+ *     the prechecks installed by Phase 7; verifyReversibility proves a loadable
+ *     checkpoint exists BEFORE mutating. Every gate returns EVIDENCE, never a
+ *     bare true/false.
  *
- * 🇧🇷 PT — O QUE FARÁ: decidir se uma mudança PODE entrar. Quatro níveis:
- *     unit · integration · pipeline · mutation-safety. ESTADO: ESQUELETO (DEC-00009).
- *     O QUE JÁ EXISTE: core/validation/schema.js, tests/ com `node --test`, `genesis doctor`.
+ * 🇧🇷 PT — O QUE FAZ: as quatro comportas de verificação. Cada uma devolve
+ *     EVIDÊNCIA ({checks, passed, failed}), nunca um simples verdadeiro/falso.
  *
  * 🎓 BEGINNER COURSE / CURSO PARA PRINCIPIANTES / CURSO PARA INICIANTES
- *   • Pirámide de tests ES/EN/PT: muchos tests UNITARIOS (rápidos, aislados),
- *     menos de INTEGRACIÓN (varios módulos juntos), pocos de PIPELINE (flujo
- *     completo) y alguno de MUTATION-SAFETY (¿el cambio se puede deshacer?).
- *     Invertir la pirámide = suite lenta que nadie ejecuta.
- *     Many fast unit tests, few slow end-to-end tests: the test pyramid.
- *   • Puerta (gate) ES/EN/PT: una comprobación BINARIA con consecuencia. No es un
- *     aviso: si falla, bloquea. Un "warning" que nadie lee no es una puerta.
- *     A gate is binary and has consequences; a warning nobody reads is not a gate.
- *   • Por qué mutation-safety es un nivel propio ES/EN/PT: en este proyecto el
- *     riesgo no es solo "código roto", es "código que no se puede deshacer".
- *     Un cambio correcto pero irreversible es peor que un cambio incorrecto
- *     reversible. Reversibility is verified as its own level.
+ *   • Verificar = medir ES/EN/PT: "creo que funciona" no es verificación.
+ *     Verificación es: ejecuto, cuento pass/fail, comparo contra un umbral
+ *     declarado ANTES de ejecutar. El umbral va primero; si no, siempre se puede
+ *     mover la vara después. Declare the threshold before running, or the bar
+ *     will move after.
+ *   • Evidencia serializable ES/EN/PT: cada check es {name, passed, detail}.
+ *     Eso se puede guardar en la base, imprimir en la consola y diffear entre
+ *     corridas. Un booleano pelado se pierde; la evidencia se audita.
+ *     Every check is a serializable record: booleans get lost, evidence is audited.
+ *   • Políticas a máquina ES/EN/PT: una política que no se puede comprobar con
+ *     código es un póster motivacional. POL-0001 se verifica leyendo
+ *     package.json; POL-0011, existence-checkando sw.js y snapshot.json.
+ *     A policy you cannot machine-check is a motivational poster.
  * ═══════════════════════════════════════════════════════════════════════════ */
 
-import { notImplemented } from '../shared/stub.js';
+import fs from 'node:fs';
+import path from 'node:path';
+import { ok, fail, attempt } from '../shared/result.js';
+import { PATHS, ROOT } from '../shared/paths.js';
+import { readJson } from '../shared/json.js';
+import { latestCheckpoint, loadCheckpoint } from '../checkpoint/index.js';
+import { runTestSuite } from '../executor/index.js';
 
-const MODULE = 'core/verifier/index.js';
-const SPEC = 'core/agent/SPEC.md';
-const PHASE = 'phase-5';
-const TASK = 'TSK-00008';
-
-/** ES/EN/PT: los 4 niveles declarados en el manifiesto. The 4 declared levels. */
+/** ES/EN/PT: los cuatro niveles declarados en control/manifest.json. */
 export const VERIFICATION_LEVELS = Object.freeze(['unit', 'integration', 'pipeline', 'mutation-safety']);
 
-/** ES: ejecuta TODAS las puertas y devuelve veredicto + informe por nivel. */
+/**
+ * ES: compuerta 1 — ¿el cambio pasa la suite de verificación?
+ * EN: gate 1 — does the change pass the verification suite?
+ * PT: comporta 1 — a mudança passa na suíte de verificação?
+ *
+ * @param {{ level?: string, bus?: object, minPass?: number }} [options]
+ */
 export function verifyChange(options = {}) {
-  return notImplemented({
-    phase: PHASE, plannedIn: TASK, module: MODULE, spec: SPEC,
-    capability: 'run every verification gate on a pending change and return a pass/fail verdict per level',
-    available: '`npm test` runs `node --disable-warning=ExperimentalWarning --test tests/`; `genesis doctor` checks the environment; core/validation/schema.js validates control-plane JSON.',
-    levels: VERIFICATION_LEVELS,
-    details_requested: Object.keys(options),
-  });
+  const { bus = null, minPass = 1 } = options;
+  const level = options.level ?? 'integration';
+  if (!VERIFICATION_LEVELS.includes(level)) {
+    return fail(`Unknown verification level "${level}" — allowed: ${VERIFICATION_LEVELS.join(', ')}`, { code: 'level_unknown', interruptionType: 'ambiguity' });
+  }
+  const suite = runTestSuite({ bus });
+  if (!suite.ok) {
+    return ok({ verified: false, level, checks: [{ name: 'test-suite', passed: false, detail: suite.error.message }], passed: 0, failed: 1 });
+  }
+  const value = suite.value;
+  const checks = [{ name: 'test-suite', passed: value.ok && value.pass >= minPass, detail: `pass=${value.pass} fail=${value.fail} exit=${value.exit_code}` }];
+  return ok({ verified: checks.every((check) => check.passed), level, checks, passed: value.pass, failed: value.fail });
 }
 
-/** ES: comprueba los criterios de aceptación de una tarea concreta. */
+/**
+ * ES: compuerta 2 — criterios de aceptación CONCRETOS. Cada criterio es uno de:
+ *     {kind:'file-exists', path} · {kind:'min-bytes', path, min} ·
+ *     {kind:'contains', path, text} · {kind:'count-json', path, key, min}.
+ * EN: gate 2 — CONCRETE acceptance criteria of four kinds (file exists, minimum
+ *     bytes, contains text, JSON array/count minimum).
+ * PT: comporta 2 — critérios de aceitação CONCRETOS de quatro tipos.
+ *
+ * @param {{ criteria?: object[], task?: string|null }} [options]
+ */
 export function verifyAcceptance(options = {}) {
-  return notImplemented({
-    phase: PHASE, plannedIn: TASK, module: MODULE, spec: SPEC,
-    capability: 'check a task acceptance criteria one by one and report which are met',
-    available: 'every task in control/tasks.json already carries an `acceptance` field; `genesis tasks` prints them.',
-    details_requested: Object.keys(options),
-  });
+  const { criteria = [], task = null } = options;
+  return attempt(() => {
+    const checks = criteria.map((criterion) => {
+      const target = path.isAbsolute(criterion.path ?? '') ? criterion.path : path.join(ROOT, criterion.path ?? '');
+      try {
+        switch (criterion.kind) {
+          case 'file-exists':
+            return { name: `file-exists ${criterion.path}`, passed: fs.existsSync(target), detail: criterion.path };
+          case 'min-bytes': {
+            const bytes = fs.existsSync(target) ? fs.statSync(target).size : 0;
+            return { name: `min-bytes ${criterion.path}`, passed: bytes >= Number(criterion.min ?? 1), detail: `${bytes} >= ${criterion.min ?? 1}` };
+          }
+          case 'contains': {
+            const content = fs.existsSync(target) ? fs.readFileSync(target, 'utf8') : '';
+            return { name: `contains ${criterion.path}`, passed: content.includes(criterion.text ?? ''), detail: `"${String(criterion.text ?? '').slice(0, 60)}"` };
+          }
+          case 'count-json': {
+            const data = readJson(target, null);
+            const count = data ? (Array.isArray(data[criterion.key ?? '']) ? data[criterion.key].length : Number(data[criterion.key ?? ''] ?? 0)) : 0;
+            return { name: `count-json ${criterion.path}`, passed: count >= Number(criterion.min ?? 1), detail: `${criterion.key ?? '?'}=${count} >= ${criterion.min ?? 1}` };
+          }
+          default:
+            return { name: `unknown criterion ${criterion.kind}`, passed: false, detail: 'supported: file-exists, min-bytes, contains, count-json' };
+        }
+      } catch (error) {
+        return { name: `criterion error ${criterion.kind}`, passed: false, detail: error.message };
+      }
+    });
+    const passed = checks.filter((check) => check.passed).length;
+    return { verified: checks.length > 0 && passed === checks.length, task, checks, passed, failed: checks.length - passed };
+  }, { code: 'acceptance_verification_failed', layer: 'verification' });
 }
 
-/** ES: verifica las políticas operativas (POL-0001..POL-0010) contra el estado actual. */
+/**
+ * ES: compuerta 3 — políticas verificables a máquina + prechecks instalados.
+ * EN: gate 3 — machine-checkable policies + installed prechecks (Phase 7).
+ * PT: comporta 3 — políticas verificáveis + prechecks instalados.
+ *
+ * @param {{ bus?: object }} [options]
+ */
 export function verifyPolicies(options = {}) {
-  return notImplemented({
-    phase: PHASE, plannedIn: TASK, module: MODULE, spec: SPEC,
-    capability: 'detect policy violations (e.g. a new npm dependency in the core, a rewritten file)',
-    available: 'control/policies.json holds 10 rules; `genesis doctor` already probes the zero-dependency and offline requirements in practice.',
-    details_requested: Object.keys(options),
-  });
+  return attempt(() => {
+    const checks = [];
+
+    // POL-0001: cero dependencias npm en el núcleo. Zero npm deps in the core.
+    const pkg = readJson(path.join(ROOT, 'package.json'), {});
+    const deps = Object.keys(pkg?.dependencies ?? {}).length + Object.keys(pkg?.devDependencies ?? {}).length;
+    checks.push({ name: 'POL-0001 zero-npm-dependencies', passed: deps === 0, detail: `root package.json has ${deps} dependencies` });
+
+    // POL-0011: la consola offline funciona sin red (snapshot + service worker).
+    const sw = fs.existsSync(path.join(PATHS.consoleApp, 'sw.js'));
+    const snapshot = fs.existsSync(path.join(PATHS.consoleApp, 'snapshot.json'));
+    checks.push({ name: 'POL-0011 offline-console', passed: sw && snapshot, detail: `sw.js=${sw} snapshot.json=${snapshot}` });
+
+    // POL-0003: existe al menos un checkpoint cargable (red de seguridad viva).
+    const checkpoint = latestCheckpoint();
+    checks.push({ name: 'POL-0003 checkpoint-available', passed: Boolean(checkpoint), detail: checkpoint ? checkpoint.id : 'no checkpoints' });
+
+    // Prechecks instalados por la Fase 7 (control/prechecks.json), si existen.
+    const prechecks = readJson(path.join(PATHS.control, 'prechecks.json'), { prechecks: [] });
+    for (const precheck of prechecks.prechecks ?? []) {
+      if (precheck.kind === 'zero-dependencies') {
+        checks.push({ name: `precheck ${precheck.id}`, passed: deps === 0, detail: `origin: ${precheck.origin ?? '—'}` });
+      } else if (precheck.kind === 'file-exists') {
+        const exists = fs.existsSync(path.join(ROOT, precheck.path ?? ''));
+        checks.push({ name: `precheck ${precheck.id}`, passed: exists, detail: `${precheck.path} exists=${exists}` });
+      } else {
+        checks.push({ name: `precheck ${precheck.id}`, passed: true, detail: `advisory rule (not machine-checkable): ${precheck.statement ?? ''}`.slice(0, 160) });
+      }
+    }
+
+    const passed = checks.filter((check) => check.passed).length;
+    return { verified: passed === checks.length, checks, passed, failed: checks.length - passed };
+  }, { code: 'policy_verification_failed', layer: 'verification' });
 }
 
-/** ES: nivel mutation-safety — ¿se puede deshacer este cambio con lo que tenemos? */
+/**
+ * ES: compuerta 4 — reversibilidad: ¿hay un checkpoint cargable al que volver?
+ * EN: gate 4 — reversibility: is there a loadable checkpoint to go back to?
+ * PT: comporta 4 — reversibilidade: existe um checkpoint carregável?
+ *
+ * @param {{ checkpointId?: string|null }} [options]
+ */
 export function verifyReversibility(options = {}) {
-  return notImplemented({
-    phase: PHASE, plannedIn: TASK, module: MODULE, spec: SPEC,
-    capability: 'refuse changes that cannot be rolled back with the existing checkpoints',
-    available: 'core/checkpoint/index.js → createCheckpoint / diffCheckpoints / restoreCheckpoint already provide the mechanism; `genesis checkpoints` lists them.',
-    details_requested: Object.keys(options),
-  });
+  const { checkpointId = null } = options;
+  return attempt(() => {
+    const target = checkpointId ?? latestCheckpoint()?.id ?? null;
+    if (!target) return { reversible: false, checkpoint: null, detail: 'no checkpoint exists — any mutation now would be irreversible' };
+    const loaded = loadCheckpoint(target);
+    const files = loaded.ok ? Object.keys(loaded.value.files ?? {}).length : 0;
+    return {
+      reversible: loaded.ok && files >= 4,
+      checkpoint: target,
+      detail: loaded.ok ? `${files} control-plane files restorable` : loaded.error.message,
+    };
+  }, { code: 'reversibility_verification_failed', layer: 'verification' });
 }
 
 export default { VERIFICATION_LEVELS, verifyChange, verifyAcceptance, verifyPolicies, verifyReversibility };
