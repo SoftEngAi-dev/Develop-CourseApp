@@ -197,6 +197,7 @@
 - **Justification:** Preserves the user's intent without inventing permissions we do not have.
 - **Consequence:** One manual step remains for the human: create the GitHub repo (or grant permission) and run the provided push command.
 - **Evidence:** gh repo create -> 403; git push --dry-run origin -> success.
+- **Amendment (2026-09-13, after the verification suite):** The 403 applies ONLY to `createRepository`. `gh pr create` DOES work: PR https://github.com/SoftEngAi-dev/Develop-CourseApp/pull/1 is open from arena/01a09b49-develop-courseapp into main. TSK-00011 moves to 80%: the remaining blocked step is publishing the mirror repo develo-courseapp-simplify, which still needs a human to create it on GitHub (then: `git -C /home/user/develo-courseapp-simplify push -u origin main`). Observable events: TASK_PROGRESS emitted, checkpoint CHK-00006 (label pr-opened).
 
 ### DEC-00012 — approved (application)
 

@@ -3,7 +3,7 @@
   "project": "genesis",
   "initialized": true,
   "initialized_at": "2026-09-13T00:00:00.000Z",
-  "updated_at": "2026-09-13T17:09:23.733Z",
+  "updated_at": "2026-09-13T17:10:02.473Z",
   "current_phase": "phase-3",
   "current_layer": "infrastructure",
   "current_task": "TSK-00011",
@@ -112,7 +112,7 @@
       "id": "INT-00001",
       "task": "TSK-00011",
       "type": "security_stop",
-      "reason": "GitHub integration token cannot create repositories (HTTP 403).",
+      "reason": "GitHub integration token cannot CREATE repositories (HTTP 403). PR creation DOES work: pull/1 is open.",
       "impact": "low",
       "recoverable": true,
       "status": "open",
@@ -120,10 +120,10 @@
     }
   ],
   "last_checkpoint": {
-    "id": "CHK-00005",
-    "label": "full-pipeline",
-    "created_at": "2026-09-13T17:09:14.287Z",
-    "file": "control/checkpoints/CHK-00005-20260913T170914Z-full-pipeline.json"
+    "id": "CHK-00006",
+    "label": "pr-opened",
+    "created_at": "2026-09-13T17:10:02.472Z",
+    "file": "control/checkpoints/CHK-00006-20260913T171002Z-pr-opened.json"
   },
   "next_recommended_action": {
     "es": "Ejecutar `npm run demo` para ingerir la sesión real de arquitectura y luego `npm run serve` para ver el conocimiento en el navegador.",

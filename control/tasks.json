@@ -246,10 +246,12 @@
       "layer": "infrastructure",
       "title": "Publish mirror repository develo-courseapp-simplify and open PR",
       "status": "blocked",
-      "progress": 60,
+      "progress": 80,
       "created_at": "2026-09-13T00:00:00.000Z",
       "acceptance": "Repository exists on GitHub and receives the per-phase history plus a PR to main.",
-      "artifacts": [],
+      "artifacts": [
+        "https://github.com/SoftEngAi-dev/Develop-CourseApp/pull/1"
+      ],
       "decisions": [
         "DEC-00011"
       ],
@@ -258,9 +260,9 @@
       "interruption": "INT-00001",
       "recovery_plan": [
         "Human creates SoftEngAi-dev/develo-courseapp-simplify on GitHub (or grants the integration repo-creation permission).",
-        "git -C /home/user/develo-courseapp-simplify push -u origin main",
-        "gh pr create --repo SoftEngAi-dev/Develop-CourseApp --base main --head arena/01a09b49-develop-courseapp --title \"GENESIS foundation: phases 0-2 executable + offline PWA console\""
-      ]
+        "git -C /home/user/develo-courseapp-simplify push -u origin main"
+      ],
+      "updated_at": "2026-09-13T17:10:02.469Z"
     },
     {
       "id": "TSK-00012",
