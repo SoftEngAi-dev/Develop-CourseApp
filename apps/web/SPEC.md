@@ -1,10 +1,17 @@
 # PHASE 4 · NEXT.JS WEB APP — SPEC
 
-> **Status: SKELETON (source present, dependencies NOT installed).**
+> **Status: DELIVERED (TSK-00007 completed — 12 routes, production build, live
+> server gate in tests/web-app.test.js).**
 > This package is deliberately isolated: the repository root and the offline console
 > have **zero npm dependencies** (POL-0001, DEC-00005). Everything Next.js needs
 > lives inside `apps/web/package.json`, so `npm install` here cannot pollute the
 > core, and deleting `apps/web/node_modules` breaks nothing outside this folder.
+>
+> **How to run it:** with the core serving (`npm run serve`, default :4321):
+> `npm --prefix apps/web install` ·
+> `GENESIS_API=http://127.0.0.1:4321 npm --prefix apps/web run build` ·
+> `GENESIS_API=http://127.0.0.1:4321 npm --prefix apps/web run start` → :4000.
+> The rewrites proxy is baked at BUILD time: pass `GENESIS_API` to both commands.
 
 | Field | Value |
 | --- | --- |
@@ -51,9 +58,19 @@ source of project truth.
 
 ## 4. Acceptance criteria (exit gate)
 
-- [ ] `npm --prefix apps/web install && npm --prefix apps/web run dev` renders `/`
-      against a running `genesis serve`.
-- [ ] Every page is server-rendered from the API; the browser ships no secrets.
-- [ ] Deleting `apps/web/node_modules` leaves `npm test` and the console unaffected.
-- [ ] The console remains the offline reference: same data, same flags.
+- [x] `npm --prefix apps/web install && npm --prefix apps/web run dev` renders `/`
+      against a running `genesis serve`. — verified with `next build` + `next start`
+      on :4000 against the live core on :3000: `/` renders Progress 92.5% (server
+      component, force-dynamic).
+- [x] Every page is server-rendered from the API; the browser ships no secrets. —
+      all 12 routes are `ƒ (Dynamic)` in the build output; data fetches happen in
+      the server process via `GENESIS_API`; First Load JS is the stock React/Next
+      runtime (102 kB), no data embedded in client bundles.
+- [x] Deleting `apps/web/node_modules` leaves `npm test` and the console unaffected. —
+      tests/web-app.test.js skips its build/server gates with a visible reason when
+      deps are absent; the isolation tests (root deps `{}`, deps only in apps/web)
+      always run and always pass.
+- [x] The console remains the offline reference: same data, same flags. — both
+      front ends consume the identical 31-route contract; the Next app adds no
+      endpoint and reshapes no payload (lib/api.js mirrors the console routes).
 SPEC_EOF

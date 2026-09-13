@@ -16,6 +16,17 @@ export async function api(path, options = {}) {
   return response.json();
 }
 
+/*
+ * ES: algunas rutas devuelven TEXTO plano (context?format=md), no JSON.
+ * EN: some routes return plain TEXT (context?format=md), not JSON.
+ * PT: algumas rotas devolvem TEXTO puro, não JSON.
+ */
+export async function apiText(path, options = {}) {
+  const response = await fetch(`${BASE}${path}`, { cache: 'no-store', ...options });
+  if (!response.ok) throw new Error(`HTTP ${response.status} on ${path}`);
+  return response.text();
+}
+
 export const routes = {
   stats: () => api('/api/stats'),
   state: () => api('/api/state'),
@@ -31,5 +42,6 @@ export const routes = {
   timeline: () => api('/api/timeline?limit=400'),
   graph: () => api('/api/graph?limit=220'),
   context: () => api('/api/context?format=md'),
+  contextMd: () => apiText('/api/context?format=md'),
   lessons: () => api('/api/lessons'),
 };

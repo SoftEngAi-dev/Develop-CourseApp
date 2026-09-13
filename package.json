@@ -24,7 +24,10 @@
     "test:watch": "node --disable-warning=ExperimentalWarning --test --watch \"tests/*.test.js\"",
     "icons": "node --disable-warning=ExperimentalWarning ./scripts/generate-icons.js",
     "snapshot": "node --disable-warning=ExperimentalWarning ./scripts/export-console-snapshot.js",
-    "offline": "npm run icons && npm run snapshot"
+    "offline": "npm run icons && npm run snapshot",
+    "web:install": "npm --prefix apps/web install",
+    "web:build": "GENESIS_API=${GENESIS_API:-http://127.0.0.1:4321} npm --prefix apps/web run build",
+    "web:start": "GENESIS_API=${GENESIS_API:-http://127.0.0.1:4321} npm --prefix apps/web run start"
   },
   "dependencies": {},
   "devDependencies": {},
