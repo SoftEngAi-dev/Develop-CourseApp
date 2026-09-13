@@ -1,0 +1,1713 @@
+{
+  "id": "CHK-00002",
+  "label": "manual",
+  "note": null,
+  "phase": null,
+  "task": null,
+  "created_at": "2026-09-13T16:29:33.205Z",
+  "generator": "core/checkpoint",
+  "engine": "v22.22.3",
+  "files": {
+    "manifest": {
+      "path": "control/manifest.json",
+      "exists": true,
+      "bytes": 8779,
+      "content": {
+        "$schema": "../schemas/project-manifest.schema.json",
+        "manifest_version": "1.0.0",
+        "project": {
+          "id": "genesis",
+          "name": "Genesis Autonomous Engineering",
+          "codename": "Develop-CourseApp",
+          "version": "0.1.0",
+          "created_at": "2026-09-13T00:00:00.000Z",
+          "license": "MIT",
+          "summary": {
+            "es": "Sistema que convierte cada conversación de desarrollo en conocimiento estructurado, documentación, curso interactivo y estado de proyecto ejecutable.",
+            "en": "System that turns every development conversation into structured knowledge, documentation, an interactive course and an executable project state.",
+            "pt": "Sistema que transforma cada conversa de desenvolvimento em conhecimento estruturado, documentação, curso interativo e estado de projeto executável."
+          }
+        },
+        "vision": {
+          "north_star": {
+            "es": "Que ninguna sesión futura tenga que releer el universo: el proyecto se explica, se recupera, se continúa y se mejora a sí mismo.",
+            "en": "No future session should have to re-read the universe: the project explains, recovers, continues and improves itself.",
+            "pt": "Que nenhuma sessão futura precise reler o universo: o projeto se explica, se recupera, se continua e se melhora sozinho."
+          },
+          "central_rule": "Nothing happens without leaving an observable project event.",
+          "pillars": [
+            "traceability",
+            "documentation-by-design",
+            "learning-by-reverse-engineering",
+            "offline-first",
+            "recoverable-execution"
+          ],
+          "anti_goals": [
+            "Embedding LangGraph/CrewAI/AutoGen/n8n/Dify/Flowise/Langflow inside the core; they are optional adapters only.",
+            "Letting the AI rewrite entire files or the whole project instead of patching them.",
+            "Storing a literal transcription of a model's private internal reasoning."
+          ]
+        },
+        "architecture": {
+          "pipeline": [
+            "chat",
+            "capture",
+            "normalization",
+            "analysis",
+            "knowledge_graph",
+            "documentation",
+            "application",
+            "agent",
+            "execution",
+            "verification",
+            "learning",
+            "system_update"
+          ],
+          "levels": [
+            {
+              "level": 1,
+              "id": "raw",
+              "path": "data/raw",
+              "purpose": "Preserve everything exactly as it happened. No interpretation."
+            },
+            {
+              "level": 2,
+              "id": "processed",
+              "path": "data/processed",
+              "purpose": "AI/rule analysis of raw material into typed entities."
+            },
+            {
+              "level": 3,
+              "id": "knowledge",
+              "path": "knowledge",
+              "purpose": "Reusable knowledge: concepts, decisions, patterns, lessons."
+            },
+            {
+              "level": 4,
+              "id": "project",
+              "path": ".",
+              "purpose": "The real project: source, apps, packages, services, agents, skills, tests."
+            },
+            {
+              "level": 5,
+              "id": "control",
+              "path": "control",
+              "purpose": "Operational brain: manifest, state, roadmap, tasks, checkpoints, policies."
+            }
+          ],
+          "layers": [
+            {
+              "layer": 0,
+              "id": "vision"
+            },
+            {
+              "layer": 1,
+              "id": "requirements"
+            },
+            {
+              "layer": 2,
+              "id": "architecture"
+            },
+            {
+              "layer": 3,
+              "id": "infrastructure"
+            },
+            {
+              "layer": 4,
+              "id": "core-engine"
+            },
+            {
+              "layer": 5,
+              "id": "application"
+            },
+            {
+              "layer": 6,
+              "id": "agents"
+            },
+            {
+              "layer": 7,
+              "id": "automation"
+            },
+            {
+              "layer": 8,
+              "id": "verification"
+            },
+            {
+              "layer": 9,
+              "id": "documentation"
+            },
+            {
+              "layer": 10,
+              "id": "learning-evolution"
+            }
+          ],
+          "agent_loop": [
+            "observe",
+            "contextualize",
+            "reason",
+            "plan",
+            "decide",
+            "execute",
+            "test",
+            "verify",
+            "evaluate",
+            "learn",
+            "update"
+          ],
+          "mutation_protocol": [
+            "read",
+            "understand",
+            "diff",
+            "plan",
+            "patch",
+            "verify",
+            "commit"
+          ],
+          "modes": [
+            "learn",
+            "explore",
+            "build",
+            "evolve"
+          ]
+        },
+        "state": {
+          "file": "control/state.json",
+          "source_of_truth": "control/state.json",
+          "progress_model": "weighted_phase_completion"
+        },
+        "requirements": [
+          {
+            "id": "REQ-0001",
+            "layer": "requirements",
+            "title": "Document absolutely everything that happens in the project",
+            "priority": "critical",
+            "status": "in_progress",
+            "acceptance": "Every user message, interpretation, plan, action, result, decision and lesson is persisted and queryable."
+          },
+          {
+            "id": "REQ-0002",
+            "layer": "core-engine",
+            "title": "Separate data into five levels (raw / processed / knowledge / project / control)",
+            "priority": "critical",
+            "status": "completed",
+            "acceptance": "The five physical directories exist and no level writes into another."
+          },
+          {
+            "id": "REQ-0003",
+            "layer": "core-engine",
+            "title": "Store explainable Decision Traces instead of private model reasoning",
+            "priority": "high",
+            "status": "completed",
+            "acceptance": "Each decision records objective, context, constraints, alternatives, decision, justification, consequence and status."
+          },
+          {
+            "id": "REQ-0004",
+            "layer": "core-engine",
+            "title": "Treat interruptions ('cortes') as first-class events",
+            "priority": "high",
+            "status": "completed",
+            "acceptance": "Interruption events carry type, layer, task, reason, impact, recoverability and recovery plan."
+          },
+          {
+            "id": "REQ-0005",
+            "layer": "infrastructure",
+            "title": "Work fully offline with zero npm dependencies in the core",
+            "priority": "critical",
+            "status": "completed",
+            "acceptance": "npm install is never required to run init/capture/process/search/context/serve."
+          },
+          {
+            "id": "REQ-0006",
+            "layer": "application",
+            "title": "Web app that is simultaneously full-featured and offline-capable",
+            "priority": "high",
+            "status": "planned",
+            "acceptance": "Zero-dep console works with no node_modules; Next.js app consumes the same API."
+          },
+          {
+            "id": "REQ-0007",
+            "layer": "documentation",
+            "title": "Trilingual pedagogical code comments (ES/EN/PT) written as a beginner course",
+            "priority": "high",
+            "status": "in_progress",
+            "acceptance": "Every source file has a trilingual header plus a BEGINNER COURSE block."
+          },
+          {
+            "id": "REQ-0008",
+            "layer": "learning-evolution",
+            "title": "Generate a Reverse Engineering Curriculum from real builds",
+            "priority": "medium",
+            "status": "planned",
+            "acceptance": "A completed build can be turned into lesson + concepts + tutorial + exercise + solution."
+          },
+          {
+            "id": "REQ-0009",
+            "layer": "agents",
+            "title": "Autonomous agent with context, planner, executor, verifier and recovery",
+            "priority": "high",
+            "status": "planned",
+            "acceptance": "genesis resume rebuilds session context and continues the last task."
+          },
+          {
+            "id": "REQ-0010",
+            "layer": "core-engine",
+            "title": "Never overwrite: snapshot, diff, patch, verify, rollback",
+            "priority": "critical",
+            "status": "in_progress",
+            "acceptance": "Checkpoints can restore control state and are created before risky mutations."
+          }
+        ],
+        "tasks": {
+          "file": "control/tasks.json"
+        },
+        "roadmap": {
+          "file": "control/roadmap.json"
+        },
+        "decisions": {
+          "file": "control/decisions.json"
+        },
+        "policies": {
+          "file": "control/policies.json"
+        },
+        "checkpoints": {
+          "dir": "control/checkpoints"
+        },
+        "agents": [],
+        "skills": [],
+        "tools": [],
+        "mcp": {
+          "status": "adapter-layer-planned",
+          "note": "MCP is treated as a pluggable adapter layer, never as a core dependency."
+        },
+        "memory": {
+          "project": "memory/project",
+          "session": "memory/session",
+          "decisions": "memory/decisions",
+          "lessons": "memory/lessons",
+          "database": "data/indexes/genesis.db"
+        },
+        "knowledge": {
+          "ingestion": "knowledge/ingestion",
+          "processor": "knowledge/processor",
+          "graph": "knowledge/graph",
+          "retrieval": "knowledge/retrieval"
+        },
+        "documentation": {
+          "sessions": "documentation/sessions",
+          "architecture": "documentation/architecture",
+          "tutorials": "documentation/tutorials",
+          "courses": "documentation/courses",
+          "generated": "documentation/generated",
+          "formats": [
+            "markdown",
+            "json"
+          ]
+        },
+        "education": {
+          "modes": [
+            "learn",
+            "reverse-engineering-curriculum"
+          ],
+          "languages": [
+            "es",
+            "en",
+            "pt"
+          ],
+          "lesson_anatomy": [
+            "title",
+            "objective",
+            "concepts",
+            "implementation",
+            "explanation",
+            "tutorial",
+            "exercise",
+            "solution"
+          ],
+          "comment_policy": "Every source file carries a trilingual header and a BEGINNER COURSE block explaining concepts as if the reader had never programmed before."
+        },
+        "verification": {
+          "runner": "node --test tests/",
+          "levels": [
+            "unit",
+            "integration",
+            "pipeline",
+            "mutation-safety"
+          ]
+        },
+        "recovery": {
+          "engine": "core/recovery",
+          "interruption_types": [
+            "blocked",
+            "failed",
+            "interrupted",
+            "waiting_user",
+            "dependency_missing",
+            "tool_error",
+            "ambiguity",
+            "conflict",
+            "resource_limit",
+            "security_stop",
+            "scope_change"
+          ],
+          "capabilities": [
+            "checkpoint",
+            "rollback",
+            "resume",
+            "retry",
+            "recover",
+            "skip",
+            "pause",
+            "continue"
+          ]
+        },
+        "events": {
+          "bus": "core/event-bus",
+          "sink": "data/raw/events",
+          "types_file": "core/event-bus/event-types.js"
+        }
+      }
+    },
+    "state": {
+      "path": "control/state.json",
+      "exists": true,
+      "bytes": 3157,
+      "content": {
+        "state_version": "1.0.0",
+        "project": "genesis",
+        "initialized": true,
+        "initialized_at": "2026-09-13T00:00:00.000Z",
+        "updated_at": "2026-09-13T15:52:58.720Z",
+        "current_phase": "phase-3",
+        "current_layer": "infrastructure",
+        "current_task": "TSK-00011",
+        "progress": {
+          "percent": 40,
+          "method": "weighted_phase_completion",
+          "phases_completed": [
+            "phase-0",
+            "phase-1",
+            "phase-2"
+          ],
+          "phases_stub": [
+            "phase-3",
+            "phase-4",
+            "phase-5",
+            "phase-6",
+            "phase-7"
+          ],
+          "per_phase": [
+            {
+              "id": "phase-0",
+              "name": "Bootstrap",
+              "weight": 10,
+              "status": "completed",
+              "ratio": 1,
+              "tasks": 2
+            },
+            {
+              "id": "phase-1",
+              "name": "Capture",
+              "weight": 10,
+              "status": "completed",
+              "ratio": 1,
+              "tasks": 1
+            },
+            {
+              "id": "phase-2",
+              "name": "Knowledge Engine",
+              "weight": 20,
+              "status": "completed",
+              "ratio": 1,
+              "tasks": 2
+            },
+            {
+              "id": "phase-3",
+              "name": "Documentation Engine",
+              "weight": 10,
+              "status": "stub",
+              "ratio": 0,
+              "tasks": 1
+            },
+            {
+              "id": "phase-4",
+              "name": "Web App",
+              "weight": 15,
+              "status": "stub",
+              "ratio": 0,
+              "tasks": 1
+            },
+            {
+              "id": "phase-5",
+              "name": "Agent",
+              "weight": 20,
+              "status": "stub",
+              "ratio": 0,
+              "tasks": 1
+            },
+            {
+              "id": "phase-6",
+              "name": "Education",
+              "weight": 10,
+              "status": "stub",
+              "ratio": 0,
+              "tasks": 1
+            },
+            {
+              "id": "phase-7",
+              "name": "Autonomous Evolution",
+              "weight": 5,
+              "status": "stub",
+              "ratio": 0,
+              "tasks": 1
+            }
+          ]
+        },
+        "counters": {
+          "sessions": 0,
+          "messages": 0,
+          "events": 0,
+          "decisions": 11,
+          "interruptions": 1,
+          "checkpoints": 0,
+          "lessons": 1,
+          "builds": 0,
+          "tasks_total": 11,
+          "tasks_completed": 5,
+          "tasks_blocked": 1
+        },
+        "agent": {
+          "status": "idle",
+          "last_run_at": null,
+          "loop_position": null
+        },
+        "blocks": [
+          {
+            "id": "INT-00001",
+            "task": "TSK-00011",
+            "type": "security_stop",
+            "reason": "GitHub integration token cannot create repositories (HTTP 403).",
+            "impact": "low",
+            "recoverable": true,
+            "status": "open",
+            "waiting_on": "user"
+          }
+        ],
+        "last_checkpoint": {
+          "id": "CHK-00001",
+          "label": "genesis-init",
+          "created_at": "2026-09-13T15:48:38.151Z",
+          "file": "control/checkpoints/CHK-00001-20260913T154838Z-genesis-init.json"
+        },
+        "next_recommended_action": {
+          "es": "Ejecutar `npm run demo` para ingerir la sesión real de arquitectura y luego `npm run serve` para ver el conocimiento en el navegador.",
+          "en": "Run `npm run demo` to ingest the real architecture session, then `npm run serve` to browse the knowledge.",
+          "pt": "Execute `npm run demo` para ingerir a sessão real de arquitetura e depois `npm run serve` para ver o conhecimento no navegador."
+        }
+      }
+    },
+    "tasks": {
+      "path": "control/tasks.json",
+      "exists": true,
+      "bytes": 8535,
+      "content": {
+        "tasks_version": "1.0.0",
+        "state_machine": [
+          "discovered",
+          "planned",
+          "ready",
+          "running",
+          "verifying",
+          "completed",
+          "blocked",
+          "recovery",
+          "failed",
+          "analysis",
+          "replan",
+          "retry",
+          "skipped"
+        ],
+        "tasks": [
+          {
+            "id": "TSK-00001",
+            "phase": "phase-0",
+            "layer": "core-engine",
+            "title": "Bootstrap: manifest, state, event bus, logger, checkpoints",
+            "status": "completed",
+            "progress": 100,
+            "created_at": "2026-09-13T00:00:00.000Z",
+            "completed_at": "2026-09-13T00:00:00.000Z",
+            "acceptance": "genesis init creates control plane; every operation emits an event; checkpoints can restore state.",
+            "artifacts": [
+              "control/manifest.json",
+              "control/state.json",
+              "core/event-bus",
+              "core/logger",
+              "core/checkpoint"
+            ],
+            "decisions": [
+              "DEC-00001",
+              "DEC-00008",
+              "DEC-00010"
+            ],
+            "blocks": [],
+            "blocked_by": []
+          },
+          {
+            "id": "TSK-00002",
+            "phase": "phase-1",
+            "layer": "core-engine",
+            "title": "Capture: session ingestion, raw storage, message parser",
+            "status": "completed",
+            "progress": 100,
+            "created_at": "2026-09-13T00:00:00.000Z",
+            "completed_at": "2026-09-13T00:00:00.000Z",
+            "acceptance": "A transcript file becomes a raw session plus typed messages without losing the original text.",
+            "artifacts": [
+              "core/capture",
+              "data/raw/sessions",
+              "data/raw/messages"
+            ],
+            "decisions": [
+              "DEC-00001",
+              "DEC-00003"
+            ],
+            "blocks": [],
+            "blocked_by": []
+          },
+          {
+            "id": "TSK-00003",
+            "phase": "phase-2",
+            "layer": "core-engine",
+            "title": "Knowledge Engine: SQLite+FTS5 schema, processors, graph, retrieval, context",
+            "status": "completed",
+            "progress": 100,
+            "created_at": "2026-09-13T00:00:00.000Z",
+            "completed_at": "2026-09-13T00:00:00.000Z",
+            "acceptance": "genesis process fills the DB; genesis search finds entities; genesis context rebuilds a session context.",
+            "artifacts": [
+              "knowledge/db",
+              "knowledge/processor",
+              "knowledge/graph",
+              "knowledge/retrieval"
+            ],
+            "decisions": [
+              "DEC-00002",
+              "DEC-00003",
+              "DEC-00004"
+            ],
+            "blocks": [],
+            "blocked_by": []
+          },
+          {
+            "id": "TSK-00004",
+            "phase": "phase-2",
+            "layer": "application",
+            "title": "Zero-dependency HTTP API + offline console",
+            "status": "completed",
+            "progress": 100,
+            "created_at": "2026-09-13T00:00:00.000Z",
+            "completed_at": "2026-09-13T00:00:00.000Z",
+            "acceptance": "genesis serve exposes state/sessions/decisions/events/search/graph/context over HTTP with no node_modules.",
+            "artifacts": [
+              "core/api",
+              "apps/console"
+            ],
+            "decisions": [
+              "DEC-00005"
+            ],
+            "blocks": [
+              "TSK-00007"
+            ],
+            "blocked_by": []
+          },
+          {
+            "id": "TSK-00005",
+            "phase": "phase-0",
+            "layer": "documentation",
+            "title": "Trilingual pedagogical comment convention applied to every source file",
+            "status": "completed",
+            "progress": 100,
+            "created_at": "2026-09-13T00:00:00.000Z",
+            "completed_at": "2026-09-13T00:00:00.000Z",
+            "acceptance": "docs/CONVENTIONS.md defines the format and all Phase 0-2 files follow it.",
+            "artifacts": [
+              "docs/CONVENTIONS.md"
+            ],
+            "decisions": [
+              "DEC-00006"
+            ],
+            "blocks": [],
+            "blocked_by": []
+          },
+          {
+            "id": "TSK-00006",
+            "phase": "phase-3",
+            "layer": "documentation",
+            "title": "Documentation Engine: automatic Markdown, tutorials, timeline, decision traces",
+            "status": "planned",
+            "progress": 0,
+            "created_at": "2026-09-13T00:00:00.000Z",
+            "acceptance": "Every processed session automatically renders documentation without being asked.",
+            "artifacts": [
+              "documentation/generated"
+            ],
+            "decisions": [
+              "DEC-00007"
+            ],
+            "blocks": [],
+            "blocked_by": [
+              "TSK-00003"
+            ],
+            "spec": "documentation/SPEC.md"
+          },
+          {
+            "id": "TSK-00007",
+            "phase": "phase-4",
+            "layer": "application",
+            "title": "Next.js web app (Dashboard / Sessions / Knowledge / Timeline / Graph)",
+            "status": "planned",
+            "progress": 0,
+            "created_at": "2026-09-13T00:00:00.000Z",
+            "acceptance": "apps/web renders the four modes consuming core/api.",
+            "artifacts": [
+              "apps/web"
+            ],
+            "decisions": [
+              "DEC-00005"
+            ],
+            "blocks": [],
+            "blocked_by": [
+              "TSK-00004"
+            ],
+            "spec": "apps/web/SPEC.md"
+          },
+          {
+            "id": "TSK-00008",
+            "phase": "phase-5",
+            "layer": "agents",
+            "title": "Autonomous agent: observe -> contextualize -> reason -> plan -> execute -> verify -> learn",
+            "status": "planned",
+            "progress": 0,
+            "created_at": "2026-09-13T00:00:00.000Z",
+            "acceptance": "genesis resume continues the last task without the human restating context.",
+            "artifacts": [
+              "core/agent",
+              "core/orchestrator",
+              "core/planner",
+              "core/executor",
+              "core/verifier",
+              "core/recovery"
+            ],
+            "decisions": [
+              "DEC-00004",
+              "DEC-00009"
+            ],
+            "blocks": [],
+            "blocked_by": [
+              "TSK-00003"
+            ],
+            "spec": "core/agent/SPEC.md"
+          },
+          {
+            "id": "TSK-00009",
+            "phase": "phase-6",
+            "layer": "learning-evolution",
+            "title": "Education: lessons, exercises and Reverse Engineering Curriculum",
+            "status": "planned",
+            "progress": 0,
+            "created_at": "2026-09-13T00:00:00.000Z",
+            "acceptance": "A completed build produces lesson + concepts + tutorial + exercise + real solution.",
+            "artifacts": [
+              "documentation/courses"
+            ],
+            "decisions": [
+              "DEC-00006"
+            ],
+            "blocks": [],
+            "blocked_by": [
+              "TSK-00006"
+            ],
+            "spec": "documentation/courses/SPEC.md"
+          },
+          {
+            "id": "TSK-00010",
+            "phase": "phase-7",
+            "layer": "learning-evolution",
+            "title": "Autonomous evolution: lessons -> rules -> prechecks -> skill generation",
+            "status": "planned",
+            "progress": 0,
+            "created_at": "2026-09-13T00:00:00.000Z",
+            "acceptance": "An error creates a lesson and a policy rule that prevents the same failure.",
+            "artifacts": [
+              "control/policies.json",
+              "skills"
+            ],
+            "decisions": [
+              "DEC-00004"
+            ],
+            "blocks": [],
+            "blocked_by": [
+              "TSK-00008"
+            ],
+            "spec": "skills/SPEC.md"
+          },
+          {
+            "id": "TSK-00011",
+            "phase": "cross-cutting",
+            "layer": "infrastructure",
+            "title": "Publish mirror repository develo-courseapp-simplify and open PR",
+            "status": "blocked",
+            "progress": 60,
+            "created_at": "2026-09-13T00:00:00.000Z",
+            "acceptance": "Repository exists on GitHub and receives the per-phase history plus a PR to main.",
+            "artifacts": [],
+            "decisions": [
+              "DEC-00011"
+            ],
+            "blocks": [],
+            "blocked_by": [],
+            "interruption": "INT-00001",
+            "recovery_plan": [
+              "Human creates SoftEngAi-dev/develo-courseapp-simplify on GitHub (or grants the integration repo-creation permission).",
+              "Run: git -C /home/user/develo-courseapp-simplify push -u origin main",
+              "Run: gh pr create --base main --head genesis/foundation"
+            ]
+          },
+          {
+            "id": "TSK-00012",
+            "phase": "phase-4",
+            "layer": "application",
+            "title": "Installable offline-first PWA console (desktop + mobile, dual mode online/offline)",
+            "status": "completed",
+            "progress": 100,
+            "created_at": "2026-09-13T16:29:27.875Z",
+            "completed_at": "2026-09-13T16:29:27.875Z",
+            "acceptance": "The app installs on desktop and mobile; with the server stopped it opens and renders every view from cache or snapshot, flagging the mode; with the server up it switches to live data.",
+            "artifacts": [
+              "apps/console/manifest.webmanifest",
+              "apps/console/sw.js",
+              "apps/console/snapshot.json",
+              "apps/console/icons",
+              "scripts/generate-icons.js",
+              "scripts/export-console-snapshot.js"
+            ],
+            "decisions": [
+              "DEC-00012"
+            ],
+            "blocks": [],
+            "blocked_by": []
+          }
+        ]
+      }
+    },
+    "roadmap": {
+      "path": "control/roadmap.json",
+      "exists": true,
+      "bytes": 3658,
+      "content": {
+        "roadmap_version": "1.0.0",
+        "principle": {
+          "es": "Capas verticales funcionales: nunca construir los 30 módulos a la vez.",
+          "en": "Functional vertical slices: never build all 30 modules at once.",
+          "pt": "Camadas verticais funcionais: nunca construir os 30 módulos de uma vez."
+        },
+        "phases": [
+          {
+            "id": "phase-0",
+            "order": 0,
+            "name": "Bootstrap",
+            "status": "completed",
+            "weight": 10,
+            "deliverables": [
+              "Project Manifest",
+              "State",
+              "Event system",
+              "Logger",
+              "Checkpoint"
+            ],
+            "exit_criteria": "genesis init produces manifest/state/checkpoints and every operation emits an event."
+          },
+          {
+            "id": "phase-1",
+            "order": 1,
+            "name": "Capture",
+            "status": "completed",
+            "weight": 10,
+            "deliverables": [
+              "Chat/session ingestion",
+              "Raw storage",
+              "Message parser"
+            ],
+            "exit_criteria": "A conversation transcript can be ingested into data/raw and parsed into typed message entities."
+          },
+          {
+            "id": "phase-2",
+            "order": 2,
+            "name": "Knowledge Engine",
+            "status": "completed",
+            "weight": 20,
+            "deliverables": [
+              "Requirements",
+              "Plans",
+              "Decisions",
+              "Actions",
+              "Errors",
+              "Searches",
+              "Builds"
+            ],
+            "exit_criteria": "Processed entities live in SQLite+FTS5, are searchable and feed the knowledge graph and session context."
+          },
+          {
+            "id": "phase-3",
+            "order": 3,
+            "name": "Documentation Engine",
+            "status": "stub",
+            "weight": 10,
+            "deliverables": [
+              "Automatic Markdown",
+              "Tutorials",
+              "Timeline",
+              "Decision traces"
+            ],
+            "exit_criteria": "Every session produces human-readable documentation automatically, without being asked."
+          },
+          {
+            "id": "phase-4",
+            "order": 4,
+            "name": "Web App",
+            "status": "stub",
+            "weight": 15,
+            "deliverables": [
+              "Dashboard",
+              "Sessions",
+              "Knowledge",
+              "Documentation",
+              "Timeline"
+            ],
+            "exit_criteria": "Dashboard/Sessions/Knowledge/Timeline navigable in Next.js AND in the zero-dep offline console."
+          },
+          {
+            "id": "phase-5",
+            "order": 5,
+            "name": "Agent",
+            "status": "stub",
+            "weight": 20,
+            "deliverables": [
+              "Context",
+              "Planner",
+              "Executor",
+              "Verifier",
+              "Recovery"
+            ],
+            "exit_criteria": "genesis resume observes, contextualizes, plans, executes, verifies and recovers without human restating context."
+          },
+          {
+            "id": "phase-6",
+            "order": 6,
+            "name": "Education",
+            "status": "stub",
+            "weight": 10,
+            "deliverables": [
+              "Courses",
+              "Lessons",
+              "Exercises",
+              "Reverse engineering curriculum"
+            ],
+            "exit_criteria": "A completed build is converted into a lesson with exercise and real solution code."
+          },
+          {
+            "id": "phase-7",
+            "order": 7,
+            "name": "Autonomous Evolution",
+            "status": "stub",
+            "weight": 5,
+            "deliverables": [
+              "Learning",
+              "Rules",
+              "Skill generation",
+              "Optimization",
+              "Architecture evolution"
+            ],
+            "exit_criteria": "An error produces a lesson and a new policy rule that prevents the same failure next time."
+          }
+        ],
+        "layer_rule": {
+          "es": "El agente nunca salta arbitrariamente entre capas 0-10.",
+          "en": "The agent never jumps arbitrarily between layers 0-10.",
+          "pt": "O agente nunca salta arbitratoriamente entre as camadas 0-10."
+        }
+      }
+    },
+    "policies": {
+      "path": "control/policies.json",
+      "exists": true,
+      "bytes": 4940,
+      "content": {
+        "policies_version": "1.0.0",
+        "description": {
+          "es": "Reglas operativas del sistema. Las reglas nacen de lecciones aprendidas: un error genera una lesson y una lesson puede generar una rule.",
+          "en": "Operational rules of the system. Rules are born from lessons learned: an error produces a lesson and a lesson can produce a rule.",
+          "pt": "Regras operacionais do sistema. As regras nascem de lições aprendidas: um erro gera uma lesson e uma lesson pode gerar uma rule."
+        },
+        "rules": [
+          {
+            "id": "POL-0001",
+            "key": "observability.everything_is_an_event",
+            "value": true,
+            "enforcement": "hard",
+            "statement": "Nothing happens without leaving an observable project event.",
+            "origin": "REQ-0001",
+            "created_at": "2026-09-13T00:00:00.000Z"
+          },
+          {
+            "id": "POL-0002",
+            "key": "mutation.never_rewrite_wholesale",
+            "value": true,
+            "enforcement": "hard",
+            "statement": "Before modifying anything: READ -> UNDERSTAND -> DIFF -> PLAN -> PATCH -> VERIFY -> COMMIT. Never rewrite an entire project.",
+            "origin": "REQ-0010",
+            "created_at": "2026-09-13T00:00:00.000Z"
+          },
+          {
+            "id": "POL-0003",
+            "key": "checkpoint.before_risky_mutation",
+            "value": true,
+            "enforcement": "hard",
+            "statement": "Create a checkpoint before any operation that can destroy previous state.",
+            "origin": "REQ-0010",
+            "created_at": "2026-09-13T00:00:00.000Z"
+          },
+          {
+            "id": "POL-0004",
+            "key": "dependency.preflight",
+            "value": true,
+            "enforcement": "soft",
+            "statement": "Check package compatibility before installation. Born from a dependency-conflict lesson.",
+            "origin": "LESSON-example-dependency-conflict",
+            "created_at": "2026-09-13T00:00:00.000Z"
+          },
+          {
+            "id": "POL-0005",
+            "key": "core.zero_dependencies",
+            "value": true,
+            "enforcement": "hard",
+            "statement": "The core engine must run with an empty node_modules. External frameworks are optional adapters.",
+            "origin": "DEC-00002",
+            "created_at": "2026-09-13T00:00:00.000Z"
+          },
+          {
+            "id": "POL-0006",
+            "key": "agent.contextualize_before_reasoning",
+            "value": true,
+            "enforcement": "hard",
+            "statement": "Ask 'what do we already know?' before asking 'what must I do?'.",
+            "origin": "REQ-0009",
+            "created_at": "2026-09-13T00:00:00.000Z"
+          },
+          {
+            "id": "POL-0007",
+            "key": "documentation.by_design_not_by_reminder",
+            "value": true,
+            "enforcement": "hard",
+            "statement": "The system documents itself. Never depend on the human remembering to say 'now document this'.",
+            "origin": "REQ-0001",
+            "created_at": "2026-09-13T00:00:00.000Z"
+          },
+          {
+            "id": "POL-0008",
+            "key": "education.trilingual_comments",
+            "value": [
+              "es",
+              "en",
+              "pt"
+            ],
+            "enforcement": "hard",
+            "statement": "Code identifiers in English; comments trilingual and pedagogical, written as a course for absolute beginners.",
+            "origin": "REQ-0007",
+            "created_at": "2026-09-13T00:00:00.000Z"
+          },
+          {
+            "id": "POL-0009",
+            "key": "reasoning.store_explainable_trace_not_private_thoughts",
+            "value": true,
+            "enforcement": "hard",
+            "statement": "Store a Decision Trace (objective, context, constraints, alternatives, decision, justification, action, result, verification, learning). Never attempt to transcribe a model's private reasoning.",
+            "origin": "DEC-00003",
+            "created_at": "2026-09-13T00:00:00.000Z"
+          },
+          {
+            "id": "POL-0010",
+            "key": "layers.no_arbitrary_jumps",
+            "value": true,
+            "enforcement": "soft",
+            "statement": "Work proceeds through layers 0-10 in order; the agent does not jump arbitrarily between them.",
+            "origin": "architecture.layers",
+            "created_at": "2026-09-13T00:00:00.000Z"
+          },
+          {
+            "id": "POL-0011",
+            "key": "ui.offline_first_dual_mode",
+            "value": true,
+            "enforcement": "hard",
+            "statement": "The console is an installable PWA usable with AND without connection. Every view must render from the live API, from the service-worker cache, or from the bundled snapshot, in that order. The interface must always flag the active mode and the sync time: stale data is never presented as fresh. No new npm dependency may be introduced to achieve this.",
+            "origin": "DEC-00012",
+            "created_at": "2026-09-13T16:29:27.875Z"
+          }
+        ],
+        "learning_loop": {
+          "chain": [
+            "ERROR",
+            "ANALYSIS",
+            "RECOVERY",
+            "LESSON",
+            "RULE CREATED",
+            "PRECHECK NEXT TIME"
+          ],
+          "example": {
+            "error": "Dependency conflict.",
+            "analysis": "Version mismatch.",
+            "recovery": "Use compatible version.",
+            "lesson": "Check package compatibility before installation.",
+            "rule_created": "dependency.preflight=true"
+          }
+        }
+      }
+    },
+    "decisions": {
+      "path": "control/decisions.json",
+      "exists": true,
+      "bytes": 23464,
+      "content": {
+        "decisions_version": "1.0.01",
+        "format_note": {
+          "es": "Cada decisión es un Decision Trace explicable. No guardamos razonamiento privado del modelo: guardamos objetivo, contexto, restricciones, alternativas, decisión, justificación, consecuencia y estado.",
+          "en": "Every decision is an explainable Decision Trace. We do not store a model's private reasoning: we store objective, context, constraints, alternatives, decision, justification, consequence and status.",
+          "pt": "Cada decisão é um Decision Trace explicável. Não guardamos o raciocínio privado do modelo: guardamos objetivo, contexto, restrições, alternativas, decisão, justificativa, consequência e status."
+        },
+        "decisions": [
+          {
+            "id": "DEC-00001",
+            "layer": "architecture",
+            "status": "approved",
+            "created_at": "2026-09-13T00:00:00.000Z",
+            "objective": {
+              "es": "Decidir cómo organizar los datos del sistema para que nada se mezcle.",
+              "en": "Decide how to organize system data so that nothing gets mixed together.",
+              "pt": "Decidir como organizar os dados do sistema para que nada se misture."
+            },
+            "context": "The system must preserve history, allow analysis, produce reusable knowledge and expose an operational brain.",
+            "constraints": [
+              "Must survive between sessions",
+              "Must be inspectable by a human",
+              "Must not require a server to run"
+            ],
+            "alternatives": [
+              {
+                "id": "A",
+                "option": "One single database holding everything",
+                "rejected_because": "Mixes interpretation with raw history; impossible to audit."
+              },
+              {
+                "id": "B",
+                "option": "One flat folder of markdown files",
+                "rejected_because": "Not queryable, no relations, no graph."
+              },
+              {
+                "id": "C",
+                "option": "Five separated levels: raw / processed / knowledge / project / control",
+                "selected": true
+              }
+            ],
+            "decision": "Five-level separation (raw, processed, knowledge, project, control).",
+            "justification": "Raw stays immutable and auditable; processed can be regenerated; knowledge becomes reusable; control lets a new session avoid re-reading the universe.",
+            "consequence": "The processed level can always be rebuilt from raw. Losing an index is never losing history.",
+            "related": [
+              "REQ-0002",
+              "POL-0001"
+            ],
+            "evidence": "Session where the architecture was defined by the user and validated against an empty repository."
+          },
+          {
+            "id": "DEC-00002",
+            "layer": "infrastructure",
+            "status": "approved",
+            "created_at": "2026-09-13T00:00:00.000Z",
+            "objective": {
+              "es": "Elegir la base de datos y el motor de búsqueda del Knowledge Engine.",
+              "en": "Choose the database and search engine for the Knowledge Engine.",
+              "pt": "Escolher o banco de dados e o motor de busca do Knowledge Engine."
+            },
+            "context": "Node 22.22 ships node:sqlite natively. Verified in this sandbox: table creation, writes, reads and FTS5 MATCH queries all work with zero npm packages.",
+            "constraints": [
+              "Must work offline",
+              "Must not require npm install",
+              "Must support full-text search",
+              "Must be able to evolve to PostgreSQL later"
+            ],
+            "alternatives": [
+              {
+                "id": "A",
+                "option": "JSON files only",
+                "rejected_because": "No full-text search, no relations, O(n) scans."
+              },
+              {
+                "id": "B",
+                "option": "better-sqlite3 (npm)",
+                "rejected_because": "Native compilation, install step, breaks offline-first."
+              },
+              {
+                "id": "C",
+                "option": "PostgreSQL",
+                "rejected_because": "Requires a running server; overkill for a local-first MVP."
+              },
+              {
+                "id": "D",
+                "option": "Vector DB",
+                "rejected_because": "Heavy dependency; semantic search can be added later as an adapter."
+              },
+              {
+                "id": "E",
+                "option": "node:sqlite (built-in) + FTS5",
+                "selected": true
+              }
+            ],
+            "decision": "node:sqlite (built into Node 22) + FTS5 virtual tables, with JSON files for configuration.",
+            "justification": "Lowest initial complexity, real full-text search, local/offline operation, zero supply-chain risk.",
+            "consequence": "The schema is portable SQL, so it can migrate to PostgreSQL later without redesign.",
+            "related": [
+              "REQ-0005",
+              "POL-0005",
+              "DEC-00008"
+            ],
+            "evidence": "Executed probe: FTS5 OK, sqlite version 3.51.3."
+          },
+          {
+            "id": "DEC-00003",
+            "layer": "core-engine",
+            "status": "approved",
+            "created_at": "2026-09-13T00:00:00.000Z",
+            "objective": {
+              "es": "Decidir qué guardar del razonamiento de la IA.",
+              "en": "Decide what to store about the AI's reasoning.",
+              "pt": "Decidir o que guardar do raciocínio da IA."
+            },
+            "context": "The user asked to document reasoning. A literal transcription of a model's private reasoning is neither accessible nor useful.",
+            "constraints": [
+              "Must be reproducible",
+              "Must be useful for learning",
+              "Must not fabricate internal thoughts"
+            ],
+            "alternatives": [
+              {
+                "id": "A",
+                "option": "Store raw chain-of-thought",
+                "rejected_because": "Not reliably available; noisy; not a learning artifact."
+              },
+              {
+                "id": "B",
+                "option": "Store only the final answer",
+                "rejected_because": "Loses the 'why', which is the whole point."
+              },
+              {
+                "id": "C",
+                "option": "Store an explainable Decision Trace",
+                "selected": true
+              }
+            ],
+            "decision": "Store Decision Traces: objective -> context used -> constraints -> alternatives considered -> decision -> justification -> action -> result -> verification -> learning.",
+            "justification": "It is more useful than raw reasoning because it is structured, queryable and teachable.",
+            "consequence": "The question 'why did we choose X?' becomes answerable by navigating decision -> searches -> sources -> comparison -> implementation -> result.",
+            "related": [
+              "REQ-0003",
+              "POL-0009"
+            ],
+            "evidence": "Decision Trace example #00421 in the architecture conversation."
+          },
+          {
+            "id": "DEC-00004",
+            "layer": "core-engine",
+            "status": "approved",
+            "created_at": "2026-09-13T00:00:00.000Z",
+            "objective": {
+              "es": "Formalizar los 'cortes' (interrupciones) del proceso.",
+              "en": "Formalize the process 'interruptions'.",
+              "pt": "Formalizar os 'cortes' (interrupções) do processo."
+            },
+            "context": "The user called them 'Cortes'. They were informal notes about blocked work.",
+            "constraints": [
+              "Must be machine-readable",
+              "Must feed a Failure & Recovery Engine"
+            ],
+            "alternatives": [
+              {
+                "id": "A",
+                "option": "Keep them as free text notes",
+                "rejected_because": "Not queryable, not recoverable."
+              },
+              {
+                "id": "B",
+                "option": "First-class INTERRUPTION EVENT with typed taxonomy",
+                "selected": true
+              }
+            ],
+            "decision": "Interruptions become first-class events with types: blocked, failed, interrupted, waiting_user, dependency_missing, tool_error, ambiguity, conflict, resource_limit, security_stop, scope_change.",
+            "justification": "A typed taxonomy allows automatic recovery planning and metrics on failure patterns.",
+            "consequence": "Enables the Failure & Recovery Engine and the EVOLVE mode.",
+            "related": [
+              "REQ-0004",
+              "core/recovery"
+            ],
+            "evidence": "INTERRUPTION EVENT schema in the architecture conversation."
+          },
+          {
+            "id": "DEC-00005",
+            "layer": "application",
+            "status": "approved",
+            "created_at": "2026-09-13T00:00:00.000Z",
+            "objective": {
+              "es": "Elegir el stack de la capa de aplicación.",
+              "en": "Choose the application layer stack.",
+              "pt": "Escolher o stack da camada de aplicação."
+            },
+            "context": "The user answered 'all three options' and demanded: full-featured AND fully offline.",
+            "constraints": [
+              "Must work with no node_modules at all",
+              "Must also offer the full React/Next.js experience",
+              "Both must share one API"
+            ],
+            "alternatives": [
+              {
+                "id": "A",
+                "option": "Next.js only",
+                "rejected_because": "Requires npm install; not offline-capable from a clean clone."
+              },
+              {
+                "id": "B",
+                "option": "Zero-dep static SPA only",
+                "rejected_because": "Does not satisfy the requested full stack."
+              },
+              {
+                "id": "C",
+                "option": "Hybrid: zero-dep core + zero-dep console + Next.js app on the same API",
+                "selected": true
+              }
+            ],
+            "decision": "Hybrid three-layer front end: (1) core/api zero-dep HTTP server, (2) apps/console offline static UI served by it, (3) apps/web Next.js app consuming the identical API contract.",
+            "justification": "The API contract becomes the seam. Offline capability is guaranteed by layer 1+2; full features by layer 3.",
+            "consequence": "Any UI can be replaced without touching the engine.",
+            "related": [
+              "REQ-0006",
+              "POL-0005"
+            ],
+            "evidence": "User answer: 'Quiero una mezcla o seria hibrido... Seria una respuesta = Las 3.'"
+          },
+          {
+            "id": "DEC-00006",
+            "layer": "documentation",
+            "status": "approved",
+            "created_at": "2026-09-13T00:00:00.000Z",
+            "objective": {
+              "es": "Definir el idioma del código y de los comentarios.",
+              "en": "Define the language of code and comments.",
+              "pt": "Definir o idioma do código e dos comentários."
+            },
+            "context": "User: 'todo la creacion en ingles, los comentarios de los codigos en trilingue con explicacion total como si fuera un curso para recien iniciando en el lenguaje y programacion en si.'",
+            "constraints": [
+              "Code must be conventional",
+              "Comments must teach programming itself, not just this project"
+            ],
+            "alternatives": [
+              {
+                "id": "A",
+                "option": "English-only comments",
+                "rejected_because": "Contradicts the explicit trilingual teaching requirement."
+              },
+              {
+                "id": "B",
+                "option": "Manual translation of prose docs only",
+                "rejected_because": "Does not teach while reading code."
+              },
+              {
+                "id": "C",
+                "option": "English identifiers + trilingual pedagogical comment blocks (ES/EN/PT) with a BEGINNER COURSE section",
+                "selected": true
+              }
+            ],
+            "decision": "Identifiers, types and events in English. Every file carries a trilingual header and a BEGINNER COURSE block; key logic carries stacked ES/EN/PT inline comments.",
+            "justification": "Reading the source becomes a programming course in three languages at once.",
+            "consequence": "Files are longer. That is accepted deliberately: teaching value outweighs brevity.",
+            "related": [
+              "REQ-0007",
+              "POL-0008",
+              "docs/CONVENTIONS.md"
+            ],
+            "evidence": "User answer to the language question."
+          },
+          {
+            "id": "DEC-00007",
+            "layer": "requirements",
+            "status": "approved",
+            "created_at": "2026-09-13T00:00:00.000Z",
+            "objective": {
+              "es": "Definir el alcance de la primera entrega real.",
+              "en": "Define the scope of the first real delivery.",
+              "pt": "Definir o escopo da primeira entrega real."
+            },
+            "context": "32 sections of architecture existed but the repository contained only a 20-byte README.",
+            "constraints": [
+              "Must not attempt 30 modules at once",
+              "Must leave a complete map for future sessions"
+            ],
+            "alternatives": [
+              {
+                "id": "A",
+                "option": "Build phases 0-5 now",
+                "rejected_because": "High risk of leaving everything half-finished."
+              },
+              {
+                "id": "B",
+                "option": "Build only the core with no structure",
+                "rejected_because": "Future sessions would have to redesign the layout."
+              },
+              {
+                "id": "C",
+                "option": "Complete physical skeleton of all 8 phases + phases 0-2 fully executable",
+                "selected": true
+              }
+            ],
+            "decision": "Full directory skeleton (section 25 of the architecture) with a SPEC.md per module, plus Phase 0 (Bootstrap), Phase 1 (Capture) and Phase 2 (Knowledge Engine) really implemented and tested.",
+            "justification": "A new session can read the skeleton and know exactly what exists, what is stubbed and what to build next.",
+            "consequence": "Phases 3-7 are documented stubs, not dead folders: each has an executable-shaped contract.",
+            "related": [
+              "control/roadmap.json"
+            ],
+            "evidence": "User selected 'skeleton' scope."
+          },
+          {
+            "id": "DEC-00008",
+            "layer": "core-engine",
+            "status": "approved",
+            "created_at": "2026-09-13T00:00:00.000Z",
+            "objective": {
+              "es": "Decidir cómo validar datos sin romper la regla de cero dependencias.",
+              "en": "Decide how to validate data without breaking the zero-dependency rule.",
+              "pt": "Decidir como validar dados sem quebrar a regra de zero dependências."
+            },
+            "context": "The original stack table listed Zod for validation. Zod is an npm package; POL-0005 forbids core dependencies.",
+            "constraints": [
+              "Zero npm dependencies",
+              "Readable error messages",
+              "Enough for manifest/state/event validation"
+            ],
+            "alternatives": [
+              {
+                "id": "A",
+                "option": "Use Zod",
+                "rejected_because": "Violates the zero-dependency core policy."
+              },
+              {
+                "id": "B",
+                "option": "No validation at all",
+                "rejected_because": "Corrupt control files would silently break every session."
+              },
+              {
+                "id": "C",
+                "option": "Hand-written micro-validator with a chainable Zod-like API",
+                "selected": true
+              }
+            ],
+            "decision": "Implement core/validation/schema.js: a ~200-line chainable validator (z.string(), z.enum(), z.array(), z.object(), optional/default/parse/safeParse).",
+            "justification": "Keeps the API shape familiar from Zod so swapping to the real Zod later is a one-line adapter change.",
+            "consequence": "Validation covers the control plane; it is intentionally not a general-purpose schema library.",
+            "related": [
+              "POL-0005",
+              "DEC-00002"
+            ],
+            "evidence": "Verified npm-free runtime requirement."
+          },
+          {
+            "id": "DEC-00009",
+            "layer": "architecture",
+            "status": "approved",
+            "created_at": "2026-09-13T00:00:00.000Z",
+            "objective": {
+              "es": "Decidir el papel de LangGraph, CrewAI, AutoGen, n8n, Dify, Flowise y Langflow.",
+              "en": "Decide the role of LangGraph, CrewAI, AutoGen, n8n, Dify, Flowise and Langflow.",
+              "pt": "Decidir o papel de LangGraph, CrewAI, AutoGen, n8n, Dify, Flowise e Langflow."
+            },
+            "context": "These frameworks were studied previously and are tempting to embed.",
+            "constraints": [
+              "Must be replaceable without destroying the system"
+            ],
+            "alternatives": [
+              {
+                "id": "A",
+                "option": "Put them all inside the core",
+                "rejected_because": "Creates an unmaintainable monstrosity."
+              },
+              {
+                "id": "B",
+                "option": "Ignore them",
+                "rejected_because": "Throws away useful research."
+              },
+              {
+                "id": "C",
+                "option": "Optional adapters behind a stable interface",
+                "selected": true
+              }
+            ],
+            "decision": "External orchestrators are optional adapters only. The core ships its own orchestrator/planner/executor contract.",
+            "justification": "Technology can change without destroying the system.",
+            "consequence": "mcp/ and agents/ directories define adapter contracts, not implementations, in this phase.",
+            "related": [
+              "vision.anti_goals"
+            ],
+            "evidence": "Architecture section 26 and 27."
+          },
+          {
+            "id": "DEC-00010",
+            "layer": "verification",
+            "status": "approved",
+            "created_at": "2026-09-13T00:00:00.000Z",
+            "objective": {
+              "es": "Elegir el runner de pruebas y el sistema de módulos.",
+              "en": "Choose the test runner and module system.",
+              "pt": "Escolher o runner de testes e o sistema de módulos."
+            },
+            "context": "Node 22 includes node:test and node:assert natively and supports ESM.",
+            "constraints": [
+              "Zero dependencies",
+              "Watch mode desirable",
+              "Modern syntax"
+            ],
+            "alternatives": [
+              {
+                "id": "A",
+                "option": "Jest/Vitest",
+                "rejected_because": "npm dependencies."
+              },
+              {
+                "id": "B",
+                "option": "CommonJS + no tests",
+                "rejected_because": "Legacy syntax and no verification layer."
+              },
+              {
+                "id": "C",
+                "option": "ESM + node:test + node:assert",
+                "selected": true
+              }
+            ],
+            "decision": "ESM modules (\"type\": \"module\") with the built-in node:test runner and node:assert/strict.",
+            "justification": "Verification exists from day one at zero cost, satisfying Layer 8.",
+            "consequence": "Tests run with `npm test` or `node --test tests/`.",
+            "related": [
+              "manifest.verification"
+            ],
+            "evidence": "node --test available in v22.22.3."
+          },
+          {
+            "id": "DEC-00011",
+            "layer": "infrastructure",
+            "status": "blocked",
+            "created_at": "2026-09-13T00:00:00.000Z",
+            "objective": {
+              "es": "Crear el repositorio separado develo-courseapp-simplify y abrir allí el PR.",
+              "en": "Create the separate develo-courseapp-simplify repository and open the PR there.",
+              "pt": "Criar o repositório separado develo-courseapp-simplify e abrir o PR nele."
+            },
+            "context": "The user asked for a second repository. The sandbox GitHub token is a limited integration.",
+            "constraints": [
+              "Cannot create repositories",
+              "Cannot leave the session branch"
+            ],
+            "alternatives": [
+              {
+                "id": "A",
+                "option": "Create the repo via gh",
+                "rejected_because": "HTTP 403 'Resource not accessible by integration (createRepository)'."
+              },
+              {
+                "id": "B",
+                "option": "Silently skip the request",
+                "rejected_because": "Violates traceability."
+              },
+              {
+                "id": "C",
+                "option": "Build in the session branch AND prepare a ready-to-push local repository /home/user/develo-courseapp-simplify with a simplify remote",
+                "selected": true
+              }
+            ],
+            "decision": "Mirror the work into a local git repository named develo-courseapp-simplify, pre-configured with per-phase commits and a remote placeholder, so the user only has to create the GitHub repo and push.",
+            "justification": "Preserves the user's intent without inventing permissions we do not have.",
+            "consequence": "One manual step remains for the human: create the GitHub repo (or grant permission) and run the provided push command.",
+            "related": [
+              "INT-00001"
+            ],
+            "evidence": "gh repo create -> 403; git push --dry-run origin -> success."
+          },
+          {
+            "id": "DEC-00012",
+            "layer": "application",
+            "status": "approved",
+            "created_at": "2026-09-13T16:29:27.875Z",
+            "objective": {
+              "es": "Entregar la aplicación utilizable en escritorio y móvil, con y sin conexión a internet, sin añadir dependencias.",
+              "en": "Deliver the application usable on desktop and mobile, with and without internet connection, without adding dependencies.",
+              "pt": "Entregar o aplicativo utilizável em desktop e celular, com e sem conexão com a internet, sem adicionar dependências."
+            },
+            "context": "The user asked for the app to work on desktop AND mobile, offline AND online (both modes). The console was already a zero-dependency web app served by genesis serve, but it was not installable and it died when the API was unreachable.",
+            "constraints": [
+              "POL-0001: zero npm dependencies in the core, fully offline",
+              "No build step allowed for the offline console",
+              "One codebase must serve desktop and mobile",
+              "Stale data may be shown but must always be flagged as stale"
+            ],
+            "alternatives": [
+              {
+                "id": "A",
+                "option": "Electron desktop app + Cordova/Capacitor mobile wrapper",
+                "rejected_because": "Bundles Chromium/native toolchains and hundreds of npm packages; breaks POL-0001 and the empty-node_modules acceptance test, and triples repo size."
+              },
+              {
+                "id": "B",
+                "option": "Tauri (Rust) shell",
+                "rejected_because": "Requires a Rust toolchain on every machine that builds the app; the project must run on a bare Node 22 install."
+              },
+              {
+                "id": "C",
+                "option": "Plain website without service worker, showing \"you are offline\" when the API dies",
+                "rejected_because": "Fails the explicit requirement of being usable without connection; an error screen is not a mode."
+              },
+              {
+                "id": "D",
+                "option": "Installable PWA (manifest + service worker + bundled snapshot.json) with a three-tier data layer: live API -> service-worker cache -> snapshot",
+                "selected": true
+              }
+            ],
+            "decision": "Ship the console as an installable PWA: web manifest + generated PNG icons + service worker with per-resource cache strategies (cache-first shell, network-first API with last-good fallback) + a bundled snapshot.json so a never-connected install still opens with real data. One responsive codebase (drawer + bottom tabs on mobile, sidebar on desktop) covers both form factors. The UI always displays the active mode (live / cached / snapshot) and the sync time.",
+            "justification": "A PWA is the only option that installs on desktop and mobile, works offline, keeps zero dependencies and needs no build step. The service worker turns \"offline\" from an error into a mode with real data, and the snapshot makes even the first offline boot useful.",
+            "consequence": "apps/console gains sw.js, manifest.webmanifest, icons/ (generated by scripts/generate-icons.js) and snapshot.json (generated by scripts/export-console-snapshot.js). POL-0011 now forbids shipping a view that cannot render from cache or snapshot. Regenerating the snapshot is part of the release ritual.",
+            "related": [
+              "DEC-00005",
+              "POL-0001",
+              "TSK-00012"
+            ],
+            "evidence": "curl: /manifest.webmanifest -> application/manifest+json; /sw.js -> no-cache; /snapshot.json -> 74 frozen API responses; icons are valid PNGs (192/512/maskable) produced by a dependency-free encoder."
+          }
+        ]
+      }
+    },
+    "agent_state": {
+      "path": "control/agent-state.json",
+      "exists": true,
+      "bytes": 2529,
+      "content": {
+        "agent_state_version": "1.0.0",
+        "status": "not_implemented",
+        "phase": "phase-5",
+        "note": {
+          "es": "Este archivo es el contrato de estado del agente autónomo. En la Fase 0-2 existe como esqueleto: el agente real llega en la Fase 5. El Context Engine de knowledge/retrieval/context.js ya produce el SESSION CONTEXT que este agente consumirá.",
+          "en": "This file is the state contract of the autonomous agent. In Phase 0-2 it exists as a skeleton: the real agent arrives in Phase 5. The Context Engine at knowledge/retrieval/context.js already produces the SESSION CONTEXT this agent will consume.",
+          "pt": "Este arquivo é o contrato de estado do agente autônomo. Na Fase 0-2 existe como esqueleto: o agente real chega na Fase 5. O Context Engine em knowledge/retrieval/context.js já produz o SESSION CONTEXT que este agente consumirá."
+        },
+        "loop": [
+          {
+            "step": 1,
+            "id": "observe",
+            "question": "What exists right now?",
+            "implemented": false
+          },
+          {
+            "step": 2,
+            "id": "contextualize",
+            "question": "What do we already know?",
+            "implemented": "partial",
+            "provided_by": "knowledge/retrieval/context.js"
+          },
+          {
+            "step": 3,
+            "id": "reason",
+            "question": "What does that imply?",
+            "implemented": false
+          },
+          {
+            "step": 4,
+            "id": "plan",
+            "question": "What steps achieve the objective?",
+            "implemented": false
+          },
+          {
+            "step": 5,
+            "id": "decide",
+            "question": "Which alternative do we take and why?",
+            "implemented": "partial",
+            "provided_by": "knowledge/processor/decisions.js"
+          },
+          {
+            "step": 6,
+            "id": "execute",
+            "question": "Do the work.",
+            "implemented": false
+          },
+          {
+            "step": 7,
+            "id": "test",
+            "question": "Does it run?",
+            "implemented": "partial",
+            "provided_by": "tests/"
+          },
+          {
+            "step": 8,
+            "id": "verify",
+            "question": "Does it satisfy the acceptance criteria?",
+            "implemented": false
+          },
+          {
+            "step": 9,
+            "id": "evaluate",
+            "question": "Was it worth it? What did it cost?",
+            "implemented": false
+          },
+          {
+            "step": 10,
+            "id": "learn",
+            "question": "What rule prevents this failure next time?",
+            "implemented": false
+          },
+          {
+            "step": 11,
+            "id": "update",
+            "question": "Persist the new state.",
+            "implemented": "partial",
+            "provided_by": "core/state/index.js"
+          }
+        ],
+        "capabilities": [
+          "checkpoint",
+          "rollback",
+          "resume",
+          "retry",
+          "recover",
+          "skip",
+          "pause",
+          "continue"
+        ],
+        "adapters": {
+          "models": [],
+          "orchestrators": [],
+          "note": "LangGraph / AutoGen / CrewAI / ChatDev / n8n / Activepieces / Dify / Flowise / Langflow / Make / Zapier are optional adapters (DEC-00009)."
+        },
+        "last_run": null,
+        "history": []
+      }
+    }
+  },
+  "summary": {
+    "progress_percent": 40,
+    "current_phase": "phase-3",
+    "current_task": "TSK-00011",
+    "tasks_total": 12,
+    "decisions_total": 12,
+    "open_blocks": 1
+  }
+}

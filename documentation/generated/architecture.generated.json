@@ -1,0 +1,233 @@
+{
+  "generated_at": "2026-09-13T18:35:12.449Z",
+  "levels": [
+    {
+      "level": 1,
+      "id": "raw",
+      "path": "data/raw",
+      "purpose": "Preserve everything exactly as it happened. No interpretation."
+    },
+    {
+      "level": 2,
+      "id": "processed",
+      "path": "data/processed",
+      "purpose": "AI/rule analysis of raw material into typed entities."
+    },
+    {
+      "level": 3,
+      "id": "knowledge",
+      "path": "knowledge",
+      "purpose": "Reusable knowledge: concepts, decisions, patterns, lessons."
+    },
+    {
+      "level": 4,
+      "id": "project",
+      "path": ".",
+      "purpose": "The real project: source, apps, packages, services, agents, skills, tests."
+    },
+    {
+      "level": 5,
+      "id": "control",
+      "path": "control",
+      "purpose": "Operational brain: manifest, state, roadmap, tasks, checkpoints, policies."
+    }
+  ],
+  "layers": [
+    {
+      "layer": 0,
+      "id": "vision"
+    },
+    {
+      "layer": 1,
+      "id": "requirements"
+    },
+    {
+      "layer": 2,
+      "id": "architecture"
+    },
+    {
+      "layer": 3,
+      "id": "infrastructure"
+    },
+    {
+      "layer": 4,
+      "id": "core-engine"
+    },
+    {
+      "layer": 5,
+      "id": "application"
+    },
+    {
+      "layer": 6,
+      "id": "agents"
+    },
+    {
+      "layer": 7,
+      "id": "automation"
+    },
+    {
+      "layer": 8,
+      "id": "verification"
+    },
+    {
+      "layer": 9,
+      "id": "documentation"
+    },
+    {
+      "layer": 10,
+      "id": "learning-evolution"
+    }
+  ],
+  "pipeline": [
+    "chat",
+    "capture",
+    "normalization",
+    "analysis",
+    "knowledge_graph",
+    "documentation",
+    "application",
+    "agent",
+    "execution",
+    "verification",
+    "learning",
+    "system_update"
+  ],
+  "roadmap": [
+    {
+      "id": "phase-0",
+      "order": 0,
+      "name": "Bootstrap",
+      "status": "completed",
+      "weight": 10,
+      "deliverables": [
+        "Project Manifest",
+        "State",
+        "Event system",
+        "Logger",
+        "Checkpoint"
+      ],
+      "exit_criteria": "genesis init produces manifest/state/checkpoints and every operation emits an event."
+    },
+    {
+      "id": "phase-1",
+      "order": 1,
+      "name": "Capture",
+      "status": "completed",
+      "weight": 10,
+      "deliverables": [
+        "Chat/session ingestion",
+        "Raw storage",
+        "Message parser"
+      ],
+      "exit_criteria": "A conversation transcript can be ingested into data/raw and parsed into typed message entities."
+    },
+    {
+      "id": "phase-2",
+      "order": 2,
+      "name": "Knowledge Engine",
+      "status": "completed",
+      "weight": 20,
+      "deliverables": [
+        "Requirements",
+        "Plans",
+        "Decisions",
+        "Actions",
+        "Errors",
+        "Searches",
+        "Builds"
+      ],
+      "exit_criteria": "Processed entities live in SQLite+FTS5, are searchable and feed the knowledge graph and session context."
+    },
+    {
+      "id": "phase-3",
+      "order": 3,
+      "name": "Documentation Engine",
+      "status": "completed",
+      "weight": 10,
+      "deliverables": [
+        "Automatic Markdown",
+        "Tutorials",
+        "Timeline",
+        "Decision traces"
+      ],
+      "exit_criteria": "Every session produces human-readable documentation automatically, without being asked."
+    },
+    {
+      "id": "phase-4",
+      "order": 4,
+      "name": "Web App",
+      "status": "completed",
+      "weight": 15,
+      "deliverables": [
+        "Dashboard",
+        "Sessions",
+        "Knowledge",
+        "Documentation",
+        "Timeline"
+      ],
+      "exit_criteria": "Dashboard/Sessions/Knowledge/Timeline navigable in Next.js AND in the zero-dep offline console."
+    },
+    {
+      "id": "phase-5",
+      "order": 5,
+      "name": "Agent",
+      "status": "completed",
+      "weight": 20,
+      "deliverables": [
+        "Context",
+        "Planner",
+        "Executor",
+        "Verifier",
+        "Recovery"
+      ],
+      "exit_criteria": "genesis resume observes, contextualizes, plans, executes, verifies and recovers without human restating context."
+    },
+    {
+      "id": "phase-6",
+      "order": 6,
+      "name": "Education",
+      "status": "completed",
+      "weight": 10,
+      "deliverables": [
+        "Courses",
+        "Lessons",
+        "Exercises",
+        "Reverse engineering curriculum"
+      ],
+      "exit_criteria": "A completed build is converted into a lesson with exercise and real solution code."
+    },
+    {
+      "id": "phase-7",
+      "order": 7,
+      "name": "Autonomous Evolution",
+      "status": "completed",
+      "weight": 5,
+      "deliverables": [
+        "Learning",
+        "Rules",
+        "Skill generation",
+        "Optimization",
+        "Architecture evolution"
+      ],
+      "exit_criteria": "An error produces a lesson and a new policy rule that prevents the same failure next time."
+    }
+  ],
+  "graph": {
+    "nodes": 82,
+    "edges": 159,
+    "by_kind": {
+      "requirement": 16,
+      "decision": 14,
+      "technology": 14,
+      "task": 12,
+      "category": 11,
+      "phase": 9,
+      "lesson": 2,
+      "architecture": 1,
+      "mistake": 1,
+      "reference": 1,
+      "session": 1
+    }
+  },
+  "progress_percent": 100
+}

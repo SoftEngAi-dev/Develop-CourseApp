@@ -1,0 +1,112 @@
+{
+  "kind": "curriculum",
+  "mode": "learn",
+  "generated_at": "2026-09-13T18:07:17.240Z",
+  "lesson_anatomy": [
+    "title",
+    "objective",
+    "concepts",
+    "implementation",
+    "explanation",
+    "tutorial",
+    "exercise",
+    "solution"
+  ],
+  "modules": [
+    {
+      "id": "M1",
+      "title": {
+        "es": "Fundamentos: por qué un sistema que se documenta solo",
+        "en": "Foundations: why a self-documenting system",
+        "pt": "Fundamentos: por que um sistema que se documenta sozinho"
+      },
+      "lessons": [
+        {
+          "kind": "decision",
+          "ref": "DEC-00001",
+          "title": "Five-level separation (raw, processed, knowledge, project, control)."
+        },
+        {
+          "kind": "decision",
+          "ref": "DEC-00002",
+          "title": "node:sqlite (integrado en Node 22) + tablas virtuales FTS5, con archivos\nJSON pa"
+        },
+        {
+          "kind": "decision",
+          "ref": "DEC-00003",
+          "title": "Store Decision Traces: objective -> context used -> constraints -> alternatives "
+        },
+        {
+          "kind": "decision",
+          "ref": "DEC-00004",
+          "title": "Interruptions become first-class events with types: blocked, failed, interrupted"
+        },
+        {
+          "kind": "decision",
+          "ref": "DEC-00005",
+          "title": "Front end híbrido de tres capas: (1) core/api, servidor HTTP sin\ndependencias; ("
+        },
+        {
+          "kind": "decision",
+          "ref": "DEC-00006",
+          "title": "Identifiers, types and events in English. Every file carries a trilingual header"
+        }
+      ]
+    },
+    {
+      "id": "M2",
+      "title": {
+        "es": "Build: knowledge-layer",
+        "en": "Build: knowledge-layer",
+        "pt": "Build: knowledge-layer"
+      },
+      "lessons": [
+        {
+          "kind": "build",
+          "ref": "BLD-00001",
+          "title": "SQLite + FTS5 capture, processors, knowledge graph, retrieval and context engine (Phases 0-2)"
+        }
+      ]
+    },
+    {
+      "id": "M3",
+      "title": {
+        "es": "Build: offline-pwa-console",
+        "en": "Build: offline-pwa-console",
+        "pt": "Build: offline-pwa-console"
+      },
+      "lessons": [
+        {
+          "kind": "build",
+          "ref": "BLD-00002",
+          "title": "zero-dependency desktop+mobile console: HTTP server, PWA shell, service worker, offline snapshot (TSK-00012)"
+        }
+      ]
+    },
+    {
+      "id": "M4",
+      "title": {
+        "es": "Trampas reales y cómo evitarlas",
+        "en": "Real pitfalls and how to avoid them",
+        "pt": "Armadilhas reais e como evitá-las"
+      },
+      "lessons": [
+        {
+          "kind": "lesson",
+          "ref": "LES-00001",
+          "title": "Verificar los permisos reales del token antes de prometer operaciones de infraes"
+        },
+        {
+          "kind": "lesson",
+          "ref": "LES-00002",
+          "title": "La capacidad offline no es una característica de la interfaz, es una propiedad d"
+        }
+      ]
+    }
+  ],
+  "stats": {
+    "builds": 2,
+    "lessons": 2,
+    "decisions": 12
+  }
+}

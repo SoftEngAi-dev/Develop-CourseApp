@@ -1,0 +1,85 @@
+{
+  "id": "LESSON-BLD-00002",
+  "build_id": "BLD-00002",
+  "title": {
+    "es": "Cómo se construyó: offline-pwa-console",
+    "en": "How it was built: offline-pwa-console",
+    "pt": "Como foi construído: offline-pwa-console"
+  },
+  "objective": {
+    "es": "zero-dependency desktop+mobile console: HTTP server, PWA shell, service worker, offline snapshot (TSK-00012)",
+    "en": "zero-dependency desktop+mobile console: HTTP server, PWA shell, service worker, offline snapshot (TSK-00012)",
+    "pt": "zero-dependency desktop+mobile console: HTTP server, PWA shell, service worker, offline snapshot (TSK-00012)"
+  },
+  "concepts": [
+    {
+      "term": "layer:application",
+      "why": "every build belongs to exactly one of the eleven layers (manifest.layers)"
+    },
+    {
+      "term": "decision:DEC-00011",
+      "why": "the build follows this Decision Trace"
+    },
+    {
+      "term": "decision:DEC-00012",
+      "why": "the build follows this Decision Trace"
+    },
+    {
+      "term": "verification",
+      "why": "the build is proven by 2 test file(s)"
+    }
+  ],
+  "implementation": {
+    "file": "core/api/server.js",
+    "excerpt": "/* ═══════════════════════════════════════════════════════════════════════════\n * core/api/server.js\n * ───────────────────────────────────────────────────────────────────────────\n * 🇪🇸 ES — QUÉ HACE: el servidor HTTP del proyecto, escrito SOLO con `node:http`.\n *     Sirve la API JSON y, además, los archivos estáticos del console offline\n *     (apps/console). Es lo que arranca `genesis serve`.\n *     POR QUÉ EXISTE (REQ-0006 y DEC-00005): la exigencia fue \"completo Y\n *     totalmente offline\". Con este servidor, clonar el repositorio y ejecutar\n *     `node core/cli/genesis.js serve` da una aplicación funcionando SIN npm\n *     install, sin red y sin compilación. Next.js se enchufa después a la misma API.\n *\n * 🇬🇧 EN — WHAT IT DOES: the project's HTTP server, written ONLY with `node:http`.\n *     It serves the JSON API and also the static files of the offline console\n *     (apps/console). This is what `genesis serve` starts.\n *     WHY IT EXISTS (REQ-0006 and DEC-00005): the requirement was \"full AND\n *     totally offline\". With this server, cloning the repo and running\n *     `node core/cli/genesis.js serve` gives you a working application with NO\n *     npm install, no network and no build step. Next.js plugs into the same API.\n *\n * 🇧🇷 PT — O QUE FAZ: o servidor HTTP do projeto, escrito SOMENTE com `node:http`.\n *     Serve a API JSON e também os arquivos estáticos do console offline\n *     (apps/console). É o que `genesis serve` inicia.\n *     POR QUE EXISTE (REQ-0006 e DEC-00005): a exigência foi \"completo E\n *     totalmente offline\". Com este servidor, clonar o repositório e executar\n *     `node core/cli/genesis.js serve` dá uma aplicação funcionando SEM npm\n *     install, sem rede e sem build. O Next.js se conecta depois à mesma API.\n *\n * 🎓 BEGINNER COURSE / CURSO PARA PRINCIPIANTES / CURSO PARA INICIANTES\n *   • `0.0.0.0` vs `127.0.0.1` ES/EN/PT: `127.0.0.1` (localhost) solo acepta\n *     conexiones de la propia máquina; `0.0.0.0` acepta conexiones desde\n *     cualquier interfaz de red. En entornos con preview/proxy (como este) es\n *     OBLIGATORIO usar 0.0.0.0 o la vista previa queda en blanco.\n *     Bind 0.0.0.0 to accept external connections; 127.0.0.1 only local ones.\n *   • CORS ES/EN/PT: los navegadores bloquean que una página de un origen llame\n *     a una API de otro origen. Las cabeceras `Access-Control-Allow-*` son el\n *     permiso explícito del servidor. Aquí abrimos `*` porque es una herramienta\n *     local de desarrollo; en producción se restringe al dominio real.\n *     CORS headers explicitly allow cross-origin calls from the browser.\n *   • Path traversal ES/EN/PT: si sirves archivos estáticos, alguien puede pedir\n *     `/../../etc/passwd`. La defensa es resolver la ruta y comprobar que sigue"
+  },
+  "explanation": {
+    "problems": [
+      "browsers refuse stale caches: the service worker had to serve fresh data online and the snapshot offline"
+    ],
+    "fixes": [
+      "sw.js network-first with snapshot fallback; snapshot exported by the pipeline (step 6)"
+    ]
+  },
+  "tutorial": [
+    {
+      "step": 1,
+      "do": "read the build objective: \"zero-dependency desktop+mobile console: HTTP server, PWA shell, service worker, offline snapshot (TS\""
+    },
+    {
+      "step": 2,
+      "do": "open the 8 file(s) it produced, starting with core/api/server.js"
+    },
+    {
+      "step": 3,
+      "do": "run its verification: node --disable-warning=ExperimentalWarning --test tests/api.test.js"
+    },
+    {
+      "step": 4,
+      "do": "read the problems it hit and the fixes that worked (explanation section below)"
+    },
+    {
+      "step": 5,
+      "do": "solve the exercise and compare with the solution"
+    }
+  ],
+  "exercise": {
+    "prompt": {
+      "es": "Escribe un test node:test que pruebe que core/api/server.js existe y no está vacío, y que la suite del build (tests/api.test.js ) pasa.",
+      "en": "Write a node:test proving that core/api/server.js exists and is non-empty, and that the build suite (tests/api.test.js) passes.",
+      "pt": "Escreva um node:test provando que core/api/server.js existe e não está vazio, e que a suíte (tests/api.test.js) passa."
+    },
+    "starter_code": "import test from 'node:test';\nimport assert from 'node:assert/strict';\nimport fs from 'node:fs';\n\ntest('offline-pwa-console works', () => {\n  // TODO: assert the file exists and has bytes\n  // TODO: (advanced) run its test file with execFileSync and assert exit 0\n});"
+  },
+  "solution": {
+    "explanation": {
+      "es": "La solución usa fs.statSync para probar existencia Y tamaño: un archivo vacío no es una implementación. El segundo assert corre la suite real del build.",
+      "en": "The solution uses fs.statSync to prove existence AND size: an empty file is not an implementation. The second assert runs the build real suite.",
+      "pt": "A solução usa fs.statSync para provar existência E tamanho; o segundo assert roda a suíte real do build."
+    },
+    "code": "import test from 'node:test';\nimport assert from 'node:assert/strict';\nimport fs from 'node:fs';\nimport { execFileSync } from 'node:child_process';\n\ntest('offline-pwa-console works', () => {\n  const stat = fs.statSync('core/api/server.js');\n  assert.ok(stat.size > 0, 'the implementation is not empty');\n  execFileSync(process.execPath, ['--disable-warning=ExperimentalWarning', '--test', 'tests/api.test.js'], { stdio: 'pipe' });\n});",
+    "verifiable": true
+  },
+  "generated_at": "2026-09-13T18:07:17.244Z",
+  "anatomy_complete": true
+}

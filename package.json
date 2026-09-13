@@ -1,0 +1,46 @@
+{
+  "name": "genesis-project-knowledge-engine",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "GENESIS — Project Knowledge & Autonomous Engine. Converts every development conversation into structured knowledge, documentation, an interactive course and an executable project state.",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "bin": {
+    "genesis": "./core/cli/genesis.js"
+  },
+  "scripts": {
+    "genesis": "node --disable-warning=ExperimentalWarning ./core/cli/genesis.js",
+    "init": "node --disable-warning=ExperimentalWarning ./core/cli/genesis.js init",
+    "resume": "node --disable-warning=ExperimentalWarning ./core/cli/genesis.js resume",
+    "status": "node --disable-warning=ExperimentalWarning ./core/cli/genesis.js status",
+    "doctor": "node --disable-warning=ExperimentalWarning ./core/cli/genesis.js doctor",
+    "serve": "node --disable-warning=ExperimentalWarning ./core/cli/genesis.js serve",
+    "demo": "node --disable-warning=ExperimentalWarning ./scripts/seed-demo-session.js",
+    "pipeline": "node --disable-warning=ExperimentalWarning ./scripts/run-full-pipeline.js",
+    "test": "node --disable-warning=ExperimentalWarning --test \"tests/*.test.js\"",
+    "test:watch": "node --disable-warning=ExperimentalWarning --test --watch \"tests/*.test.js\"",
+    "icons": "node --disable-warning=ExperimentalWarning ./scripts/generate-icons.js",
+    "snapshot": "node --disable-warning=ExperimentalWarning ./scripts/export-console-snapshot.js",
+    "offline": "npm run icons && npm run snapshot",
+    "web:install": "npm --prefix apps/web install",
+    "web:build": "GENESIS_API=${GENESIS_API:-http://127.0.0.1:4321} npm --prefix apps/web run build",
+    "web:start": "GENESIS_API=${GENESIS_API:-http://127.0.0.1:4321} npm --prefix apps/web run start"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "keywords": [
+    "genesis",
+    "knowledge-graph",
+    "autonomous-agent",
+    "documentation",
+    "sqlite",
+    "fts5",
+    "decision-trace",
+    "zero-dependency",
+    "offline-first",
+    "education"
+  ]
+}

@@ -1,0 +1,73 @@
+# ═══════════════════════════════════════════════════════════════════════════
+# 🇪🇸 ES — Qué es este archivo
+#   Git usa .gitignore para saber qué archivos NO debe versionar.
+#   Aquí excluimos bases de datos generadas, logs crudos y dependencias.
+#   La regla del proyecto: el conocimiento PROCESADO se versiona,
+#   los binarios regenerables NO (se pueden reconstruir con `genesis process`).
+# 🇬🇧 EN — What this file is
+#   Git reads .gitignore to know which files must NOT be versioned.
+#   We exclude generated databases, raw logs and dependencies.
+#   Project rule: PROCESSED knowledge is versioned, regenerable binaries are NOT
+#   (they can be rebuilt with `genesis process`).
+# 🇧🇷 PT — O que é este arquivo
+#   O Git lê o .gitignore para saber quais arquivos NÃO versionar.
+#   Excluímos bancos gerados, logs brutos e dependências.
+#   Regra do projeto: conhecimento PROCESSADO é versionado, binários
+#   regeneráveis NÃO (podem ser recriados com `genesis process`).
+# ═══════════════════════════════════════════════════════════════════════════
+
+# --- Dependencies / Dependências -------------------------------------------
+node_modules/
+.pnp
+.pnp.js
+
+# --- Build output / Salida de build / Saída de build ------------------------
+dist/
+build/
+out/
+.next/
+.nuxt/
+.output/
+.turbo/
+.parcel-cache/
+.vite/
+.svelte-kit/
+coverage/
+
+# --- Generated databases & indexes (rebuildable) ----------------------------
+data/indexes/*.db
+data/indexes/*.db-journal
+data/indexes/*.db-wal
+data/indexes/*.db-shm
+data/indexes/*.sqlite
+*.db-journal
+*.db-wal
+*.db-shm
+
+# --- Raw capture: local-only by default, samples are versioned --------------
+data/raw/**
+!data/raw/
+!data/raw/**/
+!data/raw/**/.gitkeep
+data/processed/runtime/
+
+# --- Runtime logs & OS noise ------------------------------------------------
+*.log
+logs/
+.DS_Store
+Thumbs.db
+
+# --- Environments / Entornos / Ambientes ------------------------------------
+.env
+.env.*
+!.env.example
+
+# --- Editor / IDE -----------------------------------------------------------
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# --- Python (future automation adapters) ------------------------------------
+__pycache__/
+*.py[cod]
+.venv/

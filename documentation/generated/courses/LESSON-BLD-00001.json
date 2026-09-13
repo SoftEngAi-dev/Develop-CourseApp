@@ -1,0 +1,93 @@
+{
+  "id": "LESSON-BLD-00001",
+  "build_id": "BLD-00001",
+  "title": {
+    "es": "Cómo se construyó: knowledge-layer",
+    "en": "How it was built: knowledge-layer",
+    "pt": "Como foi construído: knowledge-layer"
+  },
+  "objective": {
+    "es": "SQLite + FTS5 capture, processors, knowledge graph, retrieval and context engine (Phases 0-2)",
+    "en": "SQLite + FTS5 capture, processors, knowledge graph, retrieval and context engine (Phases 0-2)",
+    "pt": "SQLite + FTS5 capture, processors, knowledge graph, retrieval and context engine (Phases 0-2)"
+  },
+  "concepts": [
+    {
+      "term": "layer:knowledge",
+      "why": "every build belongs to exactly one of the eleven layers (manifest.layers)"
+    },
+    {
+      "term": "decision:DEC-00001",
+      "why": "the build follows this Decision Trace"
+    },
+    {
+      "term": "decision:DEC-00002",
+      "why": "the build follows this Decision Trace"
+    },
+    {
+      "term": "decision:DEC-00003",
+      "why": "the build follows this Decision Trace"
+    },
+    {
+      "term": "decision:DEC-00004",
+      "why": "the build follows this Decision Trace"
+    },
+    {
+      "term": "verification",
+      "why": "the build is proven by 6 test file(s)"
+    }
+  ],
+  "implementation": {
+    "file": "knowledge/db/index.js",
+    "excerpt": "/* ═══════════════════════════════════════════════════════════════════════════\n * knowledge/db/index.js\n * ───────────────────────────────────────────────────────────────────────────\n * 🇪🇸 ES — QUÉ HACE: abre la base de datos SQLite del conocimiento, ejecuta\n *     las migraciones SQL y ofrece ayudantes seguros para consultar\n *     (all/get/run/tx) e indexar entidades en FTS5.\n *     POR QUÉ EXISTE (DEC-00002): usamos `node:sqlite`, integrado en Node 22.\n *     Cero dependencias npm, cero compilación nativa, funciona offline. El\n *     esquema es SQL portable: mañana puede migrar a PostgreSQL sin rediseño.\n *\n * 🇬🇧 EN — WHAT IT DOES: opens the SQLite knowledge database, runs the SQL\n *     migrations and offers safe query helpers (all/get/run/tx) plus entity\n *     indexing into FTS5.\n *     WHY IT EXISTS (DEC-00002): we use `node:sqlite`, built into Node 22.\n *     Zero npm dependencies, zero native compilation, works offline. The schema\n *     is portable SQL: it can migrate to PostgreSQL later without a redesign.\n *\n * 🇧🇷 PT — O QUE FAZ: abre o banco SQLite do conhecimento, executa as migrações\n *     SQL e oferece auxiliares seguros de consulta (all/get/run/tx) e indexação\n *     de entidades no FTS5.\n *     POR QUE EXISTE (DEC-00002): usamos `node:sqlite`, embutido no Node 22.\n *     Zero dependências npm, zero compilação nativa, funciona offline. O schema\n *     é SQL portável: pode migrar para PostgreSQL depois sem redesenho.\n *\n * 🎓 BEGINNER COURSE / CURSO PARA PRINCIPIANTES / CURSO PARA INICIANTES\n *   • ¿Qué es una migración? ES/EN/PT: un archivo SQL numerado que describe un\n *     cambio de esquema (0001_init.sql, 0002_add_x.sql). La base guarda cuáles\n *     ya aplicó en la tabla `schema_meta`, así al arrancar solo ejecuta los\n *     pendientes. Sin migraciones, cada desarrollador tendría un esquema distinto.\n *     A migration is a numbered SQL file; the DB records which ones ran.\n *   • Prepared statement ES/EN/PT: `db.prepare('SELECT * FROM t WHERE id = ?')`\n *     compila la consulta UNA vez y la reutiliza con distintos valores. Es más\n *     rápido y, sobre todo, evita SQL INJECTION: los `?` nunca se interpretan\n *     como código SQL. NUNCA hagas `\"WHERE id = '\" + entrada + \"'\"`.\n *     Prepared statements are faster and prevent SQL injection. Never concatenate.\n *   • ⚠️ node:sqlite solo acepta: null, number, bigint, string y Uint8Array.\n *     Un `undefined` o un `true` lanzan excepción. Por eso `sanitizeParams()`\n *     convierte undefined→null y boolean→1/0. Este es el error nº1 al empezar.\n *     node:sqlite accepts only null/number/bigint/string/Uint8Array: we convert.\n *   • Transacción ES/EN/PT: `BEGIN ... COMMIT` agrupa varias escrituras: o se"
+  },
+  "explanation": {
+    "problems": [
+      "FTS5 external-content tables silently return nothing when the content table is written without triggers"
+    ],
+    "fixes": [
+      "migrations install the FTS triggers; tests assert search() finds seeded rows"
+    ]
+  },
+  "tutorial": [
+    {
+      "step": 1,
+      "do": "read the build objective: \"SQLite + FTS5 capture, processors, knowledge graph, retrieval and context engine (Phases 0-2)\""
+    },
+    {
+      "step": 2,
+      "do": "open the 9 file(s) it produced, starting with knowledge/db/index.js"
+    },
+    {
+      "step": 3,
+      "do": "run its verification: node --disable-warning=ExperimentalWarning --test tests/db.test.js"
+    },
+    {
+      "step": 4,
+      "do": "read the problems it hit and the fixes that worked (explanation section below)"
+    },
+    {
+      "step": 5,
+      "do": "solve the exercise and compare with the solution"
+    }
+  ],
+  "exercise": {
+    "prompt": {
+      "es": "Escribe un test node:test que pruebe que knowledge/db/index.js existe y no está vacío, y que la suite del build (tests/db.test.js ) pasa.",
+      "en": "Write a node:test proving that knowledge/db/index.js exists and is non-empty, and that the build suite (tests/db.test.js) passes.",
+      "pt": "Escreva um node:test provando que knowledge/db/index.js existe e não está vazio, e que a suíte (tests/db.test.js) passa."
+    },
+    "starter_code": "import test from 'node:test';\nimport assert from 'node:assert/strict';\nimport fs from 'node:fs';\n\ntest('knowledge-layer works', () => {\n  // TODO: assert the file exists and has bytes\n  // TODO: (advanced) run its test file with execFileSync and assert exit 0\n});"
+  },
+  "solution": {
+    "explanation": {
+      "es": "La solución usa fs.statSync para probar existencia Y tamaño: un archivo vacío no es una implementación. El segundo assert corre la suite real del build.",
+      "en": "The solution uses fs.statSync to prove existence AND size: an empty file is not an implementation. The second assert runs the build real suite.",
+      "pt": "A solução usa fs.statSync para provar existência E tamanho; o segundo assert roda a suíte real do build."
+    },
+    "code": "import test from 'node:test';\nimport assert from 'node:assert/strict';\nimport fs from 'node:fs';\nimport { execFileSync } from 'node:child_process';\n\ntest('knowledge-layer works', () => {\n  const stat = fs.statSync('knowledge/db/index.js');\n  assert.ok(stat.size > 0, 'the implementation is not empty');\n  execFileSync(process.execPath, ['--disable-warning=ExperimentalWarning', '--test', 'tests/db.test.js'], { stdio: 'pipe' });\n});",
+    "verifiable": true
+  },
+  "generated_at": "2026-09-13T18:07:17.241Z",
+  "anatomy_complete": true
+}

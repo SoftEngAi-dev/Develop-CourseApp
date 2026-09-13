@@ -1,0 +1,16 @@
+{
+  "name": "genesis-web",
+  "version": "0.1.0",
+  "private": true,
+  "description": "GENESIS Next.js front end. OPTIONAL enhancement over the zero-dependency offline console (apps/console). All its dependencies live in this folder only (POL-0001).",
+  "scripts": {
+    "dev": "next dev -p 4000",
+    "build": "next build",
+    "start": "next start -p 4000"
+  },
+  "dependencies": {
+    "next": "^15.1.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  }
+}

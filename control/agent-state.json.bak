@@ -1,0 +1,117 @@
+{
+  "agent_state_version": "1.0.0",
+  "status": "running",
+  "phase": "phase-5",
+  "note": {
+    "es": "Este archivo es el contrato de estado del agente autónomo. En la Fase 0-2 existe como esqueleto: el agente real llega en la Fase 5. El Context Engine de knowledge/retrieval/context.js ya produce el SESSION CONTEXT que este agente consumirá.",
+    "en": "This file is the state contract of the autonomous agent. In Phase 0-2 it exists as a skeleton: the real agent arrives in Phase 5. The Context Engine at knowledge/retrieval/context.js already produces the SESSION CONTEXT this agent will consume.",
+    "pt": "Este arquivo é o contrato de estado do agente autônomo. Na Fase 0-2 existe como esqueleto: o agente real chega na Fase 5. O Context Engine em knowledge/retrieval/context.js já produz o SESSION CONTEXT que este agente consumirá."
+  },
+  "loop": [
+    {
+      "step": 1,
+      "id": "observe",
+      "question": "What exists right now?",
+      "implemented": false
+    },
+    {
+      "step": 2,
+      "id": "contextualize",
+      "question": "What do we already know?",
+      "implemented": "partial",
+      "provided_by": "knowledge/retrieval/context.js"
+    },
+    {
+      "step": 3,
+      "id": "reason",
+      "question": "What does that imply?",
+      "implemented": false
+    },
+    {
+      "step": 4,
+      "id": "plan",
+      "question": "What steps achieve the objective?",
+      "implemented": false
+    },
+    {
+      "step": 5,
+      "id": "decide",
+      "question": "Which alternative do we take and why?",
+      "implemented": "partial",
+      "provided_by": "knowledge/processor/decisions.js"
+    },
+    {
+      "step": 6,
+      "id": "execute",
+      "question": "Do the work.",
+      "implemented": false
+    },
+    {
+      "step": 7,
+      "id": "test",
+      "question": "Does it run?",
+      "implemented": "partial",
+      "provided_by": "tests/"
+    },
+    {
+      "step": 8,
+      "id": "verify",
+      "question": "Does it satisfy the acceptance criteria?",
+      "implemented": false
+    },
+    {
+      "step": 9,
+      "id": "evaluate",
+      "question": "Was it worth it? What did it cost?",
+      "implemented": false
+    },
+    {
+      "step": 10,
+      "id": "learn",
+      "question": "What rule prevents this failure next time?",
+      "implemented": false
+    },
+    {
+      "step": 11,
+      "id": "update",
+      "question": "Persist the new state.",
+      "implemented": "partial",
+      "provided_by": "core/state/index.js"
+    }
+  ],
+  "capabilities": [
+    "checkpoint",
+    "rollback",
+    "resume",
+    "retry",
+    "recover",
+    "skip",
+    "pause",
+    "continue"
+  ],
+  "adapters": {
+    "models": [],
+    "orchestrators": [],
+    "note": "LangGraph / AutoGen / CrewAI / ChatDev / n8n / Activepieces / Dify / Flowise / Langflow / Make / Zapier are optional adapters (DEC-00009)."
+  },
+  "last_run": {
+    "turn": 1,
+    "started_at": "2026-09-13T18:07:11.079Z",
+    "finished_at": "2026-09-13T18:07:11.079Z",
+    "goal": null,
+    "status": "unknown",
+    "dry_run": false,
+    "stages_completed": []
+  },
+  "history": [
+    {
+      "turn": 1,
+      "started_at": "2026-09-13T18:07:11.079Z",
+      "finished_at": "2026-09-13T18:07:11.079Z",
+      "goal": null,
+      "status": "unknown",
+      "dry_run": false,
+      "stages_completed": []
+    }
+  ]
+}

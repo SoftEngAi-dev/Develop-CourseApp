@@ -1,0 +1,75 @@
+{
+  "processed_at": "2026-09-13T18:35:13.303Z",
+  "duration_ms": 115,
+  "sessions_processed": 1,
+  "sessions_failed": 0,
+  "failures": [],
+  "totals": {
+    "decisions": 2,
+    "plans": 4,
+    "errors": 1,
+    "searches": 1,
+    "requirements": 6,
+    "lessons": 0,
+    "requirement_changes": 0,
+    "proposed_rules": 0,
+    "messages": 5
+  },
+  "ingestion": {
+    "control": {
+      "requirements": 10,
+      "tasks": 12,
+      "decisions": 14,
+      "policies": 12,
+      "skipped": false
+    },
+    "events": {
+      "events": 839,
+      "types": 19
+    },
+    "sessions_ingested": 1
+  },
+  "graph": {
+    "categories": 11,
+    "technologies": 14,
+    "decisions": 14,
+    "requirements": 16,
+    "tasks": 12,
+    "lessons": 1,
+    "mistakes": 1,
+    "searches": 1,
+    "co_occurrences": 43,
+    "edges": 159,
+    "nodes": 82
+  },
+  "database": {
+    "file": "data/indexes/genesis.db",
+    "bytes": 1163264,
+    "tables": 19,
+    "counts": {
+      "actions": 2,
+      "artifacts": 0,
+      "builds": 2,
+      "decisions": 14,
+      "dependencies": 0,
+      "edges": 159,
+      "errors": 1,
+      "events": 767,
+      "interruptions": 0,
+      "lessons": 2,
+      "messages": 5,
+      "nodes": 82,
+      "plans": 5,
+      "requirement_changes": 0,
+      "requirements": 16,
+      "schema_meta": 3,
+      "searches": 1,
+      "sessions": 1,
+      "tasks": 12
+    },
+    "indexed_entities": 157,
+    "indexed_messages": 5,
+    "schema_version": "0002"
+  },
+  "proposed_rules": []
+}

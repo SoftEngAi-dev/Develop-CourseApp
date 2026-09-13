@@ -1,0 +1,617 @@
+{
+  "decisions_version": "1.0.01",
+  "format_note": {
+    "es": "Cada decisión es un Decision Trace explicable. No guardamos razonamiento privado del modelo: guardamos objetivo, contexto, restricciones, alternativas, decisión, justificación, consecuencia y estado.",
+    "en": "Every decision is an explainable Decision Trace. We do not store a model's private reasoning: we store objective, context, constraints, alternatives, decision, justification, consequence and status.",
+    "pt": "Cada decisão é um Decision Trace explicável. Não guardamos o raciocínio privado do modelo: guardamos objetivo, contexto, restrições, alternativas, decisão, justificativa, consequência e status."
+  },
+  "decisions": [
+    {
+      "id": "DEC-00001",
+      "layer": "architecture",
+      "status": "approved",
+      "created_at": "2026-09-13T00:00:00.000Z",
+      "objective": {
+        "es": "Decidir cómo organizar los datos del sistema para que nada se mezcle.",
+        "en": "Decide how to organize system data so that nothing gets mixed together.",
+        "pt": "Decidir como organizar os dados do sistema para que nada se misture."
+      },
+      "context": "The system must preserve history, allow analysis, produce reusable knowledge and expose an operational brain.",
+      "constraints": [
+        "Must survive between sessions",
+        "Must be inspectable by a human",
+        "Must not require a server to run"
+      ],
+      "alternatives": [
+        {
+          "id": "A",
+          "option": "One single database holding everything",
+          "rejected_because": "Mixes interpretation with raw history; impossible to audit."
+        },
+        {
+          "id": "B",
+          "option": "One flat folder of markdown files",
+          "rejected_because": "Not queryable, no relations, no graph."
+        },
+        {
+          "id": "C",
+          "option": "Five separated levels: raw / processed / knowledge / project / control",
+          "selected": true
+        }
+      ],
+      "decision": "Five-level separation (raw, processed, knowledge, project, control).",
+      "justification": "Raw stays immutable and auditable; processed can be regenerated; knowledge becomes reusable; control lets a new session avoid re-reading the universe.",
+      "consequence": "The processed level can always be rebuilt from raw. Losing an index is never losing history.",
+      "related": [
+        "REQ-0002",
+        "POL-0001"
+      ],
+      "evidence": "Session where the architecture was defined by the user and validated against an empty repository."
+    },
+    {
+      "id": "DEC-00002",
+      "layer": "infrastructure",
+      "status": "approved",
+      "created_at": "2026-09-13T00:00:00.000Z",
+      "objective": {
+        "es": "Elegir la base de datos y el motor de búsqueda del Knowledge Engine.",
+        "en": "Choose the database and search engine for the Knowledge Engine.",
+        "pt": "Escolher o banco de dados e o motor de busca do Knowledge Engine."
+      },
+      "context": "Node 22.22 ships node:sqlite natively. Verified in this sandbox: table creation, writes, reads and FTS5 MATCH queries all work with zero npm packages.",
+      "constraints": [
+        "Must work offline",
+        "Must not require npm install",
+        "Must support full-text search",
+        "Must be able to evolve to PostgreSQL later"
+      ],
+      "alternatives": [
+        {
+          "id": "A",
+          "option": "JSON files only",
+          "rejected_because": "No full-text search, no relations, O(n) scans."
+        },
+        {
+          "id": "B",
+          "option": "better-sqlite3 (npm)",
+          "rejected_because": "Native compilation, install step, breaks offline-first."
+        },
+        {
+          "id": "C",
+          "option": "PostgreSQL",
+          "rejected_because": "Requires a running server; overkill for a local-first MVP."
+        },
+        {
+          "id": "D",
+          "option": "Vector DB",
+          "rejected_because": "Heavy dependency; semantic search can be added later as an adapter."
+        },
+        {
+          "id": "E",
+          "option": "node:sqlite (built-in) + FTS5",
+          "selected": true
+        }
+      ],
+      "decision": "node:sqlite (built into Node 22) + FTS5 virtual tables, with JSON files for configuration.",
+      "justification": "Lowest initial complexity, real full-text search, local/offline operation, zero supply-chain risk.",
+      "consequence": "The schema is portable SQL, so it can migrate to PostgreSQL later without redesign.",
+      "related": [
+        "REQ-0005",
+        "POL-0005",
+        "DEC-00008"
+      ],
+      "evidence": "Executed probe: FTS5 OK, sqlite version 3.51.3."
+    },
+    {
+      "id": "DEC-00003",
+      "layer": "core-engine",
+      "status": "approved",
+      "created_at": "2026-09-13T00:00:00.000Z",
+      "objective": {
+        "es": "Decidir qué guardar del razonamiento de la IA.",
+        "en": "Decide what to store about the AI's reasoning.",
+        "pt": "Decidir o que guardar do raciocínio da IA."
+      },
+      "context": "The user asked to document reasoning. A literal transcription of a model's private reasoning is neither accessible nor useful.",
+      "constraints": [
+        "Must be reproducible",
+        "Must be useful for learning",
+        "Must not fabricate internal thoughts"
+      ],
+      "alternatives": [
+        {
+          "id": "A",
+          "option": "Store raw chain-of-thought",
+          "rejected_because": "Not reliably available; noisy; not a learning artifact."
+        },
+        {
+          "id": "B",
+          "option": "Store only the final answer",
+          "rejected_because": "Loses the 'why', which is the whole point."
+        },
+        {
+          "id": "C",
+          "option": "Store an explainable Decision Trace",
+          "selected": true
+        }
+      ],
+      "decision": "Store Decision Traces: objective -> context used -> constraints -> alternatives considered -> decision -> justification -> action -> result -> verification -> learning.",
+      "justification": "It is more useful than raw reasoning because it is structured, queryable and teachable.",
+      "consequence": "The question 'why did we choose X?' becomes answerable by navigating decision -> searches -> sources -> comparison -> implementation -> result.",
+      "related": [
+        "REQ-0003",
+        "POL-0009"
+      ],
+      "evidence": "Decision Trace example #00421 in the architecture conversation."
+    },
+    {
+      "id": "DEC-00004",
+      "layer": "core-engine",
+      "status": "approved",
+      "created_at": "2026-09-13T00:00:00.000Z",
+      "objective": {
+        "es": "Formalizar los 'cortes' (interrupciones) del proceso.",
+        "en": "Formalize the process 'interruptions'.",
+        "pt": "Formalizar os 'cortes' (interrupções) do processo."
+      },
+      "context": "The user called them 'Cortes'. They were informal notes about blocked work.",
+      "constraints": [
+        "Must be machine-readable",
+        "Must feed a Failure & Recovery Engine"
+      ],
+      "alternatives": [
+        {
+          "id": "A",
+          "option": "Keep them as free text notes",
+          "rejected_because": "Not queryable, not recoverable."
+        },
+        {
+          "id": "B",
+          "option": "First-class INTERRUPTION EVENT with typed taxonomy",
+          "selected": true
+        }
+      ],
+      "decision": "Interruptions become first-class events with types: blocked, failed, interrupted, waiting_user, dependency_missing, tool_error, ambiguity, conflict, resource_limit, security_stop, scope_change.",
+      "justification": "A typed taxonomy allows automatic recovery planning and metrics on failure patterns.",
+      "consequence": "Enables the Failure & Recovery Engine and the EVOLVE mode.",
+      "related": [
+        "REQ-0004",
+        "core/recovery"
+      ],
+      "evidence": "INTERRUPTION EVENT schema in the architecture conversation."
+    },
+    {
+      "id": "DEC-00005",
+      "layer": "application",
+      "status": "approved",
+      "created_at": "2026-09-13T00:00:00.000Z",
+      "objective": {
+        "es": "Elegir el stack de la capa de aplicación.",
+        "en": "Choose the application layer stack.",
+        "pt": "Escolher o stack da camada de aplicação."
+      },
+      "context": "The user answered 'all three options' and demanded: full-featured AND fully offline.",
+      "constraints": [
+        "Must work with no node_modules at all",
+        "Must also offer the full React/Next.js experience",
+        "Both must share one API"
+      ],
+      "alternatives": [
+        {
+          "id": "A",
+          "option": "Next.js only",
+          "rejected_because": "Requires npm install; not offline-capable from a clean clone."
+        },
+        {
+          "id": "B",
+          "option": "Zero-dep static SPA only",
+          "rejected_because": "Does not satisfy the requested full stack."
+        },
+        {
+          "id": "C",
+          "option": "Hybrid: zero-dep core + zero-dep console + Next.js app on the same API",
+          "selected": true
+        }
+      ],
+      "decision": "Hybrid three-layer front end: (1) core/api zero-dep HTTP server, (2) apps/console offline static UI served by it, (3) apps/web Next.js app consuming the identical API contract.",
+      "justification": "The API contract becomes the seam. Offline capability is guaranteed by layer 1+2; full features by layer 3.",
+      "consequence": "Any UI can be replaced without touching the engine.",
+      "related": [
+        "REQ-0006",
+        "POL-0005"
+      ],
+      "evidence": "User answer: 'Quiero una mezcla o seria hibrido... Seria una respuesta = Las 3.'"
+    },
+    {
+      "id": "DEC-00006",
+      "layer": "documentation",
+      "status": "approved",
+      "created_at": "2026-09-13T00:00:00.000Z",
+      "objective": {
+        "es": "Definir el idioma del código y de los comentarios.",
+        "en": "Define the language of code and comments.",
+        "pt": "Definir o idioma do código e dos comentários."
+      },
+      "context": "User: 'todo la creacion en ingles, los comentarios de los codigos en trilingue con explicacion total como si fuera un curso para recien iniciando en el lenguaje y programacion en si.'",
+      "constraints": [
+        "Code must be conventional",
+        "Comments must teach programming itself, not just this project"
+      ],
+      "alternatives": [
+        {
+          "id": "A",
+          "option": "English-only comments",
+          "rejected_because": "Contradicts the explicit trilingual teaching requirement."
+        },
+        {
+          "id": "B",
+          "option": "Manual translation of prose docs only",
+          "rejected_because": "Does not teach while reading code."
+        },
+        {
+          "id": "C",
+          "option": "English identifiers + trilingual pedagogical comment blocks (ES/EN/PT) with a BEGINNER COURSE section",
+          "selected": true
+        }
+      ],
+      "decision": "Identifiers, types and events in English. Every file carries a trilingual header and a BEGINNER COURSE block; key logic carries stacked ES/EN/PT inline comments.",
+      "justification": "Reading the source becomes a programming course in three languages at once.",
+      "consequence": "Files are longer. That is accepted deliberately: teaching value outweighs brevity.",
+      "related": [
+        "REQ-0007",
+        "POL-0008",
+        "docs/CONVENTIONS.md"
+      ],
+      "evidence": "User answer to the language question."
+    },
+    {
+      "id": "DEC-00007",
+      "layer": "requirements",
+      "status": "approved",
+      "created_at": "2026-09-13T00:00:00.000Z",
+      "objective": {
+        "es": "Definir el alcance de la primera entrega real.",
+        "en": "Define the scope of the first real delivery.",
+        "pt": "Definir o escopo da primeira entrega real."
+      },
+      "context": "32 sections of architecture existed but the repository contained only a 20-byte README.",
+      "constraints": [
+        "Must not attempt 30 modules at once",
+        "Must leave a complete map for future sessions"
+      ],
+      "alternatives": [
+        {
+          "id": "A",
+          "option": "Build phases 0-5 now",
+          "rejected_because": "High risk of leaving everything half-finished."
+        },
+        {
+          "id": "B",
+          "option": "Build only the core with no structure",
+          "rejected_because": "Future sessions would have to redesign the layout."
+        },
+        {
+          "id": "C",
+          "option": "Complete physical skeleton of all 8 phases + phases 0-2 fully executable",
+          "selected": true
+        }
+      ],
+      "decision": "Full directory skeleton (section 25 of the architecture) with a SPEC.md per module, plus Phase 0 (Bootstrap), Phase 1 (Capture) and Phase 2 (Knowledge Engine) really implemented and tested.",
+      "justification": "A new session can read the skeleton and know exactly what exists, what is stubbed and what to build next.",
+      "consequence": "Phases 3-7 are documented stubs, not dead folders: each has an executable-shaped contract.",
+      "related": [
+        "control/roadmap.json"
+      ],
+      "evidence": "User selected 'skeleton' scope."
+    },
+    {
+      "id": "DEC-00008",
+      "layer": "core-engine",
+      "status": "approved",
+      "created_at": "2026-09-13T00:00:00.000Z",
+      "objective": {
+        "es": "Decidir cómo validar datos sin romper la regla de cero dependencias.",
+        "en": "Decide how to validate data without breaking the zero-dependency rule.",
+        "pt": "Decidir como validar dados sem quebrar a regra de zero dependências."
+      },
+      "context": "The original stack table listed Zod for validation. Zod is an npm package; POL-0005 forbids core dependencies.",
+      "constraints": [
+        "Zero npm dependencies",
+        "Readable error messages",
+        "Enough for manifest/state/event validation"
+      ],
+      "alternatives": [
+        {
+          "id": "A",
+          "option": "Use Zod",
+          "rejected_because": "Violates the zero-dependency core policy."
+        },
+        {
+          "id": "B",
+          "option": "No validation at all",
+          "rejected_because": "Corrupt control files would silently break every session."
+        },
+        {
+          "id": "C",
+          "option": "Hand-written micro-validator with a chainable Zod-like API",
+          "selected": true
+        }
+      ],
+      "decision": "Implement core/validation/schema.js: a ~200-line chainable validator (z.string(), z.enum(), z.array(), z.object(), optional/default/parse/safeParse).",
+      "justification": "Keeps the API shape familiar from Zod so swapping to the real Zod later is a one-line adapter change.",
+      "consequence": "Validation covers the control plane; it is intentionally not a general-purpose schema library.",
+      "related": [
+        "POL-0005",
+        "DEC-00002"
+      ],
+      "evidence": "Verified npm-free runtime requirement."
+    },
+    {
+      "id": "DEC-00009",
+      "layer": "architecture",
+      "status": "approved",
+      "created_at": "2026-09-13T00:00:00.000Z",
+      "objective": {
+        "es": "Decidir el papel de LangGraph, CrewAI, AutoGen, n8n, Dify, Flowise y Langflow.",
+        "en": "Decide the role of LangGraph, CrewAI, AutoGen, n8n, Dify, Flowise and Langflow.",
+        "pt": "Decidir o papel de LangGraph, CrewAI, AutoGen, n8n, Dify, Flowise e Langflow."
+      },
+      "context": "These frameworks were studied previously and are tempting to embed.",
+      "constraints": [
+        "Must be replaceable without destroying the system"
+      ],
+      "alternatives": [
+        {
+          "id": "A",
+          "option": "Put them all inside the core",
+          "rejected_because": "Creates an unmaintainable monstrosity."
+        },
+        {
+          "id": "B",
+          "option": "Ignore them",
+          "rejected_because": "Throws away useful research."
+        },
+        {
+          "id": "C",
+          "option": "Optional adapters behind a stable interface",
+          "selected": true
+        }
+      ],
+      "decision": "External orchestrators are optional adapters only. The core ships its own orchestrator/planner/executor contract.",
+      "justification": "Technology can change without destroying the system.",
+      "consequence": "mcp/ and agents/ directories define adapter contracts, not implementations, in this phase.",
+      "related": [
+        "vision.anti_goals"
+      ],
+      "evidence": "Architecture section 26 and 27."
+    },
+    {
+      "id": "DEC-00010",
+      "layer": "verification",
+      "status": "approved",
+      "created_at": "2026-09-13T00:00:00.000Z",
+      "objective": {
+        "es": "Elegir el runner de pruebas y el sistema de módulos.",
+        "en": "Choose the test runner and module system.",
+        "pt": "Escolher o runner de testes e o sistema de módulos."
+      },
+      "context": "Node 22 includes node:test and node:assert natively and supports ESM.",
+      "constraints": [
+        "Zero dependencies",
+        "Watch mode desirable",
+        "Modern syntax"
+      ],
+      "alternatives": [
+        {
+          "id": "A",
+          "option": "Jest/Vitest",
+          "rejected_because": "npm dependencies."
+        },
+        {
+          "id": "B",
+          "option": "CommonJS + no tests",
+          "rejected_because": "Legacy syntax and no verification layer."
+        },
+        {
+          "id": "C",
+          "option": "ESM + node:test + node:assert",
+          "selected": true
+        }
+      ],
+      "decision": "ESM modules (\"type\": \"module\") with the built-in node:test runner and node:assert/strict.",
+      "justification": "Verification exists from day one at zero cost, satisfying Layer 8.",
+      "consequence": "Tests run with `npm test` or `node --test tests/`.",
+      "related": [
+        "manifest.verification"
+      ],
+      "evidence": "node --test available in v22.22.3."
+    },
+    {
+      "id": "DEC-00011",
+      "layer": "infrastructure",
+      "status": "blocked",
+      "created_at": "2026-09-13T00:00:00.000Z",
+      "objective": {
+        "es": "Crear el repositorio separado develo-courseapp-simplify y abrir allí el PR.",
+        "en": "Create the separate develo-courseapp-simplify repository and open the PR there.",
+        "pt": "Criar o repositório separado develo-courseapp-simplify e abrir o PR nele."
+      },
+      "context": "The user asked for a second repository. The sandbox GitHub token is a limited integration.",
+      "constraints": [
+        "Cannot create repositories",
+        "Cannot leave the session branch"
+      ],
+      "alternatives": [
+        {
+          "id": "A",
+          "option": "Create the repo via gh",
+          "rejected_because": "HTTP 403 'Resource not accessible by integration (createRepository)'."
+        },
+        {
+          "id": "B",
+          "option": "Silently skip the request",
+          "rejected_because": "Violates traceability."
+        },
+        {
+          "id": "C",
+          "option": "Build in the session branch AND prepare a ready-to-push local repository /home/user/develo-courseapp-simplify with a simplify remote",
+          "selected": true
+        }
+      ],
+      "decision": "Mirror the work into a local git repository named develo-courseapp-simplify, pre-configured with per-phase commits and a remote placeholder, so the user only has to create the GitHub repo and push.",
+      "justification": "Preserves the user's intent without inventing permissions we do not have.",
+      "consequence": "One manual step remains for the human: create the GitHub repo (or grant permission) and run the provided push command.",
+      "related": [
+        "INT-00001"
+      ],
+      "evidence": "gh repo create -> 403; git push --dry-run origin -> success."
+    },
+    {
+      "id": "DEC-00012",
+      "layer": "application",
+      "status": "approved",
+      "created_at": "2026-09-13T16:29:27.875Z",
+      "objective": {
+        "es": "Entregar la aplicación utilizable en escritorio y móvil, con y sin conexión a internet, sin añadir dependencias.",
+        "en": "Deliver the application usable on desktop and mobile, with and without internet connection, without adding dependencies.",
+        "pt": "Entregar o aplicativo utilizável em desktop e celular, com e sem conexão com a internet, sem adicionar dependências."
+      },
+      "context": "The user asked for the app to work on desktop AND mobile, offline AND online (both modes). The console was already a zero-dependency web app served by genesis serve, but it was not installable and it died when the API was unreachable.",
+      "constraints": [
+        "POL-0001: zero npm dependencies in the core, fully offline",
+        "No build step allowed for the offline console",
+        "One codebase must serve desktop and mobile",
+        "Stale data may be shown but must always be flagged as stale"
+      ],
+      "alternatives": [
+        {
+          "id": "A",
+          "option": "Electron desktop app + Cordova/Capacitor mobile wrapper",
+          "rejected_because": "Bundles Chromium/native toolchains and hundreds of npm packages; breaks POL-0001 and the empty-node_modules acceptance test, and triples repo size."
+        },
+        {
+          "id": "B",
+          "option": "Tauri (Rust) shell",
+          "rejected_because": "Requires a Rust toolchain on every machine that builds the app; the project must run on a bare Node 22 install."
+        },
+        {
+          "id": "C",
+          "option": "Plain website without service worker, showing \"you are offline\" when the API dies",
+          "rejected_because": "Fails the explicit requirement of being usable without connection; an error screen is not a mode."
+        },
+        {
+          "id": "D",
+          "option": "Installable PWA (manifest + service worker + bundled snapshot.json) with a three-tier data layer: live API -> service-worker cache -> snapshot",
+          "selected": true
+        }
+      ],
+      "decision": "Ship the console as an installable PWA: web manifest + generated PNG icons + service worker with per-resource cache strategies (cache-first shell, network-first API with last-good fallback) + a bundled snapshot.json so a never-connected install still opens with real data. One responsive codebase (drawer + bottom tabs on mobile, sidebar on desktop) covers both form factors. The UI always displays the active mode (live / cached / snapshot) and the sync time.",
+      "justification": "A PWA is the only option that installs on desktop and mobile, works offline, keeps zero dependencies and needs no build step. The service worker turns \"offline\" from an error into a mode with real data, and the snapshot makes even the first offline boot useful.",
+      "consequence": "apps/console gains sw.js, manifest.webmanifest, icons/ (generated by scripts/generate-icons.js) and snapshot.json (generated by scripts/export-console-snapshot.js). POL-0011 now forbids shipping a view that cannot render from cache or snapshot. Regenerating the snapshot is part of the release ritual.",
+      "related": [
+        "DEC-00005",
+        "POL-0001",
+        "TSK-00012"
+      ],
+      "evidence": "curl: /manifest.webmanifest -> application/manifest+json; /sw.js -> no-cache; /snapshot.json -> 74 frozen API responses; icons are valid PNGs (192/512/maskable) produced by a dependency-free encoder."
+    },
+    {
+      "id": "DEC-00013",
+      "layer": "cross-cutting",
+      "status": "approved",
+      "created_at": "2026-09-13T18:15:01.127Z",
+      "objective": {
+        "es": "Implementar las Fases 3, 5, 6 y 7 con código real y ejecutable para llevar el progreso verificado del proyecto por encima del 80% (instrucción del operador: \"llegamos al 80 %\"), sin falsear la métrica.",
+        "en": "Implement Phases 3, 5, 6 and 7 with real executable code to take verified project progress above 80% (operator directive: \"llegamos al 80 %\"), without faking the metric.",
+        "pt": "Implementar as Fases 3, 5, 6 e 7 com código real e executável para levar o progresso verificado acima de 80% (diretriz do operador), sem falsificar a métrica."
+      },
+      "context": "At 47.5% the control plane, capture, knowledge engine, API, offline PWA console and the 4-level test suite were real, but Phases 3/5/6/7 were honest stubs (DEC-00009). The operator asked to reach 80%. Progress is computed by the state machine (computeProgress): a phase only counts as completed when its tasks traverse planned→ready→running→verifying→completed and its exit criteria are demonstrably met.",
+      "constraints": [
+        "POL-0001: zero npm dependencies — the agent, docs engine, courses and evolution run on node: builtins only",
+        "POL-0002: patch protocol — stubs were replaced module by module, never by rewriting the project",
+        "POL-0003: checkpoint before risky mutation (CHK-00007 pre-phases-3-7)",
+        "POL-0006: the agent loop order observe→contextualize→reason→plan→execute→verify→learn is mandatory",
+        "DEC-00003: the agent reason() publishes a Decision-Trace-shaped rationale, never private reasoning",
+        "Safety by construction: the executor only runs whitelisted internal tools; runCommand refuses anything outside a fixed list; dry-run is the default"
+      ],
+      "alternatives": [
+        {
+          "id": "A",
+          "option": "Declare the phases completed in roadmap/state without implementing them",
+          "rejected_because": "The state machine exists precisely to make progress honest; editing the number without the code is the failure mode the whole control plane was built to prevent."
+        },
+        {
+          "id": "B",
+          "option": "Implement only Phases 3+5 (65%→77.5%) and stop short of 80%",
+          "rejected_because": "Does not reach the operator target, and leaves the learning loop (6/7) open: lessons would still never become policies."
+        },
+        {
+          "id": "C",
+          "option": "Implement Phases 3, 5, 6 and 7 fully: documentation engine, agent loop with planner/executor/verifier/recovery/orchestrator, education engine, evolution loop",
+          "selected": true
+        }
+      ],
+      "decision": "Implement Phases 3, 5, 6 and 7 with real code and tests: documentation/engine (4 generators + drift verifier wired into the pipeline), core/{planner,executor,verifier,recovery,orchestrator,agent} (dry-run-first agent with tool whitelist and mutation protocol), documentation/courses (builds→lessons with real code excerpts and runnable solutions), skills (promoteRules→POL-0012, installPrechecks consumed by verifyPolicies, registerSkill, evolutionMetrics, propose-without-applying). New CLI: genesis docs|agent|courses|evolve. Phase 4 (Next.js, TSK-00007) remains the only stub.",
+      "justification": "Every completion criterion is machine-checked: docs consistency (verifyDocumentation), the 7-stage turn (tests/agent-loop.test.js), lessons-with-real-code (tests/courses.test.js), error→lesson→rule→policy→precheck chain (tests/evolution.test.js). Suite grew 65→86 green tests. computeProgress then reports 92.5% because the tasks really traversed the state machine.",
+      "consequence": "Progress 47.5% → 92.5%. Remaining gap: Phase 4 Next.js app (TSK-00007, planned) and TSK-00011 (mirror publication, blocked on GitHub permissions, waiting_on user). The agent can now run real turns (genesis agent --run) with checkpoint-first mutation safety.",
+      "related": [
+        "DEC-00009",
+        "DEC-00003",
+        "POL-0006",
+        "TSK-00006",
+        "TSK-00008",
+        "TSK-00009",
+        "TSK-00010"
+      ],
+      "evidence": "node --test tests/*.test.js → 86 pass / 0 fail; genesis docs --verify → consistent; genesis agent → 7 stages completed (dry-run); genesis courses → 2 lessons from real builds + reverse curriculum; genesis evolve → POL-0012 promoted from LES-00001, 13 prechecks (2 blocking), is_learning=true; genesis status → 92.5%."
+    },
+    {
+      "id": "DEC-00014",
+      "layer": "application",
+      "status": "approved",
+      "created_at": "2026-09-13T18:35:04.706Z",
+      "objective": {
+        "es": "Entregar la Fase 4: la app Next.js (apps/web) como capa de mejora sobre el núcleo cero-dependencias, consumiendo la MISMA API de 31 rutas que el console offline, sin romper el invariante de node_modules vacío en la raíz.",
+        "en": "Deliver Phase 4: the Next.js app (apps/web) as an enhancement layer over the zero-dependency core, consuming the SAME 31-route API as the offline console, without breaking the empty-node_modules invariant at the root.",
+        "pt": "Entregar a Fase 4: o app Next.js como camada de melhoria sobre o núcleo zero-dependências, consumindo a MESMA API de 31 rotas, sem quebrar o invariante de node_modules vazio na raiz."
+      },
+      "context": "TSK-00007 was the last stub task (Phase 4, weight 15%). DEC-00005 already chose the hybrid: core API + offline console + Next.js app sharing one contract. The source skeleton existed (layout, home, api client, config) but no dependencies, no routes beyond /, and no verification. The operator asked to finish the project.",
+      "constraints": [
+        "POL-0001: root package.json keeps dependencies {} forever; everything Next lives in apps/web",
+        "SPEC rule 1: no direct database access from the front end — HTTP API only",
+        "SPEC rule 2: no duplicated data shapes — the same contract the console renders",
+        "The core suite must stay green with apps/web/node_modules deleted (offline invariant)",
+        "Desktop AND mobile: responsive navigation without extra CSS frameworks"
+      ],
+      "alternatives": [
+        {
+          "id": "A",
+          "option": "Skip Phase 4 and declare the project finished at 92.5%",
+          "rejected_because": "The operator asked to finish; TSK-00007 is a real weighted task and the hybrid stack (\"las 3\") was an original acceptance criterion."
+        },
+        {
+          "id": "B",
+          "option": "Move the Next.js app to the repository root (single package.json)",
+          "rejected_because": "Pollutes the zero-dependency root, breaks the offline invariant and the empty-node_modules acceptance test."
+        },
+        {
+          "id": "C",
+          "option": "Deliver apps/web fully: 12 App-Router routes as server components, rewrites proxy for /api/*, conditional-skip test gates, production build verified against the live core",
+          "selected": true
+        }
+      ],
+      "decision": "Implement the 12 SPEC routes (dashboard, sessions + detail with RAW/processed split, decisions + detail with provenance, knowledge search with [[mark]] snippets, graph stats/hubs/nodes, timeline audit tape, context markdown, generated-docs index + traversal-safe reader) as dynamic server components sharing lib/ui.js. next.config rewrites proxy /api/* to GENESIS_API (baked at build time — documented in SPEC). tests/web-app.test.js: isolation tests always run; build/server gates skip honestly when deps or server are absent, and auto-detect a live :4000 server when present.",
+      "justification": "The enhancement adds screens without adding contracts: zero new endpoints, zero reshaped payloads, zero root dependencies. 90/90 tests green with the server up (89+1 honest skip without it). next build produces 12 dynamic routes; curl verifies 200 + real data (92.5%, DEC-00013, FTS5 results) on every page, and /api/health through the proxy returns dependencies: 0.",
+      "consequence": "Phase 4 complete → progress 100% of the weighted roadmap except the cross-cutting blocked TSK-00011 (mirror publication, waiting on a human with GitHub repo-creation permission). Running order: genesis serve (:3000) → GENESIS_API=... next build → next start (:4000). apps/web/node_modules and .next stay gitignored.",
+      "related": [
+        "DEC-00005",
+        "DEC-00012",
+        "DEC-00013",
+        "POL-0001",
+        "POL-0011",
+        "TSK-00007"
+      ],
+      "evidence": "npm --prefix apps/web install → 23 packages; next build → 12 routes (ƒ dynamic), First Load JS 102 kB; curl :4000 → 200 on /, /sessions, /sessions/SES-00001, /decisions, /decisions/DEC-00013, /knowledge?q=sqlite, /graph, /timeline, /context, /docs, /docs/ARCHITECTURE.generated.md, /docs/courses/CURRICULUM.md; /api/health via proxy → ok, dependencies 0; node --test tests/*.test.js → 90 pass / 0 fail."
+    }
+  ]
+}

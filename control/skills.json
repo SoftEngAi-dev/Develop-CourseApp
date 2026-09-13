@@ -1,0 +1,18 @@
+{
+  "kind": "skills-registry",
+  "skills": [
+    {
+      "name": "safe-release",
+      "trigger": "manual",
+      "steps": [
+        "genesis status",
+        "genesis checkpoint",
+        "genesis agent --run --turns 1"
+      ],
+      "verification": "verifyPolicies() passes after the run",
+      "failure_examples": [],
+      "registered_at": "2026-09-13T18:16:42.478Z",
+      "status": "active"
+    }
+  ]
+}
