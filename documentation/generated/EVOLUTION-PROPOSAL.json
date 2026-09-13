@@ -1,0 +1,41 @@
+{
+  "kind": "architecture-evolution-proposal",
+  "status": "PROPOSED — requires human approval (never self-applied)",
+  "proposed_at": "2026-09-13T18:07:24.608Z",
+  "evidence": {
+    "repeated_failure_groups": [],
+    "metrics": {
+      "kind": "evolution-metrics",
+      "cycle": [
+        "LESSON",
+        "RULE",
+        "PRECHECK",
+        "SKILL",
+        "OPTIMIZATION",
+        "ARCHITECTURE EVOLUTION"
+      ],
+      "lessons": 2,
+      "errors": 1,
+      "unresolved_errors": 0,
+      "proposed_rules": 2,
+      "active_policies": 12,
+      "policies_born_from_lessons": 1,
+      "prechecks_installed": 10,
+      "skills_registered": 0,
+      "repeated_failure_groups": 0,
+      "is_learning": true
+    }
+  },
+  "decision_trace_shape": {
+    "objective": "no repeated failures detected — no architectural change proposed",
+    "context": "the learning loop reports no recurring pattern",
+    "alternatives": [
+      {
+        "option": "keep the current architecture",
+        "selected": true
+      }
+    ],
+    "decision": "no change",
+    "justification": "evolution without evidence is churn"
+  }
+}

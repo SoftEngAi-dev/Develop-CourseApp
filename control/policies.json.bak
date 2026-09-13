@@ -108,16 +108,6 @@
       "statement": "The console is an installable PWA usable with AND without connection. Every view must render from the live API, from the service-worker cache, or from the bundled snapshot, in that order. The interface must always flag the active mode and the sync time: stale data is never presented as fresh. No new npm dependency may be introduced to achieve this.",
       "origin": "DEC-00012",
       "created_at": "2026-09-13T16:29:27.875Z"
-    },
-    {
-      "id": "POL-0012",
-      "key": "infra.verify_permissions_before_promising",
-      "value": true,
-      "enforcement": "hard",
-      "statement": "Verificar los permisos reales del token antes de prometer operaciones de infraestructura externa; un dry-run de push no equivale a permiso de creación.",
-      "origin": "LES-00001",
-      "approved_by": "operator via `genesis evolve --promote`",
-      "promoted_at": "2026-09-13T18:07:24.603Z"
     }
   ],
   "learning_loop": {

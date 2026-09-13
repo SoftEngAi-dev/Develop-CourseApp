@@ -1,0 +1,89 @@
+{
+  "kind": "prechecks",
+  "installed_at": "2026-09-13T18:07:24.691Z",
+  "consumed_by": "core/verifier/index.js → verifyPolicies()",
+  "prechecks": [
+    {
+      "id": "PRE-0001",
+      "origin": "POL-0001",
+      "key": "observability.everything_is_an_event",
+      "statement": "Nothing happens without leaving an observable project event.",
+      "kind": "file-exists",
+      "path": "data/events.jsonl",
+      "blocking": false
+    },
+    {
+      "id": "PRE-0002",
+      "origin": "POL-0002",
+      "key": "mutation.never_rewrite_wholesale",
+      "statement": "Before modifying anything: READ -> UNDERSTAND -> DIFF -> PLAN -> PATCH -> VERIFY -> COMMIT. Never rewrite an entire project.",
+      "kind": "advisory",
+      "blocking": false
+    },
+    {
+      "id": "PRE-0003",
+      "origin": "POL-0003",
+      "key": "checkpoint.before_risky_mutation",
+      "statement": "Create a checkpoint before any operation that can destroy previous state.",
+      "kind": "advisory",
+      "blocking": false
+    },
+    {
+      "id": "PRE-0004",
+      "origin": "POL-0005",
+      "key": "core.zero_dependencies",
+      "statement": "The core engine must run with an empty node_modules. External frameworks are optional adapters.",
+      "kind": "zero-dependencies",
+      "blocking": true
+    },
+    {
+      "id": "PRE-0005",
+      "origin": "POL-0006",
+      "key": "agent.contextualize_before_reasoning",
+      "statement": "Ask 'what do we already know?' before asking 'what must I do?'.",
+      "kind": "advisory",
+      "blocking": false
+    },
+    {
+      "id": "PRE-0006",
+      "origin": "POL-0007",
+      "key": "documentation.by_design_not_by_reminder",
+      "statement": "The system documents itself. Never depend on the human remembering to say 'now document this'.",
+      "kind": "advisory",
+      "blocking": false
+    },
+    {
+      "id": "PRE-0007",
+      "origin": "POL-0008",
+      "key": "education.trilingual_comments",
+      "statement": "Code identifiers in English; comments trilingual and pedagogical, written as a course for absolute beginners.",
+      "kind": "advisory",
+      "blocking": false
+    },
+    {
+      "id": "PRE-0008",
+      "origin": "POL-0009",
+      "key": "reasoning.store_explainable_trace_not_private_thoughts",
+      "statement": "Store a Decision Trace (objective, context, constraints, alternatives, decision, justification, action, result, verification, learning). Never attempt to transcribe a model's private reasoning.",
+      "kind": "advisory",
+      "blocking": false
+    },
+    {
+      "id": "PRE-0009",
+      "origin": "POL-0011",
+      "key": "ui.offline_first_dual_mode",
+      "statement": "The console is an installable PWA usable with AND without connection. Every view must render from the live API, from the service-worker cache, or from the bundled snapshot, in that order. The interface must always flag the active mode and the sync time: stale data is never presented as fresh. No new npm dependency may be introduced to achieve this.",
+      "kind": "file-exists",
+      "path": "apps/console/sw.js",
+      "blocking": true
+    },
+    {
+      "id": "PRE-0010",
+      "origin": "POL-0012",
+      "key": "infra.verify_permissions_before_promising",
+      "statement": "Verificar los permisos reales del token antes de prometer operaciones de infraestructura externa; un dry-run de push no equivale a permiso de creación.",
+      "kind": "advisory",
+      "blocking": false
+    }
+  ]
+}

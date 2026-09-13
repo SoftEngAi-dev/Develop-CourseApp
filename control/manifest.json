@@ -1,7 +1,6 @@
 {
   "$schema": "../schemas/project-manifest.schema.json",
   "manifest_version": "1.0.0",
-
   "project": {
     "id": "genesis",
     "name": "Genesis Autonomous Engineering",
@@ -15,7 +14,6 @@
       "pt": "Sistema que transforma cada conversa de desenvolvimento em conhecimento estruturado, documentação, curso interativo e estado de projeto executável."
     }
   },
-
   "vision": {
     "north_star": {
       "es": "Que ninguna sesión futura tenga que releer el universo: el proyecto se explica, se recupera, se continúa y se mejora a sí mismo.",
@@ -36,7 +34,6 @@
       "Storing a literal transcription of a model's private internal reasoning."
     ]
   },
-
   "architecture": {
     "pipeline": [
       "chat",
@@ -53,24 +50,82 @@
       "system_update"
     ],
     "levels": [
-      { "level": 1, "id": "raw", "path": "data/raw", "purpose": "Preserve everything exactly as it happened. No interpretation." },
-      { "level": 2, "id": "processed", "path": "data/processed", "purpose": "AI/rule analysis of raw material into typed entities." },
-      { "level": 3, "id": "knowledge", "path": "knowledge", "purpose": "Reusable knowledge: concepts, decisions, patterns, lessons." },
-      { "level": 4, "id": "project", "path": ".", "purpose": "The real project: source, apps, packages, services, agents, skills, tests." },
-      { "level": 5, "id": "control", "path": "control", "purpose": "Operational brain: manifest, state, roadmap, tasks, checkpoints, policies." }
+      {
+        "level": 1,
+        "id": "raw",
+        "path": "data/raw",
+        "purpose": "Preserve everything exactly as it happened. No interpretation."
+      },
+      {
+        "level": 2,
+        "id": "processed",
+        "path": "data/processed",
+        "purpose": "AI/rule analysis of raw material into typed entities."
+      },
+      {
+        "level": 3,
+        "id": "knowledge",
+        "path": "knowledge",
+        "purpose": "Reusable knowledge: concepts, decisions, patterns, lessons."
+      },
+      {
+        "level": 4,
+        "id": "project",
+        "path": ".",
+        "purpose": "The real project: source, apps, packages, services, agents, skills, tests."
+      },
+      {
+        "level": 5,
+        "id": "control",
+        "path": "control",
+        "purpose": "Operational brain: manifest, state, roadmap, tasks, checkpoints, policies."
+      }
     ],
     "layers": [
-      { "layer": 0, "id": "vision" },
-      { "layer": 1, "id": "requirements" },
-      { "layer": 2, "id": "architecture" },
-      { "layer": 3, "id": "infrastructure" },
-      { "layer": 4, "id": "core-engine" },
-      { "layer": 5, "id": "application" },
-      { "layer": 6, "id": "agents" },
-      { "layer": 7, "id": "automation" },
-      { "layer": 8, "id": "verification" },
-      { "layer": 9, "id": "documentation" },
-      { "layer": 10, "id": "learning-evolution" }
+      {
+        "layer": 0,
+        "id": "vision"
+      },
+      {
+        "layer": 1,
+        "id": "requirements"
+      },
+      {
+        "layer": 2,
+        "id": "architecture"
+      },
+      {
+        "layer": 3,
+        "id": "infrastructure"
+      },
+      {
+        "layer": 4,
+        "id": "core-engine"
+      },
+      {
+        "layer": 5,
+        "id": "application"
+      },
+      {
+        "layer": 6,
+        "id": "agents"
+      },
+      {
+        "layer": 7,
+        "id": "automation"
+      },
+      {
+        "layer": 8,
+        "id": "verification"
+      },
+      {
+        "layer": 9,
+        "id": "documentation"
+      },
+      {
+        "layer": 10,
+        "id": "learning-evolution"
+      }
     ],
     "agent_loop": [
       "observe",
@@ -85,44 +140,133 @@
       "learn",
       "update"
     ],
-    "mutation_protocol": ["read", "understand", "diff", "plan", "patch", "verify", "commit"],
-    "modes": ["learn", "explore", "build", "evolve"]
+    "mutation_protocol": [
+      "read",
+      "understand",
+      "diff",
+      "plan",
+      "patch",
+      "verify",
+      "commit"
+    ],
+    "modes": [
+      "learn",
+      "explore",
+      "build",
+      "evolve"
+    ]
   },
-
   "state": {
     "file": "control/state.json",
     "source_of_truth": "control/state.json",
     "progress_model": "weighted_phase_completion"
   },
-
   "requirements": [
-    { "id": "REQ-0001", "layer": "requirements", "title": "Document absolutely everything that happens in the project", "priority": "critical", "status": "in_progress", "acceptance": "Every user message, interpretation, plan, action, result, decision and lesson is persisted and queryable." },
-    { "id": "REQ-0002", "layer": "core-engine", "title": "Separate data into five levels (raw / processed / knowledge / project / control)", "priority": "critical", "status": "completed", "acceptance": "The five physical directories exist and no level writes into another." },
-    { "id": "REQ-0003", "layer": "core-engine", "title": "Store explainable Decision Traces instead of private model reasoning", "priority": "high", "status": "completed", "acceptance": "Each decision records objective, context, constraints, alternatives, decision, justification, consequence and status." },
-    { "id": "REQ-0004", "layer": "core-engine", "title": "Treat interruptions ('cortes') as first-class events", "priority": "high", "status": "completed", "acceptance": "Interruption events carry type, layer, task, reason, impact, recoverability and recovery plan." },
-    { "id": "REQ-0005", "layer": "infrastructure", "title": "Work fully offline with zero npm dependencies in the core", "priority": "critical", "status": "completed", "acceptance": "npm install is never required to run init/capture/process/search/context/serve." },
-    { "id": "REQ-0006", "layer": "application", "title": "Web app that is simultaneously full-featured and offline-capable", "priority": "high", "status": "planned", "acceptance": "Zero-dep console works with no node_modules; Next.js app consumes the same API." },
-    { "id": "REQ-0007", "layer": "documentation", "title": "Trilingual pedagogical code comments (ES/EN/PT) written as a beginner course", "priority": "high", "status": "in_progress", "acceptance": "Every source file has a trilingual header plus a BEGINNER COURSE block." },
-    { "id": "REQ-0008", "layer": "learning-evolution", "title": "Generate a Reverse Engineering Curriculum from real builds", "priority": "medium", "status": "planned", "acceptance": "A completed build can be turned into lesson + concepts + tutorial + exercise + solution." },
-    { "id": "REQ-0009", "layer": "agents", "title": "Autonomous agent with context, planner, executor, verifier and recovery", "priority": "high", "status": "planned", "acceptance": "genesis resume rebuilds session context and continues the last task." },
-    { "id": "REQ-0010", "layer": "core-engine", "title": "Never overwrite: snapshot, diff, patch, verify, rollback", "priority": "critical", "status": "in_progress", "acceptance": "Checkpoints can restore control state and are created before risky mutations." }
+    {
+      "id": "REQ-0001",
+      "layer": "requirements",
+      "title": "Document absolutely everything that happens in the project",
+      "priority": "critical",
+      "status": "in_progress",
+      "acceptance": "Every user message, interpretation, plan, action, result, decision and lesson is persisted and queryable."
+    },
+    {
+      "id": "REQ-0002",
+      "layer": "core-engine",
+      "title": "Separate data into five levels (raw / processed / knowledge / project / control)",
+      "priority": "critical",
+      "status": "completed",
+      "acceptance": "The five physical directories exist and no level writes into another."
+    },
+    {
+      "id": "REQ-0003",
+      "layer": "core-engine",
+      "title": "Store explainable Decision Traces instead of private model reasoning",
+      "priority": "high",
+      "status": "completed",
+      "acceptance": "Each decision records objective, context, constraints, alternatives, decision, justification, consequence and status."
+    },
+    {
+      "id": "REQ-0004",
+      "layer": "core-engine",
+      "title": "Treat interruptions ('cortes') as first-class events",
+      "priority": "high",
+      "status": "completed",
+      "acceptance": "Interruption events carry type, layer, task, reason, impact, recoverability and recovery plan."
+    },
+    {
+      "id": "REQ-0005",
+      "layer": "infrastructure",
+      "title": "Work fully offline with zero npm dependencies in the core",
+      "priority": "critical",
+      "status": "completed",
+      "acceptance": "npm install is never required to run init/capture/process/search/context/serve."
+    },
+    {
+      "id": "REQ-0006",
+      "layer": "application",
+      "title": "Web app that is simultaneously full-featured and offline-capable",
+      "priority": "high",
+      "status": "planned",
+      "acceptance": "Zero-dep console works with no node_modules; Next.js app consumes the same API."
+    },
+    {
+      "id": "REQ-0007",
+      "layer": "documentation",
+      "title": "Trilingual pedagogical code comments (ES/EN/PT) written as a beginner course",
+      "priority": "high",
+      "status": "in_progress",
+      "acceptance": "Every source file has a trilingual header plus a BEGINNER COURSE block."
+    },
+    {
+      "id": "REQ-0008",
+      "layer": "learning-evolution",
+      "title": "Generate a Reverse Engineering Curriculum from real builds",
+      "priority": "medium",
+      "status": "planned",
+      "acceptance": "A completed build can be turned into lesson + concepts + tutorial + exercise + solution."
+    },
+    {
+      "id": "REQ-0009",
+      "layer": "agents",
+      "title": "Autonomous agent with context, planner, executor, verifier and recovery",
+      "priority": "high",
+      "status": "planned",
+      "acceptance": "genesis resume rebuilds session context and continues the last task."
+    },
+    {
+      "id": "REQ-0010",
+      "layer": "core-engine",
+      "title": "Never overwrite: snapshot, diff, patch, verify, rollback",
+      "priority": "critical",
+      "status": "in_progress",
+      "acceptance": "Checkpoints can restore control state and are created before risky mutations."
+    }
   ],
-
-  "tasks": { "file": "control/tasks.json" },
-  "roadmap": { "file": "control/roadmap.json" },
-  "decisions": { "file": "control/decisions.json" },
-  "policies": { "file": "control/policies.json" },
-  "checkpoints": { "dir": "control/checkpoints" },
-
+  "tasks": {
+    "file": "control/tasks.json"
+  },
+  "roadmap": {
+    "file": "control/roadmap.json"
+  },
+  "decisions": {
+    "file": "control/decisions.json"
+  },
+  "policies": {
+    "file": "control/policies.json"
+  },
+  "checkpoints": {
+    "dir": "control/checkpoints"
+  },
   "agents": [],
-  "skills": [],
+  "skills": [
+    "safe-release"
+  ],
   "tools": [],
-
   "mcp": {
     "status": "adapter-layer-planned",
     "note": "MCP is treated as a pluggable adapter layer, never as a core dependency."
   },
-
   "memory": {
     "project": "memory/project",
     "session": "memory/session",
@@ -130,44 +274,80 @@
     "lessons": "memory/lessons",
     "database": "data/indexes/genesis.db"
   },
-
   "knowledge": {
     "ingestion": "knowledge/ingestion",
     "processor": "knowledge/processor",
     "graph": "knowledge/graph",
     "retrieval": "knowledge/retrieval"
   },
-
   "documentation": {
     "sessions": "documentation/sessions",
     "architecture": "documentation/architecture",
     "tutorials": "documentation/tutorials",
     "courses": "documentation/courses",
     "generated": "documentation/generated",
-    "formats": ["markdown", "json"]
+    "formats": [
+      "markdown",
+      "json"
+    ]
   },
-
   "education": {
-    "modes": ["learn", "reverse-engineering-curriculum"],
-    "languages": ["es", "en", "pt"],
-    "lesson_anatomy": ["title", "objective", "concepts", "implementation", "explanation", "tutorial", "exercise", "solution"],
+    "modes": [
+      "learn",
+      "reverse-engineering-curriculum"
+    ],
+    "languages": [
+      "es",
+      "en",
+      "pt"
+    ],
+    "lesson_anatomy": [
+      "title",
+      "objective",
+      "concepts",
+      "implementation",
+      "explanation",
+      "tutorial",
+      "exercise",
+      "solution"
+    ],
     "comment_policy": "Every source file carries a trilingual header and a BEGINNER COURSE block explaining concepts as if the reader had never programmed before."
   },
-
   "verification": {
     "runner": "node --test tests/",
-    "levels": ["unit", "integration", "pipeline", "mutation-safety"]
+    "levels": [
+      "unit",
+      "integration",
+      "pipeline",
+      "mutation-safety"
+    ]
   },
-
   "recovery": {
     "engine": "core/recovery",
     "interruption_types": [
-      "blocked", "failed", "interrupted", "waiting_user", "dependency_missing",
-      "tool_error", "ambiguity", "conflict", "resource_limit", "security_stop", "scope_change"
+      "blocked",
+      "failed",
+      "interrupted",
+      "waiting_user",
+      "dependency_missing",
+      "tool_error",
+      "ambiguity",
+      "conflict",
+      "resource_limit",
+      "security_stop",
+      "scope_change"
     ],
-    "capabilities": ["checkpoint", "rollback", "resume", "retry", "recover", "skip", "pause", "continue"]
+    "capabilities": [
+      "checkpoint",
+      "rollback",
+      "resume",
+      "retry",
+      "recover",
+      "skip",
+      "pause",
+      "continue"
+    ]
   },
-
   "events": {
     "bus": "core/event-bus",
     "sink": "data/raw/events",
