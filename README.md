@@ -17,9 +17,9 @@ requirement (`node:sqlite` + FTS5 are built in).
 
 ```bash
 node core/cli/genesis.js doctor      # environment check: node, sqlite, FTS5, paths
-npm run pipeline                     # init → demo → process → checkpoint → snapshot
+npm run pipeline                     # init → demo → process → docs → checkpoint → snapshot
 npm run serve                        # API + installable offline console on :4321
-npm test                             # 65 tests on Node's built-in runner
+npm test                             # 86 tests on Node's built-in runner
 ```
 
 Then open `http://127.0.0.1:4321` and **install it as an app** (desktop: browser
@@ -34,12 +34,12 @@ Use `--port 3000 --host 0.0.0.0` to publish it on another port/interface.
 | --- | --- | --- |
 | **ONLINE** | live API (`/api/*`, 31 routes) | server reachable |
 | **OFFLINE** | service-worker cache of the last good responses | server down, app used before |
-| **SNAPSHOT** | bundled `apps/console/snapshot.json` (77 frozen API responses) | never connected yet |
+| **SNAPSHOT** | bundled `apps/console/snapshot.json` (80 frozen API responses) | never connected yet |
 
 The interface always shows which mode is active and when it last synced. Stale
 data is never presented as fresh.
 
-## What actually runs today (Phases 0–2 + application)
+## What actually runs today (Phases 0–3, 5–7 + application)
 
 ```
 genesis init        directories, manifest, state, first checkpoint
@@ -50,10 +50,14 @@ genesis resume      Context Engine: state + task + checkpoint + decisions +
                     failed attempts + constraints + files, as text or Markdown
 genesis search q    FTS5 across every entity (diacritics-insensitive, trilingual)
 genesis graph       nodes/edges/hubs; #/graph draws it with a force simulation
-genesis decisions   12 explainable Decision Traces with provenance
+genesis decisions   13 explainable Decision Traces with provenance
 genesis timeline    the observable history, day by day
 genesis checkpoint | diff | rollback      mutation safety net (POL-0002/0003)
 genesis serve       node:http API + offline PWA console, zero dependencies
+genesis docs        automatic documentation set + drift verifier (Phase 3)
+genesis agent       autonomous 7-stage turn, dry-run by default (Phase 5)
+genesis courses     completed builds → lessons with exercises + real code (Phase 6)
+genesis evolve      promote rules → policies → prechecks, metrics (Phase 7)
 ```
 
 ## Repository map (5 levels, DEC-00001)
@@ -68,12 +72,14 @@ knowledge/          level 3 KNOWLEDGE db+migrations, ingestion, processors, grap
 memory/             level 3 façade    project / session / decisions / lessons
 core/               level 4 PROJECT   shared, logger, event-bus, manifest, state,
                                       checkpoint, capture, validation, api, cli,
-                                      agent|orchestrator|planner|executor|verifier|
-                                      recovery (Phase 5 skeletons)
+                                      planner, executor, verifier, recovery,
+                                      orchestrator, agent (Phase 5 implemented)
 apps/console        level 4           installable offline PWA (vanilla, dual mode)
 apps/web            level 4           Next.js enhancement (deps isolated, optional)
-documentation/      level 3 output    engine skeleton + generated/ sessions/ courses/
-agents/ mcp/ automation/ skills/      adapter & evolution skeletons (Phases 5–7)
+documentation/      level 3 output    engine + courses (Phases 3/6 implemented) +
+                                      generated/ (docs, decision traces, lessons)
+agents/ mcp/ automation/              adapter skeletons (external frameworks only)
+skills/             level 3           evolution engine (Phase 7 implemented)
 docs/               hand-written      ARCHITECTURE · ROADMAP · DECISIONS · GLOSSARY ·
                                       CONVENTIONS
 tests/              verification      node:test suites (4 levels: unit, integration,
@@ -92,9 +98,14 @@ Flowise, Langflow, MCP) as **optional adapters only**, never core imports
 (POL-0001) · learning loop `ERROR → ANALYSIS → RECOVERY → LESSON → RULE →
 PRECHECK`.
 
-Phases 3–7 exist as honest skeletons: real signatures that return
-`notImplemented({...})` with the phase, the SPEC path and what you can use today
-(see each `SPEC.md` and `docs/ROADMAP.md`).
+Phases 3, 5, 6 and 7 are **implemented** (DEC-00013): the documentation engine
+generates and verifies its own docs, the agent runs the 7-stage loop dry-run-first
+with a tool whitelist, completed builds become lessons with runnable solutions,
+and lesson rules get promoted to machine-checked policies. Phase 4 (Next.js app,
+`apps/web`) and the external adapter surfaces (`agents/`, `mcp/`, `automation/`)
+remain honest skeletons: real signatures that return `notImplemented({...})` with
+the phase, the SPEC path and what you can use today (see each `SPEC.md` and
+`docs/ROADMAP.md`).
 
 ## Education policy
 
@@ -105,7 +116,9 @@ data is stored as `{es, en, pt}`; identifiers and code stay in English
 
 ## Status
 
-Progress 40% (Phases 0–2 complete) · 12 Decision Traces · 11 policies · 80 graph
-nodes / 150 edges · 2 lessons with proposed hard rules · 1 open interruption
-(`INT-00001`, security_stop: the sandbox token cannot create the mirror
-repository — recovery plan in `control/tasks.json`, DEC-00011).
+Progress 92.5% (Phases 0–3 and 5–7 complete · Phase 4 Next.js pending) ·
+13 Decision Traces · 12 policies (POL-0012 born from lesson LES-00001) ·
+13 prechecks installed (2 blocking) · 81 graph nodes / 154 edges · 2 lessons ·
+86 green tests · generated documentation verified consistent · 1 open
+interruption (`INT-00001`, security_stop: the sandbox token cannot create the
+mirror repository — recovery plan in `control/tasks.json`, DEC-00011).

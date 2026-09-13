@@ -3,24 +3,24 @@
   "project": "genesis",
   "initialized": true,
   "initialized_at": "2026-09-13T00:00:00.000Z",
-  "updated_at": "2026-09-13T17:09:14.289Z",
-  "current_phase": "phase-3",
+  "updated_at": "2026-09-13T18:15:05.715Z",
+  "current_phase": "phase-4",
   "current_layer": "infrastructure",
   "current_task": "TSK-00011",
   "progress": {
-    "percent": 47.5,
+    "percent": 92.5,
     "method": "weighted_phase_completion",
     "phases_completed": [
       "phase-0",
       "phase-1",
-      "phase-2"
-    ],
-    "phases_stub": [
+      "phase-2",
       "phase-3",
-      "phase-4",
       "phase-5",
       "phase-6",
       "phase-7"
+    ],
+    "phases_stub": [
+      "phase-4"
     ],
     "per_phase": [
       {
@@ -51,8 +51,8 @@
         "id": "phase-3",
         "name": "Documentation Engine",
         "weight": 10,
-        "status": "stub",
-        "ratio": 0,
+        "status": "completed",
+        "ratio": 1,
         "tasks": 1
       },
       {
@@ -67,24 +67,24 @@
         "id": "phase-5",
         "name": "Agent",
         "weight": 20,
-        "status": "stub",
-        "ratio": 0,
+        "status": "completed",
+        "ratio": 1,
         "tasks": 1
       },
       {
         "id": "phase-6",
         "name": "Education",
         "weight": 10,
-        "status": "stub",
-        "ratio": 0,
+        "status": "completed",
+        "ratio": 1,
         "tasks": 1
       },
       {
         "id": "phase-7",
         "name": "Autonomous Evolution",
         "weight": 5,
-        "status": "stub",
-        "ratio": 0,
+        "status": "completed",
+        "ratio": 1,
         "tasks": 1
       }
     ]
@@ -99,7 +99,7 @@
     "lessons": 1,
     "builds": 0,
     "tasks_total": 12,
-    "tasks_completed": 6,
+    "tasks_completed": 10,
     "tasks_blocked": 1
   },
   "agent": {
@@ -112,7 +112,7 @@
       "id": "INT-00001",
       "task": "TSK-00011",
       "type": "security_stop",
-      "reason": "GitHub integration token cannot create repositories (HTTP 403).",
+      "reason": "GitHub integration token cannot CREATE repositories (HTTP 403). PR creation DOES work: pull/1 is open.",
       "impact": "low",
       "recoverable": true,
       "status": "open",
@@ -120,10 +120,10 @@
     }
   ],
   "last_checkpoint": {
-    "id": "CHK-00005",
+    "id": "CHK-00009",
     "label": "full-pipeline",
-    "created_at": "2026-09-13T17:09:14.287Z",
-    "file": "control/checkpoints/CHK-00005-20260913T170914Z-full-pipeline.json"
+    "created_at": "2026-09-13T18:15:05.714Z",
+    "file": "control/checkpoints/CHK-00009-20260913T181505Z-full-pipeline.json"
   },
   "next_recommended_action": {
     "es": "Ejecutar `npm run demo` para ingerir la sesión real de arquitectura y luego `npm run serve` para ver el conocimiento en el navegador.",
