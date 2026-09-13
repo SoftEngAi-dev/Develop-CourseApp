@@ -564,6 +564,54 @@
         "TSK-00010"
       ],
       "evidence": "node --test tests/*.test.js → 86 pass / 0 fail; genesis docs --verify → consistent; genesis agent → 7 stages completed (dry-run); genesis courses → 2 lessons from real builds + reverse curriculum; genesis evolve → POL-0012 promoted from LES-00001, 13 prechecks (2 blocking), is_learning=true; genesis status → 92.5%."
+    },
+    {
+      "id": "DEC-00014",
+      "layer": "application",
+      "status": "approved",
+      "created_at": "2026-09-13T18:35:04.706Z",
+      "objective": {
+        "es": "Entregar la Fase 4: la app Next.js (apps/web) como capa de mejora sobre el núcleo cero-dependencias, consumiendo la MISMA API de 31 rutas que el console offline, sin romper el invariante de node_modules vacío en la raíz.",
+        "en": "Deliver Phase 4: the Next.js app (apps/web) as an enhancement layer over the zero-dependency core, consuming the SAME 31-route API as the offline console, without breaking the empty-node_modules invariant at the root.",
+        "pt": "Entregar a Fase 4: o app Next.js como camada de melhoria sobre o núcleo zero-dependências, consumindo a MESMA API de 31 rotas, sem quebrar o invariante de node_modules vazio na raiz."
+      },
+      "context": "TSK-00007 was the last stub task (Phase 4, weight 15%). DEC-00005 already chose the hybrid: core API + offline console + Next.js app sharing one contract. The source skeleton existed (layout, home, api client, config) but no dependencies, no routes beyond /, and no verification. The operator asked to finish the project.",
+      "constraints": [
+        "POL-0001: root package.json keeps dependencies {} forever; everything Next lives in apps/web",
+        "SPEC rule 1: no direct database access from the front end — HTTP API only",
+        "SPEC rule 2: no duplicated data shapes — the same contract the console renders",
+        "The core suite must stay green with apps/web/node_modules deleted (offline invariant)",
+        "Desktop AND mobile: responsive navigation without extra CSS frameworks"
+      ],
+      "alternatives": [
+        {
+          "id": "A",
+          "option": "Skip Phase 4 and declare the project finished at 92.5%",
+          "rejected_because": "The operator asked to finish; TSK-00007 is a real weighted task and the hybrid stack (\"las 3\") was an original acceptance criterion."
+        },
+        {
+          "id": "B",
+          "option": "Move the Next.js app to the repository root (single package.json)",
+          "rejected_because": "Pollutes the zero-dependency root, breaks the offline invariant and the empty-node_modules acceptance test."
+        },
+        {
+          "id": "C",
+          "option": "Deliver apps/web fully: 12 App-Router routes as server components, rewrites proxy for /api/*, conditional-skip test gates, production build verified against the live core",
+          "selected": true
+        }
+      ],
+      "decision": "Implement the 12 SPEC routes (dashboard, sessions + detail with RAW/processed split, decisions + detail with provenance, knowledge search with [[mark]] snippets, graph stats/hubs/nodes, timeline audit tape, context markdown, generated-docs index + traversal-safe reader) as dynamic server components sharing lib/ui.js. next.config rewrites proxy /api/* to GENESIS_API (baked at build time — documented in SPEC). tests/web-app.test.js: isolation tests always run; build/server gates skip honestly when deps or server are absent, and auto-detect a live :4000 server when present.",
+      "justification": "The enhancement adds screens without adding contracts: zero new endpoints, zero reshaped payloads, zero root dependencies. 90/90 tests green with the server up (89+1 honest skip without it). next build produces 12 dynamic routes; curl verifies 200 + real data (92.5%, DEC-00013, FTS5 results) on every page, and /api/health through the proxy returns dependencies: 0.",
+      "consequence": "Phase 4 complete → progress 100% of the weighted roadmap except the cross-cutting blocked TSK-00011 (mirror publication, waiting on a human with GitHub repo-creation permission). Running order: genesis serve (:3000) → GENESIS_API=... next build → next start (:4000). apps/web/node_modules and .next stay gitignored.",
+      "related": [
+        "DEC-00005",
+        "DEC-00012",
+        "DEC-00013",
+        "POL-0001",
+        "POL-0011",
+        "TSK-00007"
+      ],
+      "evidence": "npm --prefix apps/web install → 23 packages; next build → 12 routes (ƒ dynamic), First Load JS 102 kB; curl :4000 → 200 on /, /sessions, /sessions/SES-00001, /decisions, /decisions/DEC-00013, /knowledge?q=sqlite, /graph, /timeline, /context, /docs, /docs/ARCHITECTURE.generated.md, /docs/courses/CURRICULUM.md; /api/health via proxy → ok, dependencies 0; node --test tests/*.test.js → 90 pass / 0 fail."
     }
   ]
 }

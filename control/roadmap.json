@@ -69,7 +69,7 @@
       "id": "phase-4",
       "order": 4,
       "name": "Web App",
-      "status": "stub",
+      "status": "completed",
       "weight": 15,
       "deliverables": [
         "Dashboard",

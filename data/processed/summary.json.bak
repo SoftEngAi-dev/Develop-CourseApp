@@ -1,6 +1,6 @@
 {
-  "processed_at": "2026-09-13T18:17:26.083Z",
-  "duration_ms": 142,
+  "processed_at": "2026-09-13T18:35:13.187Z",
+  "duration_ms": 154,
   "sessions_processed": 1,
   "sessions_failed": 0,
   "failures": [],
@@ -19,12 +19,12 @@
     "control": {
       "requirements": 10,
       "tasks": 12,
-      "decisions": 13,
+      "decisions": 14,
       "policies": 12,
       "skipped": false
     },
     "events": {
-      "events": 706,
+      "events": 839,
       "types": 19
     },
     "sessions_ingested": 1
@@ -32,15 +32,15 @@
   "graph": {
     "categories": 11,
     "technologies": 14,
-    "decisions": 13,
+    "decisions": 14,
     "requirements": 16,
     "tasks": 12,
     "lessons": 1,
     "mistakes": 1,
     "searches": 1,
     "co_occurrences": 43,
-    "edges": 154,
-    "nodes": 81
+    "edges": 159,
+    "nodes": 82
   },
   "database": {
     "file": "data/indexes/genesis.db",
@@ -50,15 +50,15 @@
       "actions": 2,
       "artifacts": 0,
       "builds": 2,
-      "decisions": 13,
+      "decisions": 14,
       "dependencies": 0,
-      "edges": 154,
+      "edges": 159,
       "errors": 1,
-      "events": 639,
+      "events": 767,
       "interruptions": 0,
       "lessons": 2,
       "messages": 5,
-      "nodes": 81,
+      "nodes": 82,
       "plans": 5,
       "requirement_changes": 0,
       "requirements": 16,
@@ -67,7 +67,7 @@
       "sessions": 1,
       "tasks": 12
     },
-    "indexed_entities": 155,
+    "indexed_entities": 157,
     "indexed_messages": 5,
     "schema_version": "0002"
   },

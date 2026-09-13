@@ -19,5 +19,6 @@ dependencias; (2) apps/co |
 | [DEC-00011](decisions/DEC-00011.generated.md) | infrastructure | blocked | Mirror the work into a local git repository named develo-courseapp-simplify, pre-configure |
 | [DEC-00012](decisions/DEC-00012.generated.md) | application | approved | Ship the console as an installable PWA: web manifest + generated PNG icons + service worke |
 | [DEC-00013](decisions/DEC-00013.generated.md) | cross-cutting | approved | Implement Phases 3, 5, 6 and 7 with real code and tests: documentation/engine (4 generator |
+| [DEC-00014](decisions/DEC-00014.generated.md) | application | approved | Implement the 12 SPEC routes (dashboard, sessions + detail with RAW/processed split, decis |
 
-Total: **13** decision trace(s).
+Total: **14** decision trace(s).

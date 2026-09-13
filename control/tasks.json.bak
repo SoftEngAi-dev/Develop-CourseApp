@@ -183,7 +183,7 @@
       "phase": "phase-4",
       "layer": "application",
       "title": "Next.js web app (Dashboard / Sessions / Knowledge / Timeline / Graph)",
-      "status": "planned",
+      "status": "verifying",
       "progress": 0,
       "created_at": "2026-09-13T00:00:00.000Z",
       "acceptance": "apps/web renders the four modes consuming core/api.",
@@ -197,7 +197,29 @@
       "blocked_by": [
         "TSK-00004"
       ],
-      "spec": "apps/web/SPEC.md"
+      "spec": "apps/web/SPEC.md",
+      "updated_at": "2026-09-13T18:35:04.958Z",
+      "last_reason": "cli",
+      "history": [
+        {
+          "from": "planned",
+          "to": "ready",
+          "at": "2026-09-13T18:35:04.788Z",
+          "reason": "cli"
+        },
+        {
+          "from": "ready",
+          "to": "running",
+          "at": "2026-09-13T18:35:04.871Z",
+          "reason": "cli"
+        },
+        {
+          "from": "running",
+          "to": "verifying",
+          "at": "2026-09-13T18:35:04.958Z",
+          "reason": "cli"
+        }
+      ]
     },
     {
       "id": "TSK-00008",
@@ -310,8 +332,8 @@
       "phase": "phase-7",
       "layer": "learning-evolution",
       "title": "Autonomous evolution: lessons -> rules -> prechecks -> skill generation",
-      "status": "verifying",
-      "progress": 0,
+      "status": "completed",
+      "progress": 100,
       "created_at": "2026-09-13T00:00:00.000Z",
       "acceptance": "An error creates a lesson and a policy rule that prevents the same failure.",
       "artifacts": [
@@ -326,7 +348,7 @@
         "TSK-00008"
       ],
       "spec": "skills/SPEC.md",
-      "updated_at": "2026-09-13T18:12:23.432Z",
+      "updated_at": "2026-09-13T18:12:23.514Z",
       "last_reason": "cli",
       "history": [
         {
@@ -346,8 +368,15 @@
           "to": "verifying",
           "at": "2026-09-13T18:12:23.432Z",
           "reason": "cli"
+        },
+        {
+          "from": "verifying",
+          "to": "completed",
+          "at": "2026-09-13T18:12:23.514Z",
+          "reason": "cli"
         }
-      ]
+      ],
+      "completed_at": "2026-09-13T18:12:23.514Z"
     },
     {
       "id": "TSK-00011",

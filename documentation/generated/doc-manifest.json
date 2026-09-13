@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-13T18:17:25.379Z",
+  "generated_at": "2026-09-13T18:35:12.461Z",
   "generator": "documentation/engine/index.js",
   "formats": [
     "markdown",
@@ -26,18 +26,19 @@
     "documentation/generated/decisions/DEC-00011.generated.md",
     "documentation/generated/decisions/DEC-00012.generated.md",
     "documentation/generated/decisions/DEC-00013.generated.md",
+    "documentation/generated/decisions/DEC-00014.generated.md",
     "documentation/generated/TUTORIALS.generated.md"
   ],
   "counts": {
-    "decisions": 13,
-    "events": 620,
+    "decisions": 14,
+    "events": 748,
     "plans": 5,
     "lessons": 2
   },
   "verification": {
     "consistent": true,
     "drift": [],
-    "decisions_in_db": 13,
-    "decisions_on_disk": 13
+    "decisions_in_db": 14,
+    "decisions_on_disk": 14
   }
 }

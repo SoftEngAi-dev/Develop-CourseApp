@@ -2,14 +2,14 @@
   "meta": {
     "kind": "genesis-console-snapshot",
     "generator": "scripts/export-console-snapshot.js",
-    "generated_at": "2026-09-13T18:17:25.523Z",
+    "generated_at": "2026-09-13T18:35:12.615Z",
     "purpose": "Floor data for OFFLINE mode: the app opens with real content even if no server was ever reached.",
     "modes": {
       "online": "live API responses (preferred)",
       "offline": "service-worker cache of the last good responses (preferred when present)",
       "snapshot": "this file (fallback when there is no cache yet)"
     },
-    "keys": 80,
+    "keys": 83,
     "failures": []
   },
   "data": {
@@ -21,13 +21,13 @@
       "sqlite": "3.51.3",
       "dependencies": 0,
       "offline_capable": true,
-      "ts": "2026-09-13T18:17:25.444Z"
+      "ts": "2026-09-13T18:35:12.529Z"
     },
     "stats": {
       "state": {
         "project": "genesis",
-        "progress_percent": 92.5,
-        "current_phase": "phase-4",
+        "progress_percent": 100,
+        "current_phase": "phase-7",
         "current_task": {
           "id": "TSK-00011",
           "title": "Publish mirror repository develo-courseapp-simplify and open PR",
@@ -57,21 +57,21 @@
           "lessons": 1,
           "builds": 0,
           "tasks_total": 12,
-          "tasks_completed": 10,
+          "tasks_completed": 11,
           "tasks_blocked": 1
         },
         "last_checkpoint": {
-          "id": "CHK-00010",
+          "id": "CHK-00011",
           "label": "full-pipeline",
-          "created_at": "2026-09-13T18:17:25.382Z",
-          "file": "control/checkpoints/CHK-00010-20260913T181725Z-full-pipeline.json"
+          "created_at": "2026-09-13T18:35:12.465Z",
+          "file": "control/checkpoints/CHK-00011-20260913T183512Z-full-pipeline.json"
         },
         "next_recommended_action": {
           "es": "Ejecutar `npm run demo` para ingerir la sesión real de arquitectura y luego `npm run serve` para ver el conocimiento en el navegador.",
           "en": "Run `npm run demo` to ingest the real architecture session, then `npm run serve` to browse the knowledge.",
           "pt": "Execute `npm run demo` para ingerir a sessão real de arquitetura e depois `npm run serve` para ver o conhecimento no navegador."
         },
-        "updated_at": "2026-09-13T18:17:25.382Z"
+        "updated_at": "2026-09-13T18:35:12.465Z"
       },
       "database": {
         "file": "data/indexes/genesis.db",
@@ -81,15 +81,15 @@
           "actions": 2,
           "artifacts": 0,
           "builds": 2,
-          "decisions": 13,
+          "decisions": 14,
           "dependencies": 0,
-          "edges": 154,
+          "edges": 159,
           "errors": 1,
-          "events": 620,
+          "events": 748,
           "interruptions": 0,
           "lessons": 2,
           "messages": 5,
-          "nodes": 81,
+          "nodes": 82,
           "plans": 5,
           "requirement_changes": 0,
           "requirements": 16,
@@ -98,14 +98,14 @@
           "sessions": 1,
           "tasks": 12
         },
-        "indexed_entities": 155,
+        "indexed_entities": 157,
         "indexed_messages": 5,
         "schema_version": "0002"
       },
       "processing": {
         "sessions": 1,
         "messages": 5,
-        "decisions": 13,
+        "decisions": 14,
         "plans": 5,
         "actions": 2,
         "searches": 1,
@@ -117,11 +117,11 @@
         "builds": 2,
         "artifacts": 0,
         "dependencies": 0,
-        "nodes": 81,
-        "edges": 154,
-        "events": 620,
+        "nodes": 82,
+        "edges": 159,
+        "events": 748,
         "tasks": 12,
-        "indexed_entities": 155,
+        "indexed_entities": 157,
         "indexed_messages": 5
       },
       "capture": {
@@ -135,13 +135,13 @@
         "last_session": "SES-00001"
       },
       "graph": {
-        "nodes": 81,
-        "edges": 154,
-        "density": 0.0238,
+        "nodes": 82,
+        "edges": 159,
+        "density": 0.0239,
         "by_kind": {
           "requirement": 16,
+          "decision": 14,
           "technology": 14,
-          "decision": 13,
           "task": 12,
           "category": 11,
           "phase": 9,
@@ -152,9 +152,9 @@
           "session": 1
         },
         "by_relation": {
-          "part_of": 67,
+          "part_of": 68,
           "co_occurs": 43,
-          "decides_about": 15,
+          "decides_about": 19,
           "discussed_in": 14,
           "belongs_to": 12,
           "produced": 2,
@@ -177,7 +177,7 @@
             "id": "NOD-00005",
             "kind": "category",
             "label": "decisions",
-            "degree": 14
+            "degree": 15
           },
           {
             "id": "NOD-00014",
@@ -189,6 +189,18 @@
             "id": "NOD-00021",
             "kind": "technology",
             "label": "api",
+            "degree": 14
+          },
+          {
+            "id": "NOD-00018",
+            "kind": "technology",
+            "label": "fts5",
+            "degree": 13
+          },
+          {
+            "id": "NOD-00019",
+            "kind": "technology",
+            "label": "node",
             "degree": 13
           },
           {
@@ -196,26 +208,14 @@
             "kind": "technology",
             "label": "sqlite",
             "degree": 12
-          },
-          {
-            "id": "NOD-00018",
-            "kind": "technology",
-            "label": "fts5",
-            "degree": 12
-          },
-          {
-            "id": "NOD-00019",
-            "kind": "technology",
-            "label": "node",
-            "degree": 12
           }
         ]
       },
-      "events_on_disk": 706,
+      "events_on_disk": 839,
       "facets": {
-        "node": 81,
+        "node": 82,
         "requirement": 16,
-        "decision": 13,
+        "decision": 14,
         "task": 12,
         "policy": 12,
         "phase": 8,
@@ -228,7 +228,7 @@
       "top_tags": [
         {
           "tag": "node",
-          "n": 86
+          "n": 87
         },
         {
           "tag": "requirement",
@@ -236,7 +236,7 @@
         },
         {
           "tag": "decision",
-          "n": 31
+          "n": 33
         },
         {
           "tag": "task",
@@ -244,7 +244,7 @@
         },
         {
           "tag": "completed",
-          "n": 21
+          "n": 23
         },
         {
           "tag": "phase",
@@ -255,11 +255,11 @@
           "n": 14
         },
         {
-          "tag": "core-engine",
-          "n": 12
+          "tag": "approved",
+          "n": 13
         },
         {
-          "tag": "approved",
+          "tag": "core-engine",
           "n": 12
         },
         {
@@ -287,6 +287,10 @@
           "n": 7
         },
         {
+          "tag": "application",
+          "n": 6
+        },
+        {
           "tag": "documentation",
           "n": 6
         },
@@ -296,10 +300,6 @@
         },
         {
           "tag": "critical",
-          "n": 5
-        },
-        {
-          "tag": "application",
           "n": 5
         },
         {
@@ -319,7 +319,7 @@
           "n": 4
         },
         {
-          "tag": "planned",
+          "tag": "architecture",
           "n": 4
         }
       ]
@@ -329,25 +329,24 @@
       "project": "genesis",
       "initialized": true,
       "initialized_at": "2026-09-13T00:00:00.000Z",
-      "updated_at": "2026-09-13T18:17:25.382Z",
-      "current_phase": "phase-4",
+      "updated_at": "2026-09-13T18:35:12.465Z",
+      "current_phase": "phase-7",
       "current_layer": "infrastructure",
       "current_task": "TSK-00011",
       "progress": {
-        "percent": 92.5,
+        "percent": 100,
         "method": "weighted_phase_completion",
         "phases_completed": [
           "phase-0",
           "phase-1",
           "phase-2",
           "phase-3",
+          "phase-4",
           "phase-5",
           "phase-6",
           "phase-7"
         ],
-        "phases_stub": [
-          "phase-4"
-        ],
+        "phases_stub": [],
         "per_phase": [
           {
             "id": "phase-0",
@@ -385,8 +384,8 @@
             "id": "phase-4",
             "name": "Web App",
             "weight": 15,
-            "status": "stub",
-            "ratio": 0.5,
+            "status": "completed",
+            "ratio": 1,
             "tasks": 2
           },
           {
@@ -425,7 +424,7 @@
         "lessons": 1,
         "builds": 0,
         "tasks_total": 12,
-        "tasks_completed": 10,
+        "tasks_completed": 11,
         "tasks_blocked": 1
       },
       "agent": {
@@ -446,10 +445,10 @@
         }
       ],
       "last_checkpoint": {
-        "id": "CHK-00010",
+        "id": "CHK-00011",
         "label": "full-pipeline",
-        "created_at": "2026-09-13T18:17:25.382Z",
-        "file": "control/checkpoints/CHK-00010-20260913T181725Z-full-pipeline.json"
+        "created_at": "2026-09-13T18:35:12.465Z",
+        "file": "control/checkpoints/CHK-00011-20260913T183512Z-full-pipeline.json"
       },
       "next_recommended_action": {
         "es": "Ejecutar `npm run demo` para ingerir la sesión real de arquitectura y luego `npm run serve` para ver el conocimiento en el navegador.",
@@ -900,7 +899,7 @@
           "id": "phase-4",
           "order": 4,
           "name": "Web App",
-          "status": "stub",
+          "status": "completed",
           "weight": 15,
           "deliverables": [
             "Dashboard",
@@ -1287,8 +1286,8 @@
           "phase": "phase-4",
           "layer": "application",
           "title": "Next.js web app (Dashboard / Sessions / Knowledge / Timeline / Graph)",
-          "status": "planned",
-          "progress": 0,
+          "status": "completed",
+          "progress": 100,
           "created_at": "2026-09-13T00:00:00.000Z",
           "acceptance": "apps/web renders the four modes consuming core/api.",
           "artifacts": [
@@ -1301,7 +1300,36 @@
           "blocked_by": [
             "TSK-00004"
           ],
-          "spec": "apps/web/SPEC.md"
+          "spec": "apps/web/SPEC.md",
+          "updated_at": "2026-09-13T18:35:05.043Z",
+          "last_reason": "cli",
+          "history": [
+            {
+              "from": "planned",
+              "to": "ready",
+              "at": "2026-09-13T18:35:04.788Z",
+              "reason": "cli"
+            },
+            {
+              "from": "ready",
+              "to": "running",
+              "at": "2026-09-13T18:35:04.871Z",
+              "reason": "cli"
+            },
+            {
+              "from": "running",
+              "to": "verifying",
+              "at": "2026-09-13T18:35:04.958Z",
+              "reason": "cli"
+            },
+            {
+              "from": "verifying",
+              "to": "completed",
+              "at": "2026-09-13T18:35:05.043Z",
+              "reason": "cli"
+            }
+          ],
+          "completed_at": "2026-09-13T18:35:05.043Z"
         },
         {
           "id": "TSK-00008",
@@ -1511,7 +1539,7 @@
       ]
     },
     "decisions": {
-      "count": 13,
+      "count": 14,
       "decisions": [
         {
           "id": "DEC-00001",
@@ -2098,6 +2126,56 @@
             "TSK-00009",
             "TSK-00010"
           ]
+        },
+        {
+          "id": "DEC-00014",
+          "layer": "application",
+          "status": "approved",
+          "objective_es": "Entregar la Fase 4: la app Next.js (apps/web) como capa de mejora sobre el núcleo cero-dependencias, consumiendo la MISMA API de 31 rutas que el console offline, sin romper el invariante de node_modules vacío en la raíz.",
+          "objective_en": "Deliver Phase 4: the Next.js app (apps/web) as an enhancement layer over the zero-dependency core, consuming the SAME 31-route API as the offline console, without breaking the empty-node_modules invariant at the root.",
+          "objective_pt": "Entregar a Fase 4: o app Next.js como camada de melhoria sobre o núcleo zero-dependências, consumindo a MESMA API de 31 rotas, sem quebrar o invariante de node_modules vazio na raiz.",
+          "context": "TSK-00007 was the last stub task (Phase 4, weight 15%). DEC-00005 already chose the hybrid: core API + offline console + Next.js app sharing one contract. The source skeleton existed (layout, home, api client, config) but no dependencies, no routes beyond /, and no verification. The operator asked to finish the project.",
+          "constraints_json": "[\"POL-0001: root package.json keeps dependencies {} forever; everything Next lives in apps/web\",\"SPEC rule 1: no direct database access from the front end — HTTP API only\",\"SPEC rule 2: no duplicated data shapes — the same contract the console renders\",\"The core suite must stay green with apps/web/node_modules deleted (offline invariant)\",\"Desktop AND mobile: responsive navigation without extra CSS frameworks\"]",
+          "alternatives_json": "[{\"id\":\"A\",\"option\":\"Skip Phase 4 and declare the project finished at 92.5%\",\"rejected_because\":\"The operator asked to finish; TSK-00007 is a real weighted task and the hybrid stack (\\\"las 3\\\") was an original acceptance criterion.\"},{\"id\":\"B\",\"option\":\"Move the Next.js app to the repository root (single package.json)\",\"rejected_because\":\"Pollutes the zero-dependency root, breaks the offline invariant and the empty-node_modules acceptance test.\"},{\"id\":\"C\",\"option\":\"Deliver apps/web fully: 12 App-Router routes as server components, rewrites proxy for /api/*, conditional-skip test gates, production build verified against the live core\",\"selected\":true}]",
+          "decision": "Implement the 12 SPEC routes (dashboard, sessions + detail with RAW/processed split, decisions + detail with provenance, knowledge search with [[mark]] snippets, graph stats/hubs/nodes, timeline audit tape, context markdown, generated-docs index + traversal-safe reader) as dynamic server components sharing lib/ui.js. next.config rewrites proxy /api/* to GENESIS_API (baked at build time — documented in SPEC). tests/web-app.test.js: isolation tests always run; build/server gates skip honestly when deps or server are absent, and auto-detect a live :4000 server when present.",
+          "justification": "The enhancement adds screens without adding contracts: zero new endpoints, zero reshaped payloads, zero root dependencies. 90/90 tests green with the server up (89+1 honest skip without it). next build produces 12 dynamic routes; curl verifies 200 + real data (92.5%, DEC-00013, FTS5 results) on every page, and /api/health through the proxy returns dependencies: 0.",
+          "consequence": "Phase 4 complete → progress 100% of the weighted roadmap except the cross-cutting blocked TSK-00011 (mirror publication, waiting on a human with GitHub repo-creation permission). Running order: genesis serve (:3000) → GENESIS_API=... next build → next start (:4000). apps/web/node_modules and .next stay gitignored.",
+          "related_json": "[\"DEC-00005\",\"DEC-00012\",\"DEC-00013\",\"POL-0001\",\"POL-0011\",\"TSK-00007\"]",
+          "evidence": "npm --prefix apps/web install → 23 packages; next build → 12 routes (ƒ dynamic), First Load JS 102 kB; curl :4000 → 200 on /, /sessions, /sessions/SES-00001, /decisions, /decisions/DEC-00013, /knowledge?q=sqlite, /graph, /timeline, /context, /docs, /docs/ARCHITECTURE.generated.md, /docs/courses/CURRICULUM.md; /api/health via proxy → ok, dependencies 0; node --test tests/*.test.js → 90 pass / 0 fail.",
+          "session_id": null,
+          "created_at": "2026-09-13T18:35:04.706Z",
+          "constraints": [
+            "POL-0001: root package.json keeps dependencies {} forever; everything Next lives in apps/web",
+            "SPEC rule 1: no direct database access from the front end — HTTP API only",
+            "SPEC rule 2: no duplicated data shapes — the same contract the console renders",
+            "The core suite must stay green with apps/web/node_modules deleted (offline invariant)",
+            "Desktop AND mobile: responsive navigation without extra CSS frameworks"
+          ],
+          "alternatives": [
+            {
+              "id": "A",
+              "option": "Skip Phase 4 and declare the project finished at 92.5%",
+              "rejected_because": "The operator asked to finish; TSK-00007 is a real weighted task and the hybrid stack (\"las 3\") was an original acceptance criterion."
+            },
+            {
+              "id": "B",
+              "option": "Move the Next.js app to the repository root (single package.json)",
+              "rejected_because": "Pollutes the zero-dependency root, breaks the offline invariant and the empty-node_modules acceptance test."
+            },
+            {
+              "id": "C",
+              "option": "Deliver apps/web fully: 12 App-Router routes as server components, rewrites proxy for /api/*, conditional-skip test gates, production build verified against the live core",
+              "selected": true
+            }
+          ],
+          "related": [
+            "DEC-00005",
+            "DEC-00012",
+            "DEC-00013",
+            "POL-0001",
+            "POL-0011",
+            "TSK-00007"
+          ]
         }
       ]
     },
@@ -2112,8 +2190,8 @@
           "acceptance": "Every user message, interpretation, plan, action, result, decision and lesson is persisted and queryable.",
           "source_id": "control/manifest.json",
           "session_id": null,
-          "created_at": "2026-09-13T18:17:25.273Z",
-          "updated_at": "2026-09-13T18:17:25.273Z"
+          "created_at": "2026-09-13T18:35:12.348Z",
+          "updated_at": "2026-09-13T18:35:12.348Z"
         },
         {
           "id": "REQ-0002",
@@ -2124,8 +2202,8 @@
           "acceptance": "The five physical directories exist and no level writes into another.",
           "source_id": "control/manifest.json",
           "session_id": null,
-          "created_at": "2026-09-13T18:17:25.273Z",
-          "updated_at": "2026-09-13T18:17:25.273Z"
+          "created_at": "2026-09-13T18:35:12.348Z",
+          "updated_at": "2026-09-13T18:35:12.348Z"
         },
         {
           "id": "REQ-0003",
@@ -2136,8 +2214,8 @@
           "acceptance": "Each decision records objective, context, constraints, alternatives, decision, justification, consequence and status.",
           "source_id": "control/manifest.json",
           "session_id": null,
-          "created_at": "2026-09-13T18:17:25.273Z",
-          "updated_at": "2026-09-13T18:17:25.273Z"
+          "created_at": "2026-09-13T18:35:12.348Z",
+          "updated_at": "2026-09-13T18:35:12.348Z"
         },
         {
           "id": "REQ-0004",
@@ -2148,8 +2226,8 @@
           "acceptance": "Interruption events carry type, layer, task, reason, impact, recoverability and recovery plan.",
           "source_id": "control/manifest.json",
           "session_id": null,
-          "created_at": "2026-09-13T18:17:25.273Z",
-          "updated_at": "2026-09-13T18:17:25.273Z"
+          "created_at": "2026-09-13T18:35:12.348Z",
+          "updated_at": "2026-09-13T18:35:12.348Z"
         },
         {
           "id": "REQ-0005",
@@ -2160,8 +2238,8 @@
           "acceptance": "npm install is never required to run init/capture/process/search/context/serve.",
           "source_id": "control/manifest.json",
           "session_id": null,
-          "created_at": "2026-09-13T18:17:25.273Z",
-          "updated_at": "2026-09-13T18:17:25.273Z"
+          "created_at": "2026-09-13T18:35:12.348Z",
+          "updated_at": "2026-09-13T18:35:12.348Z"
         },
         {
           "id": "REQ-0006",
@@ -2172,8 +2250,8 @@
           "acceptance": "Zero-dep console works with no node_modules; Next.js app consumes the same API.",
           "source_id": "control/manifest.json",
           "session_id": null,
-          "created_at": "2026-09-13T18:17:25.273Z",
-          "updated_at": "2026-09-13T18:17:25.273Z"
+          "created_at": "2026-09-13T18:35:12.348Z",
+          "updated_at": "2026-09-13T18:35:12.348Z"
         },
         {
           "id": "REQ-0007",
@@ -2184,8 +2262,8 @@
           "acceptance": "Every source file has a trilingual header plus a BEGINNER COURSE block.",
           "source_id": "control/manifest.json",
           "session_id": null,
-          "created_at": "2026-09-13T18:17:25.273Z",
-          "updated_at": "2026-09-13T18:17:25.273Z"
+          "created_at": "2026-09-13T18:35:12.348Z",
+          "updated_at": "2026-09-13T18:35:12.348Z"
         },
         {
           "id": "REQ-0008",
@@ -2196,8 +2274,8 @@
           "acceptance": "A completed build can be turned into lesson + concepts + tutorial + exercise + solution.",
           "source_id": "control/manifest.json",
           "session_id": null,
-          "created_at": "2026-09-13T18:17:25.273Z",
-          "updated_at": "2026-09-13T18:17:25.273Z"
+          "created_at": "2026-09-13T18:35:12.348Z",
+          "updated_at": "2026-09-13T18:35:12.348Z"
         },
         {
           "id": "REQ-0009",
@@ -2208,8 +2286,8 @@
           "acceptance": "genesis resume rebuilds session context and continues the last task.",
           "source_id": "control/manifest.json",
           "session_id": null,
-          "created_at": "2026-09-13T18:17:25.273Z",
-          "updated_at": "2026-09-13T18:17:25.273Z"
+          "created_at": "2026-09-13T18:35:12.348Z",
+          "updated_at": "2026-09-13T18:35:12.348Z"
         },
         {
           "id": "REQ-0010",
@@ -2220,8 +2298,8 @@
           "acceptance": "Checkpoints can restore control state and are created before risky mutations.",
           "source_id": "control/manifest.json",
           "session_id": null,
-          "created_at": "2026-09-13T18:17:25.273Z",
-          "updated_at": "2026-09-13T18:17:25.273Z"
+          "created_at": "2026-09-13T18:35:12.348Z",
+          "updated_at": "2026-09-13T18:35:12.348Z"
         },
         {
           "id": "REQ-0011",
@@ -2233,7 +2311,7 @@
           "source_id": "[{\"session_id\":\"SES-00001\",\"message_id\":\"MSG-00001\"}]",
           "session_id": "SES-00001",
           "created_at": "2026-09-13T15:48:38.303Z",
-          "updated_at": "2026-09-13T18:17:25.315Z"
+          "updated_at": "2026-09-13T18:35:12.397Z"
         },
         {
           "id": "REQ-0012",
@@ -2245,7 +2323,7 @@
           "source_id": "[{\"session_id\":\"SES-00001\",\"message_id\":\"MSG-00001\"}]",
           "session_id": "SES-00001",
           "created_at": "2026-09-13T15:48:38.303Z",
-          "updated_at": "2026-09-13T18:17:25.315Z"
+          "updated_at": "2026-09-13T18:35:12.397Z"
         },
         {
           "id": "REQ-0013",
@@ -2257,7 +2335,7 @@
           "source_id": "[{\"session_id\":\"SES-00001\",\"message_id\":\"MSG-00001\"}]",
           "session_id": "SES-00001",
           "created_at": "2026-09-13T15:48:38.303Z",
-          "updated_at": "2026-09-13T18:17:25.315Z"
+          "updated_at": "2026-09-13T18:35:12.397Z"
         },
         {
           "id": "REQ-0014",
@@ -2269,7 +2347,7 @@
           "source_id": "[{\"session_id\":\"SES-00001\",\"message_id\":\"MSG-00001\"}]",
           "session_id": "SES-00001",
           "created_at": "2026-09-13T15:48:38.303Z",
-          "updated_at": "2026-09-13T18:17:25.315Z"
+          "updated_at": "2026-09-13T18:35:12.397Z"
         },
         {
           "id": "REQ-0015",
@@ -2281,7 +2359,7 @@
           "source_id": "[{\"session_id\":\"SES-00001\",\"message_id\":\"MSG-00001\"}]",
           "session_id": "SES-00001",
           "created_at": "2026-09-13T15:48:38.303Z",
-          "updated_at": "2026-09-13T18:17:25.315Z"
+          "updated_at": "2026-09-13T18:35:12.397Z"
         },
         {
           "id": "REQ-0016",
@@ -2293,7 +2371,7 @@
           "source_id": "[{\"session_id\":\"SES-00001\",\"message_id\":\"MSG-00001\"}]",
           "session_id": "SES-00001",
           "created_at": "2026-09-13T15:48:38.303Z",
-          "updated_at": "2026-09-13T18:17:25.315Z"
+          "updated_at": "2026-09-13T18:35:12.397Z"
         }
       ],
       "changes": []
@@ -17001,18 +17079,18 @@
       "interruptions": []
     },
     "checkpoints": {
-      "count": 10,
+      "count": 11,
       "latest": {
-        "id": "CHK-00010",
+        "id": "CHK-00011",
         "label": "full-pipeline",
-        "created_at": "2026-09-13T18:17:25.382Z",
-        "file": "CHK-00010-20260913T181725Z-full-pipeline.json",
+        "created_at": "2026-09-13T18:35:12.465Z",
+        "file": "CHK-00011-20260913T183512Z-full-pipeline.json",
         "summary": {
-          "progress_percent": 92.5,
-          "current_phase": "phase-4",
+          "progress_percent": 100,
+          "current_phase": "phase-7",
           "current_task": "TSK-00011",
           "tasks_total": 12,
-          "decisions_total": 13,
+          "decisions_total": 14,
           "open_blocks": 1
         }
       },
@@ -17154,6 +17232,20 @@
             "current_task": "TSK-00011",
             "tasks_total": 12,
             "decisions_total": 13,
+            "open_blocks": 1
+          }
+        },
+        {
+          "id": "CHK-00011",
+          "label": "full-pipeline",
+          "created_at": "2026-09-13T18:35:12.465Z",
+          "file": "CHK-00011-20260913T183512Z-full-pipeline.json",
+          "summary": {
+            "progress_percent": 100,
+            "current_phase": "phase-7",
+            "current_task": "TSK-00011",
+            "tasks_total": 12,
+            "decisions_total": 14,
             "open_blocks": 1
           }
         }
@@ -17312,175 +17404,181 @@
           "what_is": "Implement Phases 3, 5, 6 and 7 with real code and tests: documentation/engine (4 generators + drift verifier wired into the pipeline), core/{planner,executor,verifier,recovery,orchestrator,agent} (dry-run-first agent with tool whitelist and mutation protocol), documentation/courses (builds→lessons with real code excerpts and runnable solutions), skills (promoteRules→POL-0012, installPrechecks consumed by verifyPolicies, registerSkill, evolutionMetrics, propose-without-applying). New CLI: genesis docs|agent|courses|evolve. Phase 4 (Next.js, TSK-00007) remains the only stub."
         },
         {
-          "id": "NOD-00078",
+          "id": "NOD-00041",
+          "kind": "decision",
+          "label": "DEC-00014: Implement the 12 SPEC routes (dashboard, sessions + detail with RAW/processed sp",
+          "what_is": "Implement the 12 SPEC routes (dashboard, sessions + detail with RAW/processed split, decisions + detail with provenance, knowledge search with [[mark]] snippets, graph stats/hubs/nodes, timeline audit tape, context markdown, generated-docs index + traversal-safe reader) as dynamic server components sharing lib/ui.js. next.config rewrites proxy /api/* to GENESIS_API (baked at build time — documented in SPEC). tests/web-app.test.js: isolation tests always run; build/server gates skip honestly when deps or server are absent, and auto-detect a live :4000 server when present."
+        },
+        {
+          "id": "NOD-00079",
           "kind": "lesson",
           "label": "LES-00001: Verificar los permisos reales del token antes de prometer operaciones de infraes",
           "what_is": "Verificar los permisos reales del token antes de prometer operaciones de infraestructura externa; un dry-run de push no equivale a permiso de creación."
         },
         {
-          "id": "NOD-00079",
+          "id": "NOD-00080",
           "kind": "lesson",
           "label": "LES-00002: La capacidad offline no es una característica de la interfaz, es una propiedad d",
           "what_is": "La capacidad offline no es una característica de la interfaz, es una propiedad del núcleo. Si el núcleo depende de npm, ninguna interfaz será offline."
         },
         {
-          "id": "NOD-00080",
+          "id": "NOD-00081",
           "kind": "mistake",
           "label": "ERR-00001: gh repo create SoftEngAi-dev/develo-courseapp-simplify",
           "what_is": "gh repo create SoftEngAi-dev/develo-courseapp-simplify"
         },
         {
-          "id": "NOD-00075",
+          "id": "NOD-00076",
           "kind": "phase",
           "label": "cross-cutting",
           "what_is": "Roadmap phase."
         },
         {
-          "id": "NOD-00057",
+          "id": "NOD-00058",
           "kind": "phase",
           "label": "phase-0",
           "what_is": "Roadmap phase."
         },
         {
-          "id": "NOD-00059",
+          "id": "NOD-00060",
           "kind": "phase",
           "label": "phase-1",
           "what_is": "Roadmap phase."
         },
         {
-          "id": "NOD-00061",
+          "id": "NOD-00062",
           "kind": "phase",
           "label": "phase-2",
           "what_is": "Roadmap phase."
         },
         {
-          "id": "NOD-00065",
+          "id": "NOD-00066",
           "kind": "phase",
           "label": "phase-3",
           "what_is": "Roadmap phase."
         },
         {
-          "id": "NOD-00067",
+          "id": "NOD-00068",
           "kind": "phase",
           "label": "phase-4",
           "what_is": "Roadmap phase."
         },
         {
-          "id": "NOD-00069",
+          "id": "NOD-00070",
           "kind": "phase",
           "label": "phase-5",
           "what_is": "Roadmap phase."
         },
         {
-          "id": "NOD-00071",
+          "id": "NOD-00072",
           "kind": "phase",
           "label": "phase-6",
           "what_is": "Roadmap phase."
         },
         {
-          "id": "NOD-00073",
+          "id": "NOD-00074",
           "kind": "phase",
           "label": "phase-7",
           "what_is": "Roadmap phase."
         },
         {
-          "id": "NOD-00081",
+          "id": "NOD-00082",
           "kind": "reference",
           "label": "SRC-00001: node:sqlite experimental FTS5 support Node 22",
           "what_is": "node:sqlite experimental FTS5 support Node 22"
         },
         {
-          "id": "NOD-00041",
+          "id": "NOD-00042",
           "kind": "requirement",
           "label": "REQ-0001: Document absolutely everything that happens in the project",
           "what_is": "Document absolutely everything that happens in the project"
         },
         {
-          "id": "NOD-00042",
+          "id": "NOD-00043",
           "kind": "requirement",
           "label": "REQ-0002: Separate data into five levels (raw / processed / knowledge / project / control)",
           "what_is": "Separate data into five levels (raw / processed / knowledge / project / control)"
         },
         {
-          "id": "NOD-00043",
+          "id": "NOD-00044",
           "kind": "requirement",
           "label": "REQ-0003: Store explainable Decision Traces instead of private model reasoning",
           "what_is": "Store explainable Decision Traces instead of private model reasoning"
         },
         {
-          "id": "NOD-00044",
+          "id": "NOD-00045",
           "kind": "requirement",
           "label": "REQ-0004: Treat interruptions ('cortes') as first-class events",
           "what_is": "Treat interruptions ('cortes') as first-class events"
         },
         {
-          "id": "NOD-00045",
+          "id": "NOD-00046",
           "kind": "requirement",
           "label": "REQ-0005: Work fully offline with zero npm dependencies in the core",
           "what_is": "Work fully offline with zero npm dependencies in the core"
         },
         {
-          "id": "NOD-00046",
+          "id": "NOD-00047",
           "kind": "requirement",
           "label": "REQ-0006: Web app that is simultaneously full-featured and offline-capable",
           "what_is": "Web app that is simultaneously full-featured and offline-capable"
         },
         {
-          "id": "NOD-00047",
+          "id": "NOD-00048",
           "kind": "requirement",
           "label": "REQ-0007: Trilingual pedagogical code comments (ES/EN/PT) written as a beginner course",
           "what_is": "Trilingual pedagogical code comments (ES/EN/PT) written as a beginner course"
         },
         {
-          "id": "NOD-00048",
+          "id": "NOD-00049",
           "kind": "requirement",
           "label": "REQ-0008: Generate a Reverse Engineering Curriculum from real builds",
           "what_is": "Generate a Reverse Engineering Curriculum from real builds"
         },
         {
-          "id": "NOD-00049",
+          "id": "NOD-00050",
           "kind": "requirement",
           "label": "REQ-0009: Autonomous agent with context, planner, executor, verifier and recovery",
           "what_is": "Autonomous agent with context, planner, executor, verifier and recovery"
         },
         {
-          "id": "NOD-00050",
+          "id": "NOD-00051",
           "kind": "requirement",
           "label": "REQ-0010: Never overwrite: snapshot, diff, patch, verify, rollback",
           "what_is": "Never overwrite: snapshot, diff, patch, verify, rollback"
         },
         {
-          "id": "NOD-00051",
+          "id": "NOD-00052",
           "kind": "requirement",
           "label": "REQ-0011: El sistema debe conservar absolutamente todo lo ocurrido en el nivel RAW sin int",
           "what_is": "El sistema debe conservar absolutamente todo lo ocurrido en el nivel RAW sin interpretarlo."
         },
         {
-          "id": "NOD-00052",
+          "id": "NOD-00053",
           "kind": "requirement",
           "label": "REQ-0012: El sistema debe separar los datos en cinco niveles: raw, processed, knowledge, p",
           "what_is": "El sistema debe separar los datos en cinco niveles: raw, processed, knowledge, project y control."
         },
         {
-          "id": "NOD-00053",
+          "id": "NOD-00054",
           "kind": "requirement",
           "label": "REQ-0013: El nivel CONTROL debe permitir que otra sesión no tenga que releer todo el unive",
           "what_is": "El nivel CONTROL debe permitir que otra sesión no tenga que releer todo el universo."
         },
         {
-          "id": "NOD-00054",
+          "id": "NOD-00055",
           "kind": "requirement",
           "label": "REQ-0014: La aplicación debe funcionar de forma totalmente offline y a la vez ser completa",
           "what_is": "La aplicación debe funcionar de forma totalmente offline y a la vez ser completa."
         },
         {
-          "id": "NOD-00055",
+          "id": "NOD-00056",
           "kind": "requirement",
           "label": "REQ-0015: Los comentarios del código deben ser trilingües (ES/EN/PT) con explicación de cu",
           "what_is": "Los comentarios del código deben ser trilingües (ES/EN/PT) con explicación de curso para principiantes."
         },
         {
-          "id": "NOD-00056",
+          "id": "NOD-00057",
           "kind": "requirement",
           "label": "REQ-0016: Nunca se debe sobrescribir un archivo sin READ → UNDERSTAND → DIFF → PLAN → PATC",
           "what_is": "Nunca se debe sobrescribir un archivo sin READ → UNDERSTAND → DIFF → PLAN → PATCH → VERIFY → COMMIT."
@@ -17492,73 +17590,73 @@
           "what_is": "Captured conversation session (RAW level)."
         },
         {
-          "id": "NOD-00058",
+          "id": "NOD-00059",
           "kind": "task",
           "label": "TSK-00001: Bootstrap: manifest, state, event bus, logger, checkpoints",
           "what_is": "Bootstrap: manifest, state, event bus, logger, checkpoints"
         },
         {
-          "id": "NOD-00060",
+          "id": "NOD-00061",
           "kind": "task",
           "label": "TSK-00002: Capture: session ingestion, raw storage, message parser",
           "what_is": "Capture: session ingestion, raw storage, message parser"
         },
         {
-          "id": "NOD-00062",
+          "id": "NOD-00063",
           "kind": "task",
           "label": "TSK-00003: Knowledge Engine: SQLite+FTS5 schema, processors, graph, retrieval, context",
           "what_is": "Knowledge Engine: SQLite+FTS5 schema, processors, graph, retrieval, context"
         },
         {
-          "id": "NOD-00063",
+          "id": "NOD-00064",
           "kind": "task",
           "label": "TSK-00004: Zero-dependency HTTP API + offline console",
           "what_is": "Zero-dependency HTTP API + offline console"
         },
         {
-          "id": "NOD-00064",
+          "id": "NOD-00065",
           "kind": "task",
           "label": "TSK-00005: Trilingual pedagogical comment convention applied to every source file",
           "what_is": "Trilingual pedagogical comment convention applied to every source file"
         },
         {
-          "id": "NOD-00066",
+          "id": "NOD-00067",
           "kind": "task",
           "label": "TSK-00006: Documentation Engine: automatic Markdown, tutorials, timeline, decision traces",
           "what_is": "Documentation Engine: automatic Markdown, tutorials, timeline, decision traces"
         },
         {
-          "id": "NOD-00068",
+          "id": "NOD-00069",
           "kind": "task",
           "label": "TSK-00007: Next.js web app (Dashboard / Sessions / Knowledge / Timeline / Graph)",
           "what_is": "Next.js web app (Dashboard / Sessions / Knowledge / Timeline / Graph)"
         },
         {
-          "id": "NOD-00070",
+          "id": "NOD-00071",
           "kind": "task",
           "label": "TSK-00008: Autonomous agent: observe -> contextualize -> reason -> plan -> execute -> verif",
           "what_is": "Autonomous agent: observe -> contextualize -> reason -> plan -> execute -> verify -> learn"
         },
         {
-          "id": "NOD-00072",
+          "id": "NOD-00073",
           "kind": "task",
           "label": "TSK-00009: Education: lessons, exercises and Reverse Engineering Curriculum",
           "what_is": "Education: lessons, exercises and Reverse Engineering Curriculum"
         },
         {
-          "id": "NOD-00074",
+          "id": "NOD-00075",
           "kind": "task",
           "label": "TSK-00010: Autonomous evolution: lessons -> rules -> prechecks -> skill generation",
           "what_is": "Autonomous evolution: lessons -> rules -> prechecks -> skill generation"
         },
         {
-          "id": "NOD-00076",
+          "id": "NOD-00077",
           "kind": "task",
           "label": "TSK-00011: Publish mirror repository develo-courseapp-simplify and open PR",
           "what_is": "Publish mirror repository develo-courseapp-simplify and open PR"
         },
         {
-          "id": "NOD-00077",
+          "id": "NOD-00078",
           "kind": "task",
           "label": "TSK-00012: Installable offline-first PWA console (desktop + mobile, dual mode online/offlin",
           "what_is": "Installable offline-first PWA console (desktop + mobile, dual mode online/offline)"
@@ -17770,25 +17868,49 @@
           "weight": 2
         },
         {
+          "source": "NOD-00041",
+          "target": "NOD-00018",
+          "relation": "decides_about",
+          "weight": 2
+        },
+        {
+          "source": "NOD-00041",
+          "target": "NOD-00019",
+          "relation": "decides_about",
+          "weight": 2
+        },
+        {
+          "source": "NOD-00041",
+          "target": "NOD-00021",
+          "relation": "decides_about",
+          "weight": 2
+        },
+        {
+          "source": "NOD-00041",
+          "target": "NOD-00023",
+          "relation": "decides_about",
+          "weight": 2
+        },
+        {
           "source": "NOD-00008",
-          "target": "NOD-00078",
+          "target": "NOD-00079",
           "relation": "part_of",
           "weight": 2
         },
         {
-          "source": "NOD-00078",
-          "target": "NOD-00080",
+          "source": "NOD-00079",
+          "target": "NOD-00081",
           "relation": "prevents",
           "weight": 2
         },
         {
-          "source": "NOD-00081",
+          "source": "NOD-00082",
           "target": "NOD-00029",
           "relation": "produced",
           "weight": 2
         },
         {
-          "source": "NOD-00081",
+          "source": "NOD-00082",
           "target": "NOD-00035",
           "relation": "produced",
           "weight": 2
@@ -18334,7 +18456,7 @@
           "weight": 1
         },
         {
-          "source": "NOD-00004",
+          "source": "NOD-00005",
           "target": "NOD-00041",
           "relation": "part_of",
           "weight": 1
@@ -18436,152 +18558,158 @@
           "weight": 1
         },
         {
-          "source": "NOD-00058",
-          "target": "NOD-00057",
+          "source": "NOD-00004",
+          "target": "NOD-00058",
+          "relation": "part_of",
+          "weight": 1
+        },
+        {
+          "source": "NOD-00059",
+          "target": "NOD-00058",
           "relation": "belongs_to",
           "weight": 1
         },
         {
           "source": "NOD-00004",
-          "target": "NOD-00059",
+          "target": "NOD-00060",
           "relation": "part_of",
           "weight": 1
         },
         {
-          "source": "NOD-00060",
-          "target": "NOD-00059",
+          "source": "NOD-00061",
+          "target": "NOD-00060",
           "relation": "belongs_to",
           "weight": 1
         },
         {
           "source": "NOD-00004",
-          "target": "NOD-00061",
+          "target": "NOD-00062",
           "relation": "part_of",
-          "weight": 1
-        },
-        {
-          "source": "NOD-00062",
-          "target": "NOD-00061",
-          "relation": "belongs_to",
           "weight": 1
         },
         {
           "source": "NOD-00063",
-          "target": "NOD-00061",
+          "target": "NOD-00062",
           "relation": "belongs_to",
           "weight": 1
         },
         {
           "source": "NOD-00064",
-          "target": "NOD-00057",
+          "target": "NOD-00062",
+          "relation": "belongs_to",
+          "weight": 1
+        },
+        {
+          "source": "NOD-00065",
+          "target": "NOD-00058",
           "relation": "belongs_to",
           "weight": 1
         },
         {
           "source": "NOD-00004",
-          "target": "NOD-00065",
+          "target": "NOD-00066",
           "relation": "part_of",
           "weight": 1
         },
         {
-          "source": "NOD-00066",
-          "target": "NOD-00065",
+          "source": "NOD-00067",
+          "target": "NOD-00066",
           "relation": "belongs_to",
           "weight": 1
         },
         {
           "source": "NOD-00004",
-          "target": "NOD-00067",
+          "target": "NOD-00068",
           "relation": "part_of",
           "weight": 1
         },
         {
-          "source": "NOD-00068",
-          "target": "NOD-00067",
+          "source": "NOD-00069",
+          "target": "NOD-00068",
           "relation": "belongs_to",
           "weight": 1
         },
         {
           "source": "NOD-00004",
-          "target": "NOD-00069",
+          "target": "NOD-00070",
           "relation": "part_of",
           "weight": 1
         },
         {
-          "source": "NOD-00070",
-          "target": "NOD-00069",
+          "source": "NOD-00071",
+          "target": "NOD-00070",
           "relation": "belongs_to",
           "weight": 1
         },
         {
           "source": "NOD-00004",
-          "target": "NOD-00071",
+          "target": "NOD-00072",
           "relation": "part_of",
           "weight": 1
         },
         {
-          "source": "NOD-00072",
-          "target": "NOD-00071",
+          "source": "NOD-00073",
+          "target": "NOD-00072",
           "relation": "belongs_to",
           "weight": 1
         },
         {
           "source": "NOD-00004",
-          "target": "NOD-00073",
+          "target": "NOD-00074",
           "relation": "part_of",
           "weight": 1
         },
         {
-          "source": "NOD-00074",
-          "target": "NOD-00073",
+          "source": "NOD-00075",
+          "target": "NOD-00074",
           "relation": "belongs_to",
           "weight": 1
         },
         {
           "source": "NOD-00004",
-          "target": "NOD-00075",
+          "target": "NOD-00076",
           "relation": "part_of",
-          "weight": 1
-        },
-        {
-          "source": "NOD-00076",
-          "target": "NOD-00075",
-          "relation": "belongs_to",
           "weight": 1
         },
         {
           "source": "NOD-00077",
-          "target": "NOD-00067",
+          "target": "NOD-00076",
+          "relation": "belongs_to",
+          "weight": 1
+        },
+        {
+          "source": "NOD-00078",
+          "target": "NOD-00068",
           "relation": "belongs_to",
           "weight": 1
         },
         {
           "source": "NOD-00008",
-          "target": "NOD-00079",
-          "relation": "part_of",
-          "weight": 1
-        },
-        {
-          "source": "NOD-00009",
           "target": "NOD-00080",
           "relation": "part_of",
           "weight": 1
         },
         {
-          "source": "NOD-00012",
+          "source": "NOD-00009",
           "target": "NOD-00081",
+          "relation": "part_of",
+          "weight": 1
+        },
+        {
+          "source": "NOD-00012",
+          "target": "NOD-00082",
           "relation": "part_of",
           "weight": 1
         }
       ],
       "stats": {
-        "nodes": 81,
-        "edges": 154,
-        "density": 0.0238,
+        "nodes": 82,
+        "edges": 159,
+        "density": 0.0239,
         "by_kind": {
           "requirement": 16,
+          "decision": 14,
           "technology": 14,
-          "decision": 13,
           "task": 12,
           "category": 11,
           "phase": 9,
@@ -18592,9 +18720,9 @@
           "session": 1
         },
         "by_relation": {
-          "part_of": 67,
+          "part_of": 68,
           "co_occurs": 43,
-          "decides_about": 15,
+          "decides_about": 19,
           "discussed_in": 14,
           "belongs_to": 12,
           "produced": 2,
@@ -18617,7 +18745,7 @@
             "id": "NOD-00005",
             "kind": "category",
             "label": "decisions",
-            "degree": 14
+            "degree": 15
           },
           {
             "id": "NOD-00014",
@@ -18629,6 +18757,18 @@
             "id": "NOD-00021",
             "kind": "technology",
             "label": "api",
+            "degree": 14
+          },
+          {
+            "id": "NOD-00018",
+            "kind": "technology",
+            "label": "fts5",
+            "degree": 13
+          },
+          {
+            "id": "NOD-00019",
+            "kind": "technology",
+            "label": "node",
             "degree": 13
           },
           {
@@ -18636,24 +18776,12 @@
             "kind": "technology",
             "label": "sqlite",
             "degree": 12
-          },
-          {
-            "id": "NOD-00018",
-            "kind": "technology",
-            "label": "fts5",
-            "degree": 12
-          },
-          {
-            "id": "NOD-00019",
-            "kind": "technology",
-            "label": "node",
-            "degree": 12
           }
         ]
       }
     },
     "context": {
-      "generated_at": "2026-09-13T18:17:25.488Z",
+      "generated_at": "2026-09-13T18:35:12.576Z",
       "query": null,
       "project": {
         "name": "Genesis Autonomous Engineering",
@@ -18662,8 +18790,8 @@
       },
       "state": {
         "project": "genesis",
-        "progress_percent": 92.5,
-        "current_phase": "phase-4",
+        "progress_percent": 100,
+        "current_phase": "phase-7",
         "current_task": {
           "id": "TSK-00011",
           "title": "Publish mirror repository develo-courseapp-simplify and open PR",
@@ -18693,37 +18821,36 @@
           "lessons": 1,
           "builds": 0,
           "tasks_total": 12,
-          "tasks_completed": 10,
+          "tasks_completed": 11,
           "tasks_blocked": 1
         },
         "last_checkpoint": {
-          "id": "CHK-00010",
+          "id": "CHK-00011",
           "label": "full-pipeline",
-          "created_at": "2026-09-13T18:17:25.382Z",
-          "file": "control/checkpoints/CHK-00010-20260913T181725Z-full-pipeline.json"
+          "created_at": "2026-09-13T18:35:12.465Z",
+          "file": "control/checkpoints/CHK-00011-20260913T183512Z-full-pipeline.json"
         },
         "next_recommended_action": {
           "es": "Ejecutar `npm run demo` para ingerir la sesión real de arquitectura y luego `npm run serve` para ver el conocimiento en el navegador.",
           "en": "Run `npm run demo` to ingest the real architecture session, then `npm run serve` to browse the knowledge.",
           "pt": "Execute `npm run demo` para ingerir a sessão real de arquitetura e depois `npm run serve` para ver o conhecimento no navegador."
         },
-        "updated_at": "2026-09-13T18:17:25.382Z"
+        "updated_at": "2026-09-13T18:35:12.465Z"
       },
       "progress": {
-        "percent": 92.5,
+        "percent": 100,
         "method": "weighted_phase_completion",
         "phases_completed": [
           "phase-0",
           "phase-1",
           "phase-2",
           "phase-3",
+          "phase-4",
           "phase-5",
           "phase-6",
           "phase-7"
         ],
-        "phases_stub": [
-          "phase-4"
-        ],
+        "phases_stub": [],
         "per_phase": [
           {
             "id": "phase-0",
@@ -18761,8 +18888,8 @@
             "id": "phase-4",
             "name": "Web App",
             "weight": 15,
-            "status": "stub",
-            "ratio": 0.5,
+            "status": "completed",
+            "ratio": 1,
             "tasks": 2
           },
           {
@@ -18792,9 +18919,9 @@
         ]
       },
       "current_phase": {
-        "id": "phase-4",
-        "name": "Web App",
-        "status": "stub"
+        "id": "phase-7",
+        "name": "Autonomous Evolution",
+        "status": "completed"
       },
       "current_task": {
         "id": "TSK-00011",
@@ -18809,15 +18936,15 @@
         ]
       },
       "last_checkpoint": {
-        "id": "CHK-00010",
+        "id": "CHK-00011",
         "label": "full-pipeline",
-        "created_at": "2026-09-13T18:17:25.382Z",
+        "created_at": "2026-09-13T18:35:12.465Z",
         "summary": {
-          "progress_percent": 92.5,
-          "current_phase": "phase-4",
+          "progress_percent": 100,
+          "current_phase": "phase-7",
           "current_task": "TSK-00011",
           "tasks_total": 12,
-          "decisions_total": 13,
+          "decisions_total": 14,
           "open_blocks": 1
         }
       },
@@ -19159,19 +19286,19 @@
         "en": "Run `npm run demo` to ingest the real architecture session, then `npm run serve` to browse the knowledge.",
         "pt": "Execute `npm run demo` para ingerir a sessão real de arquitetura e depois `npm run serve` para ver o conhecimento no navegador."
       },
-      "roadmap_remaining": [
-        {
-          "id": "phase-4",
-          "name": "Web App",
-          "status": "stub",
-          "weight": 15
-        }
-      ]
+      "roadmap_remaining": []
     },
-    "context?format=text": "════════════════════════════════════════════════════════════════════════\nSESSION CONTEXT · GENESIS PROJECT KNOWLEDGE & AUTONOMOUS ENGINE\nGenerated: 2026-09-13T18:17:25.493Z\n════════════════════════════════════════════════════════════════════════\n\nProject:                   Genesis Autonomous Engineering v0.1.0\nCentral rule:              Nothing happens without leaving an observable project event.\nProgress:                  92.5%\nCurrent phase:             phase-4 · Web App (stub)\nCurrent task:              TSK-00011 · Publish mirror repository develo-courseapp-simplify and open PR [blocked 80%]\nAgent:                     idle\nLast checkpoint:           CHK-00010 · full-pipeline (2026-09-13T18:17:25.382Z)\nBlocks:                    1\n\nRELEVANT DECISIONS (2)\n  - DEC-00011 [blocked] Mirror the work into a local git repository named develo-courseapp-simplify, pre-configured with per-phase com\n  - DEC-00002 [approved] node:sqlite (integrado en Node 22) + tablas virtuales FTS5, con archivos\nJSON para la configuración.\n\nFAILED ATTEMPTS / OPEN INTERRUPTIONS (1)\n  - ERR-00001 [low · resolved] gh repo create SoftEngAi-dev/develo-courseapp-simplify\n  —\n\nKNOWN CONSTRAINTS\n  - POL-0001 observability.everything_is_an_event: Nothing happens without leaving an observable project event.\n  - POL-0002 mutation.never_rewrite_wholesale: Before modifying anything: READ -> UNDERSTAND -> DIFF -> PLAN -> PATCH -> VERIFY -> COMMIT. Never rewrite an entire project.\n  - POL-0003 checkpoint.before_risky_mutation: Create a checkpoint before any operation that can destroy previous state.\n  - POL-0005 core.zero_dependencies: The core engine must run with an empty node_modules. External frameworks are optional adapters.\n  - POL-0006 agent.contextualize_before_reasoning: Ask 'what do we already know?' before asking 'what must I do?'.\n  - POL-0007 documentation.by_design_not_by_reminder: The system documents itself. Never depend on the human remembering to say 'now document this'.\n  - POL-0008 education.trilingual_comments: Code identifiers in English; comments trilingual and pedagogical, written as a course for absolute beginners.\n  - POL-0009 reasoning.store_explainable_trace_not_private_thoughts: Store a Decision Trace (objective, context, constraints, alternatives, decision, justification, action, result, verification, learning). Never attempt to transcribe a model's private reasoning.\n  - POL-0011 ui.offline_first_dual_mode: The console is an installable PWA usable with AND without connection. Every view must render from the live API, from the service-worker cache, or from the bundled snapshot, in that order. The interface must always flag the active mode and the sync time: stale data is never presented as fresh. No new npm dependency may be introduced to achieve this.\n  - POL-0012 infra.verify_permissions_before_promising: Verificar los permisos reales del token antes de prometer operaciones de infraestructura externa; un dry-run de push no equivale a permiso de creación.\n  - REQ-0001 Document absolutely everything that happens in the project\n  - REQ-0002 Separate data into five levels (raw / processed / knowledge / project / control)\n  - REQ-0005 Work fully offline with zero npm dependencies in the core\n  - REQ-0010 Never overwrite: snapshot, diff, patch, verify, rollback\n  - REQ-0016 Nunca se debe sobrescribir un archivo sin READ → UNDERSTAND → DIFF → PLAN → PATCH → VERIFY → COMMIT.\n  - REQ-0003 Store explainable Decision Traces instead of private model reasoning\n  - REQ-0004 Treat interruptions ('cortes') as first-class events\n  - REQ-0006 Web app that is simultaneously full-featured and offline-capable\n  - REQ-0007 Trilingual pedagogical code comments (ES/EN/PT) written as a beginner course\n  - REQ-0009 Autonomous agent with context, planner, executor, verifier and recovery\n\nREQUIRED FILES\n  - https://github.com/SoftEngAi-dev/Develop-CourseApp/pull/1\n  - data/raw\n  - data/processed\n  - knowledge\n  - .\n  - control\n  - control/manifest.json\n  - control/state.json\n  - control/tasks.json\n  - control/decisions.json\n\nRELATED DOCUMENTATION\n  - [lesson] LES-00002 La capacidad offline no es una característica de la interfaz, es una propiedad del núcleo. Si el núcleo depend\n  - [lesson] LES-00001 Verificar los permisos reales del token antes de prometer operaciones de infraestructura externa; un dry-run d\n  - [plan] PLN-00005 verify project health\n  - [plan] PLN-00001 Bootstrap\n  - [plan] PLN-00002 Captura\n  - [plan] PLN-00003 Knowledge Engine\n  - [plan] PLN-00004 completada: SQLite + FTS5, procesadores, grafo de conocimiento y Context Engine.\n\nSEARCHES PERFORMED\n  - SRC-00001 \"node:sqlite experimental FTS5 support Node 22\" → selected: node:sqlite with FTS5 virtual tables\n\nRECENT TIMELINE\n  - 15:48:38 PLAN_CREATED           requirements {\"id\":\"PLN-00004\",\"objective\":\"completada: SQLite + FTS5, procesadores, grafo de conocimiento y Context Engine.\",\"steps\"\n  - 15:48:38 ERROR_DETECTED         verification {\"id\":\"ERR-00001\",\"severity\":\"low\",\"message\":\"gh repo create SoftEngAi-dev/develo-courseapp-simplify\",\"http_code\":\"403\",\n  - 15:48:38 SEARCH_PERFORMED       knowledge {\"id\":\"SRC-00001\",\"query\":\"node:sqlite experimental FTS5 support Node 22\",\"reason\":\"el contrato de API se convierte en l\n  - 15:48:38 KNOWLEDGE_EXTRACTED    knowledge {\"kind\":\"session-entities\",\"id\":\"SES-00001\",\"decisions\":2,\"plans\":4,\"errors\":1,\"searches\":1,\"requirements\":6,\"lessons\":0\n  - 15:48:38 KNOWLEDGE_EXTRACTED    knowledge {\"kind\":\"knowledge-graph\",\"categories\":11,\"technologies\":14,\"decisions\":11,\"requirements\":16,\"tasks\":11,\"lessons\":1,\"mis\n  - 15:48:38 KNOWLEDGE_EXTRACTED    knowledge {\"kind\":\"full-processing\",\"decisions\":2,\"plans\":4,\"errors\":1,\"searches\":1,\"requirements\":6,\"lessons\":0,\"requirement_chan\n  - 15:52:58 STATE_UPDATED          control {\"reason\":\"reconcile\",\"progress\":40,\"current_task\":\"TSK-00011\"}\n  - 15:53:05 BUILD_COMPLETED        application {\"kind\":\"api-server\",\"port\":3000,\"host\":\"0.0.0.0\",\"routes\":32}\n  - 15:53:12 TOOL_EXECUTED          application {\"tool\":\"http-api\",\"method\":\"GET\",\"path\":\"/api/health\",\"status\":200,\"ms\":4}\n  - 15:53:12 ERROR_DETECTED         application {\"tool\":\"http-api\",\"path\":\"/api/stats\",\"message\":\"no such column: \\\"\\\" - should this be a string literal in single-quote\n  - 15:53:12 TOOL_EXECUTED          application {\"tool\":\"http-api\",\"method\":\"GET\",\"path\":\"/api/recent\",\"status\":200,\"ms\":1}\n  - 15:53:12 TOOL_EXECUTED          application {\"tool\":\"http-api\",\"method\":\"GET\",\"path\":\"/api/graph\",\"status\":200,\"ms\":2}\n\nNEXT RECOMMENDED ACTION\n  Run `npm run demo` to ingest the real architecture session, then `npm run serve` to browse the knowledge.\n\nREMAINING ROADMAP\n  - phase-4 Web App [stub, weight 15]\n\n════════════════════════════════════════════════════════════════════════",
-    "context?format=md": "# Session Context — Genesis Autonomous Engineering\n\n_Generated 2026-09-13T18:17:25.499Z · Rule: Nothing happens without leaving an observable project event._\n\n## Where we are\n- Progress: **92.5%**\n- Phase: phase-4 (Web App) — stub\n- Task: TSK-00011 — Publish mirror repository develo-courseapp-simplify and open PR [blocked]\n- Last checkpoint: CHK-00010\n- Open blocks: 1\n\n## Relevant decisions\n- **DEC-00011** [blocked] Mirror the work into a local git repository named develo-courseapp-simplify, pre-configured with per-phase commits and a remote placeholder, so the user only has to create the GitHub repo and push. — _Preserves the user's intent without inventing permissions we do not have._\n- **DEC-00002** [approved] node:sqlite (integrado en Node 22) + tablas virtuales FTS5, con archivos\nJSON para la configuración. — _menor complejidad inicial, búsqueda full-text real, funcionamiento local y\noffline, y cero riesgo de cadena de suministro._\n\n## Failed attempts (do not repeat)\n- ERR-00001 gh repo create SoftEngAi-dev/develo-courseapp-simplify → recovery: construir en la rama de la sesión (cuyo push sí funciona) y dejar preparado un repositorio local listo para publicar en cuanto exista el remoto.\n\n## Hard constraints\n- `observability.everything_is_an_event` — Nothing happens without leaving an observable project event.\n- `mutation.never_rewrite_wholesale` — Before modifying anything: READ -> UNDERSTAND -> DIFF -> PLAN -> PATCH -> VERIFY -> COMMIT. Never rewrite an entire project.\n- `checkpoint.before_risky_mutation` — Create a checkpoint before any operation that can destroy previous state.\n- `core.zero_dependencies` — The core engine must run with an empty node_modules. External frameworks are optional adapters.\n- `agent.contextualize_before_reasoning` — Ask 'what do we already know?' before asking 'what must I do?'.\n- `documentation.by_design_not_by_reminder` — The system documents itself. Never depend on the human remembering to say 'now document this'.\n- `education.trilingual_comments` — Code identifiers in English; comments trilingual and pedagogical, written as a course for absolute beginners.\n- `reasoning.store_explainable_trace_not_private_thoughts` — Store a Decision Trace (objective, context, constraints, alternatives, decision, justification, action, result, verification, learning). Never attempt to transcribe a model's private reasoning.\n- `ui.offline_first_dual_mode` — The console is an installable PWA usable with AND without connection. Every view must render from the live API, from the service-worker cache, or from the bundled snapshot, in that order. The interface must always flag the active mode and the sync time: stale data is never presented as fresh. No new npm dependency may be introduced to achieve this.\n- `infra.verify_permissions_before_promising` — Verificar los permisos reales del token antes de prometer operaciones de infraestructura externa; un dry-run de push no equivale a permiso de creación.\n\n## Files involved\n- `https://github.com/SoftEngAi-dev/Develop-CourseApp/pull/1`\n- `data/raw`\n- `data/processed`\n- `knowledge`\n- `.`\n- `control`\n- `control/manifest.json`\n- `control/state.json`\n- `control/tasks.json`\n- `control/decisions.json`\n\n## Next recommended action\n- EN: Run `npm run demo` to ingest the real architecture session, then `npm run serve` to browse the knowledge.\n- ES: Ejecutar `npm run demo` para ingerir la sesión real de arquitectura y luego `npm run serve` para ver el conocimiento en el navegador.\n- PT: Execute `npm run demo` para ingerir a sessão real de arquitetura e depois `npm run serve` para ver o conhecimento no navegador.\n\n## Remaining roadmap\n- phase-4 — Web App (stub, weight 15)",
+    "context?format=text": "════════════════════════════════════════════════════════════════════════\nSESSION CONTEXT · GENESIS PROJECT KNOWLEDGE & AUTONOMOUS ENGINE\nGenerated: 2026-09-13T18:35:12.583Z\n════════════════════════════════════════════════════════════════════════\n\nProject:                   Genesis Autonomous Engineering v0.1.0\nCentral rule:              Nothing happens without leaving an observable project event.\nProgress:                  100%\nCurrent phase:             phase-7 · Autonomous Evolution (completed)\nCurrent task:              TSK-00011 · Publish mirror repository develo-courseapp-simplify and open PR [blocked 80%]\nAgent:                     idle\nLast checkpoint:           CHK-00011 · full-pipeline (2026-09-13T18:35:12.465Z)\nBlocks:                    1\n\nRELEVANT DECISIONS (2)\n  - DEC-00011 [blocked] Mirror the work into a local git repository named develo-courseapp-simplify, pre-configured with per-phase com\n  - DEC-00002 [approved] node:sqlite (integrado en Node 22) + tablas virtuales FTS5, con archivos\nJSON para la configuración.\n\nFAILED ATTEMPTS / OPEN INTERRUPTIONS (1)\n  - ERR-00001 [low · resolved] gh repo create SoftEngAi-dev/develo-courseapp-simplify\n  —\n\nKNOWN CONSTRAINTS\n  - POL-0001 observability.everything_is_an_event: Nothing happens without leaving an observable project event.\n  - POL-0002 mutation.never_rewrite_wholesale: Before modifying anything: READ -> UNDERSTAND -> DIFF -> PLAN -> PATCH -> VERIFY -> COMMIT. Never rewrite an entire project.\n  - POL-0003 checkpoint.before_risky_mutation: Create a checkpoint before any operation that can destroy previous state.\n  - POL-0005 core.zero_dependencies: The core engine must run with an empty node_modules. External frameworks are optional adapters.\n  - POL-0006 agent.contextualize_before_reasoning: Ask 'what do we already know?' before asking 'what must I do?'.\n  - POL-0007 documentation.by_design_not_by_reminder: The system documents itself. Never depend on the human remembering to say 'now document this'.\n  - POL-0008 education.trilingual_comments: Code identifiers in English; comments trilingual and pedagogical, written as a course for absolute beginners.\n  - POL-0009 reasoning.store_explainable_trace_not_private_thoughts: Store a Decision Trace (objective, context, constraints, alternatives, decision, justification, action, result, verification, learning). Never attempt to transcribe a model's private reasoning.\n  - POL-0011 ui.offline_first_dual_mode: The console is an installable PWA usable with AND without connection. Every view must render from the live API, from the service-worker cache, or from the bundled snapshot, in that order. The interface must always flag the active mode and the sync time: stale data is never presented as fresh. No new npm dependency may be introduced to achieve this.\n  - POL-0012 infra.verify_permissions_before_promising: Verificar los permisos reales del token antes de prometer operaciones de infraestructura externa; un dry-run de push no equivale a permiso de creación.\n  - REQ-0001 Document absolutely everything that happens in the project\n  - REQ-0002 Separate data into five levels (raw / processed / knowledge / project / control)\n  - REQ-0005 Work fully offline with zero npm dependencies in the core\n  - REQ-0010 Never overwrite: snapshot, diff, patch, verify, rollback\n  - REQ-0016 Nunca se debe sobrescribir un archivo sin READ → UNDERSTAND → DIFF → PLAN → PATCH → VERIFY → COMMIT.\n  - REQ-0003 Store explainable Decision Traces instead of private model reasoning\n  - REQ-0004 Treat interruptions ('cortes') as first-class events\n  - REQ-0006 Web app that is simultaneously full-featured and offline-capable\n  - REQ-0007 Trilingual pedagogical code comments (ES/EN/PT) written as a beginner course\n  - REQ-0009 Autonomous agent with context, planner, executor, verifier and recovery\n\nREQUIRED FILES\n  - https://github.com/SoftEngAi-dev/Develop-CourseApp/pull/1\n  - data/raw\n  - data/processed\n  - knowledge\n  - .\n  - control\n  - control/manifest.json\n  - control/state.json\n  - control/tasks.json\n  - control/decisions.json\n\nRELATED DOCUMENTATION\n  - [lesson] LES-00002 La capacidad offline no es una característica de la interfaz, es una propiedad del núcleo. Si el núcleo depend\n  - [lesson] LES-00001 Verificar los permisos reales del token antes de prometer operaciones de infraestructura externa; un dry-run d\n  - [plan] PLN-00005 verify project health\n  - [plan] PLN-00001 Bootstrap\n  - [plan] PLN-00002 Captura\n  - [plan] PLN-00003 Knowledge Engine\n  - [plan] PLN-00004 completada: SQLite + FTS5, procesadores, grafo de conocimiento y Context Engine.\n\nSEARCHES PERFORMED\n  - SRC-00001 \"node:sqlite experimental FTS5 support Node 22\" → selected: node:sqlite with FTS5 virtual tables\n\nRECENT TIMELINE\n  - 15:48:38 PLAN_CREATED           requirements {\"id\":\"PLN-00004\",\"objective\":\"completada: SQLite + FTS5, procesadores, grafo de conocimiento y Context Engine.\",\"steps\"\n  - 15:48:38 ERROR_DETECTED         verification {\"id\":\"ERR-00001\",\"severity\":\"low\",\"message\":\"gh repo create SoftEngAi-dev/develo-courseapp-simplify\",\"http_code\":\"403\",\n  - 15:48:38 SEARCH_PERFORMED       knowledge {\"id\":\"SRC-00001\",\"query\":\"node:sqlite experimental FTS5 support Node 22\",\"reason\":\"el contrato de API se convierte en l\n  - 15:48:38 KNOWLEDGE_EXTRACTED    knowledge {\"kind\":\"session-entities\",\"id\":\"SES-00001\",\"decisions\":2,\"plans\":4,\"errors\":1,\"searches\":1,\"requirements\":6,\"lessons\":0\n  - 15:48:38 KNOWLEDGE_EXTRACTED    knowledge {\"kind\":\"knowledge-graph\",\"categories\":11,\"technologies\":14,\"decisions\":11,\"requirements\":16,\"tasks\":11,\"lessons\":1,\"mis\n  - 15:48:38 KNOWLEDGE_EXTRACTED    knowledge {\"kind\":\"full-processing\",\"decisions\":2,\"plans\":4,\"errors\":1,\"searches\":1,\"requirements\":6,\"lessons\":0,\"requirement_chan\n  - 15:52:58 STATE_UPDATED          control {\"reason\":\"reconcile\",\"progress\":40,\"current_task\":\"TSK-00011\"}\n  - 15:53:05 BUILD_COMPLETED        application {\"kind\":\"api-server\",\"port\":3000,\"host\":\"0.0.0.0\",\"routes\":32}\n  - 15:53:12 TOOL_EXECUTED          application {\"tool\":\"http-api\",\"method\":\"GET\",\"path\":\"/api/health\",\"status\":200,\"ms\":4}\n  - 15:53:12 ERROR_DETECTED         application {\"tool\":\"http-api\",\"path\":\"/api/stats\",\"message\":\"no such column: \\\"\\\" - should this be a string literal in single-quote\n  - 15:53:12 TOOL_EXECUTED          application {\"tool\":\"http-api\",\"method\":\"GET\",\"path\":\"/api/recent\",\"status\":200,\"ms\":1}\n  - 15:53:12 TOOL_EXECUTED          application {\"tool\":\"http-api\",\"method\":\"GET\",\"path\":\"/api/graph\",\"status\":200,\"ms\":2}\n\nNEXT RECOMMENDED ACTION\n  Run `npm run demo` to ingest the real architecture session, then `npm run serve` to browse the knowledge.\n\nREMAINING ROADMAP\n  —\n\n════════════════════════════════════════════════════════════════════════",
+    "context?format=md": "# Session Context — Genesis Autonomous Engineering\n\n_Generated 2026-09-13T18:35:12.589Z · Rule: Nothing happens without leaving an observable project event._\n\n## Where we are\n- Progress: **100%**\n- Phase: phase-7 (Autonomous Evolution) — completed\n- Task: TSK-00011 — Publish mirror repository develo-courseapp-simplify and open PR [blocked]\n- Last checkpoint: CHK-00011\n- Open blocks: 1\n\n## Relevant decisions\n- **DEC-00011** [blocked] Mirror the work into a local git repository named develo-courseapp-simplify, pre-configured with per-phase commits and a remote placeholder, so the user only has to create the GitHub repo and push. — _Preserves the user's intent without inventing permissions we do not have._\n- **DEC-00002** [approved] node:sqlite (integrado en Node 22) + tablas virtuales FTS5, con archivos\nJSON para la configuración. — _menor complejidad inicial, búsqueda full-text real, funcionamiento local y\noffline, y cero riesgo de cadena de suministro._\n\n## Failed attempts (do not repeat)\n- ERR-00001 gh repo create SoftEngAi-dev/develo-courseapp-simplify → recovery: construir en la rama de la sesión (cuyo push sí funciona) y dejar preparado un repositorio local listo para publicar en cuanto exista el remoto.\n\n## Hard constraints\n- `observability.everything_is_an_event` — Nothing happens without leaving an observable project event.\n- `mutation.never_rewrite_wholesale` — Before modifying anything: READ -> UNDERSTAND -> DIFF -> PLAN -> PATCH -> VERIFY -> COMMIT. Never rewrite an entire project.\n- `checkpoint.before_risky_mutation` — Create a checkpoint before any operation that can destroy previous state.\n- `core.zero_dependencies` — The core engine must run with an empty node_modules. External frameworks are optional adapters.\n- `agent.contextualize_before_reasoning` — Ask 'what do we already know?' before asking 'what must I do?'.\n- `documentation.by_design_not_by_reminder` — The system documents itself. Never depend on the human remembering to say 'now document this'.\n- `education.trilingual_comments` — Code identifiers in English; comments trilingual and pedagogical, written as a course for absolute beginners.\n- `reasoning.store_explainable_trace_not_private_thoughts` — Store a Decision Trace (objective, context, constraints, alternatives, decision, justification, action, result, verification, learning). Never attempt to transcribe a model's private reasoning.\n- `ui.offline_first_dual_mode` — The console is an installable PWA usable with AND without connection. Every view must render from the live API, from the service-worker cache, or from the bundled snapshot, in that order. The interface must always flag the active mode and the sync time: stale data is never presented as fresh. No new npm dependency may be introduced to achieve this.\n- `infra.verify_permissions_before_promising` — Verificar los permisos reales del token antes de prometer operaciones de infraestructura externa; un dry-run de push no equivale a permiso de creación.\n\n## Files involved\n- `https://github.com/SoftEngAi-dev/Develop-CourseApp/pull/1`\n- `data/raw`\n- `data/processed`\n- `knowledge`\n- `.`\n- `control`\n- `control/manifest.json`\n- `control/state.json`\n- `control/tasks.json`\n- `control/decisions.json`\n\n## Next recommended action\n- EN: Run `npm run demo` to ingest the real architecture session, then `npm run serve` to browse the knowledge.\n- ES: Ejecutar `npm run demo` para ingerir la sesión real de arquitectura y luego `npm run serve` para ver el conocimiento en el navegador.\n- PT: Execute `npm run demo` para ingerir a sessão real de arquitetura e depois `npm run serve` para ver o conhecimento no navegador.\n\n## Remaining roadmap\n- —",
     "recent?limit=5": {
       "decisions": [
+        {
+          "id": "DEC-00014",
+          "decision": "Implement the 12 SPEC routes (dashboard, sessions + detail with RAW/processed split, decisions + detail with provenance, knowledge search with [[mark]] snippets, graph stats/hubs/nodes, timeline audit tape, context markdown, generated-docs index + traversal-safe reader) as dynamic server components sharing lib/ui.js. next.config rewrites proxy /api/* to GENESIS_API (baked at build time — documented in SPEC). tests/web-app.test.js: isolation tests always run; build/server gates skip honestly when deps or server are absent, and auto-detect a live :4000 server when present.",
+          "status": "approved",
+          "layer": "application",
+          "created_at": "2026-09-13T18:35:04.706Z"
+        },
         {
           "id": "DEC-00013",
           "decision": "Implement Phases 3, 5, 6 and 7 with real code and tests: documentation/engine (4 generators + drift verifier wired into the pipeline), core/{planner,executor,verifier,recovery,orchestrator,agent} (dry-run-first agent with tool whitelist and mutation protocol), documentation/courses (builds→lessons with real code excerpts and runnable solutions), skills (promoteRules→POL-0012, installPrechecks consumed by verifyPolicies, registerSkill, evolutionMetrics, propose-without-applying). New CLI: genesis docs|agent|courses|evolve. Phase 4 (Next.js, TSK-00007) remains the only stub.",
@@ -19198,13 +19325,6 @@
           "decision": "ESM modules (\"type\": \"module\") with the built-in node:test runner and node:assert/strict.",
           "status": "approved",
           "layer": "verification",
-          "created_at": "2026-09-13T00:00:00.000Z"
-        },
-        {
-          "id": "DEC-00009",
-          "decision": "External orchestrators are optional adapters only. The core ships its own orchestrator/planner/executor contract.",
-          "status": "approved",
-          "layer": "architecture",
           "created_at": "2026-09-13T00:00:00.000Z"
         }
       ],
@@ -19307,7 +19427,7 @@
     "search?q=sqlite&limit=25": {
       "query": "sqlite",
       "engine": "fts5",
-      "count": 11,
+      "count": 12,
       "results": [
         {
           "rank": 1,
@@ -19315,7 +19435,7 @@
           "id": "NOD-00017",
           "title": "NOD-00017 · sqlite (technology)",
           "snippet": "Technical term observed in the project conversations.",
-          "score": -4.4037,
+          "score": -4.2949,
           "entity": {
             "id": "NOD-00017",
             "kind": "technology",
@@ -19329,7 +19449,7 @@
             "how_built": null,
             "problems": null,
             "learned": null,
-            "created_at": "2026-09-13T18:17:25.326Z",
+            "created_at": "2026-09-13T18:35:12.407Z",
             "code_refs": [],
             "sessions": [
               "SES-00001"
@@ -19340,40 +19460,11 @@
         },
         {
           "rank": 2,
-          "type": "node",
-          "id": "NOD-00081",
-          "title": "NOD-00081 · SRC-00001: node:sqlite experimental FTS5 support Node 22 (reference)",
-          "snippet": "node:[[sqlite]] experimental FTS5 support Node 22 el contrato de API se convierte en la costura. La capacidad offline la node:[[sqlite]] …",
-          "score": -4.3663,
-          "entity": {
-            "id": "NOD-00081",
-            "kind": "reference",
-            "label": "SRC-00001: node:sqlite experimental FTS5 support Node 22",
-            "label_es": null,
-            "label_en": "SRC-00001: node:sqlite experimental FTS5 support Node 22",
-            "label_pt": null,
-            "what_is": "node:sqlite experimental FTS5 support Node 22",
-            "why_exists": "el contrato de API se convierte en la costura. La capacidad offline la",
-            "where_used": null,
-            "how_built": null,
-            "problems": null,
-            "learned": "node:sqlite with FTS5 virtual tables",
-            "created_at": "2026-09-13T18:17:25.362Z",
-            "code_refs": [],
-            "sessions": [],
-            "sources": [
-              "https://nodejs.org/api/sqlite.html"
-            ],
-            "meta": {}
-          }
-        },
-        {
-          "rank": 3,
           "type": "search",
           "id": "SRC-00001",
           "title": "SRC-00001 · node:sqlite experimental FTS5 support Node 22",
           "snippet": "node:[[sqlite]] experimental FTS5 support Node 22 el contrato de API se convierte en la costura. La capacidad offline la node:[[sqlite]] …",
-          "score": -4.3645,
+          "score": -4.2778,
           "entity": {
             "id": "SRC-00001",
             "session_id": "SES-00001",
@@ -19392,14 +19483,43 @@
           }
         },
         {
+          "rank": 3,
+          "type": "node",
+          "id": "NOD-00082",
+          "title": "NOD-00082 · SRC-00001: node:sqlite experimental FTS5 support Node 22 (reference)",
+          "snippet": "node:[[sqlite]] experimental FTS5 support Node 22 el contrato de API se convierte en la costura. La capacidad offline la node:[[sqlite]] …",
+          "score": -4.2763,
+          "entity": {
+            "id": "NOD-00082",
+            "kind": "reference",
+            "label": "SRC-00001: node:sqlite experimental FTS5 support Node 22",
+            "label_es": null,
+            "label_en": "SRC-00001: node:sqlite experimental FTS5 support Node 22",
+            "label_pt": null,
+            "what_is": "node:sqlite experimental FTS5 support Node 22",
+            "why_exists": "el contrato de API se convierte en la costura. La capacidad offline la",
+            "where_used": null,
+            "how_built": null,
+            "problems": null,
+            "learned": "node:sqlite with FTS5 virtual tables",
+            "created_at": "2026-09-13T18:35:12.443Z",
+            "code_refs": [],
+            "sessions": [],
+            "sources": [
+              "https://nodejs.org/api/sqlite.html"
+            ],
+            "meta": {}
+          }
+        },
+        {
           "rank": 4,
           "type": "node",
-          "id": "NOD-00062",
-          "title": "NOD-00062 · TSK-00003: Knowledge Engine: SQLite+FTS5 schema, processors, graph, retrieval, context (task)",
+          "id": "NOD-00063",
+          "title": "NOD-00063 · TSK-00003: Knowledge Engine: SQLite+FTS5 schema, processors, graph, retrieval, context (task)",
           "snippet": "Knowledge Engine: [[SQLite]]+FTS5 schema, processors, graph, retrieval, context",
-          "score": -4.2959,
+          "score": -4.2058,
           "entity": {
-            "id": "NOD-00062",
+            "id": "NOD-00063",
             "kind": "task",
             "label": "TSK-00003: Knowledge Engine: SQLite+FTS5 schema, processors, graph, retrieval, context",
             "label_es": null,
@@ -19411,7 +19531,7 @@
             "how_built": null,
             "problems": null,
             "learned": null,
-            "created_at": "2026-09-13T18:17:25.354Z",
+            "created_at": "2026-09-13T18:35:12.436Z",
             "code_refs": [],
             "sessions": [],
             "sources": [],
@@ -19427,7 +19547,7 @@
           "id": "MSG-00002",
           "title": "assistant · decision · SES-00001",
           "snippet": "… better-[[sqlite3]] (npm) C. PostgreSQL D. Vector DB E. node:[[sqlite]] built-in + FTS5 Decisión: node:[[sqlite]] (integrado en Node 22) + tablas …",
-          "score": -4.0259,
+          "score": -3.9675,
           "entity": {
             "id": "MSG-00002",
             "session_id": "SES-00001",
@@ -19473,7 +19593,7 @@
           "id": "DEC-00002",
           "title": "DEC-00002 · node:sqlite (integrado en Node 22) + tablas virtuales FTS5, con archivos\nJSON para la configuración.",
           "snippet": "Node 22.22 incluye node:[[sqlite]] de forma nativa. Verificado en el entorno: creación de tablas, escritura, lectura y consultas FTS5 MATCH …",
-          "score": -3.7634,
+          "score": -3.7131,
           "entity": {
             "id": "DEC-00002",
             "layer": "infrastructure",
@@ -19534,7 +19654,7 @@
           "id": "NOD-00029",
           "title": "NOD-00029 · DEC-00002: node:sqlite (integrado en Node 22) + tablas virtuales FTS5, con archivos JSON pa (decision)",
           "snippet": "node:[[sqlite]] (integrado en Node 22) + tablas virtuales FTS5, con archivos JSON para la configuración. Choose the database and search engine for …",
-          "score": -3.4774,
+          "score": -3.4395,
           "entity": {
             "id": "NOD-00029",
             "kind": "decision",
@@ -19548,7 +19668,7 @@
             "how_built": "menor complejidad inicial, búsqueda full-text real, funcionamiento local y\noffline, y cero riesgo de cadena de suministro.",
             "problems": null,
             "learned": "el esquema es SQL portable, así que puede migrar a PostgreSQL después\nsin rediseño.",
-            "created_at": "2026-09-13T18:17:25.338Z",
+            "created_at": "2026-09-13T18:35:12.419Z",
             "code_refs": [],
             "sessions": [],
             "sources": [],
@@ -19564,7 +19684,7 @@
           "id": "phase-2",
           "title": "phase-2 · Knowledge Engine",
           "snippet": "Requirements Plans Decisions Actions Errors Searches Builds Processed entities live in [[SQLite]]+FTS5, are searchable and feed the knowledge graph and session …",
-          "score": -3.0819,
+          "score": -3.0421,
           "entity": null
         },
         {
@@ -19573,7 +19693,7 @@
           "id": "PLN-00004",
           "title": "PLN-00004 · completada: SQLite + FTS5, procesadores, grafo de conocimiento y Context Engine.",
           "snippet": "1. Decisiones registradas: 11 2. Interrupciones abiertas: 1 (INT-00001, security_stop) 3. Progreso del proyecto: 68%",
-          "score": -3.0543,
+          "score": -3.016,
           "entity": {
             "id": "PLN-00004",
             "session_id": "SES-00001",
@@ -19609,7 +19729,7 @@
           "id": "MSG-00005",
           "title": "assistant · plan · SES-00001",
           "snippet": "… de sesiones y parser de mensajes determinista. Fase 2 completada: [[SQLite]] + FTS5, procesadores, grafo de conocimiento y Context Engine. Estado final de …",
-          "score": -2.9531,
+          "score": -2.9354,
           "entity": {
             "id": "MSG-00005",
             "session_id": "SES-00001",
@@ -19652,7 +19772,7 @@
           "id": "TSK-00003",
           "title": "TSK-00003 · Knowledge Engine: SQLite+FTS5 schema, processors, graph, retrieval, context",
           "snippet": "genesis process fills the DB; genesis search finds entities; genesis context rebuilds a session context. knowledge/db knowledge/processor knowledge/graph knowledge …",
-          "score": -2.803,
+          "score": -2.7782,
           "entity": {
             "id": "TSK-00003",
             "phase": "phase-2",
@@ -19662,7 +19782,62 @@
             "progress": 100,
             "created_at": "2026-09-13T00:00:00.000Z",
             "completed_at": "2026-09-13T00:00:00.000Z",
-            "updated_at": "2026-09-13T18:17:25.273Z"
+            "updated_at": "2026-09-13T18:35:12.348Z"
+          }
+        },
+        {
+          "rank": 12,
+          "type": "decision",
+          "id": "DEC-00014",
+          "title": "DEC-00014 · Implement the 12 SPEC routes (dashboard, sessions + detail with RAW/processed split, decisions + detail with provenance, knowledge search with [[mark]] snippets, graph stats/hubs/nodes, timeline audit tape, context markdown, generated-docs index + traversal-safe reader) as dynamic server components sharing lib/ui.js. next.config rewrites proxy /api/* to GENESIS_API (baked at build time",
+          "snippet": "… sessions, /sessions/SES-00001, /decisions, /decisions/DEC-00013, /knowledge?q=[[sqlite]], /graph, /timeline, /context, /docs, /docs/ARCHITECTURE.generated.md, /docs/courses/CURRICULUM …",
+          "score": -0.6966,
+          "entity": {
+            "id": "DEC-00014",
+            "layer": "application",
+            "status": "approved",
+            "objective_es": "Entregar la Fase 4: la app Next.js (apps/web) como capa de mejora sobre el núcleo cero-dependencias, consumiendo la MISMA API de 31 rutas que el console offline, sin romper el invariante de node_modules vacío en la raíz.",
+            "objective_en": "Deliver Phase 4: the Next.js app (apps/web) as an enhancement layer over the zero-dependency core, consuming the SAME 31-route API as the offline console, without breaking the empty-node_modules invariant at the root.",
+            "objective_pt": "Entregar a Fase 4: o app Next.js como camada de melhoria sobre o núcleo zero-dependências, consumindo a MESMA API de 31 rotas, sem quebrar o invariante de node_modules vazio na raiz.",
+            "context": "TSK-00007 was the last stub task (Phase 4, weight 15%). DEC-00005 already chose the hybrid: core API + offline console + Next.js app sharing one contract. The source skeleton existed (layout, home, api client, config) but no dependencies, no routes beyond /, and no verification. The operator asked to finish the project.",
+            "decision": "Implement the 12 SPEC routes (dashboard, sessions + detail with RAW/processed split, decisions + detail with provenance, knowledge search with [[mark]] snippets, graph stats/hubs/nodes, timeline audit tape, context markdown, generated-docs index + traversal-safe reader) as dynamic server components sharing lib/ui.js. next.config rewrites proxy /api/* to GENESIS_API (baked at build time — documented in SPEC). tests/web-app.test.js: isolation tests always run; build/server gates skip honestly when deps or server are absent, and auto-detect a live :4000 server when present.",
+            "justification": "The enhancement adds screens without adding contracts: zero new endpoints, zero reshaped payloads, zero root dependencies. 90/90 tests green with the server up (89+1 honest skip without it). next build produces 12 dynamic routes; curl verifies 200 + real data (92.5%, DEC-00013, FTS5 results) on every page, and /api/health through the proxy returns dependencies: 0.",
+            "consequence": "Phase 4 complete → progress 100% of the weighted roadmap except the cross-cutting blocked TSK-00011 (mirror publication, waiting on a human with GitHub repo-creation permission). Running order: genesis serve (:3000) → GENESIS_API=... next build → next start (:4000). apps/web/node_modules and .next stay gitignored.",
+            "evidence": "npm --prefix apps/web install → 23 packages; next build → 12 routes (ƒ dynamic), First Load JS 102 kB; curl :4000 → 200 on /, /sessions, /sessions/SES-00001, /decisions, /decisions/DEC-00013, /knowledge?q=sqlite, /graph, /timeline, /context, /docs, /docs/ARCHITECTURE.generated.md, /docs/courses/CURRICULUM.md; /api/health via proxy → ok, dependencies 0; node --test tests/*.test.js → 90 pass / 0 fail.",
+            "session_id": null,
+            "created_at": "2026-09-13T18:35:04.706Z",
+            "constraints": [
+              "POL-0001: root package.json keeps dependencies {} forever; everything Next lives in apps/web",
+              "SPEC rule 1: no direct database access from the front end — HTTP API only",
+              "SPEC rule 2: no duplicated data shapes — the same contract the console renders",
+              "The core suite must stay green with apps/web/node_modules deleted (offline invariant)",
+              "Desktop AND mobile: responsive navigation without extra CSS frameworks"
+            ],
+            "alternatives": [
+              {
+                "id": "A",
+                "option": "Skip Phase 4 and declare the project finished at 92.5%",
+                "rejected_because": "The operator asked to finish; TSK-00007 is a real weighted task and the hybrid stack (\"las 3\") was an original acceptance criterion."
+              },
+              {
+                "id": "B",
+                "option": "Move the Next.js app to the repository root (single package.json)",
+                "rejected_because": "Pollutes the zero-dependency root, breaks the offline invariant and the empty-node_modules acceptance test."
+              },
+              {
+                "id": "C",
+                "option": "Deliver apps/web fully: 12 App-Router routes as server components, rewrites proxy for /api/*, conditional-skip test gates, production build verified against the live core",
+                "selected": true
+              }
+            ],
+            "related": [
+              "DEC-00005",
+              "DEC-00012",
+              "DEC-00013",
+              "POL-0001",
+              "POL-0011",
+              "TSK-00007"
+            ]
           }
         }
       ]
@@ -19675,12 +19850,12 @@
         {
           "rank": 1,
           "type": "node",
-          "id": "NOD-00077",
-          "title": "NOD-00077 · TSK-00012: Installable offline-first PWA console (desktop + mobile, dual mode online/offlin (task)",
+          "id": "NOD-00078",
+          "title": "NOD-00078 · TSK-00012: Installable offline-first PWA console (desktop + mobile, dual mode online/offlin (task)",
           "snippet": "Installable [[offline]]-first PWA console (desktop + mobile, dual mode online/[[offline]])",
-          "score": -2.7208,
+          "score": -2.6195,
           "entity": {
-            "id": "NOD-00077",
+            "id": "NOD-00078",
             "kind": "task",
             "label": "TSK-00012: Installable offline-first PWA console (desktop + mobile, dual mode online/offlin",
             "label_es": null,
@@ -19692,7 +19867,7 @@
             "how_built": null,
             "problems": null,
             "learned": null,
-            "created_at": "2026-09-13T18:17:25.360Z",
+            "created_at": "2026-09-13T18:35:12.441Z",
             "code_refs": [],
             "sessions": [],
             "sources": [],
@@ -19705,12 +19880,12 @@
         {
           "rank": 2,
           "type": "node",
-          "id": "NOD-00063",
-          "title": "NOD-00063 · TSK-00004: Zero-dependency HTTP API + offline console (task)",
+          "id": "NOD-00064",
+          "title": "NOD-00064 · TSK-00004: Zero-dependency HTTP API + offline console (task)",
           "snippet": "Zero-dependency HTTP API + [[offline]] console",
-          "score": -2.7198,
+          "score": -2.6152,
           "entity": {
-            "id": "NOD-00063",
+            "id": "NOD-00064",
             "kind": "task",
             "label": "TSK-00004: Zero-dependency HTTP API + offline console",
             "label_es": null,
@@ -19722,7 +19897,7 @@
             "how_built": null,
             "problems": null,
             "learned": null,
-            "created_at": "2026-09-13T18:17:25.355Z",
+            "created_at": "2026-09-13T18:35:12.436Z",
             "code_refs": [],
             "sessions": [],
             "sources": [],
@@ -19738,7 +19913,7 @@
           "id": "LES-00002",
           "title": "LES-00002 · La capacidad offline no es una característica de la interfaz, es una propiedad del núcleo. Si el núcleo depende de npm, ninguna interfaz será offline.",
           "snippet": "La capacidad [[offline]] no es una característica de la interfaz, es una propiedad del núcleo. Si el núcleo depende de npm, ninguna …",
-          "score": -2.5613,
+          "score": -2.4738,
           "entity": {
             "id": "LES-00002",
             "source_type": "session",
@@ -19752,12 +19927,12 @@
         {
           "rank": 4,
           "type": "node",
-          "id": "NOD-00079",
-          "title": "NOD-00079 · LES-00002: La capacidad offline no es una característica de la interfaz, es una propiedad d (lesson)",
+          "id": "NOD-00080",
+          "title": "NOD-00080 · LES-00002: La capacidad offline no es una característica de la interfaz, es una propiedad d (lesson)",
           "snippet": "La capacidad [[offline]] no es una característica de la interfaz, es una propiedad del núcleo. Si el núcleo depende de npm, ninguna …",
-          "score": -2.5224,
+          "score": -2.4381,
           "entity": {
-            "id": "NOD-00079",
+            "id": "NOD-00080",
             "kind": "lesson",
             "label": "LES-00002: La capacidad offline no es una característica de la interfaz, es una propiedad d",
             "label_es": null,
@@ -19769,7 +19944,7 @@
             "how_built": null,
             "problems": null,
             "learned": "core.zero_dependencies=true",
-            "created_at": "2026-09-13T18:17:25.360Z",
+            "created_at": "2026-09-13T18:35:12.442Z",
             "code_refs": [],
             "sessions": [],
             "sources": [],
@@ -19779,12 +19954,12 @@
         {
           "rank": 5,
           "type": "node",
-          "id": "NOD-00045",
-          "title": "NOD-00045 · REQ-0005: Work fully offline with zero npm dependencies in the core (requirement)",
+          "id": "NOD-00046",
+          "title": "NOD-00046 · REQ-0005: Work fully offline with zero npm dependencies in the core (requirement)",
           "snippet": "Work fully [[offline]] with zero npm dependencies in the core npm install is never required to run init/capture/process/search/context …",
-          "score": -2.452,
+          "score": -2.3706,
           "entity": {
-            "id": "NOD-00045",
+            "id": "NOD-00046",
             "kind": "requirement",
             "label": "REQ-0005: Work fully offline with zero npm dependencies in the core",
             "label_es": null,
@@ -19796,7 +19971,7 @@
             "how_built": null,
             "problems": null,
             "learned": null,
-            "created_at": "2026-09-13T18:17:25.347Z",
+            "created_at": "2026-09-13T18:35:12.428Z",
             "code_refs": [],
             "sessions": [],
             "sources": [],
@@ -19809,12 +19984,12 @@
         {
           "rank": 6,
           "type": "node",
-          "id": "NOD-00046",
-          "title": "NOD-00046 · REQ-0006: Web app that is simultaneously full-featured and offline-capable (requirement)",
+          "id": "NOD-00047",
+          "title": "NOD-00047 · REQ-0006: Web app that is simultaneously full-featured and offline-capable (requirement)",
           "snippet": "Web app that is simultaneously full-featured and [[offline]]-capable Zero-dep console works with no node_modules; Next.js app consumes …",
-          "score": -2.4328,
+          "score": -2.353,
           "entity": {
-            "id": "NOD-00046",
+            "id": "NOD-00047",
             "kind": "requirement",
             "label": "REQ-0006: Web app that is simultaneously full-featured and offline-capable",
             "label_es": null,
@@ -19826,7 +20001,7 @@
             "how_built": null,
             "problems": null,
             "learned": null,
-            "created_at": "2026-09-13T18:17:25.347Z",
+            "created_at": "2026-09-13T18:35:12.428Z",
             "code_refs": [],
             "sessions": [],
             "sources": [],
@@ -19839,12 +20014,12 @@
         {
           "rank": 7,
           "type": "node",
-          "id": "NOD-00054",
-          "title": "NOD-00054 · REQ-0014: La aplicación debe funcionar de forma totalmente offline y a la vez ser completa (requirement)",
+          "id": "NOD-00055",
+          "title": "NOD-00055 · REQ-0014: La aplicación debe funcionar de forma totalmente offline y a la vez ser completa (requirement)",
           "snippet": "La aplicación debe funcionar de forma totalmente [[offline]] y a la vez ser completa. Verifiable: works with no network access and an …",
-          "score": -2.3591,
+          "score": -2.2852,
           "entity": {
-            "id": "NOD-00054",
+            "id": "NOD-00055",
             "kind": "requirement",
             "label": "REQ-0014: La aplicación debe funcionar de forma totalmente offline y a la vez ser completa",
             "label_es": null,
@@ -19856,7 +20031,7 @@
             "how_built": null,
             "problems": null,
             "learned": null,
-            "created_at": "2026-09-13T18:17:25.350Z",
+            "created_at": "2026-09-13T18:35:12.432Z",
             "code_refs": [],
             "sessions": [],
             "sources": [],
@@ -19872,7 +20047,7 @@
           "id": "DEC-00005",
           "title": "DEC-00005 · Front end híbrido de tres capas: (1) core/api, servidor HTTP sin\ndependencias; (2) apps/console, interfaz estática offline servida por ese servidor;\n(3) apps/web, aplicación Next.js que consume el mismo contrato de API.",
           "snippet": "el usuario respondió \"las 3 opciones\" y exigió que sea completo Y totalmente [[offline]]. el contrato de API se convierte en la …",
-          "score": -1.9707,
+          "score": -1.9244,
           "entity": {
             "id": "DEC-00005",
             "layer": "application",
@@ -19922,7 +20097,7 @@
           "id": "phase-4",
           "title": "phase-4 · Web App",
           "snippet": "Dashboard Sessions Knowledge Documentation Timeline Dashboard/Sessions/Knowledge/Timeline navigable in Next.js AND in the zero-dep [[offline]] console.",
-          "score": -1.9298,
+          "score": -1.8723,
           "entity": null
         },
         {
@@ -19931,7 +20106,7 @@
           "id": "TSK-00012",
           "title": "TSK-00012 · Installable offline-first PWA console (desktop + mobile, dual mode online/offline)",
           "snippet": "The app installs on desktop and mobile; with the server stopped it opens and renders every view from cache or snapshot, flagging …",
-          "score": -1.9063,
+          "score": -1.8606,
           "entity": {
             "id": "TSK-00012",
             "phase": "phase-4",
@@ -19941,7 +20116,7 @@
             "progress": 100,
             "created_at": "2026-09-13T16:29:27.875Z",
             "completed_at": "2026-09-13T16:29:27.875Z",
-            "updated_at": "2026-09-13T18:17:25.273Z"
+            "updated_at": "2026-09-13T18:35:12.348Z"
           }
         },
         {
@@ -19950,7 +20125,7 @@
           "id": "REQ-0005",
           "title": "REQ-0005 · Work fully offline with zero npm dependencies in the core",
           "snippet": "npm install is never required to run init/capture/process/search/context/serve. critical completed",
-          "score": -1.8774,
+          "score": -1.8238,
           "entity": {
             "id": "REQ-0005",
             "layer": "infrastructure",
@@ -19960,8 +20135,8 @@
             "acceptance": "npm install is never required to run init/capture/process/search/context/serve.",
             "source_id": "control/manifest.json",
             "session_id": null,
-            "created_at": "2026-09-13T18:17:25.273Z",
-            "updated_at": "2026-09-13T18:17:25.273Z"
+            "created_at": "2026-09-13T18:35:12.348Z",
+            "updated_at": "2026-09-13T18:35:12.348Z"
           }
         },
         {
@@ -19970,7 +20145,7 @@
           "id": "REQ-0006",
           "title": "REQ-0006 · Web app that is simultaneously full-featured and offline-capable",
           "snippet": "Zero-dep console works with no node_modules; Next.js app consumes the same API. high planned",
-          "score": -1.844,
+          "score": -1.7929,
           "entity": {
             "id": "REQ-0006",
             "layer": "application",
@@ -19980,8 +20155,8 @@
             "acceptance": "Zero-dep console works with no node_modules; Next.js app consumes the same API.",
             "source_id": "control/manifest.json",
             "session_id": null,
-            "created_at": "2026-09-13T18:17:25.273Z",
-            "updated_at": "2026-09-13T18:17:25.273Z"
+            "created_at": "2026-09-13T18:35:12.348Z",
+            "updated_at": "2026-09-13T18:35:12.348Z"
           }
         },
         {
@@ -19990,7 +20165,7 @@
           "id": "TSK-00004",
           "title": "TSK-00004 · Zero-dependency HTTP API + offline console",
           "snippet": "genesis serve exposes state/sessions/decisions/events/search/graph/context over HTTP with no node_modules. core/api apps/console phase-2",
-          "score": -1.8118,
+          "score": -1.763,
           "entity": {
             "id": "TSK-00004",
             "phase": "phase-2",
@@ -20000,7 +20175,7 @@
             "progress": 100,
             "created_at": "2026-09-13T00:00:00.000Z",
             "completed_at": "2026-09-13T00:00:00.000Z",
-            "updated_at": "2026-09-13T18:17:25.273Z"
+            "updated_at": "2026-09-13T18:35:12.348Z"
           }
         },
         {
@@ -20009,7 +20184,7 @@
           "id": "REQ-0014",
           "title": "REQ-0014 · La aplicación debe funcionar de forma totalmente offline y a la vez ser completa.",
           "snippet": "Verifiable: works with no network access and an empty node_modules. layer: infrastructure priority: high",
-          "score": -1.8118,
+          "score": -1.763,
           "entity": {
             "id": "REQ-0014",
             "layer": "infrastructure",
@@ -20020,7 +20195,7 @@
             "source_id": "[{\"session_id\":\"SES-00001\",\"message_id\":\"MSG-00001\"}]",
             "session_id": "SES-00001",
             "created_at": "2026-09-13T15:48:38.303Z",
-            "updated_at": "2026-09-13T18:17:25.315Z"
+            "updated_at": "2026-09-13T18:35:12.397Z"
           }
         },
         {
@@ -20029,7 +20204,7 @@
           "id": "NOD-00032",
           "title": "NOD-00032 · DEC-00005: Front end híbrido de tres capas: (1) core/api, servidor HTTP sin dependencias; ( (decision)",
           "snippet": "Front end híbrido de tres capas: (1) core/api, servidor HTTP sin dependencias; (2) apps/console, interfaz estática [[offline]] servida por ese …",
-          "score": -1.662,
+          "score": -1.6308,
           "entity": {
             "id": "NOD-00032",
             "kind": "decision",
@@ -20043,7 +20218,7 @@
             "how_built": "el contrato de API se convierte en la costura. La capacidad offline la\ngarantizan las capas 1 y 2; las funciones completas, la capa 3.",
             "problems": null,
             "learned": "cualquier interfaz puede reemplazarse sin tocar el motor.",
-            "created_at": "2026-09-13T18:17:25.340Z",
+            "created_at": "2026-09-13T18:35:12.421Z",
             "code_refs": [],
             "sessions": [],
             "sources": [],
@@ -20059,7 +20234,7 @@
           "id": "MSG-00004",
           "title": "assistant · decision · SES-00001",
           "snippet": "… el usuario respondió \"las 3 opciones\" y exigió que sea completo Y totalmente [[offline]]. Restricciones: debe funcionar sin node_modules, debe ofrecer …",
-          "score": -1.6568,
+          "score": -1.6305,
           "entity": {
             "id": "MSG-00004",
             "session_id": "SES-00001",
@@ -20097,12 +20272,12 @@
         {
           "rank": 17,
           "type": "node",
-          "id": "NOD-00081",
-          "title": "NOD-00081 · SRC-00001: node:sqlite experimental FTS5 support Node 22 (reference)",
+          "id": "NOD-00082",
+          "title": "NOD-00082 · SRC-00001: node:sqlite experimental FTS5 support Node 22 (reference)",
           "snippet": "… La capacidad [[offline]] la node:sqlite with FTS5 virtual tables",
-          "score": -1.6145,
+          "score": -1.5785,
           "entity": {
-            "id": "NOD-00081",
+            "id": "NOD-00082",
             "kind": "reference",
             "label": "SRC-00001: node:sqlite experimental FTS5 support Node 22",
             "label_es": null,
@@ -20114,7 +20289,7 @@
             "how_built": null,
             "problems": null,
             "learned": "node:sqlite with FTS5 virtual tables",
-            "created_at": "2026-09-13T18:17:25.362Z",
+            "created_at": "2026-09-13T18:35:12.443Z",
             "code_refs": [],
             "sessions": [],
             "sources": [
@@ -20129,7 +20304,7 @@
           "id": "DEC-00012",
           "title": "DEC-00012 · Ship the console as an installable PWA: web manifest + generated PNG icons + service worker with per-resource cache strategies (cache-first shell, network-first API with last-good fallback) + a bundled snapshot.json so a never-connected install still opens with real data. One responsive codebase (drawer + bottom tabs on mobile, sidebar on desktop) covers both form factors. The UI alway",
           "snippet": "… The service worker turns \"[[offline]]\" from an error into a mode with real data, and the snapshot makes even the first [[offline]] …",
-          "score": -1.5164,
+          "score": -1.4965,
           "entity": {
             "id": "DEC-00012",
             "layer": "application",
@@ -20185,7 +20360,7 @@
           "id": "NOD-00039",
           "title": "NOD-00039 · DEC-00012: Ship the console as an installable PWA: web manifest + generated PNG icons + ser (decision)",
           "snippet": "… The service worker turns \"[[offline]]\" from an error into a mode with real data, and the snapshot makes even the first [[offline]] …",
-          "score": -1.4897,
+          "score": -1.4693,
           "entity": {
             "id": "NOD-00039",
             "kind": "decision",
@@ -20199,7 +20374,7 @@
             "how_built": "A PWA is the only option that installs on desktop and mobile, works offline, keeps zero dependencies and needs no build step. The service worker turns \"offline\" from an error into a mode with real data, and the snapshot makes even the first offline boot useful.",
             "problems": null,
             "learned": "apps/console gains sw.js, manifest.webmanifest, icons/ (generated by scripts/generate-icons.js) and snapshot.json (generated by scripts/export-console-snapshot.js). POL-0011 now forbids shipping a view that cannot render from cache or snapshot. Regenerating the snapshot is part of the release ritual.",
-            "created_at": "2026-09-13T18:17:25.343Z",
+            "created_at": "2026-09-13T18:35:12.424Z",
             "code_refs": [],
             "sessions": [],
             "sources": [],
@@ -20215,7 +20390,7 @@
           "id": "MSG-00003",
           "title": "user · statement · SES-00001",
           "snippet": "… que contenga todo full pero a la vez que funcione de forma totalmente [[offline]]. Sería una respuesta = las 3. Y sobre el …",
-          "score": -1.4259,
+          "score": -1.4006,
           "entity": {
             "id": "MSG-00003",
             "session_id": "SES-00001",
@@ -20249,7 +20424,7 @@
           "id": "SRC-00001",
           "title": "SRC-00001 · node:sqlite experimental FTS5 support Node 22",
           "snippet": "… La capacidad [[offline]] la node:sqlite with FTS5 virtual tables the probe executed inside the sandbox returned \"FTS5 OK, sqlite version 3 …",
-          "score": -1.4259,
+          "score": -1.4006,
           "entity": {
             "id": "SRC-00001",
             "session_id": "SES-00001",
@@ -20273,7 +20448,7 @@
           "id": "POL-0011",
           "title": "POL-0011 · ui.offline_first_dual_mode",
           "snippet": "The console is an installable PWA usable with AND without connection. Every view must render from the live API, from the service …",
-          "score": -1.3429,
+          "score": -1.3218,
           "entity": null
         },
         {
@@ -20282,7 +20457,7 @@
           "id": "NOD-00029",
           "title": "NOD-00029 · DEC-00002: node:sqlite (integrado en Node 22) + tablas virtuales FTS5, con archivos JSON pa (decision)",
           "snippet": "… menor complejidad inicial, búsqueda full-text real, funcionamiento local y [[offline]], y cero riesgo de cadena de suministro. el esquema es SQL …",
-          "score": -1.2098,
+          "score": -1.1947,
           "entity": {
             "id": "NOD-00029",
             "kind": "decision",
@@ -20296,7 +20471,7 @@
             "how_built": "menor complejidad inicial, búsqueda full-text real, funcionamiento local y\noffline, y cero riesgo de cadena de suministro.",
             "problems": null,
             "learned": "el esquema es SQL portable, así que puede migrar a PostgreSQL después\nsin rediseño.",
-            "created_at": "2026-09-13T18:17:25.338Z",
+            "created_at": "2026-09-13T18:35:12.419Z",
             "code_refs": [],
             "sessions": [],
             "sources": [],
@@ -20312,7 +20487,7 @@
           "id": "MSG-00002",
           "title": "assistant · decision · SES-00001",
           "snippet": "… debe funcionar [[offline]], no requerir npm install, soportar búsqueda de texto completo y poder evolucionar a PostgreSQL más adelante. Opciones: A. JSON …",
-          "score": -1.1635,
+          "score": -1.1542,
           "entity": {
             "id": "MSG-00002",
             "session_id": "SES-00001",
@@ -20358,7 +20533,7 @@
           "id": "DEC-00002",
           "title": "DEC-00002 · node:sqlite (integrado en Node 22) + tablas virtuales FTS5, con archivos\nJSON para la configuración.",
           "snippet": "… menor complejidad inicial, búsqueda full-text real, funcionamiento local y [[offline]], y cero riesgo de cadena de suministro. el esquema es SQL …",
-          "score": -1.1623,
+          "score": -1.1492,
           "entity": {
             "id": "DEC-00002",
             "layer": "infrastructure",
@@ -20423,12 +20598,12 @@
         {
           "rank": 1,
           "type": "node",
-          "id": "NOD-00058",
-          "title": "NOD-00058 · TSK-00001: Bootstrap: manifest, state, event bus, logger, checkpoints (task)",
+          "id": "NOD-00059",
+          "title": "NOD-00059 · TSK-00001: Bootstrap: manifest, state, event bus, logger, checkpoints (task)",
           "snippet": "Bootstrap: manifest, state, event bus, logger, [[checkpoints]]",
-          "score": -4.2498,
+          "score": -4.3087,
           "entity": {
-            "id": "NOD-00058",
+            "id": "NOD-00059",
             "kind": "task",
             "label": "TSK-00001: Bootstrap: manifest, state, event bus, logger, checkpoints",
             "label_es": null,
@@ -20440,7 +20615,7 @@
             "how_built": null,
             "problems": null,
             "learned": null,
-            "created_at": "2026-09-13T18:17:25.353Z",
+            "created_at": "2026-09-13T18:35:12.433Z",
             "code_refs": [],
             "sessions": [],
             "sources": [],
@@ -20456,7 +20631,7 @@
           "id": "NOD-00015",
           "title": "NOD-00015 · checkpoint (technology)",
           "snippet": "Technical term observed in the project conversations.",
-          "score": -4.2465,
+          "score": -4.2949,
           "entity": {
             "id": "NOD-00015",
             "kind": "technology",
@@ -20470,7 +20645,7 @@
             "how_built": null,
             "problems": null,
             "learned": null,
-            "created_at": "2026-09-13T18:17:25.324Z",
+            "created_at": "2026-09-13T18:35:12.406Z",
             "code_refs": [],
             "sessions": [
               "SES-00001"
@@ -20485,7 +20660,7 @@
           "id": "TSK-00001",
           "title": "TSK-00001 · Bootstrap: manifest, state, event bus, logger, checkpoints",
           "snippet": "genesis init creates control plane; every operation emits an event; [[checkpoints]] can restore state. control/manifest.json control/state.json core/event …",
-          "score": -4.0078,
+          "score": -4.0761,
           "entity": {
             "id": "TSK-00001",
             "phase": "phase-0",
@@ -20495,7 +20670,7 @@
             "progress": 100,
             "created_at": "2026-09-13T00:00:00.000Z",
             "completed_at": "2026-09-13T00:00:00.000Z",
-            "updated_at": "2026-09-13T18:17:25.273Z"
+            "updated_at": "2026-09-13T18:35:12.348Z"
           }
         },
         {
@@ -20504,7 +20679,7 @@
           "id": "POL-0003",
           "title": "POL-0003 · checkpoint.before_risky_mutation",
           "snippet": "Create a [[checkpoint]] before any operation that can destroy previous state. hard REQ-0010",
-          "score": -3.9887,
+          "score": -4.0482,
           "entity": null
         },
         {
@@ -20513,7 +20688,7 @@
           "id": "phase-0",
           "title": "phase-0 · Bootstrap",
           "snippet": "Project Manifest State Event system Logger [[Checkpoint]] genesis init produces manifest/state/[[checkpoints]] and every operation emits an event.",
-          "score": -3.9409,
+          "score": -4.0022,
           "entity": null
         },
         {
@@ -20522,7 +20697,7 @@
           "id": "PLN-00001",
           "title": "PLN-00001 · Bootstrap",
           "snippet": "1. Project Manifest 2. State 3. Event system 4. Logger 5. [[Checkpoint]]",
-          "score": -3.368,
+          "score": -3.4266,
           "entity": {
             "id": "PLN-00001",
             "session_id": "SES-00001",
@@ -20568,7 +20743,7 @@
           "id": "REQ-0010",
           "title": "REQ-0010 · Never overwrite: snapshot, diff, patch, verify, rollback",
           "snippet": "[[Checkpoints]] can restore control state and are created before risky mutations. critical in_progress",
-          "score": -3.0267,
+          "score": -3.0955,
           "entity": {
             "id": "REQ-0010",
             "layer": "core-engine",
@@ -20578,8 +20753,8 @@
             "acceptance": "Checkpoints can restore control state and are created before risky mutations.",
             "source_id": "control/manifest.json",
             "session_id": null,
-            "created_at": "2026-09-13T18:17:25.273Z",
-            "updated_at": "2026-09-13T18:17:25.273Z"
+            "created_at": "2026-09-13T18:35:12.348Z",
+            "updated_at": "2026-09-13T18:35:12.348Z"
           }
         },
         {
@@ -20588,7 +20763,7 @@
           "id": "MSG-00005",
           "title": "assistant · plan · SES-00001",
           "snippet": "… manifest, state, event bus, logger y [[checkpoints]] funcionando. Fase 1 completada: ingesta de sesiones y parser de mensajes determinista. Fase 2 completada …",
-          "score": -2.8477,
+          "score": -2.9354,
           "entity": {
             "id": "MSG-00005",
             "session_id": "SES-00001",
@@ -20628,12 +20803,12 @@
         {
           "rank": 9,
           "type": "node",
-          "id": "NOD-00050",
-          "title": "NOD-00050 · REQ-0010: Never overwrite: snapshot, diff, patch, verify, rollback (requirement)",
+          "id": "NOD-00051",
+          "title": "NOD-00051 · REQ-0010: Never overwrite: snapshot, diff, patch, verify, rollback (requirement)",
           "snippet": "Never overwrite: snapshot, diff, patch, verify, rollback [[Checkpoints]] can restore control state and are created before risky mutations.",
-          "score": -2.7254,
+          "score": -2.8003,
           "entity": {
-            "id": "NOD-00050",
+            "id": "NOD-00051",
             "kind": "requirement",
             "label": "REQ-0010: Never overwrite: snapshot, diff, patch, verify, rollback",
             "label_es": null,
@@ -20645,7 +20820,7 @@
             "how_built": null,
             "problems": null,
             "learned": null,
-            "created_at": "2026-09-13T18:17:25.349Z",
+            "created_at": "2026-09-13T18:35:12.430Z",
             "code_refs": [],
             "sessions": [],
             "sources": [],
@@ -20661,7 +20836,7 @@
           "id": "MSG-00001",
           "title": "user · requirement · SES-00001",
           "snippet": "… Project Manifest 2. State 3. Event system 4. Logger 5. [[Checkpoint]] Fase 1 — Captura 1. Chat/session ingestion 2. Raw storage 3 …",
-          "score": -1.7122,
+          "score": -1.7929,
           "entity": {
             "id": "MSG-00001",
             "session_id": "SES-00001",
@@ -20709,7 +20884,7 @@
           "id": "NOD-00040",
           "title": "NOD-00040 · DEC-00013: Implement Phases 3, 5, 6 and 7 with real code and tests: documentation/engine (4 (decision)",
           "snippet": "… The agent can now run real turns (genesis agent --run) with [[checkpoint]]-first mutation safety.",
-          "score": -1.0185,
+          "score": -1.0749,
           "entity": {
             "id": "NOD-00040",
             "kind": "decision",
@@ -20723,7 +20898,7 @@
             "how_built": "Every completion criterion is machine-checked: docs consistency (verifyDocumentation), the 7-stage turn (tests/agent-loop.test.js), lessons-with-real-code (tests/courses.test.js), error→lesson→rule→policy→precheck chain (tests/evolution.test.js). Suite grew 65→86 green tests. computeProgress then reports 92.5% because the tasks really traversed the state machine.",
             "problems": null,
             "learned": "Progress 47.5% → 92.5%. Remaining gap: Phase 4 Next.js app (TSK-00007, planned) and TSK-00011 (mirror publication, blocked on GitHub permissions, waiting_on user). The agent can now run real turns (genesis agent --run) with checkpoint-first mutation safety.",
-            "created_at": "2026-09-13T18:17:25.344Z",
+            "created_at": "2026-09-13T18:35:12.425Z",
             "code_refs": [],
             "sessions": [],
             "sources": [],
@@ -20739,7 +20914,7 @@
           "id": "DEC-00013",
           "title": "DEC-00013 · Implement Phases 3, 5, 6 and 7 with real code and tests: documentation/engine (4 generators + drift verifier wired into the pipeline), core/{planner,executor,verifier,recovery,orchestrator,agent} (dry-run-first agent with tool whitelist and mutation protocol), documentation/courses (builds→lessons with real code excerpts and runnable solutions), skills (promoteRules→POL-0012, installPr",
           "snippet": "… The agent can now run real turns (genesis agent --run) with [[checkpoint]]-first mutation safety. node --test tests/*.test.js → 86 pass …",
-          "score": -0.6711,
+          "score": -0.7121,
           "entity": {
             "id": "DEC-00013",
             "layer": "cross-cutting",
@@ -21718,6 +21893,61 @@
         "pt": "DECISION TRACE DEC-00013\n\nObjective:\nImplementar as Fases 3, 5, 6 e 7 com código real e executável para levar o progresso verificado acima de 80% (diretriz do operador), sem falsificar a métrica.\n\nContext:\nAt 47.5% the control plane, capture, knowledge engine, API, offline PWA console and the 4-level test suite were real, but Phases 3/5/6/7 were honest stubs (DEC-00009). The operator asked to reach 80%. Progress is computed by the state machine (computeProgress): a phase only counts as completed when its tasks traverse planned→ready→running→verifying→completed and its exit criteria are demonstrably met.\n\nConstraints:\n- POL-0001: zero npm dependencies — the agent, docs engine, courses and evolution run on node: builtins only\n- POL-0002: patch protocol — stubs were replaced module by module, never by rewriting the project\n- POL-0003: checkpoint before risky mutation (CHK-00007 pre-phases-3-7)\n- POL-0006: the agent loop order observe→contextualize→reason→plan→execute→verify→learn is mandatory\n- DEC-00003: the agent reason() publishes a Decision-Trace-shaped rationale, never private reasoning\n- Safety by construction: the executor only runs whitelisted internal tools; runCommand refuses anything outside a fixed list; dry-run is the default\n\nAlternatives considered:\nA. Declare the phases completed in roadmap/state without implementing them  (rejected: The state machine exists precisely to make progress honest; editing the number without the code is the failure mode the whole control plane was built to prevent.)\nB. Implement only Phases 3+5 (65%→77.5%) and stop short of 80%  (rejected: Does not reach the operator target, and leaves the learning loop (6/7) open: lessons would still never become policies.)\nC. Implement Phases 3, 5, 6 and 7 fully: documentation engine, agent loop with planner/executor/verifier/recovery/orchestrator, education engine, evolution loop  ← SELECTED\n\nDecision:\nImplement Phases 3, 5, 6 and 7 with real code and tests: documentation/engine (4 generators + drift verifier wired into the pipeline), core/{planner,executor,verifier,recovery,orchestrator,agent} (dry-run-first agent with tool whitelist and mutation protocol), documentation/courses (builds→lessons with real code excerpts and runnable solutions), skills (promoteRules→POL-0012, installPrechecks consumed by verifyPolicies, registerSkill, evolutionMetrics, propose-without-applying). New CLI: genesis docs|agent|courses|evolve. Phase 4 (Next.js, TSK-00007) remains the only stub.\n\nJustification:\nEvery completion criterion is machine-checked: docs consistency (verifyDocumentation), the 7-stage turn (tests/agent-loop.test.js), lessons-with-real-code (tests/courses.test.js), error→lesson→rule→policy→precheck chain (tests/evolution.test.js). Suite grew 65→86 green tests. computeProgress then reports 92.5% because the tasks really traversed the state machine.\n\nConsequence:\nProgress 47.5% → 92.5%. Remaining gap: Phase 4 Next.js app (TSK-00007, planned) and TSK-00011 (mirror publication, blocked on GitHub permissions, waiting_on user). The agent can now run real turns (genesis agent --run) with checkpoint-first mutation safety.\n\nStatus: APPROVED"
       }
     },
+    "decisions/DEC-00014": {
+      "id": "DEC-00014",
+      "layer": "application",
+      "status": "approved",
+      "objective_es": "Entregar la Fase 4: la app Next.js (apps/web) como capa de mejora sobre el núcleo cero-dependencias, consumiendo la MISMA API de 31 rutas que el console offline, sin romper el invariante de node_modules vacío en la raíz.",
+      "objective_en": "Deliver Phase 4: the Next.js app (apps/web) as an enhancement layer over the zero-dependency core, consuming the SAME 31-route API as the offline console, without breaking the empty-node_modules invariant at the root.",
+      "objective_pt": "Entregar a Fase 4: o app Next.js como camada de melhoria sobre o núcleo zero-dependências, consumindo a MESMA API de 31 rotas, sem quebrar o invariante de node_modules vazio na raiz.",
+      "context": "TSK-00007 was the last stub task (Phase 4, weight 15%). DEC-00005 already chose the hybrid: core API + offline console + Next.js app sharing one contract. The source skeleton existed (layout, home, api client, config) but no dependencies, no routes beyond /, and no verification. The operator asked to finish the project.",
+      "constraints_json": "[\"POL-0001: root package.json keeps dependencies {} forever; everything Next lives in apps/web\",\"SPEC rule 1: no direct database access from the front end — HTTP API only\",\"SPEC rule 2: no duplicated data shapes — the same contract the console renders\",\"The core suite must stay green with apps/web/node_modules deleted (offline invariant)\",\"Desktop AND mobile: responsive navigation without extra CSS frameworks\"]",
+      "alternatives_json": "[{\"id\":\"A\",\"option\":\"Skip Phase 4 and declare the project finished at 92.5%\",\"rejected_because\":\"The operator asked to finish; TSK-00007 is a real weighted task and the hybrid stack (\\\"las 3\\\") was an original acceptance criterion.\"},{\"id\":\"B\",\"option\":\"Move the Next.js app to the repository root (single package.json)\",\"rejected_because\":\"Pollutes the zero-dependency root, breaks the offline invariant and the empty-node_modules acceptance test.\"},{\"id\":\"C\",\"option\":\"Deliver apps/web fully: 12 App-Router routes as server components, rewrites proxy for /api/*, conditional-skip test gates, production build verified against the live core\",\"selected\":true}]",
+      "decision": "Implement the 12 SPEC routes (dashboard, sessions + detail with RAW/processed split, decisions + detail with provenance, knowledge search with [[mark]] snippets, graph stats/hubs/nodes, timeline audit tape, context markdown, generated-docs index + traversal-safe reader) as dynamic server components sharing lib/ui.js. next.config rewrites proxy /api/* to GENESIS_API (baked at build time — documented in SPEC). tests/web-app.test.js: isolation tests always run; build/server gates skip honestly when deps or server are absent, and auto-detect a live :4000 server when present.",
+      "justification": "The enhancement adds screens without adding contracts: zero new endpoints, zero reshaped payloads, zero root dependencies. 90/90 tests green with the server up (89+1 honest skip without it). next build produces 12 dynamic routes; curl verifies 200 + real data (92.5%, DEC-00013, FTS5 results) on every page, and /api/health through the proxy returns dependencies: 0.",
+      "consequence": "Phase 4 complete → progress 100% of the weighted roadmap except the cross-cutting blocked TSK-00011 (mirror publication, waiting on a human with GitHub repo-creation permission). Running order: genesis serve (:3000) → GENESIS_API=... next build → next start (:4000). apps/web/node_modules and .next stay gitignored.",
+      "related_json": "[\"DEC-00005\",\"DEC-00012\",\"DEC-00013\",\"POL-0001\",\"POL-0011\",\"TSK-00007\"]",
+      "evidence": "npm --prefix apps/web install → 23 packages; next build → 12 routes (ƒ dynamic), First Load JS 102 kB; curl :4000 → 200 on /, /sessions, /sessions/SES-00001, /decisions, /decisions/DEC-00013, /knowledge?q=sqlite, /graph, /timeline, /context, /docs, /docs/ARCHITECTURE.generated.md, /docs/courses/CURRICULUM.md; /api/health via proxy → ok, dependencies 0; node --test tests/*.test.js → 90 pass / 0 fail.",
+      "session_id": null,
+      "created_at": "2026-09-13T18:35:04.706Z",
+      "constraints": [
+        "POL-0001: root package.json keeps dependencies {} forever; everything Next lives in apps/web",
+        "SPEC rule 1: no direct database access from the front end — HTTP API only",
+        "SPEC rule 2: no duplicated data shapes — the same contract the console renders",
+        "The core suite must stay green with apps/web/node_modules deleted (offline invariant)",
+        "Desktop AND mobile: responsive navigation without extra CSS frameworks"
+      ],
+      "alternatives": [
+        {
+          "id": "A",
+          "option": "Skip Phase 4 and declare the project finished at 92.5%",
+          "rejected_because": "The operator asked to finish; TSK-00007 is a real weighted task and the hybrid stack (\"las 3\") was an original acceptance criterion."
+        },
+        {
+          "id": "B",
+          "option": "Move the Next.js app to the repository root (single package.json)",
+          "rejected_because": "Pollutes the zero-dependency root, breaks the offline invariant and the empty-node_modules acceptance test."
+        },
+        {
+          "id": "C",
+          "option": "Deliver apps/web fully: 12 App-Router routes as server components, rewrites proxy for /api/*, conditional-skip test gates, production build verified against the live core",
+          "selected": true
+        }
+      ],
+      "related": [
+        "DEC-00005",
+        "DEC-00012",
+        "DEC-00013",
+        "POL-0001",
+        "POL-0011",
+        "TSK-00007"
+      ],
+      "rendered": {
+        "en": "DECISION TRACE DEC-00014\n\nObjective:\nDeliver Phase 4: the Next.js app (apps/web) as an enhancement layer over the zero-dependency core, consuming the SAME 31-route API as the offline console, without breaking the empty-node_modules invariant at the root.\n\nContext:\nTSK-00007 was the last stub task (Phase 4, weight 15%). DEC-00005 already chose the hybrid: core API + offline console + Next.js app sharing one contract. The source skeleton existed (layout, home, api client, config) but no dependencies, no routes beyond /, and no verification. The operator asked to finish the project.\n\nConstraints:\n- POL-0001: root package.json keeps dependencies {} forever; everything Next lives in apps/web\n- SPEC rule 1: no direct database access from the front end — HTTP API only\n- SPEC rule 2: no duplicated data shapes — the same contract the console renders\n- The core suite must stay green with apps/web/node_modules deleted (offline invariant)\n- Desktop AND mobile: responsive navigation without extra CSS frameworks\n\nAlternatives considered:\nA. Skip Phase 4 and declare the project finished at 92.5%  (rejected: The operator asked to finish; TSK-00007 is a real weighted task and the hybrid stack (\"las 3\") was an original acceptance criterion.)\nB. Move the Next.js app to the repository root (single package.json)  (rejected: Pollutes the zero-dependency root, breaks the offline invariant and the empty-node_modules acceptance test.)\nC. Deliver apps/web fully: 12 App-Router routes as server components, rewrites proxy for /api/*, conditional-skip test gates, production build verified against the live core  ← SELECTED\n\nDecision:\nImplement the 12 SPEC routes (dashboard, sessions + detail with RAW/processed split, decisions + detail with provenance, knowledge search with [[mark]] snippets, graph stats/hubs/nodes, timeline audit tape, context markdown, generated-docs index + traversal-safe reader) as dynamic server components sharing lib/ui.js. next.config rewrites proxy /api/* to GENESIS_API (baked at build time — documented in SPEC). tests/web-app.test.js: isolation tests always run; build/server gates skip honestly when deps or server are absent, and auto-detect a live :4000 server when present.\n\nJustification:\nThe enhancement adds screens without adding contracts: zero new endpoints, zero reshaped payloads, zero root dependencies. 90/90 tests green with the server up (89+1 honest skip without it). next build produces 12 dynamic routes; curl verifies 200 + real data (92.5%, DEC-00013, FTS5 results) on every page, and /api/health through the proxy returns dependencies: 0.\n\nConsequence:\nPhase 4 complete → progress 100% of the weighted roadmap except the cross-cutting blocked TSK-00011 (mirror publication, waiting on a human with GitHub repo-creation permission). Running order: genesis serve (:3000) → GENESIS_API=... next build → next start (:4000). apps/web/node_modules and .next stay gitignored.\n\nStatus: APPROVED",
+        "es": "DECISION TRACE DEC-00014\n\nObjective:\nEntregar la Fase 4: la app Next.js (apps/web) como capa de mejora sobre el núcleo cero-dependencias, consumiendo la MISMA API de 31 rutas que el console offline, sin romper el invariante de node_modules vacío en la raíz.\n\nContext:\nTSK-00007 was the last stub task (Phase 4, weight 15%). DEC-00005 already chose the hybrid: core API + offline console + Next.js app sharing one contract. The source skeleton existed (layout, home, api client, config) but no dependencies, no routes beyond /, and no verification. The operator asked to finish the project.\n\nConstraints:\n- POL-0001: root package.json keeps dependencies {} forever; everything Next lives in apps/web\n- SPEC rule 1: no direct database access from the front end — HTTP API only\n- SPEC rule 2: no duplicated data shapes — the same contract the console renders\n- The core suite must stay green with apps/web/node_modules deleted (offline invariant)\n- Desktop AND mobile: responsive navigation without extra CSS frameworks\n\nAlternatives considered:\nA. Skip Phase 4 and declare the project finished at 92.5%  (rejected: The operator asked to finish; TSK-00007 is a real weighted task and the hybrid stack (\"las 3\") was an original acceptance criterion.)\nB. Move the Next.js app to the repository root (single package.json)  (rejected: Pollutes the zero-dependency root, breaks the offline invariant and the empty-node_modules acceptance test.)\nC. Deliver apps/web fully: 12 App-Router routes as server components, rewrites proxy for /api/*, conditional-skip test gates, production build verified against the live core  ← SELECTED\n\nDecision:\nImplement the 12 SPEC routes (dashboard, sessions + detail with RAW/processed split, decisions + detail with provenance, knowledge search with [[mark]] snippets, graph stats/hubs/nodes, timeline audit tape, context markdown, generated-docs index + traversal-safe reader) as dynamic server components sharing lib/ui.js. next.config rewrites proxy /api/* to GENESIS_API (baked at build time — documented in SPEC). tests/web-app.test.js: isolation tests always run; build/server gates skip honestly when deps or server are absent, and auto-detect a live :4000 server when present.\n\nJustification:\nThe enhancement adds screens without adding contracts: zero new endpoints, zero reshaped payloads, zero root dependencies. 90/90 tests green with the server up (89+1 honest skip without it). next build produces 12 dynamic routes; curl verifies 200 + real data (92.5%, DEC-00013, FTS5 results) on every page, and /api/health through the proxy returns dependencies: 0.\n\nConsequence:\nPhase 4 complete → progress 100% of the weighted roadmap except the cross-cutting blocked TSK-00011 (mirror publication, waiting on a human with GitHub repo-creation permission). Running order: genesis serve (:3000) → GENESIS_API=... next build → next start (:4000). apps/web/node_modules and .next stay gitignored.\n\nStatus: APPROVED",
+        "pt": "DECISION TRACE DEC-00014\n\nObjective:\nEntregar a Fase 4: o app Next.js como camada de melhoria sobre o núcleo zero-dependências, consumindo a MESMA API de 31 rotas, sem quebrar o invariante de node_modules vazio na raiz.\n\nContext:\nTSK-00007 was the last stub task (Phase 4, weight 15%). DEC-00005 already chose the hybrid: core API + offline console + Next.js app sharing one contract. The source skeleton existed (layout, home, api client, config) but no dependencies, no routes beyond /, and no verification. The operator asked to finish the project.\n\nConstraints:\n- POL-0001: root package.json keeps dependencies {} forever; everything Next lives in apps/web\n- SPEC rule 1: no direct database access from the front end — HTTP API only\n- SPEC rule 2: no duplicated data shapes — the same contract the console renders\n- The core suite must stay green with apps/web/node_modules deleted (offline invariant)\n- Desktop AND mobile: responsive navigation without extra CSS frameworks\n\nAlternatives considered:\nA. Skip Phase 4 and declare the project finished at 92.5%  (rejected: The operator asked to finish; TSK-00007 is a real weighted task and the hybrid stack (\"las 3\") was an original acceptance criterion.)\nB. Move the Next.js app to the repository root (single package.json)  (rejected: Pollutes the zero-dependency root, breaks the offline invariant and the empty-node_modules acceptance test.)\nC. Deliver apps/web fully: 12 App-Router routes as server components, rewrites proxy for /api/*, conditional-skip test gates, production build verified against the live core  ← SELECTED\n\nDecision:\nImplement the 12 SPEC routes (dashboard, sessions + detail with RAW/processed split, decisions + detail with provenance, knowledge search with [[mark]] snippets, graph stats/hubs/nodes, timeline audit tape, context markdown, generated-docs index + traversal-safe reader) as dynamic server components sharing lib/ui.js. next.config rewrites proxy /api/* to GENESIS_API (baked at build time — documented in SPEC). tests/web-app.test.js: isolation tests always run; build/server gates skip honestly when deps or server are absent, and auto-detect a live :4000 server when present.\n\nJustification:\nThe enhancement adds screens without adding contracts: zero new endpoints, zero reshaped payloads, zero root dependencies. 90/90 tests green with the server up (89+1 honest skip without it). next build produces 12 dynamic routes; curl verifies 200 + real data (92.5%, DEC-00013, FTS5 results) on every page, and /api/health through the proxy returns dependencies: 0.\n\nConsequence:\nPhase 4 complete → progress 100% of the weighted roadmap except the cross-cutting blocked TSK-00011 (mirror publication, waiting on a human with GitHub repo-creation permission). Running order: genesis serve (:3000) → GENESIS_API=... next build → next start (:4000). apps/web/node_modules and .next stay gitignored.\n\nStatus: APPROVED"
+      }
+    },
     "decisions/DEC-00001/provenance": {
       "term": "DEC-00001",
       "count": 3,
@@ -21789,26 +22019,26 @@
         {
           "term": "DEC-00001",
           "decision": {
-            "id": "DEC-00003",
-            "decision": "Store Decision Traces: objective -> context used -> constraints -> alternatives considered -> decision -> justification -> action -> result -> verification -> learning.",
+            "id": "DEC-00014",
+            "decision": "Implement the 12 SPEC routes (dashboard, sessions + detail with RAW/processed split, decisions + detail with provenance, knowledge search with [[mark]] snippets, graph stats/hubs/nodes, timeline audit tape, context markdown, generated-docs index + traversal-safe reader) as dynamic server components sharing lib/ui.js. next.config rewrites proxy /api/* to GENESIS_API (baked at build time — documented in SPEC). tests/web-app.test.js: isolation tests always run; build/server gates skip honestly when deps or server are absent, and auto-detect a live :4000 server when present.",
             "status": "approved",
-            "justification": "It is more useful than raw reasoning because it is structured, queryable and teachable.",
-            "consequence": "The question 'why did we choose X?' becomes answerable by navigating decision -> searches -> sources -> comparison -> implementation -> result.",
-            "layer": "core-engine",
+            "justification": "The enhancement adds screens without adding contracts: zero new endpoints, zero reshaped payloads, zero root dependencies. 90/90 tests green with the server up (89+1 honest skip without it). next build produces 12 dynamic routes; curl verifies 200 + real data (92.5%, DEC-00013, FTS5 results) on every page, and /api/health through the proxy returns dependencies: 0.",
+            "consequence": "Phase 4 complete → progress 100% of the weighted roadmap except the cross-cutting blocked TSK-00011 (mirror publication, waiting on a human with GitHub repo-creation permission). Running order: genesis serve (:3000) → GENESIS_API=... next build → next start (:4000). apps/web/node_modules and .next stay gitignored.",
+            "layer": "application",
             "alternatives": [
               {
                 "id": "A",
-                "option": "Store raw chain-of-thought",
-                "rejected_because": "Not reliably available; noisy; not a learning artifact."
+                "option": "Skip Phase 4 and declare the project finished at 92.5%",
+                "rejected_because": "The operator asked to finish; TSK-00007 is a real weighted task and the hybrid stack (\"las 3\") was an original acceptance criterion."
               },
               {
                 "id": "B",
-                "option": "Store only the final answer",
-                "rejected_because": "Loses the 'why', which is the whole point."
+                "option": "Move the Next.js app to the repository root (single package.json)",
+                "rejected_because": "Pollutes the zero-dependency root, breaks the offline invariant and the empty-node_modules acceptance test."
               },
               {
                 "id": "C",
-                "option": "Store an explainable Decision Trace",
+                "option": "Deliver apps/web fully: 12 App-Router routes as server components, rewrites proxy for /api/*, conditional-skip test gates, production build verified against the live core",
                 "selected": true
               }
             ]
@@ -22023,26 +22253,26 @@
         {
           "term": "DEC-00003",
           "decision": {
-            "id": "DEC-00009",
-            "decision": "External orchestrators are optional adapters only. The core ships its own orchestrator/planner/executor contract.",
+            "id": "DEC-00014",
+            "decision": "Implement the 12 SPEC routes (dashboard, sessions + detail with RAW/processed split, decisions + detail with provenance, knowledge search with [[mark]] snippets, graph stats/hubs/nodes, timeline audit tape, context markdown, generated-docs index + traversal-safe reader) as dynamic server components sharing lib/ui.js. next.config rewrites proxy /api/* to GENESIS_API (baked at build time — documented in SPEC). tests/web-app.test.js: isolation tests always run; build/server gates skip honestly when deps or server are absent, and auto-detect a live :4000 server when present.",
             "status": "approved",
-            "justification": "Technology can change without destroying the system.",
-            "consequence": "mcp/ and agents/ directories define adapter contracts, not implementations, in this phase.",
-            "layer": "architecture",
+            "justification": "The enhancement adds screens without adding contracts: zero new endpoints, zero reshaped payloads, zero root dependencies. 90/90 tests green with the server up (89+1 honest skip without it). next build produces 12 dynamic routes; curl verifies 200 + real data (92.5%, DEC-00013, FTS5 results) on every page, and /api/health through the proxy returns dependencies: 0.",
+            "consequence": "Phase 4 complete → progress 100% of the weighted roadmap except the cross-cutting blocked TSK-00011 (mirror publication, waiting on a human with GitHub repo-creation permission). Running order: genesis serve (:3000) → GENESIS_API=... next build → next start (:4000). apps/web/node_modules and .next stay gitignored.",
+            "layer": "application",
             "alternatives": [
               {
                 "id": "A",
-                "option": "Put them all inside the core",
-                "rejected_because": "Creates an unmaintainable monstrosity."
+                "option": "Skip Phase 4 and declare the project finished at 92.5%",
+                "rejected_because": "The operator asked to finish; TSK-00007 is a real weighted task and the hybrid stack (\"las 3\") was an original acceptance criterion."
               },
               {
                 "id": "B",
-                "option": "Ignore them",
-                "rejected_because": "Throws away useful research."
+                "option": "Move the Next.js app to the repository root (single package.json)",
+                "rejected_because": "Pollutes the zero-dependency root, breaks the offline invariant and the empty-node_modules acceptance test."
               },
               {
                 "id": "C",
-                "option": "Optional adapters behind a stable interface",
+                "option": "Deliver apps/web fully: 12 App-Router routes as server components, rewrites proxy for /api/*, conditional-skip test gates, production build verified against the live core",
                 "selected": true
               }
             ]
@@ -22120,26 +22350,26 @@
         {
           "term": "DEC-00004",
           "decision": {
-            "id": "DEC-00009",
-            "decision": "External orchestrators are optional adapters only. The core ships its own orchestrator/planner/executor contract.",
+            "id": "DEC-00014",
+            "decision": "Implement the 12 SPEC routes (dashboard, sessions + detail with RAW/processed split, decisions + detail with provenance, knowledge search with [[mark]] snippets, graph stats/hubs/nodes, timeline audit tape, context markdown, generated-docs index + traversal-safe reader) as dynamic server components sharing lib/ui.js. next.config rewrites proxy /api/* to GENESIS_API (baked at build time — documented in SPEC). tests/web-app.test.js: isolation tests always run; build/server gates skip honestly when deps or server are absent, and auto-detect a live :4000 server when present.",
             "status": "approved",
-            "justification": "Technology can change without destroying the system.",
-            "consequence": "mcp/ and agents/ directories define adapter contracts, not implementations, in this phase.",
-            "layer": "architecture",
+            "justification": "The enhancement adds screens without adding contracts: zero new endpoints, zero reshaped payloads, zero root dependencies. 90/90 tests green with the server up (89+1 honest skip without it). next build produces 12 dynamic routes; curl verifies 200 + real data (92.5%, DEC-00013, FTS5 results) on every page, and /api/health through the proxy returns dependencies: 0.",
+            "consequence": "Phase 4 complete → progress 100% of the weighted roadmap except the cross-cutting blocked TSK-00011 (mirror publication, waiting on a human with GitHub repo-creation permission). Running order: genesis serve (:3000) → GENESIS_API=... next build → next start (:4000). apps/web/node_modules and .next stay gitignored.",
+            "layer": "application",
             "alternatives": [
               {
                 "id": "A",
-                "option": "Put them all inside the core",
-                "rejected_because": "Creates an unmaintainable monstrosity."
+                "option": "Skip Phase 4 and declare the project finished at 92.5%",
+                "rejected_because": "The operator asked to finish; TSK-00007 is a real weighted task and the hybrid stack (\"las 3\") was an original acceptance criterion."
               },
               {
                 "id": "B",
-                "option": "Ignore them",
-                "rejected_because": "Throws away useful research."
+                "option": "Move the Next.js app to the repository root (single package.json)",
+                "rejected_because": "Pollutes the zero-dependency root, breaks the offline invariant and the empty-node_modules acceptance test."
               },
               {
                 "id": "C",
-                "option": "Optional adapters behind a stable interface",
+                "option": "Deliver apps/web fully: 12 App-Router routes as server components, rewrites proxy for /api/*, conditional-skip test gates, production build verified against the live core",
                 "selected": true
               }
             ]
@@ -22190,6 +22420,38 @@
         {
           "term": "DEC-00005",
           "decision": {
+            "id": "DEC-00014",
+            "decision": "Implement the 12 SPEC routes (dashboard, sessions + detail with RAW/processed split, decisions + detail with provenance, knowledge search with [[mark]] snippets, graph stats/hubs/nodes, timeline audit tape, context markdown, generated-docs index + traversal-safe reader) as dynamic server components sharing lib/ui.js. next.config rewrites proxy /api/* to GENESIS_API (baked at build time — documented in SPEC). tests/web-app.test.js: isolation tests always run; build/server gates skip honestly when deps or server are absent, and auto-detect a live :4000 server when present.",
+            "status": "approved",
+            "justification": "The enhancement adds screens without adding contracts: zero new endpoints, zero reshaped payloads, zero root dependencies. 90/90 tests green with the server up (89+1 honest skip without it). next build produces 12 dynamic routes; curl verifies 200 + real data (92.5%, DEC-00013, FTS5 results) on every page, and /api/health through the proxy returns dependencies: 0.",
+            "consequence": "Phase 4 complete → progress 100% of the weighted roadmap except the cross-cutting blocked TSK-00011 (mirror publication, waiting on a human with GitHub repo-creation permission). Running order: genesis serve (:3000) → GENESIS_API=... next build → next start (:4000). apps/web/node_modules and .next stay gitignored.",
+            "layer": "application",
+            "alternatives": [
+              {
+                "id": "A",
+                "option": "Skip Phase 4 and declare the project finished at 92.5%",
+                "rejected_because": "The operator asked to finish; TSK-00007 is a real weighted task and the hybrid stack (\"las 3\") was an original acceptance criterion."
+              },
+              {
+                "id": "B",
+                "option": "Move the Next.js app to the repository root (single package.json)",
+                "rejected_because": "Pollutes the zero-dependency root, breaks the offline invariant and the empty-node_modules acceptance test."
+              },
+              {
+                "id": "C",
+                "option": "Deliver apps/web fully: 12 App-Router routes as server components, rewrites proxy for /api/*, conditional-skip test gates, production build verified against the live core",
+                "selected": true
+              }
+            ]
+          },
+          "searches": [],
+          "sources": [],
+          "implementation": [],
+          "lessons": []
+        },
+        {
+          "term": "DEC-00005",
+          "decision": {
             "id": "DEC-00012",
             "decision": "Ship the console as an installable PWA: web manifest + generated PNG icons + service worker with per-resource cache strategies (cache-first shell, network-first API with last-good fallback) + a bundled snapshot.json so a never-connected install still opens with real data. One responsive codebase (drawer + bottom tabs on mobile, sidebar on desktop) covers both form factors. The UI always displays the active mode (live / cached / snapshot) and the sync time.",
             "status": "approved",
@@ -22215,38 +22477,6 @@
               {
                 "id": "D",
                 "option": "Installable PWA (manifest + service worker + bundled snapshot.json) with a three-tier data layer: live API -> service-worker cache -> snapshot",
-                "selected": true
-              }
-            ]
-          },
-          "searches": [],
-          "sources": [],
-          "implementation": [],
-          "lessons": []
-        },
-        {
-          "term": "DEC-00005",
-          "decision": {
-            "id": "DEC-00003",
-            "decision": "Store Decision Traces: objective -> context used -> constraints -> alternatives considered -> decision -> justification -> action -> result -> verification -> learning.",
-            "status": "approved",
-            "justification": "It is more useful than raw reasoning because it is structured, queryable and teachable.",
-            "consequence": "The question 'why did we choose X?' becomes answerable by navigating decision -> searches -> sources -> comparison -> implementation -> result.",
-            "layer": "core-engine",
-            "alternatives": [
-              {
-                "id": "A",
-                "option": "Store raw chain-of-thought",
-                "rejected_because": "Not reliably available; noisy; not a learning artifact."
-              },
-              {
-                "id": "B",
-                "option": "Store only the final answer",
-                "rejected_because": "Loses the 'why', which is the whole point."
-              },
-              {
-                "id": "C",
-                "option": "Store an explainable Decision Trace",
                 "selected": true
               }
             ]
@@ -22367,6 +22597,38 @@
         {
           "term": "DEC-00007",
           "decision": {
+            "id": "DEC-00014",
+            "decision": "Implement the 12 SPEC routes (dashboard, sessions + detail with RAW/processed split, decisions + detail with provenance, knowledge search with [[mark]] snippets, graph stats/hubs/nodes, timeline audit tape, context markdown, generated-docs index + traversal-safe reader) as dynamic server components sharing lib/ui.js. next.config rewrites proxy /api/* to GENESIS_API (baked at build time — documented in SPEC). tests/web-app.test.js: isolation tests always run; build/server gates skip honestly when deps or server are absent, and auto-detect a live :4000 server when present.",
+            "status": "approved",
+            "justification": "The enhancement adds screens without adding contracts: zero new endpoints, zero reshaped payloads, zero root dependencies. 90/90 tests green with the server up (89+1 honest skip without it). next build produces 12 dynamic routes; curl verifies 200 + real data (92.5%, DEC-00013, FTS5 results) on every page, and /api/health through the proxy returns dependencies: 0.",
+            "consequence": "Phase 4 complete → progress 100% of the weighted roadmap except the cross-cutting blocked TSK-00011 (mirror publication, waiting on a human with GitHub repo-creation permission). Running order: genesis serve (:3000) → GENESIS_API=... next build → next start (:4000). apps/web/node_modules and .next stay gitignored.",
+            "layer": "application",
+            "alternatives": [
+              {
+                "id": "A",
+                "option": "Skip Phase 4 and declare the project finished at 92.5%",
+                "rejected_because": "The operator asked to finish; TSK-00007 is a real weighted task and the hybrid stack (\"las 3\") was an original acceptance criterion."
+              },
+              {
+                "id": "B",
+                "option": "Move the Next.js app to the repository root (single package.json)",
+                "rejected_because": "Pollutes the zero-dependency root, breaks the offline invariant and the empty-node_modules acceptance test."
+              },
+              {
+                "id": "C",
+                "option": "Deliver apps/web fully: 12 App-Router routes as server components, rewrites proxy for /api/*, conditional-skip test gates, production build verified against the live core",
+                "selected": true
+              }
+            ]
+          },
+          "searches": [],
+          "sources": [],
+          "implementation": [],
+          "lessons": []
+        },
+        {
+          "term": "DEC-00007",
+          "decision": {
             "id": "DEC-00007",
             "decision": "Full directory skeleton (section 25 of the architecture) with a SPEC.md per module, plus Phase 0 (Bootstrap), Phase 1 (Capture) and Phase 2 (Knowledge Engine) really implemented and tested.",
             "status": "approved",
@@ -22419,38 +22681,6 @@
               {
                 "id": "C",
                 "option": "Implement Phases 3, 5, 6 and 7 fully: documentation engine, agent loop with planner/executor/verifier/recovery/orchestrator, education engine, evolution loop",
-                "selected": true
-              }
-            ]
-          },
-          "searches": [],
-          "sources": [],
-          "implementation": [],
-          "lessons": []
-        },
-        {
-          "term": "DEC-00007",
-          "decision": {
-            "id": "DEC-00003",
-            "decision": "Store Decision Traces: objective -> context used -> constraints -> alternatives considered -> decision -> justification -> action -> result -> verification -> learning.",
-            "status": "approved",
-            "justification": "It is more useful than raw reasoning because it is structured, queryable and teachable.",
-            "consequence": "The question 'why did we choose X?' becomes answerable by navigating decision -> searches -> sources -> comparison -> implementation -> result.",
-            "layer": "core-engine",
-            "alternatives": [
-              {
-                "id": "A",
-                "option": "Store raw chain-of-thought",
-                "rejected_because": "Not reliably available; noisy; not a learning artifact."
-              },
-              {
-                "id": "B",
-                "option": "Store only the final answer",
-                "rejected_because": "Loses the 'why', which is the whole point."
-              },
-              {
-                "id": "C",
-                "option": "Store an explainable Decision Trace",
                 "selected": true
               }
             ]
@@ -22817,6 +23047,38 @@
         {
           "term": "DEC-00011",
           "decision": {
+            "id": "DEC-00014",
+            "decision": "Implement the 12 SPEC routes (dashboard, sessions + detail with RAW/processed split, decisions + detail with provenance, knowledge search with [[mark]] snippets, graph stats/hubs/nodes, timeline audit tape, context markdown, generated-docs index + traversal-safe reader) as dynamic server components sharing lib/ui.js. next.config rewrites proxy /api/* to GENESIS_API (baked at build time — documented in SPEC). tests/web-app.test.js: isolation tests always run; build/server gates skip honestly when deps or server are absent, and auto-detect a live :4000 server when present.",
+            "status": "approved",
+            "justification": "The enhancement adds screens without adding contracts: zero new endpoints, zero reshaped payloads, zero root dependencies. 90/90 tests green with the server up (89+1 honest skip without it). next build produces 12 dynamic routes; curl verifies 200 + real data (92.5%, DEC-00013, FTS5 results) on every page, and /api/health through the proxy returns dependencies: 0.",
+            "consequence": "Phase 4 complete → progress 100% of the weighted roadmap except the cross-cutting blocked TSK-00011 (mirror publication, waiting on a human with GitHub repo-creation permission). Running order: genesis serve (:3000) → GENESIS_API=... next build → next start (:4000). apps/web/node_modules and .next stay gitignored.",
+            "layer": "application",
+            "alternatives": [
+              {
+                "id": "A",
+                "option": "Skip Phase 4 and declare the project finished at 92.5%",
+                "rejected_because": "The operator asked to finish; TSK-00007 is a real weighted task and the hybrid stack (\"las 3\") was an original acceptance criterion."
+              },
+              {
+                "id": "B",
+                "option": "Move the Next.js app to the repository root (single package.json)",
+                "rejected_because": "Pollutes the zero-dependency root, breaks the offline invariant and the empty-node_modules acceptance test."
+              },
+              {
+                "id": "C",
+                "option": "Deliver apps/web fully: 12 App-Router routes as server components, rewrites proxy for /api/*, conditional-skip test gates, production build verified against the live core",
+                "selected": true
+              }
+            ]
+          },
+          "searches": [],
+          "sources": [],
+          "implementation": [],
+          "lessons": []
+        },
+        {
+          "term": "DEC-00011",
+          "decision": {
             "id": "DEC-00013",
             "decision": "Implement Phases 3, 5, 6 and 7 with real code and tests: documentation/engine (4 generators + drift verifier wired into the pipeline), core/{planner,executor,verifier,recovery,orchestrator,agent} (dry-run-first agent with tool whitelist and mutation protocol), documentation/courses (builds→lessons with real code excerpts and runnable solutions), skills (promoteRules→POL-0012, installPrechecks consumed by verifyPolicies, registerSkill, evolutionMetrics, propose-without-applying). New CLI: genesis docs|agent|courses|evolve. Phase 4 (Next.js, TSK-00007) remains the only stub.",
             "status": "approved",
@@ -22837,38 +23099,6 @@
               {
                 "id": "C",
                 "option": "Implement Phases 3, 5, 6 and 7 fully: documentation engine, agent loop with planner/executor/verifier/recovery/orchestrator, education engine, evolution loop",
-                "selected": true
-              }
-            ]
-          },
-          "searches": [],
-          "sources": [],
-          "implementation": [],
-          "lessons": []
-        },
-        {
-          "term": "DEC-00011",
-          "decision": {
-            "id": "DEC-00003",
-            "decision": "Store Decision Traces: objective -> context used -> constraints -> alternatives considered -> decision -> justification -> action -> result -> verification -> learning.",
-            "status": "approved",
-            "justification": "It is more useful than raw reasoning because it is structured, queryable and teachable.",
-            "consequence": "The question 'why did we choose X?' becomes answerable by navigating decision -> searches -> sources -> comparison -> implementation -> result.",
-            "layer": "core-engine",
-            "alternatives": [
-              {
-                "id": "A",
-                "option": "Store raw chain-of-thought",
-                "rejected_because": "Not reliably available; noisy; not a learning artifact."
-              },
-              {
-                "id": "B",
-                "option": "Store only the final answer",
-                "rejected_because": "Loses the 'why', which is the whole point."
-              },
-              {
-                "id": "C",
-                "option": "Store an explainable Decision Trace",
                 "selected": true
               }
             ]
@@ -22924,6 +23154,38 @@
         {
           "term": "DEC-00012",
           "decision": {
+            "id": "DEC-00014",
+            "decision": "Implement the 12 SPEC routes (dashboard, sessions + detail with RAW/processed split, decisions + detail with provenance, knowledge search with [[mark]] snippets, graph stats/hubs/nodes, timeline audit tape, context markdown, generated-docs index + traversal-safe reader) as dynamic server components sharing lib/ui.js. next.config rewrites proxy /api/* to GENESIS_API (baked at build time — documented in SPEC). tests/web-app.test.js: isolation tests always run; build/server gates skip honestly when deps or server are absent, and auto-detect a live :4000 server when present.",
+            "status": "approved",
+            "justification": "The enhancement adds screens without adding contracts: zero new endpoints, zero reshaped payloads, zero root dependencies. 90/90 tests green with the server up (89+1 honest skip without it). next build produces 12 dynamic routes; curl verifies 200 + real data (92.5%, DEC-00013, FTS5 results) on every page, and /api/health through the proxy returns dependencies: 0.",
+            "consequence": "Phase 4 complete → progress 100% of the weighted roadmap except the cross-cutting blocked TSK-00011 (mirror publication, waiting on a human with GitHub repo-creation permission). Running order: genesis serve (:3000) → GENESIS_API=... next build → next start (:4000). apps/web/node_modules and .next stay gitignored.",
+            "layer": "application",
+            "alternatives": [
+              {
+                "id": "A",
+                "option": "Skip Phase 4 and declare the project finished at 92.5%",
+                "rejected_because": "The operator asked to finish; TSK-00007 is a real weighted task and the hybrid stack (\"las 3\") was an original acceptance criterion."
+              },
+              {
+                "id": "B",
+                "option": "Move the Next.js app to the repository root (single package.json)",
+                "rejected_because": "Pollutes the zero-dependency root, breaks the offline invariant and the empty-node_modules acceptance test."
+              },
+              {
+                "id": "C",
+                "option": "Deliver apps/web fully: 12 App-Router routes as server components, rewrites proxy for /api/*, conditional-skip test gates, production build verified against the live core",
+                "selected": true
+              }
+            ]
+          },
+          "searches": [],
+          "sources": [],
+          "implementation": [],
+          "lessons": []
+        },
+        {
+          "term": "DEC-00012",
+          "decision": {
             "id": "DEC-00003",
             "decision": "Store Decision Traces: objective -> context used -> constraints -> alternatives considered -> decision -> justification -> action -> result -> verification -> learning.",
             "status": "approved",
@@ -22952,30 +23214,36 @@
           "sources": [],
           "implementation": [],
           "lessons": []
-        },
+        }
+      ]
+    },
+    "decisions/DEC-00013/provenance": {
+      "term": "DEC-00013",
+      "count": 3,
+      "chains": [
         {
-          "term": "DEC-00012",
+          "term": "DEC-00013",
           "decision": {
-            "id": "DEC-00009",
-            "decision": "External orchestrators are optional adapters only. The core ships its own orchestrator/planner/executor contract.",
+            "id": "DEC-00014",
+            "decision": "Implement the 12 SPEC routes (dashboard, sessions + detail with RAW/processed split, decisions + detail with provenance, knowledge search with [[mark]] snippets, graph stats/hubs/nodes, timeline audit tape, context markdown, generated-docs index + traversal-safe reader) as dynamic server components sharing lib/ui.js. next.config rewrites proxy /api/* to GENESIS_API (baked at build time — documented in SPEC). tests/web-app.test.js: isolation tests always run; build/server gates skip honestly when deps or server are absent, and auto-detect a live :4000 server when present.",
             "status": "approved",
-            "justification": "Technology can change without destroying the system.",
-            "consequence": "mcp/ and agents/ directories define adapter contracts, not implementations, in this phase.",
-            "layer": "architecture",
+            "justification": "The enhancement adds screens without adding contracts: zero new endpoints, zero reshaped payloads, zero root dependencies. 90/90 tests green with the server up (89+1 honest skip without it). next build produces 12 dynamic routes; curl verifies 200 + real data (92.5%, DEC-00013, FTS5 results) on every page, and /api/health through the proxy returns dependencies: 0.",
+            "consequence": "Phase 4 complete → progress 100% of the weighted roadmap except the cross-cutting blocked TSK-00011 (mirror publication, waiting on a human with GitHub repo-creation permission). Running order: genesis serve (:3000) → GENESIS_API=... next build → next start (:4000). apps/web/node_modules and .next stay gitignored.",
+            "layer": "application",
             "alternatives": [
               {
                 "id": "A",
-                "option": "Put them all inside the core",
-                "rejected_because": "Creates an unmaintainable monstrosity."
+                "option": "Skip Phase 4 and declare the project finished at 92.5%",
+                "rejected_because": "The operator asked to finish; TSK-00007 is a real weighted task and the hybrid stack (\"las 3\") was an original acceptance criterion."
               },
               {
                 "id": "B",
-                "option": "Ignore them",
-                "rejected_because": "Throws away useful research."
+                "option": "Move the Next.js app to the repository root (single package.json)",
+                "rejected_because": "Pollutes the zero-dependency root, breaks the offline invariant and the empty-node_modules acceptance test."
               },
               {
                 "id": "C",
-                "option": "Optional adapters behind a stable interface",
+                "option": "Deliver apps/web fully: 12 App-Router routes as server components, rewrites proxy for /api/*, conditional-skip test gates, production build verified against the live core",
                 "selected": true
               }
             ]
@@ -22984,13 +23252,7 @@
           "sources": [],
           "implementation": [],
           "lessons": []
-        }
-      ]
-    },
-    "decisions/DEC-00013/provenance": {
-      "term": "DEC-00013",
-      "count": 3,
-      "chains": [
+        },
         {
           "term": "DEC-00013",
           "decision": {
@@ -23054,9 +23316,79 @@
           "sources": [],
           "implementation": [],
           "lessons": []
+        }
+      ]
+    },
+    "decisions/DEC-00014/provenance": {
+      "term": "DEC-00014",
+      "count": 3,
+      "chains": [
+        {
+          "term": "DEC-00014",
+          "decision": {
+            "id": "DEC-00014",
+            "decision": "Implement the 12 SPEC routes (dashboard, sessions + detail with RAW/processed split, decisions + detail with provenance, knowledge search with [[mark]] snippets, graph stats/hubs/nodes, timeline audit tape, context markdown, generated-docs index + traversal-safe reader) as dynamic server components sharing lib/ui.js. next.config rewrites proxy /api/* to GENESIS_API (baked at build time — documented in SPEC). tests/web-app.test.js: isolation tests always run; build/server gates skip honestly when deps or server are absent, and auto-detect a live :4000 server when present.",
+            "status": "approved",
+            "justification": "The enhancement adds screens without adding contracts: zero new endpoints, zero reshaped payloads, zero root dependencies. 90/90 tests green with the server up (89+1 honest skip without it). next build produces 12 dynamic routes; curl verifies 200 + real data (92.5%, DEC-00013, FTS5 results) on every page, and /api/health through the proxy returns dependencies: 0.",
+            "consequence": "Phase 4 complete → progress 100% of the weighted roadmap except the cross-cutting blocked TSK-00011 (mirror publication, waiting on a human with GitHub repo-creation permission). Running order: genesis serve (:3000) → GENESIS_API=... next build → next start (:4000). apps/web/node_modules and .next stay gitignored.",
+            "layer": "application",
+            "alternatives": [
+              {
+                "id": "A",
+                "option": "Skip Phase 4 and declare the project finished at 92.5%",
+                "rejected_because": "The operator asked to finish; TSK-00007 is a real weighted task and the hybrid stack (\"las 3\") was an original acceptance criterion."
+              },
+              {
+                "id": "B",
+                "option": "Move the Next.js app to the repository root (single package.json)",
+                "rejected_because": "Pollutes the zero-dependency root, breaks the offline invariant and the empty-node_modules acceptance test."
+              },
+              {
+                "id": "C",
+                "option": "Deliver apps/web fully: 12 App-Router routes as server components, rewrites proxy for /api/*, conditional-skip test gates, production build verified against the live core",
+                "selected": true
+              }
+            ]
+          },
+          "searches": [],
+          "sources": [],
+          "implementation": [],
+          "lessons": []
         },
         {
-          "term": "DEC-00013",
+          "term": "DEC-00014",
+          "decision": {
+            "id": "DEC-00003",
+            "decision": "Store Decision Traces: objective -> context used -> constraints -> alternatives considered -> decision -> justification -> action -> result -> verification -> learning.",
+            "status": "approved",
+            "justification": "It is more useful than raw reasoning because it is structured, queryable and teachable.",
+            "consequence": "The question 'why did we choose X?' becomes answerable by navigating decision -> searches -> sources -> comparison -> implementation -> result.",
+            "layer": "core-engine",
+            "alternatives": [
+              {
+                "id": "A",
+                "option": "Store raw chain-of-thought",
+                "rejected_because": "Not reliably available; noisy; not a learning artifact."
+              },
+              {
+                "id": "B",
+                "option": "Store only the final answer",
+                "rejected_because": "Loses the 'why', which is the whole point."
+              },
+              {
+                "id": "C",
+                "option": "Store an explainable Decision Trace",
+                "selected": true
+              }
+            ]
+          },
+          "searches": [],
+          "sources": [],
+          "implementation": [],
+          "lessons": []
+        },
+        {
+          "term": "DEC-00014",
           "decision": {
             "id": "DEC-00009",
             "decision": "External orchestrators are optional adapters only. The core ships its own orchestrator/planner/executor contract.",
@@ -23638,6 +23970,16 @@
           },
           {
             "direction": "in",
+            "relation": "decides_about",
+            "weight": 2,
+            "node": {
+              "id": "NOD-00041",
+              "kind": "decision",
+              "label": "DEC-00014: Implement the 12 SPEC routes (dashboard, sessions + detail with RAW/processed sp"
+            }
+          },
+          {
+            "direction": "in",
             "relation": "part_of",
             "weight": 1,
             "node": {
@@ -23792,6 +24134,16 @@
               "id": "NOD-00037",
               "kind": "decision",
               "label": "DEC-00010: ESM modules (\"type\": \"module\") with the built-in node:test runner and node:asser"
+            }
+          },
+          {
+            "direction": "in",
+            "relation": "decides_about",
+            "weight": 2,
+            "node": {
+              "id": "NOD-00041",
+              "kind": "decision",
+              "label": "DEC-00014: Implement the 12 SPEC routes (dashboard, sessions + detail with RAW/processed sp"
             }
           },
           {
@@ -24102,6 +24454,16 @@
           },
           {
             "direction": "in",
+            "relation": "decides_about",
+            "weight": 2,
+            "node": {
+              "id": "NOD-00041",
+              "kind": "decision",
+              "label": "DEC-00014: Implement the 12 SPEC routes (dashboard, sessions + detail with RAW/processed sp"
+            }
+          },
+          {
+            "direction": "in",
             "relation": "part_of",
             "weight": 1,
             "node": {
@@ -24334,6 +24696,16 @@
               "id": "NOD-00040",
               "kind": "decision",
               "label": "DEC-00013: Implement Phases 3, 5, 6 and 7 with real code and tests: documentation/engine (4"
+            }
+          },
+          {
+            "direction": "in",
+            "relation": "decides_about",
+            "weight": 2,
+            "node": {
+              "id": "NOD-00041",
+              "kind": "decision",
+              "label": "DEC-00014: Implement the 12 SPEC routes (dashboard, sessions + detail with RAW/processed sp"
             }
           },
           {
@@ -24880,7 +25252,7 @@
             "relation": "produced",
             "weight": 2,
             "node": {
-              "id": "NOD-00081",
+              "id": "NOD-00082",
               "kind": "reference",
               "label": "SRC-00001: node:sqlite experimental FTS5 support Node 22"
             }
@@ -25161,7 +25533,7 @@
             "relation": "produced",
             "weight": 2,
             "node": {
-              "id": "NOD-00081",
+              "id": "NOD-00082",
               "kind": "reference",
               "label": "SRC-00001: node:sqlite experimental FTS5 support Node 22"
             }
@@ -25442,8 +25814,87 @@
         ]
       }
     },
-    "graph/node/NOD-00078": {
-      "id": "NOD-00078",
+    "graph/node/NOD-00041": {
+      "id": "NOD-00041",
+      "kind": "decision",
+      "label": "DEC-00014: Implement the 12 SPEC routes (dashboard, sessions + detail with RAW/processed sp",
+      "trilingual": {
+        "es": "DEC-00014: Implement the 12 SPEC routes (dashboard, sessions + detail with RAW/processed sp",
+        "en": "DEC-00014: Implement the 12 SPEC routes (dashboard, sessions + detail with RAW/processed sp",
+        "pt": "DEC-00014: Implement the 12 SPEC routes (dashboard, sessions + detail with RAW/processed sp"
+      },
+      "what_is": "Implement the 12 SPEC routes (dashboard, sessions + detail with RAW/processed split, decisions + detail with provenance, knowledge search with [[mark]] snippets, graph stats/hubs/nodes, timeline audit tape, context markdown, generated-docs index + traversal-safe reader) as dynamic server components sharing lib/ui.js. next.config rewrites proxy /api/* to GENESIS_API (baked at build time — documented in SPEC). tests/web-app.test.js: isolation tests always run; build/server gates skip honestly when deps or server are absent, and auto-detect a live :4000 server when present.",
+      "why_exists": "Deliver Phase 4: the Next.js app (apps/web) as an enhancement layer over the zero-dependency core, consuming the SAME 31-route API as the offline console, without breaking the empty-node_modules invariant at the root.",
+      "where_used": null,
+      "how_built": "The enhancement adds screens without adding contracts: zero new endpoints, zero reshaped payloads, zero root dependencies. 90/90 tests green with the server up (89+1 honest skip without it). next build produces 12 dynamic routes; curl verifies 200 + real data (92.5%, DEC-00013, FTS5 results) on every page, and /api/health through the proxy returns dependencies: 0.",
+      "problems": null,
+      "learned": "Phase 4 complete → progress 100% of the weighted roadmap except the cross-cutting blocked TSK-00011 (mirror publication, waiting on a human with GitHub repo-creation permission). Running order: genesis serve (:3000) → GENESIS_API=... next build → next start (:4000). apps/web/node_modules and .next stay gitignored.",
+      "code_refs": [],
+      "sessions": [],
+      "sources": [],
+      "meta": {
+        "status": "approved",
+        "layer": "application"
+      },
+      "relations": {
+        "outgoing": [
+          {
+            "direction": "out",
+            "relation": "decides_about",
+            "weight": 2,
+            "node": {
+              "id": "NOD-00018",
+              "kind": "technology",
+              "label": "fts5"
+            }
+          },
+          {
+            "direction": "out",
+            "relation": "decides_about",
+            "weight": 2,
+            "node": {
+              "id": "NOD-00019",
+              "kind": "technology",
+              "label": "node"
+            }
+          },
+          {
+            "direction": "out",
+            "relation": "decides_about",
+            "weight": 2,
+            "node": {
+              "id": "NOD-00021",
+              "kind": "technology",
+              "label": "api"
+            }
+          },
+          {
+            "direction": "out",
+            "relation": "decides_about",
+            "weight": 2,
+            "node": {
+              "id": "NOD-00023",
+              "kind": "technology",
+              "label": "next.js"
+            }
+          }
+        ],
+        "incoming": [
+          {
+            "direction": "in",
+            "relation": "part_of",
+            "weight": 1,
+            "node": {
+              "id": "NOD-00005",
+              "kind": "category",
+              "label": "decisions"
+            }
+          }
+        ]
+      }
+    },
+    "graph/node/NOD-00079": {
+      "id": "NOD-00079",
       "kind": "lesson",
       "label": "LES-00001: Verificar los permisos reales del token antes de prometer operaciones de infraes",
       "trilingual": {
@@ -25468,7 +25919,7 @@
             "relation": "prevents",
             "weight": 2,
             "node": {
-              "id": "NOD-00080",
+              "id": "NOD-00081",
               "kind": "mistake",
               "label": "ERR-00001: gh repo create SoftEngAi-dev/develo-courseapp-simplify"
             }
@@ -25488,8 +25939,8 @@
         ]
       }
     },
-    "graph/node/NOD-00079": {
-      "id": "NOD-00079",
+    "graph/node/NOD-00080": {
+      "id": "NOD-00080",
       "kind": "lesson",
       "label": "LES-00002: La capacidad offline no es una característica de la interfaz, es una propiedad d",
       "trilingual": {
@@ -25523,8 +25974,8 @@
         ]
       }
     },
-    "graph/node/NOD-00080": {
-      "id": "NOD-00080",
+    "graph/node/NOD-00081": {
+      "id": "NOD-00081",
       "kind": "mistake",
       "label": "ERR-00001: gh repo create SoftEngAi-dev/develo-courseapp-simplify",
       "trilingual": {
@@ -25550,7 +26001,7 @@
             "relation": "prevents",
             "weight": 2,
             "node": {
-              "id": "NOD-00078",
+              "id": "NOD-00079",
               "kind": "lesson",
               "label": "LES-00001: Verificar los permisos reales del token antes de prometer operaciones de infraes"
             }

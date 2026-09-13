@@ -3,25 +3,24 @@
   "project": "genesis",
   "initialized": true,
   "initialized_at": "2026-09-13T00:00:00.000Z",
-  "updated_at": "2026-09-13T18:17:25.382Z",
-  "current_phase": "phase-4",
+  "updated_at": "2026-09-13T18:35:12.465Z",
+  "current_phase": "phase-7",
   "current_layer": "infrastructure",
   "current_task": "TSK-00011",
   "progress": {
-    "percent": 92.5,
+    "percent": 100,
     "method": "weighted_phase_completion",
     "phases_completed": [
       "phase-0",
       "phase-1",
       "phase-2",
       "phase-3",
+      "phase-4",
       "phase-5",
       "phase-6",
       "phase-7"
     ],
-    "phases_stub": [
-      "phase-4"
-    ],
+    "phases_stub": [],
     "per_phase": [
       {
         "id": "phase-0",
@@ -59,8 +58,8 @@
         "id": "phase-4",
         "name": "Web App",
         "weight": 15,
-        "status": "stub",
-        "ratio": 0.5,
+        "status": "completed",
+        "ratio": 1,
         "tasks": 2
       },
       {
@@ -99,7 +98,7 @@
     "lessons": 1,
     "builds": 0,
     "tasks_total": 12,
-    "tasks_completed": 10,
+    "tasks_completed": 11,
     "tasks_blocked": 1
   },
   "agent": {
@@ -120,10 +119,10 @@
     }
   ],
   "last_checkpoint": {
-    "id": "CHK-00010",
+    "id": "CHK-00011",
     "label": "full-pipeline",
-    "created_at": "2026-09-13T18:17:25.382Z",
-    "file": "control/checkpoints/CHK-00010-20260913T181725Z-full-pipeline.json"
+    "created_at": "2026-09-13T18:35:12.465Z",
+    "file": "control/checkpoints/CHK-00011-20260913T183512Z-full-pipeline.json"
   },
   "next_recommended_action": {
     "es": "Ejecutar `npm run demo` para ingerir la sesión real de arquitectura y luego `npm run serve` para ver el conocimiento en el navegador.",

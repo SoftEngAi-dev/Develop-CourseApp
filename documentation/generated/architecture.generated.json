@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-13T18:17:25.368Z",
+  "generated_at": "2026-09-13T18:35:12.449Z",
   "levels": [
     {
       "level": 1,
@@ -156,7 +156,7 @@
       "id": "phase-4",
       "order": 4,
       "name": "Web App",
-      "status": "stub",
+      "status": "completed",
       "weight": 15,
       "deliverables": [
         "Dashboard",
@@ -213,12 +213,12 @@
     }
   ],
   "graph": {
-    "nodes": 81,
-    "edges": 154,
+    "nodes": 82,
+    "edges": 159,
     "by_kind": {
       "requirement": 16,
+      "decision": 14,
       "technology": 14,
-      "decision": 13,
       "task": 12,
       "category": 11,
       "phase": 9,
@@ -229,5 +229,5 @@
       "session": 1
     }
   },
-  "progress_percent": 92.5
+  "progress_percent": 100
 }

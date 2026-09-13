@@ -183,8 +183,8 @@
       "phase": "phase-4",
       "layer": "application",
       "title": "Next.js web app (Dashboard / Sessions / Knowledge / Timeline / Graph)",
-      "status": "planned",
-      "progress": 0,
+      "status": "completed",
+      "progress": 100,
       "created_at": "2026-09-13T00:00:00.000Z",
       "acceptance": "apps/web renders the four modes consuming core/api.",
       "artifacts": [
@@ -197,7 +197,36 @@
       "blocked_by": [
         "TSK-00004"
       ],
-      "spec": "apps/web/SPEC.md"
+      "spec": "apps/web/SPEC.md",
+      "updated_at": "2026-09-13T18:35:05.043Z",
+      "last_reason": "cli",
+      "history": [
+        {
+          "from": "planned",
+          "to": "ready",
+          "at": "2026-09-13T18:35:04.788Z",
+          "reason": "cli"
+        },
+        {
+          "from": "ready",
+          "to": "running",
+          "at": "2026-09-13T18:35:04.871Z",
+          "reason": "cli"
+        },
+        {
+          "from": "running",
+          "to": "verifying",
+          "at": "2026-09-13T18:35:04.958Z",
+          "reason": "cli"
+        },
+        {
+          "from": "verifying",
+          "to": "completed",
+          "at": "2026-09-13T18:35:05.043Z",
+          "reason": "cli"
+        }
+      ],
+      "completed_at": "2026-09-13T18:35:05.043Z"
     },
     {
       "id": "TSK-00008",
