@@ -3,8 +3,8 @@
   "project": "genesis",
   "initialized": true,
   "initialized_at": "2026-09-13T00:00:00.000Z",
-  "updated_at": "2026-09-13T18:35:05.045Z",
-  "current_phase": "phase-4",
+  "updated_at": "2026-09-13T18:35:12.465Z",
+  "current_phase": "phase-7",
   "current_layer": "infrastructure",
   "current_task": "TSK-00011",
   "progress": {
@@ -20,9 +20,7 @@
       "phase-6",
       "phase-7"
     ],
-    "phases_stub": [
-      "phase-4"
-    ],
+    "phases_stub": [],
     "per_phase": [
       {
         "id": "phase-0",
@@ -60,7 +58,7 @@
         "id": "phase-4",
         "name": "Web App",
         "weight": 15,
-        "status": "stub",
+        "status": "completed",
         "ratio": 1,
         "tasks": 2
       },
@@ -121,10 +119,10 @@
     }
   ],
   "last_checkpoint": {
-    "id": "CHK-00010",
+    "id": "CHK-00011",
     "label": "full-pipeline",
-    "created_at": "2026-09-13T18:17:25.382Z",
-    "file": "control/checkpoints/CHK-00010-20260913T181725Z-full-pipeline.json"
+    "created_at": "2026-09-13T18:35:12.465Z",
+    "file": "control/checkpoints/CHK-00011-20260913T183512Z-full-pipeline.json"
   },
   "next_recommended_action": {
     "es": "Ejecutar `npm run demo` para ingerir la sesión real de arquitectura y luego `npm run serve` para ver el conocimiento en el navegador.",
