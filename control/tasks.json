@@ -1,0 +1,290 @@
+{
+  "tasks_version": "1.0.0",
+  "state_machine": [
+    "discovered",
+    "planned",
+    "ready",
+    "running",
+    "verifying",
+    "completed",
+    "blocked",
+    "recovery",
+    "failed",
+    "analysis",
+    "replan",
+    "retry",
+    "skipped"
+  ],
+  "tasks": [
+    {
+      "id": "TSK-00001",
+      "phase": "phase-0",
+      "layer": "core-engine",
+      "title": "Bootstrap: manifest, state, event bus, logger, checkpoints",
+      "status": "completed",
+      "progress": 100,
+      "created_at": "2026-09-13T00:00:00.000Z",
+      "completed_at": "2026-09-13T00:00:00.000Z",
+      "acceptance": "genesis init creates control plane; every operation emits an event; checkpoints can restore state.",
+      "artifacts": [
+        "control/manifest.json",
+        "control/state.json",
+        "core/event-bus",
+        "core/logger",
+        "core/checkpoint"
+      ],
+      "decisions": [
+        "DEC-00001",
+        "DEC-00008",
+        "DEC-00010"
+      ],
+      "blocks": [],
+      "blocked_by": []
+    },
+    {
+      "id": "TSK-00002",
+      "phase": "phase-1",
+      "layer": "core-engine",
+      "title": "Capture: session ingestion, raw storage, message parser",
+      "status": "completed",
+      "progress": 100,
+      "created_at": "2026-09-13T00:00:00.000Z",
+      "completed_at": "2026-09-13T00:00:00.000Z",
+      "acceptance": "A transcript file becomes a raw session plus typed messages without losing the original text.",
+      "artifacts": [
+        "core/capture",
+        "data/raw/sessions",
+        "data/raw/messages"
+      ],
+      "decisions": [
+        "DEC-00001",
+        "DEC-00003"
+      ],
+      "blocks": [],
+      "blocked_by": []
+    },
+    {
+      "id": "TSK-00003",
+      "phase": "phase-2",
+      "layer": "core-engine",
+      "title": "Knowledge Engine: SQLite+FTS5 schema, processors, graph, retrieval, context",
+      "status": "completed",
+      "progress": 100,
+      "created_at": "2026-09-13T00:00:00.000Z",
+      "completed_at": "2026-09-13T00:00:00.000Z",
+      "acceptance": "genesis process fills the DB; genesis search finds entities; genesis context rebuilds a session context.",
+      "artifacts": [
+        "knowledge/db",
+        "knowledge/processor",
+        "knowledge/graph",
+        "knowledge/retrieval"
+      ],
+      "decisions": [
+        "DEC-00002",
+        "DEC-00003",
+        "DEC-00004"
+      ],
+      "blocks": [],
+      "blocked_by": []
+    },
+    {
+      "id": "TSK-00004",
+      "phase": "phase-2",
+      "layer": "application",
+      "title": "Zero-dependency HTTP API + offline console",
+      "status": "completed",
+      "progress": 100,
+      "created_at": "2026-09-13T00:00:00.000Z",
+      "completed_at": "2026-09-13T00:00:00.000Z",
+      "acceptance": "genesis serve exposes state/sessions/decisions/events/search/graph/context over HTTP with no node_modules.",
+      "artifacts": [
+        "core/api",
+        "apps/console"
+      ],
+      "decisions": [
+        "DEC-00005"
+      ],
+      "blocks": [
+        "TSK-00007"
+      ],
+      "blocked_by": []
+    },
+    {
+      "id": "TSK-00005",
+      "phase": "phase-0",
+      "layer": "documentation",
+      "title": "Trilingual pedagogical comment convention applied to every source file",
+      "status": "completed",
+      "progress": 100,
+      "created_at": "2026-09-13T00:00:00.000Z",
+      "completed_at": "2026-09-13T00:00:00.000Z",
+      "acceptance": "docs/CONVENTIONS.md defines the format and all Phase 0-2 files follow it.",
+      "artifacts": [
+        "docs/CONVENTIONS.md"
+      ],
+      "decisions": [
+        "DEC-00006"
+      ],
+      "blocks": [],
+      "blocked_by": []
+    },
+    {
+      "id": "TSK-00006",
+      "phase": "phase-3",
+      "layer": "documentation",
+      "title": "Documentation Engine: automatic Markdown, tutorials, timeline, decision traces",
+      "status": "planned",
+      "progress": 0,
+      "created_at": "2026-09-13T00:00:00.000Z",
+      "acceptance": "Every processed session automatically renders documentation without being asked.",
+      "artifacts": [
+        "documentation/generated"
+      ],
+      "decisions": [
+        "DEC-00007"
+      ],
+      "blocks": [],
+      "blocked_by": [
+        "TSK-00003"
+      ],
+      "spec": "documentation/SPEC.md"
+    },
+    {
+      "id": "TSK-00007",
+      "phase": "phase-4",
+      "layer": "application",
+      "title": "Next.js web app (Dashboard / Sessions / Knowledge / Timeline / Graph)",
+      "status": "planned",
+      "progress": 0,
+      "created_at": "2026-09-13T00:00:00.000Z",
+      "acceptance": "apps/web renders the four modes consuming core/api.",
+      "artifacts": [
+        "apps/web"
+      ],
+      "decisions": [
+        "DEC-00005"
+      ],
+      "blocks": [],
+      "blocked_by": [
+        "TSK-00004"
+      ],
+      "spec": "apps/web/SPEC.md"
+    },
+    {
+      "id": "TSK-00008",
+      "phase": "phase-5",
+      "layer": "agents",
+      "title": "Autonomous agent: observe -> contextualize -> reason -> plan -> execute -> verify -> learn",
+      "status": "planned",
+      "progress": 0,
+      "created_at": "2026-09-13T00:00:00.000Z",
+      "acceptance": "genesis resume continues the last task without the human restating context.",
+      "artifacts": [
+        "core/agent",
+        "core/orchestrator",
+        "core/planner",
+        "core/executor",
+        "core/verifier",
+        "core/recovery"
+      ],
+      "decisions": [
+        "DEC-00004",
+        "DEC-00009"
+      ],
+      "blocks": [],
+      "blocked_by": [
+        "TSK-00003"
+      ],
+      "spec": "core/agent/SPEC.md"
+    },
+    {
+      "id": "TSK-00009",
+      "phase": "phase-6",
+      "layer": "learning-evolution",
+      "title": "Education: lessons, exercises and Reverse Engineering Curriculum",
+      "status": "planned",
+      "progress": 0,
+      "created_at": "2026-09-13T00:00:00.000Z",
+      "acceptance": "A completed build produces lesson + concepts + tutorial + exercise + real solution.",
+      "artifacts": [
+        "documentation/courses"
+      ],
+      "decisions": [
+        "DEC-00006"
+      ],
+      "blocks": [],
+      "blocked_by": [
+        "TSK-00006"
+      ],
+      "spec": "documentation/courses/SPEC.md"
+    },
+    {
+      "id": "TSK-00010",
+      "phase": "phase-7",
+      "layer": "learning-evolution",
+      "title": "Autonomous evolution: lessons -> rules -> prechecks -> skill generation",
+      "status": "planned",
+      "progress": 0,
+      "created_at": "2026-09-13T00:00:00.000Z",
+      "acceptance": "An error creates a lesson and a policy rule that prevents the same failure.",
+      "artifacts": [
+        "control/policies.json",
+        "skills"
+      ],
+      "decisions": [
+        "DEC-00004"
+      ],
+      "blocks": [],
+      "blocked_by": [
+        "TSK-00008"
+      ],
+      "spec": "skills/SPEC.md"
+    },
+    {
+      "id": "TSK-00011",
+      "phase": "cross-cutting",
+      "layer": "infrastructure",
+      "title": "Publish mirror repository develo-courseapp-simplify and open PR",
+      "status": "blocked",
+      "progress": 60,
+      "created_at": "2026-09-13T00:00:00.000Z",
+      "acceptance": "Repository exists on GitHub and receives the per-phase history plus a PR to main.",
+      "artifacts": [],
+      "decisions": [
+        "DEC-00011"
+      ],
+      "blocks": [],
+      "blocked_by": [],
+      "interruption": "INT-00001",
+      "recovery_plan": [
+        "Human creates SoftEngAi-dev/develo-courseapp-simplify on GitHub (or grants the integration repo-creation permission).",
+        "Run: git -C /home/user/develo-courseapp-simplify push -u origin main",
+        "Run: gh pr create --base main --head genesis/foundation"
+      ]
+    },
+    {
+      "id": "TSK-00012",
+      "phase": "phase-4",
+      "layer": "application",
+      "title": "Installable offline-first PWA console (desktop + mobile, dual mode online/offline)",
+      "status": "completed",
+      "progress": 100,
+      "created_at": "2026-09-13T16:29:27.875Z",
+      "completed_at": "2026-09-13T16:29:27.875Z",
+      "acceptance": "The app installs on desktop and mobile; with the server stopped it opens and renders every view from cache or snapshot, flagging the mode; with the server up it switches to live data.",
+      "artifacts": [
+        "apps/console/manifest.webmanifest",
+        "apps/console/sw.js",
+        "apps/console/snapshot.json",
+        "apps/console/icons",
+        "scripts/generate-icons.js",
+        "scripts/export-console-snapshot.js"
+      ],
+      "decisions": [
+        "DEC-00012"
+      ],
+      "blocks": [],
+      "blocked_by": []
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "policies_version": "1.0.0",
+  "description": {
+    "es": "Reglas operativas del sistema. Las reglas nacen de lecciones aprendidas: un error genera una lesson y una lesson puede generar una rule.",
+    "en": "Operational rules of the system. Rules are born from lessons learned: an error produces a lesson and a lesson can produce a rule.",
+    "pt": "Regras operacionais do sistema. As regras nascem de lições aprendidas: um erro gera uma lesson e uma lesson pode gerar uma rule."
+  },
+  "rules": [
+    {
+      "id": "POL-0001",
+      "key": "observability.everything_is_an_event",
+      "value": true,
+      "enforcement": "hard",
+      "statement": "Nothing happens without leaving an observable project event.",
+      "origin": "REQ-0001",
+      "created_at": "2026-09-13T00:00:00.000Z"
+    },
+    {
+      "id": "POL-0002",
+      "key": "mutation.never_rewrite_wholesale",
+      "value": true,
+      "enforcement": "hard",
+      "statement": "Before modifying anything: READ -> UNDERSTAND -> DIFF -> PLAN -> PATCH -> VERIFY -> COMMIT. Never rewrite an entire project.",
+      "origin": "REQ-0010",
+      "created_at": "2026-09-13T00:00:00.000Z"
+    },
+    {
+      "id": "POL-0003",
+      "key": "checkpoint.before_risky_mutation",
+      "value": true,
+      "enforcement": "hard",
+      "statement": "Create a checkpoint before any operation that can destroy previous state.",
+      "origin": "REQ-0010",
+      "created_at": "2026-09-13T00:00:00.000Z"
+    },
+    {
+      "id": "POL-0004",
+      "key": "dependency.preflight",
+      "value": true,
+      "enforcement": "soft",
+      "statement": "Check package compatibility before installation. Born from a dependency-conflict lesson.",
+      "origin": "LESSON-example-dependency-conflict",
+      "created_at": "2026-09-13T00:00:00.000Z"
+    },
+    {
+      "id": "POL-0005",
+      "key": "core.zero_dependencies",
+      "value": true,
+      "enforcement": "hard",
+      "statement": "The core engine must run with an empty node_modules. External frameworks are optional adapters.",
+      "origin": "DEC-00002",
+      "created_at": "2026-09-13T00:00:00.000Z"
+    },
+    {
+      "id": "POL-0006",
+      "key": "agent.contextualize_before_reasoning",
+      "value": true,
+      "enforcement": "hard",
+      "statement": "Ask 'what do we already know?' before asking 'what must I do?'.",
+      "origin": "REQ-0009",
+      "created_at": "2026-09-13T00:00:00.000Z"
+    },
+    {
+      "id": "POL-0007",
+      "key": "documentation.by_design_not_by_reminder",
+      "value": true,
+      "enforcement": "hard",
+      "statement": "The system documents itself. Never depend on the human remembering to say 'now document this'.",
+      "origin": "REQ-0001",
+      "created_at": "2026-09-13T00:00:00.000Z"
+    },
+    {
+      "id": "POL-0008",
+      "key": "education.trilingual_comments",
+      "value": [
+        "es",
+        "en",
+        "pt"
+      ],
+      "enforcement": "hard",
+      "statement": "Code identifiers in English; comments trilingual and pedagogical, written as a course for absolute beginners.",
+      "origin": "REQ-0007",
+      "created_at": "2026-09-13T00:00:00.000Z"
+    },
+    {
+      "id": "POL-0009",
+      "key": "reasoning.store_explainable_trace_not_private_thoughts",
+      "value": true,
+      "enforcement": "hard",
+      "statement": "Store a Decision Trace (objective, context, constraints, alternatives, decision, justification, action, result, verification, learning). Never attempt to transcribe a model's private reasoning.",
+      "origin": "DEC-00003",
+      "created_at": "2026-09-13T00:00:00.000Z"
+    },
+    {
+      "id": "POL-0010",
+      "key": "layers.no_arbitrary_jumps",
+      "value": true,
+      "enforcement": "soft",
+      "statement": "Work proceeds through layers 0-10 in order; the agent does not jump arbitrarily between them.",
+      "origin": "architecture.layers",
+      "created_at": "2026-09-13T00:00:00.000Z"
+    },
+    {
+      "id": "POL-0011",
+      "key": "ui.offline_first_dual_mode",
+      "value": true,
+      "enforcement": "hard",
+      "statement": "The console is an installable PWA usable with AND without connection. Every view must render from the live API, from the service-worker cache, or from the bundled snapshot, in that order. The interface must always flag the active mode and the sync time: stale data is never presented as fresh. No new npm dependency may be introduced to achieve this.",
+      "origin": "DEC-00012",
+      "created_at": "2026-09-13T16:29:27.875Z"
+    }
+  ],
+  "learning_loop": {
+    "chain": [
+      "ERROR",
+      "ANALYSIS",
+      "RECOVERY",
+      "LESSON",
+      "RULE CREATED",
+      "PRECHECK NEXT TIME"
+    ],
+    "example": {
+      "error": "Dependency conflict.",
+      "analysis": "Version mismatch.",
+      "recovery": "Use compatible version.",
+      "lesson": "Check package compatibility before installation.",
+      "rule_created": "dependency.preflight=true"
+    }
+  }
+}
