@@ -48,6 +48,7 @@ import { ingestSession } from '../core/capture/index.js';
 import { ingestAll } from '../knowledge/ingestion/index.js';
 import { processSession, processAll } from '../knowledge/processor/index.js';
 import { createCheckpoint, latestCheckpoint } from '../core/checkpoint/index.js';
+import { generateAll as generateDocs } from '../documentation/engine/index.js';
 import { closeDatabase } from '../knowledge/db/index.js';
 import { loadState, loadTasks, summarize } from '../core/state/index.js';
 import fs from 'node:fs';
@@ -123,7 +124,19 @@ step('process', () => {
   return { ok: true };
 });
 
-/* 4) checkpoint: fotografía lo alcanzado. photograph what was reached. */
+/*
+ * 4) docs: la documentación se genera SOLA, sin que nadie la pida (Fase 3).
+ * EN: docs are generated AUTOMATICALLY, without being asked (Phase 3).
+ * PT: a documentação é gerada SOZINHA, sem ninguém pedir (Fase 3).
+ */
+step('docs', () => {
+  const docs = generateDocs({ bus });
+  if (!docs.ok) return docs;
+  process.stdout.write(`  ${docs.value.files.length} file(s) → documentation/generated · consistent: ${docs.value.verification.consistent}\n`);
+  return { ok: true };
+});
+
+/* 5) checkpoint: fotografía lo alcanzado. photograph what was reached. */
 step('checkpoint', () => {
   const checkpoint = createCheckpoint({ label: 'full-pipeline', bus });
   if (!checkpoint.ok) return checkpoint;
@@ -131,7 +144,7 @@ step('checkpoint', () => {
   return { ok: true };
 });
 
-/* 5) snapshot: congela la API para el modo offline. freeze the API for offline mode. */
+/* 6) snapshot: congela la API para el modo offline. freeze the API for offline mode. */
 step('snapshot', () => {
   const output = execFileSync(process.execPath, [path.join(PATHS.scripts, 'export-console-snapshot.js')], { encoding: 'utf8' });
   process.stdout.write(output.trim().split('\n').map((line) => `  ${line.trim()}`).join('\n'));

@@ -1,0 +1,43 @@
+{
+  "generated_at": "2026-09-13T18:17:25.379Z",
+  "generator": "documentation/engine/index.js",
+  "formats": [
+    "markdown",
+    "json"
+  ],
+  "languages": [
+    "en"
+  ],
+  "files": [
+    "documentation/generated/ARCHITECTURE.generated.md",
+    "documentation/generated/architecture.generated.json",
+    "documentation/generated/TIMELINE.generated.md",
+    "documentation/generated/DECISIONS.generated.md",
+    "documentation/generated/decisions/DEC-00001.generated.md",
+    "documentation/generated/decisions/DEC-00002.generated.md",
+    "documentation/generated/decisions/DEC-00003.generated.md",
+    "documentation/generated/decisions/DEC-00004.generated.md",
+    "documentation/generated/decisions/DEC-00005.generated.md",
+    "documentation/generated/decisions/DEC-00006.generated.md",
+    "documentation/generated/decisions/DEC-00007.generated.md",
+    "documentation/generated/decisions/DEC-00008.generated.md",
+    "documentation/generated/decisions/DEC-00009.generated.md",
+    "documentation/generated/decisions/DEC-00010.generated.md",
+    "documentation/generated/decisions/DEC-00011.generated.md",
+    "documentation/generated/decisions/DEC-00012.generated.md",
+    "documentation/generated/decisions/DEC-00013.generated.md",
+    "documentation/generated/TUTORIALS.generated.md"
+  ],
+  "counts": {
+    "decisions": 13,
+    "events": 620,
+    "plans": 5,
+    "lessons": 2
+  },
+  "verification": {
+    "consistent": true,
+    "drift": [],
+    "decisions_in_db": 13,
+    "decisions_on_disk": 13
+  }
+}
